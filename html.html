@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入swiper -->
+    <link rel="stylesheet" href="./swiper-5.2.1/package/css/swiper.min.css">
+    <script  type="text/javascript" src="./swiper-5.2.1/package//js/swiper.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <script src="https://unpkg.com/swiper/js/swiper.js"> </script>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"> </script> -->
+
+    <!-- 引入echarts -->
+    <script  type="text/javascript" src="./incubator-echarts-4.6.0/dist/echarts.min.js"></script>
+    <!--     <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script> -->
+
+    <!-- 引入css文件 -->
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+    <div class="allBackground">
+        <div class="title">Amway China</div>
+        <div class="swiper-container swiper-containerUpBig">
+            <div><img src="./img/backgroundUp.gif" class="backgroundUpGif" /></div>
+            <div class="titleUp" id="tatleChange">Monthly Report</div>
+            <div class="swiper-wrapper upBigBorderSwiper" id="changeBinner">
+                <!-- <div id="main"  class="swiper-slide swiper-slide-echarts" style="width: 100%;height:50%;"></div> -->
+                <div class="swiper-slide"><img src="./img/1/1.1Monthly Sales trend.png" /></div>
+                <!-- <div id="maina"  class="swiper-slide swiper-slide-echarts" style="width: 100%;height:50%;"></div> -->
+                <div class="swiper-slide"><img src="./img/1/map.png" /></div>
+                <div class="swiper-slide"><img src="./img/1/Sales by FC group.png" /></div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <!-- <div class="swiper-pagination"></div> -->
+
+            <!-- 如果需要导航按钮 -->
+            <!-- <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div> -->
+
+            <!-- 如果需要滚动条 -->
+            <!-- <div class="swiper-scrollbar"></div> -->
+        </div>
+        <div class="dataBottom">
+            <div class="imgLeft swiper-button-prev">
+                <img src="./img/leftRoad.png" />
+                <img src="./img/left.gif" class="loading" />
+            </div>
+            <div class="swiper-containerDownSmall swiper-container">
+                <div class="swiper-wrapper downSmallBorderSwiper" id="imageChange">
+                    <!-- <div class="swiper-slide"><img src="./img/1.png" /></div> -->
+                    <div class="downBorder swiper-slide" onclick="oneImg()">
+                        <div class="smallImgTital">Monthly Report</div>
+                        <img src="./img/1/map.png"/>
+                    </div>
+                    <div class="downBorder swiper-slide" onclick="twoImg()">
+                        <div class="smallImgTital">Daily Report</div>
+                        <img src="./img/2/Dally Sales.png" />
+                    </div class="downBorder swiper-slide">
+                    <div class="downBorder swiper-slide" onclick="threeImg()" id="imgShowHidden">
+                        <div class="smallImgTital">Hourly Report</div>
+                        <img src="./img/3/2.png" />
+                    </div class="downBorder swiper-slide">
+                    <div class="downBorder swiper-slide" onclick="fourImg()" >
+                        <div class="smallImgTital">AGP KPI</div>
+                        <img src="./img/4/End of Month % of Sales.png" />
+                    </div>
+                    <div class="downBorder swiper-slide">
+                        <div class="smallImgTital">ABO Report</div>
+                        <img src=""/>
+                    </div>
+                </div>
+            </div>
+            <div class="triangle">▲</div>
+            <div class="imgRight swiper-button-next">
+                <img src="./img/rightRoad.png" />
+                <img src="./img/right.gif" class="loading" />
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 引入js文件 -->
+    <script type="text/javascript" src="./js/script.js"></script>
+</body>
+
+</html>
