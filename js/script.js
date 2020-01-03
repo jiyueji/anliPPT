@@ -37,7 +37,7 @@ var containerDownSmall = new Swiper('.swiper-containerDownSmall', {
     // noSwiping: true, //设置为true时禁止切换
     spaceBetween: 15,           //在slide之间设置距离 默认单位px 也可以设置% vw vh ....
     centeredSlides: true,       //设定为true时，active slide会居中，而不是默认状态下的居左
-    slidesOffsetBefore: 200,      //设定slide与左边框的预设偏移量 还有slidesOffsetAfter
+    slidesOffsetBefore: 160,      //设定slide与左边框的预设偏移量 还有slidesOffsetAfter
     observer: true,//修改swiper自己或子元素时，自动初始化swiper
     coverflowEffect: {
         rotate: -10,// rotate：slide做3d旋转时Y轴的旋转角度。默认50。
