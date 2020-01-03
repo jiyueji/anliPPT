@@ -8,8 +8,6 @@
     <title>Document</title>
     <!-- 引入echarts -->
     <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
-    <script type="text/javascript" src="../../incubator-echarts-4.6.0/map/js/china.js"></script>
-    <!--     <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script> -->
     <style>
 
     </style>
@@ -19,7 +17,8 @@
     <div
         style="width:100%;height:618px;position:absolute;background:url(../../img/middleBorder.png) no-repeat 100% 100%">
     </div>
-    <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 858px;height:594px;"></div>
+    <div id="salesHomepie" class="swiper-slide swiper-slide-echarts" style="width: 858px;height:194px;"></div>
+    <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 858px;height:400px;"></div>
     <script>
         var monthShow = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         var allData = {
@@ -84,6 +83,81 @@
             forecastYear.unshift("")
         }
         handleEcharts();
+        handlePieEcharts();
+        function handlePieEcharts() {
+            var salesHomepie = echarts.init(document.getElementById('salesHomepie'));
+            window.addEventListener('resize', function () {
+                salesHomepie.resize()
+            });
+            salesHomepie.setOption({
+                title: [{
+                    text: '89.1%',
+                    subtext: 'on target',
+                    itemGap: 1,
+                    x: '19%',
+                    top: '45%',
+                    textStyle: {
+                        color: '#fff',
+                        fontSize: 28
+                    },
+                    subtextStyle: {
+                        color: '#fff',
+                        fontSize: 20,
+                    }
+                },{
+                    text: '92%',
+                    subtext: 'on SPLY',
+                    itemGap: 1,
+                    x: '70%',
+                    top: '45%',
+                    textStyle: {
+                        color: '#fff',
+                        fontSize: 28
+                    },
+                    subtextStyle: {
+                        color: '#fff',
+                        fontSize: 20,
+                    }
+                }],
+                series: [
+                    {
+                        type: 'pie',
+                        radius: ['80%', '70%'],
+                        label: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        center: ["25%", "55%"],
+                        color: '#1cd5e0',
+                        data: [
+                            { value: 89.1 },
+                            { value: 10.9 }
+                        ]
+                    },
+                    {
+                        type: 'pie',
+                        radius: ['80%', '70%'],
+                        color: '#ff9c3a',
+                        label: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        center: ["75%", "55%"],
+                        data: [
+                            { value: 89.1 },
+                            { value: 10.9 }
+                        ]
+                    }
+                ]
+            })
+        }
         function handleEcharts() {
             var salesHomeEcharts = echarts.init(document.getElementById('salesHomeEcharts'));
             window.addEventListener('resize', function () {
@@ -93,11 +167,11 @@
                 title: [
                     {
                         text: 'Salse($)',
-                        x: '0',
+                        x: '20',
                         y: '0',
                         textStyle: {                  //标题样式
                             fontSize: '18',
-                            color: '#333333',
+                            color: '#ffffff',
                         },
                     }
                 ],
@@ -145,9 +219,9 @@
                     }
                 },
                 grid: {
-                    top: '18%',
-                    left: '2%',
-                    right: '5%',
+                    top: '10%',
+                    left: '3%',
+                    right: '3%',
                     bottom: '10%',
                     containLabel: true
                 },
@@ -164,7 +238,7 @@
                     axisLabel: {
                         textStyle: {
                             fontSize: 12,
-                            color: '#666'
+                            color: '#ffffff'
                         },
                         formatter: function (params) {
                             return params.split(' ')[0]
@@ -177,7 +251,7 @@
                         axisLabel: {
                             show: true,
                             textStyle: {
-                                color: "#666"
+                                color: "#ffffff"
                             },
                             formatter: function (params) {
                                 return params / 1000000 + "m"
@@ -255,9 +329,9 @@
                                 lineStyle: { // 系列级个性化折线样式
                                     width: 3,
                                     type: 'solid',
-                                    color: "#5198ee"//折现颜色
+                                    color: "#4d96f1"//折现颜色
                                 },
-                                borderColor: '#5198ee',  // 拐点边框颜色
+                                borderColor: '#ffffff',  // 拐点边框颜色
                             },
                             // emphasis: {
                             //     color: '#fd0022',
@@ -278,11 +352,11 @@
                         stack: 100,
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                                color: 'rgba(211,212,214,0.36)', //背景渐变色
+                                color: 'rgba(28,213,224,0.36)', //背景渐变色
                                 lineStyle: { // 系列级个性化折线样式
                                     width: 0.5,
                                     type: 'solid',
-                                    color: "rgba(211,212,214,0.36)"//折现颜色
+                                    color: "rgba(28,213,224,0.36)"//折现颜色
                                 }
                             },
                         }, //线条样式
@@ -299,7 +373,7 @@
                     bottom: 'bottom',
                     // y: '220',
                     textStyle: {
-                        color: "#666",
+                        color: "#ffffff",
                         fontSize: 10
                     },
                 },
