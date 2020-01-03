@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+q:before,
+q:after {
+    content: '';
+}
+
+abbr,
+acronym {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    font-family: "微软雅黑";
+}
+
+i {
+    font-style: normal;
+}
+
+img,
+span,
+i,
+strong,
+a {
+    display: inline-block;
+}
+
+img {
+    /*display: block;*/
+    max-width: 100%;
+}
+
+a,
+input {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+
+body {
+    height: 100%;
+}
+
+
+/*background: #F6F6F6;*/
+
+button {
+    outline: none;
+}
+
+button:hover,
+button:active,
+button:focus {
+    border: none;
+}
