@@ -39,8 +39,10 @@
 }
 
 .swiper-containerUpBig .swiper-slide-active {
-    width: 858px !important;
-    height: 594px !important;
+    /* width: 858px !important;
+    height: 594px !important; */
+    width: 884px !important;
+    height: 618px !important;
     transform: initial !important;
 }
 
