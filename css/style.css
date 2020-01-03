@@ -252,11 +252,11 @@
         width: 255px;
         background-size: 235px 175px;
     }
-    .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder .smallImgTital{
+    .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder .smallImgTital {
         width: 255px;
     }
-    .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder img{
+    .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder img {
         width: 210px;
-        height:115px;
+        height: 115px;
     }
 }
