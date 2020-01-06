@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入echarts -->
+    <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
+    <!-- 样式 -->
+    <style type="text/css">
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .middleBorder {
+        width: 858px;
+        height: 618px;
+        padding: 38px 40px 20px;
+        background-image: url(../../img/middleBorder.png);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 100%;
+        box-sizing: border-box;
+      }
+      .title {
+        position: absolute;
+        width: calc(100% - 106px);
+      }
+      .title .title-text {
+        color: #fff;
+        font-size: 16px;
+        text-align: left;
+        font-family: 'Arial-BoldMT'
+      }
+      .title .title-subtext {
+        color: #f3f3f3;
+        font-size: 12px;
+        text-align: right;
+        font-family: 'ArialMT';
+      }
+      #chart {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="middleBorder">
+      <div class="title">
+        <div class="title-text">ABO Segment MonthlyData</div>
+        <div class="title-subtext">As of 2019 Nov</div>
+      </div>
+      <div id="chart"></div>
+    </div>
+    <script type="text/javascript">
+      var myChart;
+
+      window.addEventListener('resize', function () {
+        myChart && myChart.resize && myChart.resize();
+      });
+      
+      handler();
+
+      function handler() {
+        myChart = echarts.init(document.getElementById('chart'));
+        var option = {
+          animationDuration: 5000,
+          grid: {
+            left: 46,
+            right: 0,
+            bottom: 92,
+            containLabel: false
+          },
+          xAxis: [
+            {
+              type : 'category',
+              axisLine: {
+                show: false,
+                lineStyle: {
+                  color: '#fff'
+                }
+              },
+              axisTick: {
+                show: false
+              },
+              axisLabel: {
+                fontSize: 14,
+                fontFamily: 'ArialMT'
+              },
+              data : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            }
+          ],
+          yAxis: [
+            {
+              type : 'value',
+              axisLine: {
+                show: false,
+                lineStyle: {
+                  color: '#fff'
+                }
+              },
+              axisTick: {
+                show: false
+              },
+              axisLabel: {
+                fontSize: 14,
+                fontFamily: 'ArialMT',
+                formatter: '{value}m'
+              },
+              splitLine: {
+                lineStyle: {
+                  type: 'dashed',
+                  color: '#ccc'
+                }
+              }
+            }
+          ],
+          color: ['#4d96f1', '#28ccae', '#ffa441', '#eb5653', '#f3e126'],
+          legend: {
+            bottom: 16,
+            icon: 'rect',
+            itemWidth: 14,
+            formatter: '{default|{name}}',
+            textStyle: {
+              rich: {
+                default: {
+                  width: 220,
+                  color: '#fff',
+                  fontSize: 14,
+                  padding: [-2, 0, 0, 0]
+                }
+              }
+            },
+            data: ['Customer', 'ABO (Purchasing Only)', 'Developing ABO', 'Building ABO', 'ABO Leader']
+          },
+          series: [
+            {
+              name: 'Customer',
+              type: 'bar',
+              barWidth: 30,
+              stack: 'stack',
+              data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
+            },
+            {
+              name: 'ABO (Purchasing Only)',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
+            },
+            {
+              name: 'Developing ABO',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
+            },
+            {
+              name: 'Building ABO',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
+            },
+            {
+              name: 'ABO Leader',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
+            }
+          ]
+        };
+        myChart.setOption(option);
+      }
+    </script>
+  </body>
+</html>

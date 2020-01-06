@@ -1,7 +1,8 @@
 var changeIndex = 1;
 
 var srcArr1 = ["./html/monthlyReport/salesHome.html","./html/monthlyReport/map.html","./html/monthlyReport/histogram.html"]
-var srcArr2 = ["./html/monthlyReport/formTab/formTab.html"]
+var srcArr2 = ["./html/monthlyReport/formTab/formTab.html","./html/agpKpi/aboSegmentMonthlyData.html"]
+
 
 
 var containerUpBig = new Swiper('.swiper-containerUpBig', {
@@ -209,7 +210,7 @@ function twoImg() {
 
     var changeBinner = document.getElementById("changeBinner")
     changeBinner.innerHTML = ""
-    for (var i = 0; i < srcArr1.length ; i ++) {
+    for (var i = 0; i < srcArr2.length ; i ++) {
         var iframe = document.createElement("iframe");
         iframe.className = "iframeStyle";
         iframe.frameborder = "no";
