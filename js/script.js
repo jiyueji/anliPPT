@@ -5,6 +5,7 @@ var containerUpBig = new Swiper('.swiper-containerUpBig', {
     slidesPerView: 3,
     freeMod: false,
     initialSlide: 0,//初始展示
+    slideToClickedSlide: true,
     centeredSlides: true, //设置slide居中
     observer: true,//修改swiper自己或子元素时，自动初始化swiper
     // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
@@ -15,6 +16,12 @@ var containerUpBig = new Swiper('.swiper-containerUpBig', {
         depth: 120,//depth：slide的位置深度。值越大z轴距离越远，看起来越小。 默认100。
         modifier: 1,//modifier：depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1。
         slideShadows: true//slideShadows：开启slide阴影。默认 true。
+    },
+    on: {
+        touchEnd: function (event) {
+            // alert("111")
+            //你的事件
+        },
     },
     // navigation: {
     //     nextEl: '.swiper-button-next',
@@ -227,7 +234,7 @@ function threeImg() {
 function fourImg() {
     console.log("444")
     tatleChange.innerHTML = "AGP KPI"
-    var binnerData = ["./img/4/table.png", "./img/4/Sales by Segments.png", "./img/4/High PPV Sales.png","./img/4/End of Month % of Sales.png" ]
+    var binnerData = ["./img/4/table.png", "./img/4/Sales by Segments.png", "./img/4/High PPV Sales.png", "./img/4/End of Month % of Sales.png"]
     var changeBinner = document.getElementById("changeBinner")
     changeBinner.innerHTML = ""
     for (var i = 0; i < binnerData.length; i++) {

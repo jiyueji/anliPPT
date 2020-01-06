@@ -9,16 +9,26 @@
     <!-- 引入echarts -->
     <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
     <style>
-
+        #root {
+            letter-spacing: 37px;
+            font-size: 62px;
+            position: absolute;
+            /* left: 200px; */
+            right: 164px;
+            top: 35px;
+            color: #ffffff;
+        }
     </style>
 </head>
 
 <body>
     <div
-        style="width:100%;height:618px;position:absolute;background:url(../../img/middleBorder.png) no-repeat 100% 100%">
+        style="width:100%;height:618px;position:absolute;background:url(../../img/centerBorBig.png) no-repeat;background-size: 884px 618px;">
     </div>
-    <div id="salesHomepie" class="swiper-slide swiper-slide-echarts" style="width: 858px;height:194px;"></div>
-    <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 858px;height:400px;"></div>
+    <div id="root">0m</div>
+    <div id="salesHomepie" class="swiper-slide swiper-slide-echarts"
+        style="width: 858px;height:124px;padding-top: 17%;"></div>
+    <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 858px;height:470px;"></div>
     <script>
         var monthShow = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         var allData = {
@@ -82,63 +92,100 @@
         for (var i = 0; forecastYear.length < 12; i++) {
             forecastYear.unshift("")
         }
-        handleEcharts();
-        handlePieEcharts();
+
+        handleEcharts();//饼图
+        handlePieEcharts();//折线图
+        start(2133, 'root', 4)
+        // start函数用于启动动画，roll函数是具体进行数字滚动的函数，它返回一个闭包用于存储变化的数组n（也就是实现的数字）。参数total是你所设置的最后停止的数字，step是你所希望的跳动的间隔。
+
+        function roll(total, idname, step) {
+            let n = 0;
+            return function () {
+                n = (n + step) >= total ? total : (n + step);
+                if (n <= total) {
+                    console.log(n)
+                    document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
+                }
+            }
+        }
+        function start(index, idname, step, runtime = 1000) {
+            let rolling = roll(index, idname, step)
+            runtime = (runtime >= 300) ? runtime : 1000;
+            for (let i = 0; i < (index / step); i++) {
+                let timer = setTimeout(rolling, (runtime / index) * i * step)
+            }
+            clearTimeout(timer);
+        }
+
         function handlePieEcharts() {
             var salesHomepie = echarts.init(document.getElementById('salesHomepie'));
             window.addEventListener('resize', function () {
                 salesHomepie.resize()
             });
             salesHomepie.setOption({
+                animationDuration: 5000,
                 title: [{
                     text: '89.1%',
                     subtext: 'on target',
                     itemGap: 1,
-                    x: '19%',
-                    top: '45%',
+                    x: '21%',
+                    top: '38%',
                     textStyle: {
                         color: '#fff',
-                        fontSize: 28
+                        fontSize: 20
                     },
                     subtextStyle: {
                         color: '#fff',
-                        fontSize: 20,
+                        fontSize: 12,
                     }
-                },{
+                }, {
                     text: '92%',
                     subtext: 'on SPLY',
                     itemGap: 1,
-                    x: '70%',
-                    top: '45%',
+                    x: '72%',
+                    top: '38%',
                     textStyle: {
                         color: '#fff',
-                        fontSize: 28
+                        fontSize: 20
                     },
                     subtextStyle: {
                         color: '#fff',
-                        fontSize: 20,
+                        fontSize: 12,
                     }
                 }],
                 series: [
                     {
                         type: 'pie',
-                        radius: ['80%', '70%'],
+                        radius: ['90%', '80%'],
+                        clockWise: false,
                         label: {
                             normal: {
                                 show: false
                             }
                         },
                         center: ["25%", "55%"],
-                        color: '#1cd5e0',
+                        itemStyle: {
+                            normal: {
+                                color: "#1cd5e0",
+                            }
+                        },
                         data: [
                             { value: 89.1 },
-                            { value: 10.9 }
+                            {
+                                value: 10.9,
+                                itemStyle: {
+                                    normal: {
+                                        color: "#0c264d"
+                                    }
+                                }
+                            }
                         ]
                     },
                     {
                         type: 'pie',
-                        radius: ['80%', '70%'],
-                        color: '#ff9c3a',
+                        radius: ['90%', '80%'],
+                        clockWise: false,
+                        color: ['#ff9c3a', '#0c264d'],
                         label: {
                             normal: {
                                 show: false
@@ -151,8 +198,8 @@
                         },
                         center: ["75%", "55%"],
                         data: [
-                            { value: 89.1 },
-                            { value: 10.9 }
+                            { value: 92 },
+                            { value: 8 }
                         ]
                     }
                 ]
@@ -164,13 +211,14 @@
                 salesHomeEcharts.resize()
             });
             salesHomeEcharts.setOption({
+                animationDuration: 5000,
                 title: [
                     {
                         text: 'Salse($)',
-                        x: '20',
+                        x: '8%',
                         y: '0',
                         textStyle: {                  //标题样式
-                            fontSize: '18',
+                            fontSize: '16',
                             color: '#ffffff',
                         },
                     }
@@ -220,10 +268,10 @@
                 },
                 grid: {
                     top: '10%',
-                    left: '3%',
-                    right: '3%',
-                    bottom: '10%',
-                    containLabel: true
+                    left: '10%',
+                    right: '10%',
+                    bottom: '40%',
+                    containLabel: true,
                 },
                 xAxis: {
                     type: 'category',
@@ -370,11 +418,11 @@
                     type: "scroll",
                     icon: "line",
                     left: 'center',
-                    bottom: 'bottom',
-                    // y: '220',
+                    // bottom: 'bottom',
+                    y: '305',
                     textStyle: {
                         color: "#ffffff",
-                        fontSize: 10
+                        fontSize: 14
                     },
                 },
                 //  legend: {//图例组件
