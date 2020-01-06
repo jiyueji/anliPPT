@@ -1,9 +1,4 @@
 .allBackground {
-    /*background: url("../img/background.png") no-repeat;
-    background-size: 1920px 1080px;
-    position: relative;
-    width: 1920px;
-    height: 1080px;*/
     background: url(../img/background.png) no-repeat;
     background-size: 100% 100%;
     position: relative;
@@ -12,9 +7,6 @@
 }
 
 .allBackground .title {
-    /*position: absolute;
-    top: 5px;
-    left: 850px;*/
     color: #ffffff;
     font-size: 30px;
     text-align: center;
@@ -23,11 +15,9 @@
 .swiper-containerUpBig {
     position: relative;
     height: 1080px;
-    /*width: 1920px;*/
 }
 
 .swiper-containerUpBig .swiper-slide {
-    /* position:absolute; */
     top: 100px;
     width: 75%;
     height: 50%;
@@ -44,9 +34,25 @@
     height: 100%;
 }
 
+.swiper-containerUpBig .swiper-slide .mask-01,
+.swiper-containerUpBig .swiper-slide .mask-02 {
+    width: 100%;
+    position: absolute;
+    z-index: 101;
+    background: red;
+    opacity: 0;
+}
+
+.swiper-containerUpBig .swiper-slide .mask-01 {
+    height: 310px;
+}
+
+.swiper-containerUpBig .swiper-slide .mask-02 {
+    height: 228px;
+    margin-top: 396px;
+}
+
 .swiper-containerUpBig .swiper-slide-active {
-    /* width: 858px !important;
-    height: 594px !important; */
     width: 884px !important;
     height: 618px !important;
     transform: initial !important;
@@ -54,34 +60,17 @@
 
 .swiper-containerUpBig .swiper-slide-prev,
 .swiper-containerUpBig .swiper-slide-next {
-    /*width: 530px !important;
-    height: 594px !important;*/
     width: 320px !important;
     height: 594px !important;
-    /*transform: translate3d(82.2607px, 0px, -159.026px) rotateX(0deg) rotateY(-26.2607deg) !important;*/
 }
 
-.swiper-containerUpBig .titleUp {
-    position: absolute;
-    color: #ffffff;
-    top: 95px;
-    /* left: 785px; */
+.allBackground .titleUp {
     font-size: 48px;
     text-align: center;
-    width: 100%;
+    color: #ffffff;
 }
 
-.swiper-containerUpBig .upBigBorderSwiper {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 85px;
-}
-
-.swiper-containerUpBig .backgroundUpGif {
-    /*position: absolute;
-    top: -30px;
-    left: 607px;*/
+.allBackground .backgroundUpGif {
     width: 700px;
     height: 200px;
     position: absolute;
@@ -98,7 +87,8 @@
     justify-content: space-between;
     align-items: center;
     bottom: 0;
-    height: 300px;
+    /* bottom: 160px;
+    height: 300px; */
 }
 
 .dataBottom .imgLeft,
@@ -134,10 +124,10 @@
 
 .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper {
     width: 1500px;
-    /* display: flex;
-    justify-content: space-around; */
     height: 175px;
-    /* overflow: hidden; */
+    /* display: flex;
+    justify-content: space-around;
+    overflow: hidden; */
 }
 
 .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder {
@@ -151,17 +141,6 @@
     /* margin-right: 75px; */
     flex: none;
 }
-
-
-/* .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder:nth-of-type(3){
-    background:url("../img/shineBorder.png") no-repeat;
-    background-size: 363px 222px;
-    width:363px;
-    height:222px;
-    line-height: 222px;
-    top: -30px;
-    position: relative;
-} */
 
 .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder:nth-of-type(1) {
     margin-left: -150px;
@@ -228,16 +207,38 @@
 }
 
 @media screen and (max-width: 1366px) {
-    /* .swiper-containerUpBig .swiper-slide-active {
-        width: 723px !important;
-    } */
-    .swiper-containerUpBig {
-        margin-left: -71px;
+    .allBackground {
+        height: 768px;
+        /* height: 657px; */
     }
-    .swiper-containerUpBig .backgroundUpGif {
-        margin-left: -317px;
-        margin-top: -75px;
+    .allBackground .title {
+        font-size: 22px;
+    }
+    .allBackground .titleUp {
+        font-size: 30px;
+        padding-top: 43px;
+    }
+    .swiper-containerUpBig {
+        height: 500px;
+        margin: -83px 0 0 28px;
+    }
+    .swiper-containerUpBig .swiper-slide-active {
+        width: 671px !important;
+        height: 425px !important;
+        background: url(../../../img/middleBorder.png)no-repeat;
+        background-size: 100% 100%;
+    }
+    .swiper-containerUpBig .swiper-slide-prev,
+    .swiper-containerUpBig .swiper-slide-next {
+        width: 320px !important;
+        height: 413px !important;
+    }
+    .allBackground .backgroundUpGif {
         transform: scale(0.7);
+        margin: -85px 0 0 -353px;
+    }
+    .dataBottom {
+        bottom: 0px;
     }
     .dataBottom .imgLeft .loading {
         transform: scale(2.1);
@@ -247,16 +248,31 @@
     }
     .triangle {
         margin-left: -8px;
+        bottom: 0px;
     }
     .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder {
         width: 255px;
-        background-size: 235px 175px;
+        /*  background-size: 235px 175px; */
+        background-size: 217px 125px;
     }
     .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder .smallImgTital {
-        width: 255px;
+        width: 217px;
     }
     .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder img {
-        width: 210px;
+        width: 227px;
         height: 115px;
+        transform: scale(0.9);
+        margin: -46px 0 0 -5px;
+    }
+    .swiper-containerUpBig .swiper-slide .mask-01 {
+        height: 172px;
+    }
+    .swiper-containerUpBig .swiper-slide .mask-02 {
+        height: 180px;
+        margin-top: 238px;
+    }
+    .dataBottom .imgLeft,
+    .dataBottom .imgRight {
+        top: -15px;
     }
 }
