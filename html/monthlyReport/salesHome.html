@@ -122,7 +122,7 @@
 
         function handlePieEcharts() {
             var salesHomepie = echarts.init(document.getElementById('salesHomepie'));
-            salesHomepie.clear();
+            // salesHomepie.clear();
             window.addEventListener('resize', function () {
                 salesHomepie.resize()
             });
@@ -211,12 +211,11 @@
         }
         function handleEcharts() {
             var salesHomeEcharts = echarts.init(document.getElementById('salesHomeEcharts'));
-            salesHomeEcharts.clear();
+            // salesHomeEcharts.clear();
             window.addEventListener('resize', function () {
                 salesHomeEcharts.resize()
             });
             salesHomeEcharts.setOption({
-                animationDuration: 5000,
                 title: [
                     {
                         text: 'PF20 Monthly Sales',
@@ -332,6 +331,7 @@
                         // color:['#fd0022'],  //折线条的颜色
                         data: forecastYear,
                         // symbol: "none", //去掉折线点
+                        animationDuration: 5000,
                         smooth: false,   //关键点，为true是不支持虚线的，实线就用true
                         itemStyle: {
                             normal: {
@@ -360,6 +360,7 @@
                         smooth: true,
                         // symbol: "none", //去掉折线点
                         symbolSize: 5, //折线点的大小
+                        animationDuration: 5000,
                         label: {
                             show: true,
                             // position: 'top',
@@ -395,7 +396,8 @@
                             //     }
                             // }
                         }, //线条样式
-                    }, {
+                    },
+                    {
                         name: "Monthly Sales Last Year",
                         data: lastYear,
                         type: 'line',
