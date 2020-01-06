@@ -1,6 +1,6 @@
 var changeIndex = 1;
 
-var srcArr1 = ["./html/monthlyReport/salesHome.html","./html/monthlyReport/map.html","./html/monthlyReport/histogram.html"]
+var srcArr1 = ["./html/monthlyReport/salesHome.html","./html/monthlyReport/map.html","./html/monthlyReport/histogram.html","./html/agpKpi/aboSegmentMonthlyData.html"]
 
 
 var containerUpBig = new Swiper('.swiper-containerUpBig', {
