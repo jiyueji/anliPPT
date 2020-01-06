@@ -10,18 +10,23 @@
     <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
     <script type="text/javascript" src="../../incubator-echarts-4.6.0/map/js/china.js"></script>
     <!--     <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script> -->
+    <!-- 引入css文件 -->
+    <link rel="stylesheet" href="../../css/style.css">
     <style>
 
     </style>
 </head>
 
 <body>
-    <div style="width: 100%;height:618px;position:absolute;background:url(../../img/middleBorder.png) no-repeat 100% 100%"></div>
-    <div id="histogram" class="swiper-slide swiper-slide-echarts" style="width: 858px;height:594px;"></div>
+    <div class="middleBorder">
+        <div class="smallTitle">PF20 YTD Sales by FC</div>
+        <div id="histogram" class="swiper-slide swiper-slide-echarts" style="width: 858px;height:594px;"></div>
+    </div>
+
     <script>
         var data = [
             { x: "黄安莉  林海峰", val: 2933664.2855858495, open: 0, close: 2933664.2855858495, high: 2933664.2855858495 },
-{ x: "AMWAY", val: 2298275.9606840014, open: 2933664.2855858495, close: 5231940.246269851, high: 5231940.246269851 },
+            { x: "AMWAY", val: 2298275.9606840014, open: 2933664.2855858495, close: 5231940.246269851, high: 5231940.246269851 },
             { x: "李丽莉  ", val: 687609.2068611896, open: 5231940.246269851, close: 5919549.453131041, high: 5919549.453131041 },
             { x: "韩世荣  ", val: 377031.68782420084, open: 5919549.453131041, close: 6296581.140955241, high: 6296581.140955241 },
             { x: "简水兰  ", val: 315382.88528743014, open: 6296581.140955241, close: 6611964.026242672, high: 6611964.026242672 },
@@ -156,10 +161,10 @@
                     },
                 },
                 grid: {
-                    top: '60',
+                    top: '80',
                     right: '20',
                     left: '20',
-                    bottom: '13%',
+                    bottom: '12%',
                     containLabel: true,
                 },
                 xAxis: [{
@@ -189,7 +194,7 @@
                         interval: 0,
                         color: '#ffffff',
                         textStyle: {
-                            fontSize: 9
+                            fontSize: 12
                         },
                     },
                 }],

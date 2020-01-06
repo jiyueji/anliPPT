@@ -1,3 +1,9 @@
+var changeIndex = 1;
+
+var srcArr1 = ["./html/monthlyReport/salesHome.html","./html/monthlyReport/map.html","./html/monthlyReport/histogram.html"]
+var srcArr2 = ["./html/monthlyReport/formTab/formTab.html","./html/agpKpi/aboSegmentMonthlyData.html"]
+
+
 
 var containerUpBig = new Swiper('.swiper-containerUpBig', {
     loop: true,
@@ -18,9 +24,30 @@ var containerUpBig = new Swiper('.swiper-containerUpBig', {
         slideShadows: true//slideShadows：开启slide阴影。默认 true。
     },
     on: {
-        touchEnd: function (event) {
-            // alert("111")
-            //你的事件
+        // touchEnd: function (event) {
+        //     // alert("111")
+        //     //你的事件
+        // },
+        slideChangeTransitionStart: function(){
+            // this.init()
+            // alert('改变了，activeIndex为'+this.activeIndex);
+            var nowSlides = document.getElementsByClassName("swiper-slide-active")[0]
+            // console.log(nowSlides.firstElementChild)
+            // nowSlides.firstElementChild.contentWindow.location.reload(true)
+            // console.log(this.realIndex)
+            if(changeIndex == 1){
+                nowSlides.firstElementChild.src = srcArr1[this.realIndex]
+            }else if(changeIndex == 2){
+                nowSlides.firstElementChild.src = srcArr2[this.realIndex]
+            }else if(changeIndex == 3){
+                nowSlides.firstElementChild.src = srcArr3[this.realIndex]
+            }else if(changeIndex == 4){
+                nowSlides.firstElementChild.src = srcArr4[this.realIndex]
+            }else if(changeIndex == 5){
+                nowSlides.firstElementChild.src = srcArr5[this.realIndex]
+            }
+            // nowSlides.firstElementChild.src = srcArr[this.realIndex]
+            // nowSlides.firstElementChild.src="./html/monthlyReport/salesHome.html"
         },
     },
     // navigation: {
@@ -33,6 +60,8 @@ var containerUpBig = new Swiper('.swiper-containerUpBig', {
     //     disableOnInteraction: true,
     // },
 })
+
+
 
 var containerDownSmall = new Swiper('.swiper-containerDownSmall', {
     loop: true,
@@ -129,21 +158,30 @@ var tatleChange = document.getElementById("tatleChange")
 
 function oneImg() {
     console.log("111")
-    tatleChange.innerHTML = "Monthly Report"
+    changeIndex = 1;
+    tatleChange.innerHTML = "Sales Performance"
 
     // var imageAllData = ["./img/4/End of Month % of Sales.png","","./img/1/map.png","./img/2/Dally Sales.png","./img/3/1.png"]
     // imageCenter()
-
-    var binnerData = ["./img/1/1.1Monthly Sales trend.png", "./img/1/map.png", "./img/1/Sales by FC group.png"]
+    // var binnerData = ["./img/1/1.1Monthly Sales trend.png", "./img/1/map.png", "./img/1/Sales by FC group.png"]
     var changeBinner = document.getElementById("changeBinner")
     changeBinner.innerHTML = ""
-    for (var i = 0; i < binnerData.length; i++) {
+    for (var i = 0; i < srcArr1.length ; i ++) {
+        var iframe = document.createElement("iframe");
+        iframe.className = "iframeStyle";
+        iframe.frameborder = "no";
+        iframe.marginwidth = "0"
+        iframe.marginheight = "0"
+        iframe.scrolling = "no"
+        iframe.align = "center"
+        iframe.src = srcArr1[i];
+        var mask = document.createElement("div");
+        mask.className = 'mask';
         var div = document.createElement("div");
-        var img = document.createElement("img");
-        div.className = 'swiper-slide';
-        img.src = binnerData[i];
-        div.appendChild(img);
-        changeBinner.appendChild(div);
+        div.className = "swiper-slide"
+        div.appendChild(iframe);
+        div.appendChild(mask);
+        changeBinner.appendChild(div)
     }
     var containerUpBig = new Swiper('.swiper-containerUpBig', {
         loop: true,
@@ -167,17 +205,27 @@ function oneImg() {
 
 function twoImg() {
     console.log("222")
-    tatleChange.innerHTML = "Daily Report"
-    var binnerData = ["./img/2/Dally Sales.png", "./img/2/Key Events .png", "./img/2/two.png", "./img/2/4.png"]
+    changeIndex = 2;
+    tatleChange.innerHTML = "AGP KPI"
+
     var changeBinner = document.getElementById("changeBinner")
     changeBinner.innerHTML = ""
-    for (var i = 0; i < binnerData.length; i++) {
+    for (var i = 0; i < srcArr2.length ; i ++) {
+        var iframe = document.createElement("iframe");
+        iframe.className = "iframeStyle";
+        iframe.frameborder = "no";
+        iframe.marginwidth = "0"
+        iframe.marginheight = "0"
+        iframe.scrolling = "no"
+        iframe.align = "center"
+        iframe.src = srcArr2[i];
+        var mask = document.createElement("div");
+        mask.className = 'mask';
         var div = document.createElement("div");
-        var img = document.createElement("img");
-        div.className = 'swiper-slide';
-        img.src = binnerData[i];
-        div.appendChild(img);
-        changeBinner.appendChild(div);
+        div.className = "swiper-slide"
+        div.appendChild(iframe);
+        div.appendChild(mask);
+        changeBinner.appendChild(div)
     }
     var containerUpBig = new Swiper('.swiper-containerUpBig', {
         loop: true,
@@ -200,7 +248,8 @@ function twoImg() {
 }
 function threeImg() {
     console.log("333")
-    tatleChange.innerHTML = "Hourly Report"
+    changeIndex = 3;
+    tatleChange.innerHTML = "ABO Momentum"
     var binnerData = ["./img/3/1.png", "./img/3/2.png", "./img/3/3.png", "./img/3/4.png"]
     var changeBinner = document.getElementById("changeBinner")
     changeBinner.innerHTML = ""
@@ -233,7 +282,8 @@ function threeImg() {
 }
 function fourImg() {
     console.log("444")
-    tatleChange.innerHTML = "AGP KPI"
+    changeIndex = 4;
+    tatleChange.innerHTML = "Prediction Model"
     var binnerData = ["./img/4/table.png", "./img/4/Sales by Segments.png", "./img/4/High PPV Sales.png", "./img/4/End of Month % of Sales.png"]
     var changeBinner = document.getElementById("changeBinner")
     changeBinner.innerHTML = ""
