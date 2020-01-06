@@ -63,11 +63,12 @@ body {
 
 .label {
     /*  width: 100%; */
+    /* top: 83px; */
     position: absolute;
     text-align: center;
     left: 0px;
     left: 30px;
-    top: 83px;
+    top: 20px;
 }
 
 .label small {
