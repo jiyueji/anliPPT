@@ -1,6 +1,7 @@
 var changeIndex = 1;
 
 var srcArr1 = ["./html/monthlyReport/salesHome.html","./html/monthlyReport/map.html","./html/monthlyReport/histogram.html"]
+var srcArr2 = ["./html/monthlyReport/formTab/formTab.html"]
 
 
 var containerUpBig = new Swiper('.swiper-containerUpBig', {
@@ -205,16 +206,25 @@ function twoImg() {
     console.log("222")
     changeIndex = 2;
     tatleChange.innerHTML = "AGP KPI"
-    var binnerData = ["./img/2/Dally Sales.png", "./img/2/Key Events .png", "./img/2/two.png", "./img/2/4.png"]
+
     var changeBinner = document.getElementById("changeBinner")
     changeBinner.innerHTML = ""
-    for (var i = 0; i < binnerData.length; i++) {
+    for (var i = 0; i < srcArr1.length ; i ++) {
+        var iframe = document.createElement("iframe");
+        iframe.className = "iframeStyle";
+        iframe.frameborder = "no";
+        iframe.marginwidth = "0"
+        iframe.marginheight = "0"
+        iframe.scrolling = "no"
+        iframe.align = "center"
+        iframe.src = srcArr2[i];
+        var mask = document.createElement("div");
+        mask.className = 'mask';
         var div = document.createElement("div");
-        var img = document.createElement("img");
-        div.className = 'swiper-slide';
-        img.src = binnerData[i];
-        div.appendChild(img);
-        changeBinner.appendChild(div);
+        div.className = "swiper-slide"
+        div.appendChild(iframe);
+        div.appendChild(mask);
+        changeBinner.appendChild(div)
     }
     var containerUpBig = new Swiper('.swiper-containerUpBig', {
         loop: true,
