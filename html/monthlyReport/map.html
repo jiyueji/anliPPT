@@ -16,82 +16,337 @@
 </head>
 
 <body>
-    <div
-        style="width: 100%;height:618px;position:absolute;background:url(../../img/middleBorder.png) no-repeat 100% 100%">
+    <div style="width: 100%;height:618px;position:absolute;background:url(../../img/middleBorder.png) no-repeat 100% 100%">
     </div>
     <div id="monthlyReportMap" class="swiper-slide swiper-slide-echarts" style="width: 858px;height:594px;"></div>
     <script>
         var list = [
             //地图高亮显示
-            { name: "安徽", value: 1, color: "#06104d" },
-            { name: "北京", value: 1, color: "#06104d" },
-            { name: "甘肃", value: 1, color: "#06104d" },
-            { name: "河北", value: 1, color: "#06104d" },
-            { name: "河南", value: 1, color: "#06104d" },
-            { name: "黑龙江", value: 1, color: "#06104d" },
-            { name: "湖北", value: 1, color: "#06104d" },
-            { name: "吉林", value: 1, color: "#06104d" },
-            { name: "辽宁", value: 1, color: "#06104d" },
-            { name: "内蒙古", value: 1, color: "#06104d" },
-            { name: "宁夏", value: 1, color: "#06104d" },
-            { name: "青海", value: 1, color: "#06104d" },
-            { name: "山东", value: 1, color: "#06104d" },
-            { name: "山西", value: 1, color: "#06104d" },
-            { name: "陕西", value: 1, color: "#06104d" },
-            { name: "天津", value: 1, color: "#06104d" },
-            { name: "新疆", value: 1, color: "#06104d" }
+            {
+                name: "安徽",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "北京",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "甘肃",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "河北",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "河南",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "黑龙江",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "湖北",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "吉林",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "辽宁",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "内蒙古",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "宁夏",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "青海",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "山东",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "山西",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "陕西",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "天津",
+                value: 1,
+                color: "#06104d"
+            }, {
+                name: "新疆",
+                value: 1,
+                color: "#06104d"
+            }
         ];
-        var cityClusterAll = [
-            { city_cluster: "杭州城市群", actual_sales_sum: 111080342.9793103, perc_of_actual_sales: "5.6 %", sales_vs_sply: "-4.4 %", maxYear: 2019 },
-            { city_cluster: "北京城市群", actual_sales_sum: 109726094.26620695, perc_of_actual_sales: "5.5 %", sales_vs_sply: "-10.5 %", maxYear: 2019 },
-            { city_cluster: "苏州城市群", actual_sales_sum: 92083848.91448265, perc_of_actual_sales: "4.6 %", sales_vs_sply: "-7.1 %", maxYear: 2019 },
-            { city_cluster: "上海城市群", actual_sales_sum: 91191708.73241383, perc_of_actual_sales: "4.6 %", sales_vs_sply: "-4.2 %", maxYear: 2019 },
-            { city_cluster: "成都城市群", actual_sales_sum: 74932227.24, perc_of_actual_sales: "3.8 %", sales_vs_sply: "-8.8 %", maxYear: 2019 },
-            { city_cluster: "福州城市群", actual_sales_sum: 74307266.83172412, perc_of_actual_sales: "3.7 %", sales_vs_sply: "-1.2 %", maxYear: 2019 },
-            { city_cluster: "济南城市群", actual_sales_sum: 72932113.35310344, perc_of_actual_sales: "3.7 %", sales_vs_sply: "-4.9 %", maxYear: 2019 },
-            { city_cluster: "天津城市群", actual_sales_sum: 68146768.51034483, perc_of_actual_sales: "3.4 %", sales_vs_sply: "-11 %", maxYear: 2019 },
-            { city_cluster: "郑州城市群", actual_sales_sum: 63768210.84137932, perc_of_actual_sales: "3.2 %", sales_vs_sply: "-14.1 %", maxYear: 2019 },
-            { city_cluster: "武汉城市群", actual_sales_sum: 63036623.36275862, perc_of_actual_sales: "3.2 %", sales_vs_sply: "-10.3 %", maxYear: 2019 },
-            { city_cluster: "深圳城市群", actual_sales_sum: 62049862.168275855, perc_of_actual_sales: "3.1 %", sales_vs_sply: "-6.9 %", maxYear: 2019 },
-            { city_cluster: "广州城市群", actual_sales_sum: 61949988.76827587, perc_of_actual_sales: "3.1 %", sales_vs_sply: "1.2 %", maxYear: 2019 },
-            { city_cluster: "南京城市群", actual_sales_sum: 61718253.30758621, perc_of_actual_sales: "3.1 %", sales_vs_sply: "-2.1 %", maxYear: 2019 },
-            { city_cluster: "青岛城市群", actual_sales_sum: 58560072.40689654, perc_of_actual_sales: "2.9 %", sales_vs_sply: "-7.7 %", maxYear: 2019 },
-            { city_cluster: "厦门城市群", actual_sales_sum: 56180954.256551735, perc_of_actual_sales: "2.8 %", sales_vs_sply: "-1.1 %", maxYear: 2019 },
-            { city_cluster: "南通城市群", actual_sales_sum: 53764445.74206897, perc_of_actual_sales: "2.7 %", sales_vs_sply: "-10.2 %", maxYear: 2019 },
-            { city_cluster: "佛山城市群", actual_sales_sum: 44697804.12137932, perc_of_actual_sales: "2.2 %", sales_vs_sply: "-9.3 %", maxYear: 2019 },
-            { city_cluster: "南宁城市群", actual_sales_sum: 38936054.457931034, perc_of_actual_sales: "1.9 %", sales_vs_sply: "-7.6 %", maxYear: 2019 },
-            { city_cluster: "哈尔滨城市群", actual_sales_sum: 38772586.99034482, perc_of_actual_sales: "1.9 %", sales_vs_sply: "-11.7 %", maxYear: 2019 },
-            { city_cluster: "徐州城市群", actual_sales_sum: 38701847.266206905, perc_of_actual_sales: "1.9 %", sales_vs_sply: "-14.1 %", maxYear: 2019 },
-            { city_cluster: "长沙城市群", actual_sales_sum: 38591370.58068966, perc_of_actual_sales: "1.9 %", sales_vs_sply: "-10.7 %", maxYear: 2019 },
-            { city_cluster: "合肥城市群", actual_sales_sum: 38141910.380689666, perc_of_actual_sales: "1.9 %", sales_vs_sply: "-11.2 %", maxYear: 2019 },
-            { city_cluster: "乌鲁木齐城市群", actual_sales_sum: 37750858.59448276, perc_of_actual_sales: "1.9 %", sales_vs_sply: "-11.5 %", maxYear: 2019 },
-            { city_cluster: "昆明城市群", actual_sales_sum: 37089500.93241379, perc_of_actual_sales: "1.9 %", sales_vs_sply: "-13.1 %", maxYear: 2019 },
-            { city_cluster: "沈阳城市群", actual_sales_sum: 36879178.98068965, perc_of_actual_sales: "1.8 %", sales_vs_sply: "-9.1 %", maxYear: 2019 },
-            { city_cluster: "西安城市群", actual_sales_sum: 36578232.220689654, perc_of_actual_sales: "1.8 %", sales_vs_sply: "-10.3 %", maxYear: 2019 },
-            { city_cluster: "石家庄城市群", actual_sales_sum: 35742942.8937931, perc_of_actual_sales: "1.8 %", sales_vs_sply: "-11.7 %", maxYear: 2019 },
-            { city_cluster: "大连城市群", actual_sales_sum: 34788667.969655156, perc_of_actual_sales: "1.7 %", sales_vs_sply: "-7.4 %", maxYear: 2019 },
-            { city_cluster: "宁波城市群", actual_sales_sum: 33506182.5075862, perc_of_actual_sales: "1.7 %", sales_vs_sply: "-8.3 %", maxYear: 2019 },
-            { city_cluster: "南昌城市群", actual_sales_sum: 33245277.743448276, perc_of_actual_sales: "1.7 %", sales_vs_sply: "-9.2 %", maxYear: 2019 },
-            { city_cluster: "海口城市群", actual_sales_sum: 32644447.445517227, perc_of_actual_sales: "1.6 %", sales_vs_sply: "-6.9 %", maxYear: 2019 },
-            { city_cluster: "温州城市群", actual_sales_sum: 32266693.332413785, perc_of_actual_sales: "1.6 %", sales_vs_sply: "-0.2 %", maxYear: 2019 },
-            { city_cluster: "泉州城市群", actual_sales_sum: 32177388.267586205, perc_of_actual_sales: "1.6 %", sales_vs_sply: "-2 %", maxYear: 2019 },
-            { city_cluster: "洛阳城市群", actual_sales_sum: 31325915.489655178, perc_of_actual_sales: "1.6 %", sales_vs_sply: "-15.4 %", maxYear: 2019 },
-            { city_cluster: "重庆城市群", actual_sales_sum: 30881285.506206892, perc_of_actual_sales: "1.5 %", sales_vs_sply: "-11.4 %", maxYear: 2019 },
-            { city_cluster: "长春城市群", actual_sales_sum: 27622804.39724138, perc_of_actual_sales: "1.4 %", sales_vs_sply: "-12.6 %", maxYear: 2019 },
-            { city_cluster: "太原城市群", actual_sales_sum: 27432251.590344824, perc_of_actual_sales: "1.4 %", sales_vs_sply: "-16.7 %", maxYear: 2019 },
-            { city_cluster: "汕头城市群", actual_sales_sum: 23989671.111724142, perc_of_actual_sales: "1.2 %", sales_vs_sply: "-8 %", maxYear: 2019 },
-            { city_cluster: "呼和浩特城市群", actual_sales_sum: 21675438.161379296, perc_of_actual_sales: "1.1 %", sales_vs_sply: "-12.8 %", maxYear: 2019 },
-            { city_cluster: "兰州城市群", actual_sales_sum: 20870420.11862068, perc_of_actual_sales: "1 %", sales_vs_sply: "-10.9 %", maxYear: 2019 },
-            { city_cluster: "贵阳城市群", actual_sales_sum: 18046868.765517242, perc_of_actual_sales: "0.9 %", sales_vs_sply: "-12.1 %", maxYear: 2019 }
-        ]
-        // var maxMinCity = []   //前五后五
-        // for (var i = 0; i < cityClusterAll.length; i++) {
-        //     if (i < 5 || i >= (cityClusterAll.length - 5)) {
-        //         maxMinCity.push(cityClusterAll[i])
-        //     }
-        // }
+        var cityClusterAll = [{
+                city_cluster: "杭州城市群",
+                actual_sales_sum: 111080342.9793103,
+                perc_of_actual_sales: "5.6 %",
+                sales_vs_sply: "-4.4 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "北京城市群",
+                actual_sales_sum: 109726094.26620695,
+                perc_of_actual_sales: "5.5 %",
+                sales_vs_sply: "-10.5 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "苏州城市群",
+                actual_sales_sum: 92083848.91448265,
+                perc_of_actual_sales: "4.6 %",
+                sales_vs_sply: "-7.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "上海城市群",
+                actual_sales_sum: 91191708.73241383,
+                perc_of_actual_sales: "4.6 %",
+                sales_vs_sply: "-4.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "成都城市群",
+                actual_sales_sum: 74932227.24,
+                perc_of_actual_sales: "3.8 %",
+                sales_vs_sply: "-8.8 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "福州城市群",
+                actual_sales_sum: 74307266.83172412,
+                perc_of_actual_sales: "3.7 %",
+                sales_vs_sply: "-1.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "济南城市群",
+                actual_sales_sum: 72932113.35310344,
+                perc_of_actual_sales: "3.7 %",
+                sales_vs_sply: "-4.9 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "天津城市群",
+                actual_sales_sum: 68146768.51034483,
+                perc_of_actual_sales: "3.4 %",
+                sales_vs_sply: "-11 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "郑州城市群",
+                actual_sales_sum: 63768210.84137932,
+                perc_of_actual_sales: "3.2 %",
+                sales_vs_sply: "-14.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "武汉城市群",
+                actual_sales_sum: 63036623.36275862,
+                perc_of_actual_sales: "3.2 %",
+                sales_vs_sply: "-10.3 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "深圳城市群",
+                actual_sales_sum: 62049862.168275855,
+                perc_of_actual_sales: "3.1 %",
+                sales_vs_sply: "-6.9 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "广州城市群",
+                actual_sales_sum: 61949988.76827587,
+                perc_of_actual_sales: "3.1 %",
+                sales_vs_sply: "1.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "南京城市群",
+                actual_sales_sum: 61718253.30758621,
+                perc_of_actual_sales: "3.1 %",
+                sales_vs_sply: "-2.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "青岛城市群",
+                actual_sales_sum: 58560072.40689654,
+                perc_of_actual_sales: "2.9 %",
+                sales_vs_sply: "-7.7 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "厦门城市群",
+                actual_sales_sum: 56180954.256551735,
+                perc_of_actual_sales: "2.8 %",
+                sales_vs_sply: "-1.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "南通城市群",
+                actual_sales_sum: 53764445.74206897,
+                perc_of_actual_sales: "2.7 %",
+                sales_vs_sply: "-10.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "佛山城市群",
+                actual_sales_sum: 44697804.12137932,
+                perc_of_actual_sales: "2.2 %",
+                sales_vs_sply: "-9.3 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "南宁城市群",
+                actual_sales_sum: 38936054.457931034,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-7.6 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "哈尔滨城市群",
+                actual_sales_sum: 38772586.99034482,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-11.7 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "徐州城市群",
+                actual_sales_sum: 38701847.266206905,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-14.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "长沙城市群",
+                actual_sales_sum: 38591370.58068966,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-10.7 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "合肥城市群",
+                actual_sales_sum: 38141910.380689666,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-11.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "乌鲁木齐城市群",
+                actual_sales_sum: 37750858.59448276,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-11.5 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "昆明城市群",
+                actual_sales_sum: 37089500.93241379,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-13.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "沈阳城市群",
+                actual_sales_sum: 36879178.98068965,
+                perc_of_actual_sales: "1.8 %",
+                sales_vs_sply: "-9.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "西安城市群",
+                actual_sales_sum: 36578232.220689654,
+                perc_of_actual_sales: "1.8 %",
+                sales_vs_sply: "-10.3 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "石家庄城市群",
+                actual_sales_sum: 35742942.8937931,
+                perc_of_actual_sales: "1.8 %",
+                sales_vs_sply: "-11.7 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "大连城市群",
+                actual_sales_sum: 34788667.969655156,
+                perc_of_actual_sales: "1.7 %",
+                sales_vs_sply: "-7.4 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "宁波城市群",
+                actual_sales_sum: 33506182.5075862,
+                perc_of_actual_sales: "1.7 %",
+                sales_vs_sply: "-8.3 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "南昌城市群",
+                actual_sales_sum: 33245277.743448276,
+                perc_of_actual_sales: "1.7 %",
+                sales_vs_sply: "-9.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "海口城市群",
+                actual_sales_sum: 32644447.445517227,
+                perc_of_actual_sales: "1.6 %",
+                sales_vs_sply: "-6.9 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "温州城市群",
+                actual_sales_sum: 32266693.332413785,
+                perc_of_actual_sales: "1.6 %",
+                sales_vs_sply: "-0.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "泉州城市群",
+                actual_sales_sum: 32177388.267586205,
+                perc_of_actual_sales: "1.6 %",
+                sales_vs_sply: "-2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "洛阳城市群",
+                actual_sales_sum: 31325915.489655178,
+                perc_of_actual_sales: "1.6 %",
+                sales_vs_sply: "-15.4 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "重庆城市群",
+                actual_sales_sum: 30881285.506206892,
+                perc_of_actual_sales: "1.5 %",
+                sales_vs_sply: "-11.4 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "长春城市群",
+                actual_sales_sum: 27622804.39724138,
+                perc_of_actual_sales: "1.4 %",
+                sales_vs_sply: "-12.6 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "太原城市群",
+                actual_sales_sum: 27432251.590344824,
+                perc_of_actual_sales: "1.4 %",
+                sales_vs_sply: "-16.7 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "汕头城市群",
+                actual_sales_sum: 23989671.111724142,
+                perc_of_actual_sales: "1.2 %",
+                sales_vs_sply: "-8 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "呼和浩特城市群",
+                actual_sales_sum: 21675438.161379296,
+                perc_of_actual_sales: "1.1 %",
+                sales_vs_sply: "-12.8 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "兰州城市群",
+                actual_sales_sum: 20870420.11862068,
+                perc_of_actual_sales: "1 %",
+                sales_vs_sply: "-10.9 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "贵阳城市群",
+                actual_sales_sum: 18046868.765517242,
+                perc_of_actual_sales: "0.9 %",
+                sales_vs_sply: "-12.1 %",
+                maxYear: 2019
+            }]
+            // var maxMinCity = []   //前五后五
+            // for (var i = 0; i < cityClusterAll.length; i++) {
+            //     if (i < 5 || i >= (cityClusterAll.length - 5)) {
+            //         maxMinCity.push(cityClusterAll[i])
+            //     }
+            // }
         var monthlyReportMap = echarts.init(document.getElementById('monthlyReportMap'));
-        window.addEventListener('resize', function () {
+        window.addEventListener('resize', function() {
             monthlyReportMap.resize()
         });
 
@@ -456,11 +711,11 @@
         };
         console.log(mapName)
         var mapFeatures = echarts.getMap(mapName).geoJson.features; //获取地图数据
-        mapFeatures.forEach(function (v) {
+        mapFeatures.forEach(function(v) {
             var name = v.properties.name; // 地区名称
             geoCoordMap[name] = v.properties.cp; // 地区经纬度
         });
-        var convertData = function (data) {
+        var convertData = function(data) {
             var res = [];
             for (var i = 0; i < data.length; i++) {
                 var geoCoord = geoCoordMap[data[i].city_cluster];
@@ -473,7 +728,7 @@
             }
             return res;
         };
-        var convertData2 = function (data) {
+        var convertData2 = function(data) {
             var res = [];
             for (var i = 0; i < data.length; i++) {
                 var geoCoord = geoCoordMap[data[i].city_cluster];
@@ -602,128 +857,126 @@
                     }
                     // console.log(data)
                 }, //提示标签格式
-                backgroundColor: "rgba(0,0,0,0.72)",//提示标签背景颜色
-                textStyle: { color: "#ffffff" } //提示标签字体颜色
+                backgroundColor: "rgba(0,0,0,0.72)", //提示标签背景颜色
+                textStyle: {
+                    color: "#ffffff"
+                } //提示标签字体颜色
             },
-            series: [
-                {
-                    type: "map",
-                    map: mapName,
-                    geoIndex: 0,
-                    aspectScale: 0.75, //长宽比
-                    showLegendSymbol: false, // 存在legend时显示
-                    label: {
-                        normal: {
-                            show: false //是否显示地名
-                        }
-                    },
-                    itemStyle: {
-                        normal: {
-                            borderWidth: 0
-                        },
-                    },
-                    data: list
+            series: [{
+                type: "map",
+                map: mapName,
+                geoIndex: 0,
+                aspectScale: 0.75, //长宽比
+                showLegendSymbol: false, // 存在legend时显示
+                label: {
+                    normal: {
+                        show: false //是否显示地名
+                    }
                 },
-                {
-                    name: "城市群",
-                    type: "effectScatter", //影响散点
-                    coordinateSystem: "geo",
-                    symbolSize: 5,
-                    showEffectOn: "render",
-                    rippleEffect: {
-                        brushType: "stroke"
+                itemStyle: {
+                    normal: {
+                        borderWidth: 0
                     },
-                    hoverAnimation: true,
-                    label: {
-                        normal: {
-                            color: "#ffffff",
-                            formatter: "{b}",
-                            position: "right",
-                            show: true //是否显示地名
-                        },
-                        emphasis: {
-                            show: true
-                        }
-                    },
-                    itemStyle: {
-                        normal: {
-                            color: (value) => {
-                                var splySales = 0;
-                                if (cityClusterAll && cityClusterAll.length > 0) {
-                                    for (var i = 0; i < cityClusterAll.length; i++) {
-                                        if (cityClusterAll[i].city_cluster === value.name) {
-                                            splySales = cityClusterAll[i].sales_vs_sply
-                                        }
-                                    }
-                                }
-                                if (splySales) {
-                                    splySales = splySales.replace(/%/g, '')
-                                    if (Number(splySales) >= 0) {
-                                        return "#16b6aa"
-                                    } else {
-                                        return "#ff0025"
-                                    }
-                                }
-                            },
-                            shadowBlur: 10,
-                            shadowColor: "#333",
-                            borderWidth: 0
-                        }
-                    },
-                    data: convertData(cityClusterAll)
                 },
-                {
-                    //线的底座，那个小点
-                    name: "city",
-                    type: "effectScatter",
-                    coordinateSystem: "geo",
-                    rippleEffect: {
-                        //涟漪特效
-                        period: 4, //动画时间，值越小速度越快
-                        brushType: "stroke", //波纹绘制方式 stroke, fill
-                        scale: 4 //波纹圆环最大限制，值越大波纹越大
+                data: list
+            }, {
+                name: "城市群",
+                type: "effectScatter", //影响散点
+                coordinateSystem: "geo",
+                symbolSize: 5,
+                showEffectOn: "render",
+                rippleEffect: {
+                    brushType: "stroke"
+                },
+                hoverAnimation: true,
+                label: {
+                    normal: {
+                        color: "#ffffff",
+                        formatter: "{b}",
+                        position: "right",
+                        show: true //是否显示地名
                     },
-                    symbolSize: 6,
-                    // 显示底座上涟漪的文字
-                    //   label: {
-                    //     normal: {
-                    //       show: true,
-                    //       position: "right",
-                    //       formatter: "{b}"
-                    //     }
-                    //   },
-                    itemStyle: {
-                        normal: {
-                            //显示底座上涟漪的颜色
-                            color: (value) => {
-                                var splySales = 0;
-                                if (cityClusterAll && cityClusterAll.length > 0) {
-                                    for (var i = 0; i < cityClusterAll.length; i++) {
-                                        if (cityClusterAll[i].city_cluster === value.name) {
-                                            splySales = cityClusterAll[i].sales_vs_sply
-                                        }
+                    emphasis: {
+                        show: true
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: (value) => {
+                            var splySales = 0;
+                            if (cityClusterAll && cityClusterAll.length > 0) {
+                                for (var i = 0; i < cityClusterAll.length; i++) {
+                                    if (cityClusterAll[i].city_cluster === value.name) {
+                                        splySales = cityClusterAll[i].sales_vs_sply
                                     }
                                 }
-                                if (splySales) {
-                                    splySales = splySales.replace(/%/g, '')
-                                    if (Number(splySales) >= 0) {
-                                        return "#16b6aa"
-                                    } else {
-                                        return "#ff0025"
+                            }
+                            if (splySales) {
+                                splySales = splySales.replace(/%/g, '')
+                                if (Number(splySales) >= 0) {
+                                    return "#16b6aa"
+                                } else {
+                                    return "#ff0025"
+                                }
+                            }
+                        },
+                        shadowBlur: 10,
+                        shadowColor: "#333",
+                        borderWidth: 0
+                    }
+                },
+                data: convertData(cityClusterAll)
+            }, {
+                //线的底座，那个小点
+                name: "city",
+                type: "effectScatter",
+                coordinateSystem: "geo",
+                rippleEffect: {
+                    //涟漪特效
+                    period: 4, //动画时间，值越小速度越快
+                    brushType: "stroke", //波纹绘制方式 stroke, fill
+                    scale: 4 //波纹圆环最大限制，值越大波纹越大
+                },
+                symbolSize: 6,
+                // 显示底座上涟漪的文字
+                //   label: {
+                //     normal: {
+                //       show: true,
+                //       position: "right",
+                //       formatter: "{b}"
+                //     }
+                //   },
+                itemStyle: {
+                    normal: {
+                        //显示底座上涟漪的颜色
+                        color: (value) => {
+                            var splySales = 0;
+                            if (cityClusterAll && cityClusterAll.length > 0) {
+                                for (var i = 0; i < cityClusterAll.length; i++) {
+                                    if (cityClusterAll[i].city_cluster === value.name) {
+                                        splySales = cityClusterAll[i].sales_vs_sply
                                     }
                                 }
-                            },
-                            borderWidth: 0
-                        }
-                    },
-                    data: convertData2(cityClusterAll)
-                }
-            ]
+                            }
+                            if (splySales) {
+                                splySales = splySales.replace(/%/g, '')
+                                if (Number(splySales) >= 0) {
+                                    return "#16b6aa"
+                                } else {
+                                    return "#ff0025"
+                                }
+                            }
+                        },
+                        borderWidth: 0
+                    }
+                },
+                data: convertData2(cityClusterAll)
+            }]
         };
         // 使用刚指定的配置项和数据显示图表。
         monthlyReportMap.setOption(option);
         //设置鼠标移入指定省份颜色不变的效果(去掉判断条件，现在是全部不变色)
-        monthlyReportMap.on("mouseover", function (params) {
+        monthlyReportMap.on("mouseover", function(params) {
             // console.log(params)
             // if (params.data.value != undefined) {
             monthlyReportMap.dispatchAction({
@@ -731,8 +984,6 @@
             });
             // }
         });
-
-
     </script>
 </body>
 
