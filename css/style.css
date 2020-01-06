@@ -64,7 +64,7 @@
 .swiper-containerUpBig .titleUp {
     position: absolute;
     color: #ffffff;
-    top: 95px;
+    top: 90px;
     /* left: 785px; */
     font-size: 48px;
     text-align: center;
@@ -225,6 +225,51 @@
     text-align: center;
     left: 50%;
     margin-left: 51px;
+}
+
+/* 页面公共样式背景图和标题 */
+.iframeStyle{
+    width:100%;
+    height:100%;
+    border:0;
+    position: absolute;
+}
+.mask{
+    width: 100%;
+    height:618px;
+    position:absolute;
+    z-index:101;
+}
+.centerBorBig{
+    width:100%;
+    height:618px;
+    position:absolute;
+    background:url(../img/centerBorBig.png) no-repeat;
+    background-size: 884px 618px;
+}
+/* 中间的边框 */
+.centerTitle{
+    position: absolute;
+    color: #ffffff;
+    font-size: 20px;
+    left: 14%;
+    top: 0;
+    line-height: 16px;
+}
+/* 两边的小边框 */
+.smallTitle{
+    position: absolute;
+    color: #ffffff;
+    font-size: 18px;
+    left: 4%;
+    top: 4%;
+    line-height: 16px;
+}
+.middleBorder{
+    width: 100%;
+    height:618px;
+    position:absolute;
+    background:url(../img/middleBorder.png) no-repeat 100% 100%;
 }
 
 @media screen and (max-width: 1366px) {

@@ -8,6 +8,8 @@
     <title>Document</title>
     <!-- 引入echarts -->
     <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
+    <!-- 引入css文件 -->
+    <link rel="stylesheet" href="../../css/style.css">
     <style>
         #root {
             letter-spacing: 37px;
@@ -22,13 +24,14 @@
 </head>
 
 <body>
-    <div
-        style="width:100%;height:618px;position:absolute;background:url(../../img/centerBorBig.png) no-repeat;background-size: 884px 618px;">
+    <div class="centerBorBig">
+        <div class="centerTitle">FOA Foresize</div>
+        <div id="root">0m</div>
+        <div id="salesHomepie" class="swiper-slide swiper-slide-echarts"
+            style="width: 858px;height:124px;padding-top: 17%;"></div>
+        <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 858px;height:470px;"></div>
     </div>
-    <div id="root">0m</div>
-    <div id="salesHomepie" class="swiper-slide swiper-slide-echarts"
-        style="width: 858px;height:124px;padding-top: 17%;"></div>
-    <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 858px;height:470px;"></div>
+
     <script>
         var monthShow = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         var allData = {
@@ -103,7 +106,7 @@
             return function () {
                 n = (n + step) >= total ? total : (n + step);
                 if (n <= total) {
-                    console.log(n)
+                    // console.log(n)
                     document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
                 }
             }
@@ -112,13 +115,14 @@
             let rolling = roll(index, idname, step)
             runtime = (runtime >= 300) ? runtime : 1000;
             for (let i = 0; i < (index / step); i++) {
-                let timer = setTimeout(rolling, (runtime / index) * i * step)
+                var timer = setTimeout(rolling, (runtime / index) * i * step)
             }
             clearTimeout(timer);
         }
 
         function handlePieEcharts() {
             var salesHomepie = echarts.init(document.getElementById('salesHomepie'));
+            salesHomepie.clear();
             window.addEventListener('resize', function () {
                 salesHomepie.resize()
             });
@@ -207,6 +211,7 @@
         }
         function handleEcharts() {
             var salesHomeEcharts = echarts.init(document.getElementById('salesHomeEcharts'));
+            salesHomeEcharts.clear();
             window.addEventListener('resize', function () {
                 salesHomeEcharts.resize()
             });
@@ -214,9 +219,9 @@
                 animationDuration: 5000,
                 title: [
                     {
-                        text: 'Salse($)',
-                        x: '8%',
-                        y: '0',
+                        text: 'PF20 Monthly Sales',
+                        x: '6%',
+                        y: '8',
                         textStyle: {                  //标题样式
                             fontSize: '16',
                             color: '#ffffff',
