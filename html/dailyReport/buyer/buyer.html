@@ -62,46 +62,67 @@
     </div>
 </body>
 <script>
-    var listArr = [document.getElementById('right1'), document.getElementById('right2')],
-        myChart, option;
+    var listArr = [document.getElementById('right1'), document.getElementById('right2')];
+
+    var myChart, option;
+
+    var countData = [{
+        value: 27.5,
+        name: 'MTD % changevs .last month',
+        itemStyle: {
+            color: '#4d96f1'
+        }
+    }, {
+        value: 27.5,
+        name: 'MTD % changevs .last month',
+        itemStyle: {
+            color: '#ffa441'
+        }
+    }, {
+        value: 45,
+        name: 'MTD % changevs .last month',
+        itemStyle: {
+            color: '#28ccae'
+        }
+    }];
+
     listArr.forEach(function(item, index) {
         myChart = echarts.init(listArr[index]);
         // 指定图表的配置项和数据
         option = {
-                //设置
-                tooltip: {
-                    trigger: 'item',
-                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+            // 设置
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/> {b} : <br/>{c} ({d}%)"
+            },
+            // 系列列表
+            series: [{
+                name: 'Month to date($):49m',
+                type: 'pie', // 数据统计图的类型
+                radius: '100%', // 大小
+                itemStyle: {
+                    normal: {
+                        length: 10,
+                        label: {
+                            // 此处为指示线文字
+                            show: true,
+                            position: 'inner', //标签的位置
+                            textStyle: {
+                                fontWeight: 200,
+                                fontSize: 10 //文字的字体大小
+                            },
+                            formatter: function(p) { //指示线对应文字
+                                var data = p.data.value;
+                                return data;
+                            }
+                        }
+                    }
                 },
-                //系列列表
-                series: [{
-                    name: 'Month to date($):49m',
-                    type: 'pie', // 数据统计图的类型
-                    radius: '100%',
-                    // 放置要展示的数据
-                    data: [{
-                        value: 27.5,
-                        name: 'MTD % changevs .last month:',
-                        itemStyle: {
-                            color: '#4d96f1'
-                        }
-                    }, {
-                        value: 27.5,
-                        name: 'MTD % changevs .last month:',
-                        itemStyle: {
-                            color: '#ffa441'
-                        }
-                    }, {
-                        value: 45,
-                        name: 'MTD % changevs .last month:',
-                        itemStyle: {
-                            color: '#28ccae'
-                        }
-                    }]
-                }]
-            }
-            // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
+                // 放置要展示的数据
+                data: countData
+            }]
+        }
+        myChart.setOption(option); // 使用刚指定的配置项和数据显示图表。
     });
 </script>
 
