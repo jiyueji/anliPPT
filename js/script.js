@@ -30,7 +30,7 @@ var containerUpBig = new Swiper('.swiper-containerUpBig', {
         // },
         slideChangeTransitionStart: function(){
             var nowSlides = document.getElementsByClassName("swiper-slide-active")[0]
-            // console.log(this.realIndex)
+            // alert(this.realIndex)
             if(changeIndex == 1){
                 nowSlides.firstElementChild.src = srcArr1[this.realIndex]
             }else if(changeIndex == 2){
