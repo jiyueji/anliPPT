@@ -455,8 +455,8 @@ main .-content.-index>div {
 
 @media screen and (max-width: 1366px) {
     .form-bg {
-        width: 671px;
-        height: 400px;
+        width: 730px;
+        height: 425px;
         background: url(../../../../img/middleBorder.png)no-repeat;
         background-size: 100% 100%;
     }
