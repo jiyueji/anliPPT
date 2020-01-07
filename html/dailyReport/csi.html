@@ -288,6 +288,20 @@
                         symbolSize: 5, //折线点的大小
                         animationDuration: 1000,
                         // stack: 100,
+                        areaStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: '#ffa441'
+                                }, {
+                                    offset: 0.8,
+                                    // color: color[x] + ', 0)'
+                                    color:  'rgba(77,150,241,0)'
+                                }], false),
+                                shadowColor: 'rgba(0, 0, 0, 0.1)',
+                                shadowBlur: 10
+                            }
+        },
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
                                 //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
