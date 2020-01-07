@@ -218,17 +218,17 @@
 
 .mask {
     width: 100%;
-    height: 618px;
+    height: 425px;
     position: absolute;
     z-index: 101;
 }
 
 .centerBorBig {
     width: 100%;
-    height: 618px;
+    height: 425px;
     position: absolute;
     background: url(../img/centerBorBig.png) no-repeat;
-    background-size: 884px 618px;
+    background-size: 730px 425px;
 }
 
 
@@ -242,7 +242,15 @@
     top: 0;
     line-height: 16px;
 }
-
+#root {
+    letter-spacing: 37px;
+    font-size: 62px;
+    position: absolute;
+    /* left: 200px; */
+    right: 164px;
+    top: 35px;
+    color: #ffffff;
+}
 
 /* 两边的小边框 */
 
@@ -257,7 +265,7 @@
 
 .middleBorder {
     width: 100%;
-    height: 618px;
+    height: 425px;
     position: absolute;
     background: url(../img/middleBorder.png) no-repeat 100% 100%;
 }
@@ -275,18 +283,20 @@
         padding-top: 43px;
     }
     .swiper-containerUpBig {
-        height: 500px;
-        margin: -83px 0 0 28px;
+        height: 558px;
+        /* margin: -83px 0 0 28px; */
+        margin-top:-83px
     }
     .swiper-containerUpBig .swiper-slide-active {
-        width: 671px !important;
+        width: 730px !important;
         height: 425px !important;
-        background: url(../../../img/middleBorder.png)no-repeat;
-        background-size: 100% 100%;
+        /* background: url(../../../img/middleBorder.png)no-repeat; */
+        /* background-size: 100% 100%; */
     }
     .swiper-containerUpBig .swiper-slide-prev,
     .swiper-containerUpBig .swiper-slide-next {
-        width: 320px !important;
+        /* width: 320px !important; */
+        width: 318px !important;
         height: 413px !important;
     }
     .allBackground .backgroundUpGif {
@@ -330,5 +340,22 @@
     .dataBottom .imgLeft,
     .dataBottom .imgRight {
         top: -15px;
+    }
+    .mask,.centerBorBig,.middleBorder{
+        height:425px;
+    }
+    .centerBorBig{
+        background-size: 730px 425px;
+    }
+    .middleBorder{
+        background-size: 730px 425px;
+    }
+    #root{
+        letter-spacing: 32px;
+        font-size: 46px;
+        position: absolute;
+        right: 128px;
+        top: 20px;
+        color: #ffffff;
     }
 }

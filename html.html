@@ -20,17 +20,24 @@
     <div class="allBackground">
         <p class="title">Amway China</p>
         <img class="backgroundUpGif" src="./img/backgroundUp.gif" />
-        <p class="titleUp" id="tatleChange">Monthly Report</p>
+        <p class="titleUp" id="tatleChange">Sales Performance</p>
 
         <div class="swiper-container swiper-containerUpBig">
             <div class="swiper-wrapper upBigBorderSwiper" id="changeBinner">
-
-
-                <!-- 表格 -->
+                <!-- 饼图加折线图 -->
                 <div class="swiper-slide">
-                    <div class="mask-01"></div>
-                    <iframe align="center" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" style="position: absolute;" src="./html/monthlyReport/formTab/formTab.html"></iframe>
-                    <div class="mask-02"></div>
+                    <iframe align="center" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" style="position: absolute;" src="./html/monthlyReport/salesHome.html"></iframe>
+                    <div style="width: 100%;height:421px;position:absolute;z-index:101;"></div>
+                </div>
+                <!-- 地图 -->
+                <div class="swiper-slide">
+                    <iframe align="center" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" style="position: absolute;" src="./html/monthlyReport/map.html"></iframe>
+                    <div style="width: 100%;height:421px;position:absolute;z-index:101;"></div>
+                </div>
+                <!-- 柱状图 -->
+                <div class="swiper-slide">
+                    <iframe align="center" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" style="position: absolute;" src="./html/monthlyReport/histogram.html"></iframe>
+                    <div style="width: 100%;height:421px;position:absolute;z-index:101;"></div>
                 </div>
             </div>
         </div>
@@ -41,28 +48,35 @@
                 <img src="./img/leftRoad.png " />
                 <img src="./img/left.gif " class="loading " />
             </div>
-            <div class="swiper-containerDownSmall swiper-container ">
-                <div class="swiper-wrapper downSmallBorderSwiper " id="imageChange ">
-                    <div class="downBorder swiper-slide " onclick="oneImg() ">
-                        <div class="smallImgTital ">Monthly Report</div>
-                        <img src="./img/1/map.png " />
+            <div class="swiper-containerDownSmall swiper-container">
+                <div class="swiper-wrapper downSmallBorderSwiper" id="imageChange">
+                    <!-- <div class="swiper-slide"><img src="./img/1.png" /></div> -->
+                    <div class="downBorder swiper-slide" onclick="oneImg()">
+                        <div class="smallImgTital">Sales Performance</div>
+                        <img src="./img/home/1home.png" />
                     </div>
-                    <div class="downBorder swiper-slide " onclick="twoImg() ">
-                        <div class="smallImgTital ">Daily Report</div>
-                        <img src="./img/2/Dally Sales.png " />
+                    <div class="downBorder swiper-slide" onclick="twoImg()">
+                        <div class="smallImgTital">AGP KPI</div>
+                        <img src="./img/home/2home.png" />
+                    </div class="downBorder swiper-slide">
+                    <div class="downBorder swiper-slide" onclick="threeImg()" id="imgShowHidden">
+                        <div class="smallImgTital">ABO Momentum</div>
+                        <img src="./img/3/2.png" />
+                    </div class="downBorder swiper-slide">
+                    <div class="downBorder swiper-slide" onclick="fourImg()">
+                        <div class="smallImgTital">Prediction Model</div>
+                        <img src="./img/4/End of Month % of Sales.png" />
                     </div>
-                    <div class="downBorder swiper-slide " onclick="threeImg() " id="imgShowHidden ">
-                        <div class="smallImgTital ">Hourly Report</div>
-                        <img src="./img/3/2.png " />
+                    <div class="downBorder swiper-slide">
+                        <div class="smallImgTital">Daily Report</div>
+                        <img src="" />
                     </div>
                 </div>
             </div>
-
             <div class="imgRight swiper-button-next ">
                 <img src="./img/rightRoad.png " />
                 <img src="./img/right.gif " class="loading " />
             </div>
-
         </div>
         <span class="triangle ">▲</span>
     </div>

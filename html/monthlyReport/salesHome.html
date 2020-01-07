@@ -11,15 +11,7 @@
     <!-- 引入css文件 -->
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-        #root {
-            letter-spacing: 37px;
-            font-size: 62px;
-            position: absolute;
-            /* left: 200px; */
-            right: 164px;
-            top: 35px;
-            color: #ffffff;
-        }
+
     </style>
 </head>
 
@@ -28,8 +20,8 @@
         <div class="centerTitle">FOA Foresize</div>
         <div id="root">0m</div>
         <div id="salesHomepie" class="swiper-slide swiper-slide-echarts"
-            style="width: 858px;height:124px;padding-top: 17%;"></div>
-        <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 858px;height:470px;"></div>
+            style="width: 730px;height:85px;padding-top: 15%;"></div>
+        <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:340px;"></div>
     </div>
 
     <script>
@@ -136,25 +128,25 @@
                     top: '38%',
                     textStyle: {
                         color: '#fff',
-                        fontSize: 20
+                        fontSize: 18
                     },
                     subtextStyle: {
                         color: '#fff',
-                        fontSize: 12,
+                        fontSize: 11,
                     }
                 }, {
                     text: '92%',
                     subtext: 'on SPLY',
                     itemGap: 1,
-                    x: '72%',
+                    x: '71.5%',
                     top: '38%',
                     textStyle: {
                         color: '#fff',
-                        fontSize: 20
+                        fontSize: 18
                     },
                     subtextStyle: {
                         color: '#fff',
-                        fontSize: 12,
+                        fontSize: 11,
                     }
                 }],
                 series: [
@@ -323,6 +315,7 @@
                         }
                     }
                 ],
+                animationDuration: 5000,
                 series: [
                     {
                         name: 'Sales forecast',
@@ -360,7 +353,6 @@
                         smooth: true,
                         // symbol: "none", //去掉折线点
                         symbolSize: 5, //折线点的大小
-                        animationDuration: 5000,
                         label: {
                             show: true,
                             // position: 'top',
