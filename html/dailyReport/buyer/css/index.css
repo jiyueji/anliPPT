@@ -1,0 +1,70 @@
+.title-font {
+    top: 10px;
+}
+
+.main-conent {
+    display: flex;
+    width: 650px;
+    height: auto;
+    margin: 45px auto;
+}
+
+.main-top {
+    margin-top: -12px;
+}
+
+.main-conent .left {
+    width: 376px;
+    height: 139px;
+    margin: 10px 0;
+}
+
+.main-conent .left .img-bg {
+    width: 376px;
+    height: 139px;
+}
+
+.main-conent .left .left-cont {
+    position: absolute;
+    top: 0px;
+    color: #fff;
+}
+
+.main-conent .left .left-cont .left-font-01,
+.main-conent .left .left-cont .left-font-02 {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 52px 0 0 30px;
+}
+
+.main-conent .left .left-cont .left-font-02 {
+    padding: 0 0 0 30px;
+}
+
+.main-conent .left .left-cont .left-font-03 {
+    display: flex;
+    margin-top: -32px;
+    margin-left: 28px;
+}
+
+.main-conent .left .left-cont .left-font-03 .left-n-01 {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.main-conent .left .left-cont .left-font-03 .left-n-02 {
+    margin: -10px 0 0 113px;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.main-conent .ins {
+    width: 58px;
+    height: 29px;
+    padding: 60px 0 0 40px;
+}
+
+.main-conent .right {
+    margin: 0 0 0 45px;
+    width: 300px;
+}
