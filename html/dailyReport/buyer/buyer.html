@@ -75,19 +75,28 @@
                 },
                 //系列列表
                 series: [{
-                    name: '学生成绩分布',
+                    name: 'Month to date($):49m',
                     type: 'pie', // 数据统计图的类型
                     radius: '100%',
                     // 放置要展示的数据
                     data: [{
-                        value: 30,
-                        name: 'A(90以上)'
+                        value: 27.5,
+                        name: 'MTD % changevs .last month:',
+                        itemStyle: {
+                            color: '#4d96f1'
+                        }
                     }, {
-                        value: 10,
-                        name: 'B(80-89)'
+                        value: 27.5,
+                        name: 'MTD % changevs .last month:',
+                        itemStyle: {
+                            color: '#ffa441'
+                        }
                     }, {
-                        value: 50,
-                        name: 'C(80-89)'
+                        value: 45,
+                        name: 'MTD % changevs .last month:',
+                        itemStyle: {
+                            color: '#28ccae'
+                        }
                     }]
                 }]
             }
