@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入echarts -->
+    <script type="text/javascript" src="../../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="../../../incubator-echarts-4.6.0/map/js/china.js"></script>
+    <!-- 引入css文件 -->
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="middleBorder">
+        <p class="smallTitle title-font">Daily Recruitment & Buyer</p>
+        <div class="main-conent">
+            <div class="left">
+                <img src="../../../anli UI/安利汇报图表-第五屏/框-（2）.png" alt="安利汇报图表-第五屏/框-（2）.png" class="img-bg">
+                <div class="left-cont">
+                    <p class="left-font-01">Recruitment(MTD)</p>
+                    <p class="left-font-02">Month to date</p>
+                    <div class="left-font-03">
+                        <p class="left-n-01">$294K</p>
+                        <span class="left-n-02">
+                            <p>vs LM:+47%</p>
+                            <p>vs SPLY:+503%</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <img src="../../../anli UI/安利汇报图表-第五屏/箭头（2）.png" alt="" class="ins">
+            <div class="right" id="right1">
+
+            </div>
+        </div>
+
+        <div class="main-conent main-top">
+            <div class="left">
+                <img src="../../../anli UI/安利汇报图表-第五屏/框-（2）.png" alt="安利汇报图表-第五屏/框-（2）.png" class="img-bg">
+                <div class="left-cont" style="top: 192px;">
+                    <p class="left-font-01">Recruitment(MTD)</p>
+                    <p class="left-font-02">Month to date</p>
+                    <div class="left-font-03">
+                        <p class="left-n-01">$746K</p>
+                        <span class="left-n-02">
+                            <p>vs LM:+10%</p>
+                            <p>vs SPLY:+17%</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <img src="../../../anli UI/安利汇报图表-第五屏/箭头（2）.png" alt="" class="ins">
+            <div class="right" id="right2">
+
+            </div>
+        </div>
+
+    </div>
+</body>
+<script>
+    var listArr = [document.getElementById('right1'), document.getElementById('right2')],
+        myChart, option;
+    listArr.forEach(function(item, index) {
+        myChart = echarts.init(listArr[index]);
+        // 指定图表的配置项和数据
+        option = {
+                //设置
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                //系列列表
+                series: [{
+                    name: '学生成绩分布',
+                    type: 'pie', // 数据统计图的类型
+                    radius: '100%',
+                    // 放置要展示的数据
+                    data: [{
+                        value: 30,
+                        name: 'A(90以上)'
+                    }, {
+                        value: 10,
+                        name: 'B(80-89)'
+                    }, {
+                        value: 50,
+                        name: 'C(80-89)'
+                    }]
+                }]
+            }
+            // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    });
+</script>
+
+</html>

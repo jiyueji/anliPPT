@@ -24,79 +24,418 @@
     </div>
 
     <script>
-        var data = [
-            { x: "黄安莉  林海峰", val: 2933664.2855858495, open: 0, close: 2933664.2855858495, high: 2933664.2855858495 },
-            { x: "AMWAY", val: 2298275.9606840014, open: 2933664.2855858495, close: 5231940.246269851, high: 5231940.246269851 },
-            { x: "李丽莉  ", val: 687609.2068611896, open: 5231940.246269851, close: 5919549.453131041, high: 5919549.453131041 },
-            { x: "韩世荣  ", val: 377031.68782420084, open: 5919549.453131041, close: 6296581.140955241, high: 6296581.140955241 },
-            { x: "简水兰  ", val: 315382.88528743014, open: 6296581.140955241, close: 6611964.026242672, high: 6611964.026242672 },
-            { x: "何迅  龚玲姬", val: 297102.6046266407, open: 6611964.026242672, close: 6909066.630869312, high: 6909066.630869312 },
-            { x: "朱生才  张盛举", val: 231298.86809467012, open: 6909066.630869312, close: 7140365.498963982, high: 7140365.498963982 },
-            { x: "江芝英  王纪接", val: 167500.94390496006, open: 7140365.498963982, close: 7307866.442868942, high: 7307866.442868942 },
-            { x: "袁为群  周亚星", val: 61830.40435339883, open: 7307866.442868942, close: 7369696.847222341, high: 7369696.847222341 },
-            { x: "钟光文  何静", val: 28196.66710300604, open: 7369696.847222341, close: 7397893.514325347, high: 7397893.514325347 },
-            { x: "梁丁苏  孙东", val: -145034.1582115693, open: 7397893.514325347, close: 7252859.3561137775, high: 7397893.514325347 },
-            { x: "雷宇鸣  叶桂花", val: -271130.54789680056, open: 7252859.3561137775, close: 6981728.808216977, high: 7252859.3561137775 },
-            { x: "傅后坚  柯淑真", val: -420307.7350932956, open: 6981728.808216977, close: 6561421.073123681, high: 6981728.808216977 },
-            { x: "郑维良  罗斌", val: -437174.05780480057, open: 6561421.073123681, close: 6124247.015318881, high: 6561421.073123681 },
-            { x: "陈婉芬  嵇龙生", val: -452459.82297089696, open: 6124247.015318881, close: 5671787.192347984, high: 6124247.015318881 },
-            { x: "葛勇芹  ", val: -566535.2738556005, open: 5671787.192347984, close: 5105251.918492383, high: 5671787.192347984 },
-            { x: "金梅  刘德沛", val: -591966.6046303902, open: 5105251.918492383, close: 4513285.313861993, high: 5105251.918492383 },
-            { x: "王寒茹  毛忠", val: -601059.2602422303, open: 4513285.313861993, close: 3912226.053619763, high: 4513285.313861993 },
-            { x: "尹建平  王成安", val: -602194.3848625198, open: 3912226.053619763, close: 3310031.668757243, high: 3912226.053619763 },
-            { x: "杜国渊  沈艳", val: -732959.7941808999, open: 3310031.668757243, close: 2577071.874576343, high: 3310031.668757243 },
-            { x: "傅南生  吴彩云", val: -878108.3879023399, open: 2577071.874576343, close: 1698963.4866740033, high: 2577071.874576343 },
-            { x: "陈来发  李月容", val: -951797.5713698976, open: 1698963.4866740033, close: 747165.9153041057, high: 1698963.4866740033 },
-            { x: "康君  ", val: -1079899.989153698, open: 747165.9153041057, close: -332734.07384959236, high: 747165.9153041057 },
-            { x: "张忆平  ", val: -1406604.0746743008, open: -332734.07384959236, close: -1739338.1485238932, high: -332734.07384959236 },
-            { x: "任英才  ", val: -1428969.9266650993, open: -1739338.1485238932, close: -3168308.0751889925, high: -1739338.1485238932 },
-            { x: "周帆扬  郑新清", val: -1440783.9624000005, open: -3168308.0751889925, close: -4609092.037588993, high: -3168308.0751889925 },
-            { x: "郭洪斌  范建平", val: -1614556.6942544198, open: -4609092.037588993, close: -6223648.731843413, high: -4609092.037588993 },
-            { x: "许旭昇  谢淑芬", val: -1733400.4485523999, open: -6223648.731843413, close: -7957049.180395813, high: -6223648.731843413 },
-            { x: "刘红  狄晋", val: -1810779.4190612007, open: -7957049.180395813, close: -9767828.599457014, high: -7957049.180395813 },
-            { x: "周志坚  欧帼英", val: -2345164.868231401, open: -9767828.599457014, close: -12112993.467688415, high: -9767828.599457014 },
-            { x: "金乃刚  王淑真", val: -2386444.938727401, open: -12112993.467688415, close: -14499438.406415816, high: -12112993.467688415 },
-            { x: "卢宪新  卜范芝", val: -3990928.9143001027, open: -14499438.406415816, close: -18490367.32071592, high: -14499438.406415816 },
-            { x: "陈毅鼎  周婉明", val: -4000570.8952460997, open: -18490367.32071592, close: -22490938.21596202, high: -18490367.32071592 },
-            { x: "熊世翔  吴奕", val: -5296393.458032504, open: -22490938.21596202, close: -27787331.673994523, high: -22490938.21596202 },
+        var data = [{
+                x: "黄安莉  林海峰",
+                val: 2933664.2855858495,
+                open: 0,
+                close: 2933664.2855858495,
+                high: 2933664.2855858495
+            }, {
+                x: "AMWAY",
+                val: 2298275.9606840014,
+                open: 2933664.2855858495,
+                close: 5231940.246269851,
+                high: 5231940.246269851
+            }, {
+                x: "李丽莉  ",
+                val: 687609.2068611896,
+                open: 5231940.246269851,
+                close: 5919549.453131041,
+                high: 5919549.453131041
+            }, {
+                x: "韩世荣  ",
+                val: 377031.68782420084,
+                open: 5919549.453131041,
+                close: 6296581.140955241,
+                high: 6296581.140955241
+            }, {
+                x: "简水兰  ",
+                val: 315382.88528743014,
+                open: 6296581.140955241,
+                close: 6611964.026242672,
+                high: 6611964.026242672
+            }, {
+                x: "何迅  龚玲姬",
+                val: 297102.6046266407,
+                open: 6611964.026242672,
+                close: 6909066.630869312,
+                high: 6909066.630869312
+            }, {
+                x: "朱生才  张盛举",
+                val: 231298.86809467012,
+                open: 6909066.630869312,
+                close: 7140365.498963982,
+                high: 7140365.498963982
+            }, {
+                x: "江芝英  王纪接",
+                val: 167500.94390496006,
+                open: 7140365.498963982,
+                close: 7307866.442868942,
+                high: 7307866.442868942
+            }, {
+                x: "袁为群  周亚星",
+                val: 61830.40435339883,
+                open: 7307866.442868942,
+                close: 7369696.847222341,
+                high: 7369696.847222341
+            }, {
+                x: "钟光文  何静",
+                val: 28196.66710300604,
+                open: 7369696.847222341,
+                close: 7397893.514325347,
+                high: 7397893.514325347
+            }, {
+                x: "梁丁苏  孙东",
+                val: -145034.1582115693,
+                open: 7397893.514325347,
+                close: 7252859.3561137775,
+                high: 7397893.514325347
+            }, {
+                x: "雷宇鸣  叶桂花",
+                val: -271130.54789680056,
+                open: 7252859.3561137775,
+                close: 6981728.808216977,
+                high: 7252859.3561137775
+            }, {
+                x: "傅后坚  柯淑真",
+                val: -420307.7350932956,
+                open: 6981728.808216977,
+                close: 6561421.073123681,
+                high: 6981728.808216977
+            }, {
+                x: "郑维良  罗斌",
+                val: -437174.05780480057,
+                open: 6561421.073123681,
+                close: 6124247.015318881,
+                high: 6561421.073123681
+            }, {
+                x: "陈婉芬  嵇龙生",
+                val: -452459.82297089696,
+                open: 6124247.015318881,
+                close: 5671787.192347984,
+                high: 6124247.015318881
+            }, {
+                x: "葛勇芹  ",
+                val: -566535.2738556005,
+                open: 5671787.192347984,
+                close: 5105251.918492383,
+                high: 5671787.192347984
+            }, {
+                x: "金梅  刘德沛",
+                val: -591966.6046303902,
+                open: 5105251.918492383,
+                close: 4513285.313861993,
+                high: 5105251.918492383
+            }, {
+                x: "王寒茹  毛忠",
+                val: -601059.2602422303,
+                open: 4513285.313861993,
+                close: 3912226.053619763,
+                high: 4513285.313861993
+            }, {
+                x: "尹建平  王成安",
+                val: -602194.3848625198,
+                open: 3912226.053619763,
+                close: 3310031.668757243,
+                high: 3912226.053619763
+            }, {
+                x: "杜国渊  沈艳",
+                val: -732959.7941808999,
+                open: 3310031.668757243,
+                close: 2577071.874576343,
+                high: 3310031.668757243
+            }, {
+                x: "傅南生  吴彩云",
+                val: -878108.3879023399,
+                open: 2577071.874576343,
+                close: 1698963.4866740033,
+                high: 2577071.874576343
+            }, {
+                x: "陈来发  李月容",
+                val: -951797.5713698976,
+                open: 1698963.4866740033,
+                close: 747165.9153041057,
+                high: 1698963.4866740033
+            }, {
+                x: "康君  ",
+                val: -1079899.989153698,
+                open: 747165.9153041057,
+                close: -332734.07384959236,
+                high: 747165.9153041057
+            }, {
+                x: "张忆平  ",
+                val: -1406604.0746743008,
+                open: -332734.07384959236,
+                close: -1739338.1485238932,
+                high: -332734.07384959236
+            }, {
+                x: "任英才  ",
+                val: -1428969.9266650993,
+                open: -1739338.1485238932,
+                close: -3168308.0751889925,
+                high: -1739338.1485238932
+            }, {
+                x: "周帆扬  郑新清",
+                val: -1440783.9624000005,
+                open: -3168308.0751889925,
+                close: -4609092.037588993,
+                high: -3168308.0751889925
+            }, {
+                x: "郭洪斌  范建平",
+                val: -1614556.6942544198,
+                open: -4609092.037588993,
+                close: -6223648.731843413,
+                high: -4609092.037588993
+            }, {
+                x: "许旭昇  谢淑芬",
+                val: -1733400.4485523999,
+                open: -6223648.731843413,
+                close: -7957049.180395813,
+                high: -6223648.731843413
+            }, {
+                x: "刘红  狄晋",
+                val: -1810779.4190612007,
+                open: -7957049.180395813,
+                close: -9767828.599457014,
+                high: -7957049.180395813
+            }, {
+                x: "周志坚  欧帼英",
+                val: -2345164.868231401,
+                open: -9767828.599457014,
+                close: -12112993.467688415,
+                high: -9767828.599457014
+            }, {
+                x: "金乃刚  王淑真",
+                val: -2386444.938727401,
+                open: -12112993.467688415,
+                close: -14499438.406415816,
+                high: -12112993.467688415
+            }, {
+                x: "卢宪新  卜范芝",
+                val: -3990928.9143001027,
+                open: -14499438.406415816,
+                close: -18490367.32071592,
+                high: -14499438.406415816
+            }, {
+                x: "陈毅鼎  周婉明",
+                val: -4000570.8952460997,
+                open: -18490367.32071592,
+                close: -22490938.21596202,
+                high: -18490367.32071592
+            }, {
+                x: "熊世翔  吴奕",
+                val: -5296393.458032504,
+                open: -22490938.21596202,
+                close: -27787331.673994523,
+                high: -22490938.21596202
+            },
             // { x: "Total", val: -27787331.673994523, close: -27787331.673994523, open: 0, high: 0 }
         ];
-        var datas = [
-            { fc_group: "周志坚  欧帼英", total_sales_sum: 72092818.3916021, perc_of_total_sales: "12.2 %", sales_vs_sply: "-3.2 %", sales_vs_sply_cur: -2345164.868231401 },
-            { fc_group: "陈婉芬  嵇龙生", total_sales_sum: 39299166.9053525, perc_of_total_sales: "6.7 %", sales_vs_sply: "-1.1 %", sales_vs_sply_cur: -452459.82297089696 },
-            { fc_group: "熊世翔  吴奕", total_sales_sum: 38911305.2273421, perc_of_total_sales: "6.6 %", sales_vs_sply: "-12 %", sales_vs_sply_cur: -5296393.458032504 },
-            { fc_group: "傅后坚  柯淑真", total_sales_sum: 35296250.2412206, perc_of_total_sales: "6 %", sales_vs_sply: "-1.2 %", sales_vs_sply_cur: -420307.7350932956 },
-            { fc_group: "许旭昇  谢淑芬", total_sales_sum: 33830022.8651694, perc_of_total_sales: "5.7 %", sales_vs_sply: "-4.9 %", sales_vs_sply_cur: -1733400.4485523999 },
-            { fc_group: "陈毅鼎  周婉明", total_sales_sum: 33007276.9580714, perc_of_total_sales: "5.6 %", sales_vs_sply: "-10.8 %", sales_vs_sply_cur: -4000570.8952460997 },
-            { fc_group: "卢宪新  卜范芝", total_sales_sum: 25399260.6645346, perc_of_total_sales: "4.3 %", sales_vs_sply: "-13.6 %", sales_vs_sply_cur: -3990928.9143001027 },
-            { fc_group: "金乃刚  王淑真", total_sales_sum: 22618034.2096674, perc_of_total_sales: "3.8 %", sales_vs_sply: "-9.5 %", sales_vs_sply_cur: -2386444.938727401 },
-            { fc_group: "周帆扬  郑新清", total_sales_sum: 21970530.3862801, perc_of_total_sales: "3.7 %", sales_vs_sply: "-6.2 %", sales_vs_sply_cur: -1440783.9624000005 },
-            { fc_group: "陈来发  李月容", total_sales_sum: 20359917.4992127, perc_of_total_sales: "3.4 %", sales_vs_sply: "-4.5 %", sales_vs_sply_cur: -951797.5713698976 },
-            { fc_group: "任英才  ", total_sales_sum: 16145438.1156179, perc_of_total_sales: "2.7 %", sales_vs_sply: "-8.1 %", sales_vs_sply_cur: -1428969.9266650993 },
-            { fc_group: "康君  ", total_sales_sum: 16121211.8244492, perc_of_total_sales: "2.7 %", sales_vs_sply: "-6.3 %", sales_vs_sply_cur: -1079899.989153698 },
-            { fc_group: "韩世荣  ", total_sales_sum: 12584179.5540311, perc_of_total_sales: "2.1 %", sales_vs_sply: "3.1 %", sales_vs_sply_cur: 377031.68782420084 },
-            { fc_group: "张忆平  ", total_sales_sum: 12352961.1365029, perc_of_total_sales: "2.1 %", sales_vs_sply: "-10.2 %", sales_vs_sply_cur: -1406604.0746743008 },
-            { fc_group: "雷宇鸣  叶桂花", total_sales_sum: 11793387.2928166, perc_of_total_sales: "2 %", sales_vs_sply: "-2.2 %", sales_vs_sply_cur: -271130.54789680056 },
-            { fc_group: "杜国渊  沈艳", total_sales_sum: 11693605.1937382, perc_of_total_sales: "2 %", sales_vs_sply: "-5.9 %", sales_vs_sply_cur: -732959.7941808999 },
-            { fc_group: "刘红  狄晋", total_sales_sum: 11131988.1714739, perc_of_total_sales: "1.9 %", sales_vs_sply: "-14 %", sales_vs_sply_cur: -1810779.4190612007 },
-            { fc_group: "郑维良  罗斌", total_sales_sum: 10552740.5952273, perc_of_total_sales: "1.8 %", sales_vs_sply: "-4 %", sales_vs_sply_cur: -437174.05780480057 },
-            { fc_group: "袁为群  周亚星", total_sales_sum: 10071509.3195972, perc_of_total_sales: "1.7 %", sales_vs_sply: "0.6 %", sales_vs_sply_cur: 61830.40435339883 },
-            { fc_group: "何迅  龚玲姬", total_sales_sum: 10070651.7692402, perc_of_total_sales: "1.7 %", sales_vs_sply: "3 %", sales_vs_sply_cur: 297102.6046266407 },
-            { fc_group: "傅南生  吴彩云", total_sales_sum: 9652592.27973146, perc_of_total_sales: "1.6 %", sales_vs_sply: "-8.3 %", sales_vs_sply_cur: -878108.3879023399 },
-            { fc_group: "金梅  刘德沛", total_sales_sum: 8816342.80716509, perc_of_total_sales: "1.5 %", sales_vs_sply: "-6.3 %", sales_vs_sply_cur: -591966.6046303902 },
-            { fc_group: "黄安莉  林海峰", total_sales_sum: 8545003.51897467, perc_of_total_sales: "1.4 %", sales_vs_sply: "52.3 %", sales_vs_sply_cur: 2933664.2855858495 },
-            { fc_group: "郭洪斌  范建平", total_sales_sum: 8253712.39411657, perc_of_total_sales: "1.4 %", sales_vs_sply: "-16.4 %", sales_vs_sply_cur: -1614556.6942544198 },
-            { fc_group: "王寒茹  毛忠", total_sales_sum: 6908880.25500153, perc_of_total_sales: "1.2 %", sales_vs_sply: "-8 %", sales_vs_sply_cur: -601059.2602422303 },
-            { fc_group: "李丽莉  ", total_sales_sum: 6628752.90759841, perc_of_total_sales: "1.1 %", sales_vs_sply: "11.6 %", sales_vs_sply_cur: 687609.2068611896 },
-            { fc_group: "梁丁苏  孙东", total_sales_sum: 5931343.82685383, perc_of_total_sales: "1 %", sales_vs_sply: "-2.4 %", sales_vs_sply_cur: -145034.1582115693 },
-            { fc_group: "尹建平  王成安", total_sales_sum: 5595771.56186756, perc_of_total_sales: "0.9 %", sales_vs_sply: "-9.7 %", sales_vs_sply_cur: -602194.3848625198 },
-            { fc_group: "葛勇芹  ", total_sales_sum: 5149398.63620385, perc_of_total_sales: "0.9 %", sales_vs_sply: "-9.9 %", sales_vs_sply_cur: -566535.2738556005 },
-            { fc_group: "简水兰  ", total_sales_sum: 3220505.30007934, perc_of_total_sales: "0.5 %", sales_vs_sply: "10.9 %", sales_vs_sply_cur: 315382.88528743014 },
-            { fc_group: "江芝英  王纪接", total_sales_sum: 1997757.21857797, perc_of_total_sales: "0.3 %", sales_vs_sply: "9.2 %", sales_vs_sply_cur: 167500.94390496006 },
-            { fc_group: "朱生才  张盛举", total_sales_sum: 1338893.1667867, perc_of_total_sales: "0.2 %", sales_vs_sply: "20.9 %", sales_vs_sply_cur: 231298.86809467012 },
-            { fc_group: "钟光文  何静", total_sales_sum: 881225.92246567, perc_of_total_sales: "0.1 %", sales_vs_sply: "3.3 %", sales_vs_sply_cur: 28196.66710300604 },
-            { fc_group: "AMWAY", total_sales_sum: 52538722.056332, perc_of_total_sales: "8.9 %", sales_vs_sply: "4.6 %", sales_vs_sply_cur: 2298275.9606840014 }
-        ]
+        var datas = [{
+            fc_group: "周志坚  欧帼英",
+            total_sales_sum: 72092818.3916021,
+            perc_of_total_sales: "12.2 %",
+            sales_vs_sply: "-3.2 %",
+            sales_vs_sply_cur: -2345164.868231401
+        }, {
+            fc_group: "陈婉芬  嵇龙生",
+            total_sales_sum: 39299166.9053525,
+            perc_of_total_sales: "6.7 %",
+            sales_vs_sply: "-1.1 %",
+            sales_vs_sply_cur: -452459.82297089696
+        }, {
+            fc_group: "熊世翔  吴奕",
+            total_sales_sum: 38911305.2273421,
+            perc_of_total_sales: "6.6 %",
+            sales_vs_sply: "-12 %",
+            sales_vs_sply_cur: -5296393.458032504
+        }, {
+            fc_group: "傅后坚  柯淑真",
+            total_sales_sum: 35296250.2412206,
+            perc_of_total_sales: "6 %",
+            sales_vs_sply: "-1.2 %",
+            sales_vs_sply_cur: -420307.7350932956
+        }, {
+            fc_group: "许旭昇  谢淑芬",
+            total_sales_sum: 33830022.8651694,
+            perc_of_total_sales: "5.7 %",
+            sales_vs_sply: "-4.9 %",
+            sales_vs_sply_cur: -1733400.4485523999
+        }, {
+            fc_group: "陈毅鼎  周婉明",
+            total_sales_sum: 33007276.9580714,
+            perc_of_total_sales: "5.6 %",
+            sales_vs_sply: "-10.8 %",
+            sales_vs_sply_cur: -4000570.8952460997
+        }, {
+            fc_group: "卢宪新  卜范芝",
+            total_sales_sum: 25399260.6645346,
+            perc_of_total_sales: "4.3 %",
+            sales_vs_sply: "-13.6 %",
+            sales_vs_sply_cur: -3990928.9143001027
+        }, {
+            fc_group: "金乃刚  王淑真",
+            total_sales_sum: 22618034.2096674,
+            perc_of_total_sales: "3.8 %",
+            sales_vs_sply: "-9.5 %",
+            sales_vs_sply_cur: -2386444.938727401
+        }, {
+            fc_group: "周帆扬  郑新清",
+            total_sales_sum: 21970530.3862801,
+            perc_of_total_sales: "3.7 %",
+            sales_vs_sply: "-6.2 %",
+            sales_vs_sply_cur: -1440783.9624000005
+        }, {
+            fc_group: "陈来发  李月容",
+            total_sales_sum: 20359917.4992127,
+            perc_of_total_sales: "3.4 %",
+            sales_vs_sply: "-4.5 %",
+            sales_vs_sply_cur: -951797.5713698976
+        }, {
+            fc_group: "任英才  ",
+            total_sales_sum: 16145438.1156179,
+            perc_of_total_sales: "2.7 %",
+            sales_vs_sply: "-8.1 %",
+            sales_vs_sply_cur: -1428969.9266650993
+        }, {
+            fc_group: "康君  ",
+            total_sales_sum: 16121211.8244492,
+            perc_of_total_sales: "2.7 %",
+            sales_vs_sply: "-6.3 %",
+            sales_vs_sply_cur: -1079899.989153698
+        }, {
+            fc_group: "韩世荣  ",
+            total_sales_sum: 12584179.5540311,
+            perc_of_total_sales: "2.1 %",
+            sales_vs_sply: "3.1 %",
+            sales_vs_sply_cur: 377031.68782420084
+        }, {
+            fc_group: "张忆平  ",
+            total_sales_sum: 12352961.1365029,
+            perc_of_total_sales: "2.1 %",
+            sales_vs_sply: "-10.2 %",
+            sales_vs_sply_cur: -1406604.0746743008
+        }, {
+            fc_group: "雷宇鸣  叶桂花",
+            total_sales_sum: 11793387.2928166,
+            perc_of_total_sales: "2 %",
+            sales_vs_sply: "-2.2 %",
+            sales_vs_sply_cur: -271130.54789680056
+        }, {
+            fc_group: "杜国渊  沈艳",
+            total_sales_sum: 11693605.1937382,
+            perc_of_total_sales: "2 %",
+            sales_vs_sply: "-5.9 %",
+            sales_vs_sply_cur: -732959.7941808999
+        }, {
+            fc_group: "刘红  狄晋",
+            total_sales_sum: 11131988.1714739,
+            perc_of_total_sales: "1.9 %",
+            sales_vs_sply: "-14 %",
+            sales_vs_sply_cur: -1810779.4190612007
+        }, {
+            fc_group: "郑维良  罗斌",
+            total_sales_sum: 10552740.5952273,
+            perc_of_total_sales: "1.8 %",
+            sales_vs_sply: "-4 %",
+            sales_vs_sply_cur: -437174.05780480057
+        }, {
+            fc_group: "袁为群  周亚星",
+            total_sales_sum: 10071509.3195972,
+            perc_of_total_sales: "1.7 %",
+            sales_vs_sply: "0.6 %",
+            sales_vs_sply_cur: 61830.40435339883
+        }, {
+            fc_group: "何迅  龚玲姬",
+            total_sales_sum: 10070651.7692402,
+            perc_of_total_sales: "1.7 %",
+            sales_vs_sply: "3 %",
+            sales_vs_sply_cur: 297102.6046266407
+        }, {
+            fc_group: "傅南生  吴彩云",
+            total_sales_sum: 9652592.27973146,
+            perc_of_total_sales: "1.6 %",
+            sales_vs_sply: "-8.3 %",
+            sales_vs_sply_cur: -878108.3879023399
+        }, {
+            fc_group: "金梅  刘德沛",
+            total_sales_sum: 8816342.80716509,
+            perc_of_total_sales: "1.5 %",
+            sales_vs_sply: "-6.3 %",
+            sales_vs_sply_cur: -591966.6046303902
+        }, {
+            fc_group: "黄安莉  林海峰",
+            total_sales_sum: 8545003.51897467,
+            perc_of_total_sales: "1.4 %",
+            sales_vs_sply: "52.3 %",
+            sales_vs_sply_cur: 2933664.2855858495
+        }, {
+            fc_group: "郭洪斌  范建平",
+            total_sales_sum: 8253712.39411657,
+            perc_of_total_sales: "1.4 %",
+            sales_vs_sply: "-16.4 %",
+            sales_vs_sply_cur: -1614556.6942544198
+        }, {
+            fc_group: "王寒茹  毛忠",
+            total_sales_sum: 6908880.25500153,
+            perc_of_total_sales: "1.2 %",
+            sales_vs_sply: "-8 %",
+            sales_vs_sply_cur: -601059.2602422303
+        }, {
+            fc_group: "李丽莉  ",
+            total_sales_sum: 6628752.90759841,
+            perc_of_total_sales: "1.1 %",
+            sales_vs_sply: "11.6 %",
+            sales_vs_sply_cur: 687609.2068611896
+        }, {
+            fc_group: "梁丁苏  孙东",
+            total_sales_sum: 5931343.82685383,
+            perc_of_total_sales: "1 %",
+            sales_vs_sply: "-2.4 %",
+            sales_vs_sply_cur: -145034.1582115693
+        }, {
+            fc_group: "尹建平  王成安",
+            total_sales_sum: 5595771.56186756,
+            perc_of_total_sales: "0.9 %",
+            sales_vs_sply: "-9.7 %",
+            sales_vs_sply_cur: -602194.3848625198
+        }, {
+            fc_group: "葛勇芹  ",
+            total_sales_sum: 5149398.63620385,
+            perc_of_total_sales: "0.9 %",
+            sales_vs_sply: "-9.9 %",
+            sales_vs_sply_cur: -566535.2738556005
+        }, {
+            fc_group: "简水兰  ",
+            total_sales_sum: 3220505.30007934,
+            perc_of_total_sales: "0.5 %",
+            sales_vs_sply: "10.9 %",
+            sales_vs_sply_cur: 315382.88528743014
+        }, {
+            fc_group: "江芝英  王纪接",
+            total_sales_sum: 1997757.21857797,
+            perc_of_total_sales: "0.3 %",
+            sales_vs_sply: "9.2 %",
+            sales_vs_sply_cur: 167500.94390496006
+        }, {
+            fc_group: "朱生才  张盛举",
+            total_sales_sum: 1338893.1667867,
+            perc_of_total_sales: "0.2 %",
+            sales_vs_sply: "20.9 %",
+            sales_vs_sply_cur: 231298.86809467012
+        }, {
+            fc_group: "钟光文  何静",
+            total_sales_sum: 881225.92246567,
+            perc_of_total_sales: "0.1 %",
+            sales_vs_sply: "3.3 %",
+            sales_vs_sply_cur: 28196.66710300604
+        }, {
+            fc_group: "AMWAY",
+            total_sales_sum: 52538722.056332,
+            perc_of_total_sales: "8.9 %",
+            sales_vs_sply: "4.6 %",
+            sales_vs_sply_cur: 2298275.9606840014
+        }]
         var echX = [];
         var echY = [];
         var totalSales = [];
@@ -124,9 +463,10 @@
         }
 
         handleEcharts()
+
         function handleEcharts() {
             var histogram = echarts.init(document.getElementById('histogram'));
-            window.addEventListener('resize', function () {
+            window.addEventListener('resize', function() {
                 histogram.resize()
             });
             histogram.setOption({
@@ -176,7 +516,7 @@
                         }
                     },
                     axisLabel: {
-                        formatter: function (value) {
+                        formatter: function(value) {
                             // 去掉字符串多余的中间的空白
                             var repStr = "";
                             for (var i = 0; i < value.length; i++) {
@@ -189,7 +529,7 @@
                                 }
                             }
                             return repStr.split("").join("\n")
-                            // return value.split("").join("\n")
+                                // return value.split("").join("\n")
                         },
                         interval: 0,
                         color: '#ffffff',
@@ -221,7 +561,7 @@
                     type: 'bar',
                     data: totalSales,
                     barWidth: '15px',
-                    barGap: '-100%',//向左平移100%假装堆叠
+                    barGap: '-100%', //向左平移100%假装堆叠
                     // barCategoryGap: '20%',  // 柱形的间距
                     itemStyle: {
                         normal: {
@@ -231,7 +571,7 @@
                     label: {
                         normal: {
                             show: true,
-                            rotate: 0,  // 旋转角度
+                            rotate: 0, // 旋转角度
                             position: 'top', // 相对位置
                             formatter: (value) => {
                                 var val = ((value.data || 0) / 1000000).toFixed(1)
@@ -244,7 +584,7 @@
                     type: 'bar',
                     data: echY,
                     barWidth: '15px',
-                    stack: "one",//同样属性值可以堆叠
+                    stack: "one", //同样属性值可以堆叠
                     // barCategoryGap: '20%',  // 柱形的间距
                     itemStyle: {
                         normal: {
@@ -264,7 +604,7 @@
                     label: {
                         normal: {
                             show: true,
-                            rotate: 0,  // 旋转角度
+                            rotate: 0, // 旋转角度
                             // lineHeight: 30,
                             position: 'bottom', // 相对位置
                             fontSize: 10,
@@ -287,7 +627,7 @@
                     name: "Fall",
                     type: 'bar',
                     data: [],
-                    stack: "one",//同样属性值可以堆叠
+                    stack: "one", //同样属性值可以堆叠
                     // barGap: '0',//向左平移100%假装堆叠
                     itemStyle: {
                         normal: {
