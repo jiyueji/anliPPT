@@ -1,7 +1,7 @@
 var changeIndex = 1;
 
 var srcArr1 = ["./html/monthlyReport/salesHome.html","./html/monthlyReport/map.html","./html/monthlyReport/histogram.html"]
-var srcArr2 = ["./html/monthlyReport/formTab/formTab.html","./html/agpKpi/aboSegmentMonthlyData.html"]
+var srcArr2 = ["./html/agpKpi/formTab/formTab.html","./html/agpKpi/aboSegmentMonthlyData.html","./html/agpKpi/ppv.html","./html/agpKpi/endPpv.html"]
 
 
 
@@ -169,6 +169,7 @@ function oneImg() {
         iframe.scrolling = "no"
         iframe.align = "center"
         iframe.src = srcArr1[i];
+        // if()
         var mask = document.createElement("div");
         mask.className = 'mask';
         var div = document.createElement("div");
@@ -213,13 +214,26 @@ function twoImg() {
         iframe.scrolling = "no"
         iframe.align = "center"
         iframe.src = srcArr2[i];
-        var mask = document.createElement("div");
-        mask.className = 'mask';
-        var div = document.createElement("div");
-        div.className = "swiper-slide"
-        div.appendChild(iframe);
-        div.appendChild(mask);
-        changeBinner.appendChild(div)
+        if(i == 0){
+            var mask1 = document.createElement("div");
+            var mask2 = document.createElement("div");
+            mask1.className = 'mask-01';
+            mask2.className = 'mask-02';
+            var div = document.createElement("div");
+            div.className = "swiper-slide"
+            div.appendChild(iframe);
+            div.appendChild(mask1);
+            div.appendChild(mask2);
+            changeBinner.appendChild(div)
+        }else{
+            var mask = document.createElement("div");
+            mask.className = 'mask';
+            var div = document.createElement("div");
+            div.className = "swiper-slide"
+            div.appendChild(iframe);
+            div.appendChild(mask);
+            changeBinner.appendChild(div)
+        }
     }
     var containerUpBig = new Swiper('.swiper-containerUpBig', {
         loop: true,

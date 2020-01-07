@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入echarts -->
+    <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
+    <!-- 引入css文件 -->
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <div class="middleBorder">
+        <!-- <div class="smallTitle">PF20 YTD Sales by FC</div> -->
+        <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:425px;"></div>
+
+        <div style="position: relative;">
+            <div style="position: inherit;bottom:300px;left: 610px;">
+                <div style="width:15px;height:15px;border-radius:50%;background-color:#ff0000;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var monthShow = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var yShow = ['5%', '10%', '15%', '20%', '25%'];
+        var allData = {
+            // 预测假数据
+            // revenue_forecast_usd_data: [
+            //     { x: "Nov", y: 181839280.998621, labelTooltip: "Monthly Sales" },
+            //     { x: "Dec", y: 205400000, labelTooltip: "Sales Forecast" }
+            // ],
+            // 今年的数据
+            actual_sales_data: [
+                { x: "Jan", y: 18, labelTooltip: "Monthly Sales" },
+                { x: "Feb", y: 21, labelTooltip: "Monthly Sales" },
+                { x: "Mar", y: 24, labelTooltip: "Monthly Sales" },
+                { x: "Apr", y: 20, labelTooltip: "Monthly Sales" },
+                { x: "May", y: 19, labelTooltip: "Monthly Sales" },
+                { x: "Jun", y: 23, labelTooltip: "Monthly Sales" },
+                { x: "Jul", y: 25, labelTooltip: "Monthly Sales" },
+                { x: "Aug", y: 20, labelTooltip: "Monthly Sales" },
+                { x: "Sep", y: 21, labelTooltip: "Monthly Sales" },
+                { x: "Oct", y: 22, labelTooltip: "Monthly Sales" },
+                { x: "Nov", y: 23, labelTooltip: "Monthly Sales" },
+                { x: "Dec", y: 24, labelTooltip: "Monthly Sales" }
+            ],
+            // 去年的数据
+            actual_sales_ly_data: [
+                { x: "Jan", y: 18, labelTooltip: "Monthly Sales" },
+                { x: "Feb", y: 21, labelTooltip: "Monthly Sales" },
+                { x: "Mar", y: 24, labelTooltip: "Monthly Sales" },
+                { x: "Apr", y: 20, labelTooltip: "Monthly Sales" },
+                { x: "May", y: 19, labelTooltip: "Monthly Sales" },
+                { x: "Jun", y: 23, labelTooltip: "Monthly Sales" },
+                { x: "Jul", y: 25, labelTooltip: "Monthly Sales" },
+                { x: "Aug", y: 20, labelTooltip: "Monthly Sales" },
+                { x: "Sep", y: 21, labelTooltip: "Monthly Sales" },
+                { x: "Oct", y: 22, labelTooltip: "Monthly Sales" },
+                { x: "Nov", y: 23, labelTooltip: "Monthly Sales" },
+                { x: "Dec", y: 24, labelTooltip: "Monthly Sales" }
+            ],
+            //虚线数据
+            actual_sales_data_target: [
+                { x: "Jan", y: 17, labelTooltip: "Monthly Sales" },
+                { x: "Feb", y: 17, labelTooltip: "Monthly Sales" },
+                { x: "Mar", y: 17, labelTooltip: "Monthly Sales" },
+                { x: "Apr", y: 17, labelTooltip: "Monthly Sales" },
+                { x: "May", y: 17, labelTooltip: "Monthly Sales" },
+                { x: "Jun", y: 17, labelTooltip: "Monthly Sales" },
+                { x: "Jul", y: 17, labelTooltip: "Monthly Sales" },
+                { x: "Aug", y: 17, labelTooltip: "Monthly Sales" },
+                { x: "Sep", y: 17, labelTooltip: "Monthly Sales" },
+                { x: "Oct", y: 17, labelTooltip: "Monthly Sales" },
+                { x: "Nov", y: 17, labelTooltip: "Monthly Sales" },
+                { x: "Dec", y: 17, labelTooltip: "Monthly Sales" }
+            ],
+            // 备注和提示内容
+            tooltip_data_map: []
+        }
+        var thisYear = [];
+        var lastYear = [];
+        var ppvTarget = [];
+        var forecastYear = [];
+        var tooltipData = allData.tooltip_data_map
+        // console.log(allData.tooltip_data_map)
+        if (allData && allData.actual_sales_data.length > 0) {
+            allData.actual_sales_data.map((item, index) => {
+                thisYear.push(item.y)
+            })
+        }
+        if (allData && allData.actual_sales_ly_data.length > 0) {
+            allData.actual_sales_ly_data.map((item, index) => {
+                lastYear.push(item.y)
+            })
+        }
+        if (allData && allData.actual_sales_data_target.length > 0) {
+            allData.actual_sales_data_target.map((item, index) => {
+                ppvTarget.push(item.y)
+            })
+        }
+        // if (allData && allData.revenue_forecast_usd_data.length > 0) {
+        //     allData.revenue_forecast_usd_data.map((item, index) => {
+        //         forecastYear.push(item.y)
+        //     })
+        // }
+        for (var i = 0; forecastYear.length < 12; i++) {
+            forecastYear.unshift("")
+        }
+
+        handleEcharts();//折线图
+
+        function roll(total, idname, step) {
+            let n = 0;
+            return function () {
+                n = (n + step) >= total ? total : (n + step);
+                if (n <= total) {
+                    console.log(n)
+                    document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
+                }
+            }
+        }
+
+
+
+        function handleEcharts() {
+            var salesHomeEcharts = echarts.init(document.getElementById('salesHomeEcharts'));
+            window.addEventListener('resize', function () {
+                salesHomeEcharts.resize()
+            });
+            salesHomeEcharts.setOption({
+                animationDuration: 5000,
+                title: [
+                    {
+                        text: 'High PPV % of Sales',
+                        x: '2%',
+                        y: '8%',
+                        textStyle: {                  //标题样式
+                            fontSize: '16',
+                            color: '#ffffff',
+                        },
+                    }
+                ],
+                tooltip: {//鼠标移入
+                    trigger: 'axis',
+                    confine: true,
+                    //                 tooltip_data_map:
+                    // Jan:
+                    // monthName: "2019 January"
+                    // actual_sales: "$277m"
+                    // actual_sales_ly: "$235m"
+                    // sales_forecast: null
+                    // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
+                    formatter: (data) => {
+                        // console.log(data)
+                        // var yearThisData = 0;
+                        // var yearLastData = 0;
+                        // var forecastData = 0;
+                        // var nameShow = "";
+                        // var toolShow = "";
+                        // var monthUp = "";
+                        // var yearUp = new Date().getFullYear()
+                        // data.map((item, index) => {
+                        //     if (item.componentIndex && item.componentIndex == 1) {
+                        //         yearThisData = Math.round((item.data || 0) / 1000000) || 0
+                        //     } else if (item.componentIndex && item.componentIndex == 2) {
+                        //         yearLastData = Math.round((item.data || 0) / 1000000) || 0
+                        //     } else {
+                        //         forecastData = Math.round((item.data || 0) / 1000000) || 0
+                        //     }
+                        //     nameShow = item.name
+                        //     monthUp = item.axisValue
+                        // })
+                        // if (yearThisData) {
+                        //     var thisNow = "Monthly Sales This Year:" + yearThisData;
+                        // } else {
+                        //     var thisNow = "Sales forecast:" + forecastData;
+                        // }
+                        // if (tooltipData && tooltipData[nameShow]) {
+                        //     tooltipData[nameShow].events.map((item, index) => {
+                        //         toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
+                        //     })
+                        // }
+                        // return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "%" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
+                    }
+                },
+                grid: {
+                    top: '20%',
+                    left: '40',
+                    right: '40',
+                    bottom: '20%',
+                    containLabel: true,
+                },
+                xAxis: {
+                    type: 'category',
+                    data: monthShow,
+                    axisTick: {
+                        show: false //隐藏X轴刻度
+                    },
+                    axisLine: {
+                        show: false,
+                    },
+                    boundaryGap: false,//X轴刻度位置
+                    axisLabel: {
+                        textStyle: {
+                            fontSize: 12,
+                            color: '#ffffff'
+                        },
+                        formatter: function (params) {
+                            return params.split(' ')[0]
+                        }
+                    }
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        // data: monthShow,
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: "#ffffff"
+                            },
+                            formatter: function (params) {
+                                return params / 1 + "%"
+                            }
+                        },
+                        axisLine: {//隐藏X轴
+                            show: false
+                        },
+                        axisTick: {
+                            show: false //隐藏X轴刻度
+                        },
+                        splitLine: {//Y轴的样式虚线
+                            lineStyle: {
+                                type: 'dashed',
+                                color: '#e5e9ee'
+                            }
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '2019 Calendar year YTD High PPV % of Sales',
+                        type: 'line',
+                        symbolSize: 5,   //拐点圆的大小
+                        // color:['#fd0022'],  //折线条的颜色
+                        data: forecastYear,
+                        // symbol: "none", //去掉折线点
+                        smooth: false,   //关键点，为true是不支持虚线的，实线就用true
+                        animationDuration: 1000,
+                        itemStyle: {
+                            normal: {
+                                lineStyle: {
+                                    width: 3,
+                                    type: 'dotted',  //'dotted'虚线 'solid'实线
+                                    color: "#4d96f1"
+                                },
+                            }
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            textStyle: {
+                                color: '#4d96f1',
+                            }
+                        },
+                    }, {
+                        name: "2019 Calendar year YTD High PPV % of Sales",
+                        data: thisYear,
+                        type: 'line',
+                        smooth: true,
+                        symbol: "none", //去掉折线点
+                        symbolSize: 5, //折线点的大小
+                        animationDuration: 1000,
+                        label: {
+                            show: true,
+                            // position: 'top',
+                            position: ['0', '-20'],
+                            formatter: function (params) {
+                                return Math.round((params.data || 0) / 1) + "%"
+                            },
+                            backgroundColor: '#4d96f1',
+                            borderRadius: 5,
+                            padding: 4,
+                            textStyle: {
+                                fontSize: 8,
+                                color: '#ffffff',
+                            }
+                        },
+                        // stack: 100,
+                        itemStyle: {
+                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                                //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
+                                lineStyle: { // 系列级个性化折线样式
+                                    width: 3,
+                                    type: 'solid',
+                                    color: "#4d96f1"//折现颜色
+                                },
+                                borderColor: '#ffffff',  // 拐点边框颜色
+                            },
+                        }, //线条样式
+                    }, {
+                        name: "2020 High PPV % OF Sales Target",
+                        data: ppvTarget,
+                        type: 'line',
+                        smooth: false,
+                        symbol: "none", //去掉折线点
+                        symbolSize: 5, //折线点的大小
+                        animationDuration: 10000,
+                        label: {
+                            show: true,
+                            // position: 'top',
+                            position: ['0', '-20'],
+                            // formatter: function (params) {
+                            //     return Math.round((params.data || 0) / 1) + "%"
+                            // },
+                            backgroundColor: '#5198ee',
+                            borderRadius: 5,
+                            padding: 4,
+                            textStyle: {
+                                fontSize: 8,
+                                color: '#ffffff',
+                            },
+                        },
+                        // stack: 100,
+                        itemStyle: {
+                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                                //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
+                                lineStyle: { // 系列级个性化折线样式
+                                    width: 3,
+                                    type: 'dotted',
+                                    color: "#f49f44"//折现颜色
+                                },
+                                borderColor: '#ffffff',  // 拐点边框颜色
+                            },
+                            // emphasis: {
+                            //     color: '#fd0022',
+                            //     lineStyle: { // 系列级个性化折线样式
+                            //         width: 0.5,
+                            //         type: 'dotted',
+                            //         color: "#fd0022" //折线的颜色
+                            //     }
+                            // }
+                        }, //线条样式
+                        textStyle: {
+                            color: '#f49f44',
+                        },
+                    }, {
+                        name: "2019",
+                        data: lastYear,
+                        type: 'line',
+                        smooth: true,
+                        symbol: "none", //去掉折线点
+                        symbolSize: 5, //折线点的大小
+                        stack: 100,
+                        animationDuration: 1000,
+                        itemStyle: {
+                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                                color: 'rgba(28,213,224,0.36)', //背景渐变色
+                                lineStyle: { // 系列级个性化折线样式
+                                    width: 0.5,
+                                    type: 'solid',
+                                    color: "rgba(28,213,224,0.36)"//折现颜色
+                                }
+                            },
+                        }, //线条样式
+                        areaStyle: {
+                            normal: {}
+                        },
+                    }
+                ],
+                //图例名
+                legend: {
+                    type: "scroll",
+                    // icon: "line",
+                    icon: "circle",
+                    left: 'center',
+                    // bottom: 'bottom',
+                    y: '350',
+                    textStyle: {
+                        color: "#ffffff",
+                        fontSize: 14
+                    },
+                },
+                //  legend: {//图例组件
+                //     x: '35',
+                //     y: '421',
+                //     show: true,
+                //     textStyle: {//图例的公用文本样式。
+                //         fontSize: 24,
+                //         color: "#8D99A4"
+                //     },
+                //     itemGap: 20,//图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
+                //     data: ['活动金额', '流向实际毛利'],//图例的数据数组。
+                //     inactiveColor: '#ccc',//图例关闭时的颜色。
+                // },
+            })
+        }
+    </script>
+</body>
+
+</html>

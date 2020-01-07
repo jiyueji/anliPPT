@@ -237,10 +237,10 @@
 .centerTitle {
     position: absolute;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 16px;
     left: 14%;
     top: 0;
-    line-height: 16px;
+    line-height: 12px;
 }
 #root {
     letter-spacing: 37px;
