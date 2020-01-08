@@ -323,12 +323,14 @@
     }
     .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder .smallImgTital {
         width: 217px;
+        top: -56px;
+        font-size: 16px;
     }
     .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder img {
-        width: 227px;
-        height: 115px;
+        width: 208px;
+        height: 74px;
         transform: scale(0.9);
-        margin: -46px 0 0 -5px;
+        margin: -24px 0 0 4px;
     }
     .swiper-containerUpBig .swiper-slide .mask-01 {
         height: 172px;
