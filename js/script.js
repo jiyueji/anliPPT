@@ -2,6 +2,9 @@ var changeIndex = 1;
 
 var srcArr1 = ["./html/monthlyReport/salesHome.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
 var srcArr2 = ["./html/agpKpi/formTab/formTab.html", "./html/agpKpi/aboSegmentMonthlyData.html", "./html/agpKpi/ppv.html", "./html/agpKpi/endPpv.html"]
+var srcArr3 = []
+var srcArr4 = ["./html/predictionModel/abo.html"]
+var srcArr5 = ["./html/dailyReport/dailySales.html","./html/dailyReport/csi.html","./html/dailyReport/buyer/buyer.html"]
 
 
 
@@ -13,7 +16,8 @@ var containerUpBig = new Swiper('.swiper-containerUpBig', {
     initialSlide: 0, //初始展示
     slideToClickedSlide: true,
     centeredSlides: true, //设置slide居中
-    observer: true, //修改swiper自己或子元素时，自动初始化swiper
+    slidesOffsetBefore: -10,
+    observer: true,//修改swiper自己或子元素时，自动初始化swiper
     // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
     //         observeSlideChildren:true,
     coverflowEffect: {
@@ -28,9 +32,9 @@ var containerUpBig = new Swiper('.swiper-containerUpBig', {
         //     // alert("111")
         //     //你的事件
         // },
-        slideChangeTransitionStart: function() {
+        slideChangeTransitionStart: function () {
             var nowSlides = document.getElementsByClassName("swiper-slide-active")[0]
-                // alert(this.realIndex)
+            // alert(this.realIndex)
             if (changeIndex == 1) {
                 nowSlides.firstElementChild.src = srcArr1[this.realIndex]
             } else if (changeIndex == 2) {
@@ -188,7 +192,8 @@ function oneImg() {
         freeMod: false,
         initialSlide: 0, //初始展示
         centeredSlides: true, //设置slide居中
-        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        slidesOffsetBefore: -10,
+        observer: true,//修改swiper自己或子元素时，自动初始化swiper
         // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
         //         observeSlideChildren:true,
         coverflowEffect: {
@@ -245,7 +250,8 @@ function twoImg() {
         freeMod: false,
         initialSlide: 0, //初始展示
         centeredSlides: true, //设置slide居中
-        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        slidesOffsetBefore: -10,
+        observer: true,//修改swiper自己或子元素时，自动初始化swiper
         // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
         //         observeSlideChildren:true,
         coverflowEffect: {
@@ -280,7 +286,8 @@ function threeImg() {
         freeMod: false,
         initialSlide: 0, //初始展示
         centeredSlides: true, //设置slide居中
-        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        slidesOffsetBefore: -10,
+        observer: true,//修改swiper自己或子元素时，自动初始化swiper
         // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
         //         observeSlideChildren:true,
         coverflowEffect: {
@@ -297,16 +304,25 @@ function fourImg() {
     console.log("444")
     changeIndex = 4;
     tatleChange.innerHTML = "Prediction Model"
-    var binnerData = ["./img/4/table.png", "./img/4/Sales by Segments.png", "./img/4/High PPV Sales.png", "./img/4/End of Month % of Sales.png"]
     var changeBinner = document.getElementById("changeBinner")
     changeBinner.innerHTML = ""
-    for (var i = 0; i < binnerData.length; i++) {
+    for (var i = 0; i < srcArr4.length; i++) {
+        var iframe = document.createElement("iframe");
+        iframe.className = "iframeStyle";
+        iframe.frameborder = "no";
+        iframe.marginwidth = "0"
+        iframe.marginheight = "0"
+        iframe.scrolling = "no"
+        iframe.align = "center"
+        iframe.src = srcArr4[i];
+        // if()
+        var mask = document.createElement("div");
+        mask.className = 'mask';
         var div = document.createElement("div");
-        var img = document.createElement("img");
-        div.className = 'swiper-slide';
-        img.src = binnerData[i];
-        div.appendChild(img);
-        changeBinner.appendChild(div);
+        div.className = "swiper-slide"
+        div.appendChild(iframe);
+        div.appendChild(mask);
+        changeBinner.appendChild(div)
     }
     var containerUpBig = new Swiper('.swiper-containerUpBig', {
         loop: true,
@@ -315,7 +331,55 @@ function fourImg() {
         freeMod: false,
         initialSlide: 0, //初始展示
         centeredSlides: true, //设置slide居中
-        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        slidesOffsetBefore: -10,
+        observer: true,//修改swiper自己或子元素时，自动初始化swiper
+        // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
+        //         observeSlideChildren:true,
+        coverflowEffect: {
+            rotate: 50,// rotate：slide做3d旋转时Y轴的旋转角度。默认50。
+            stretch: -50,//stretch：每个slide之间的拉伸值，越大slide靠得越紧。 默认0。
+            depth: 120,//depth：slide的位置深度。值越大z轴距离越远，看起来越小。 默认100。
+            modifier: 1,//modifier：depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1。
+            slideShadows: true//slideShadows：开启slide阴影。默认 true。
+        },
+    })
+}
+
+function fiveImg() {
+    console.log("555")
+    changeIndex = 5;
+    tatleChange.innerHTML = "Daily Report"
+
+
+    var changeBinner = document.getElementById("changeBinner")
+    changeBinner.innerHTML = ""
+    for (var i = 0; i < srcArr5.length; i++) {
+        var iframe = document.createElement("iframe");
+        iframe.className = "iframeStyle";
+        iframe.frameborder = "no";
+        iframe.marginwidth = "0"
+        iframe.marginheight = "0"
+        iframe.scrolling = "no"
+        iframe.align = "center"
+        iframe.src = srcArr5[i];
+        // if()
+        var mask = document.createElement("div");
+        mask.className = 'mask';
+        var div = document.createElement("div");
+        div.className = "swiper-slide"
+        div.appendChild(iframe);
+        div.appendChild(mask);
+        changeBinner.appendChild(div)
+    }
+    var containerUpBig = new Swiper('.swiper-containerUpBig', {
+        loop: true,
+        effect: 'coverflow',
+        slidesPerView: 3,
+        freeMod: false,
+        initialSlide: 0,//初始展示
+        centeredSlides: true, //设置slide居中
+        slidesOffsetBefore: -10,
+        observer: true,//修改swiper自己或子元素时，自动初始化swiper
         // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
         //         observeSlideChildren:true,
         coverflowEffect: {
