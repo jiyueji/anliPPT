@@ -8,18 +8,24 @@
     <title>Document</title>
     <!-- 引入echarts -->
     <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
-   
+    <!-- 引入css文件 -->
+    <link rel="stylesheet" href="../../css/style.css">
+
 </head>
 
 <body>
-    <div style="width: 100%;height:618px;position:absolute;background:url(../../img/middleBorder.png) no-repeat 100% 100%"></div>
-    
+    <div class="middleBorder">
+        <div class="smallTitle">1st Year ABO Renewal Model</div>
+        <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts"
+        style="width: 730px;height:425px;"></div>
+    </div>
 
-    <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 858px;height:470px; margin-left: 37%; padding-top: 12%;"></div>
-  
-   
-   
-   <script>
+
+
+
+
+
+    <script>
         var monthShow = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         var yShow = ['28%', '30%', '32%', '34%', '36%', '38%', '40%'];
         var allData = {
@@ -70,7 +76,7 @@
                 thisYear.push(item.y)
             })
         }
-      
+
         if (allData && allData.actual_sales_data_target.length > 0) {
             allData.actual_sales_data_target.map((item, index) => {
                 ppvTarget.push(item.y)
@@ -86,10 +92,10 @@
         }
 
         handleEcharts();//折线图
-    
-       
 
-           
+
+
+
         function handleEcharts() {
             var salesHomeEcharts = echarts.init(document.getElementById('salesHomeEcharts'));
             window.addEventListener('resize', function () {
@@ -97,30 +103,30 @@
             });
             salesHomeEcharts.setOption({
                 animationDuration: 5000,
-                title: [
-                    {
-                        text: '1st Year ABO Renewal Model',
-                        x: '8%',
-                        y: '0%',
-                        textStyle: {                  //标题样式
-                            fontSize: '16',
-                            color: '#ffffff',
-                        },
-                    }
-                ],
+                // title: [
+                //     {
+                //         text: '1st Year ABO Renewal Model',
+                //         x: '8%',
+                //         y: '0%',
+                //         textStyle: {                  //标题样式
+                //             fontSize: '16',
+                //             color: '#ffffff',
+                //         },
+                //     }
+                // ],
                 tooltip: {//鼠标移入
                     trigger: 'axis',
                     confine: true,
-                    
+
                     formatter: (data) => {
-                     
+
                     }
                 },
                 grid: {
-                    top: '10%',
-                    left: '10%',
-                    right: '10%',
-                    bottom: '40%',
+                    top: '18%',
+                    left: '4%',
+                    right: '8%',
+                    bottom: '16%',
                     containLabel: true,
                 },
                 xAxis: {
@@ -165,7 +171,7 @@
                                 //     params1=params1+28+"%"  
                                 //     return params1;
                                 // }
-                                return params/1 + "%";
+                                return params / 1 + "%";
                             }
                         },
                         axisLine: {//隐藏X轴
@@ -183,14 +189,14 @@
                     }
                 ],
                 series: [
-                  {
+                    {
                         name: "Actual Renewal Rate",
                         data: thisYear,
                         type: 'line',
                         smooth: true,
                         symbol: "none", //去掉折线点
                         symbolSize: 5, //折线点的大小
-                        animationDuration: 1000,
+                        animationDuration: 1000,
                         label: {
                             show: true,
                             // position: 'top',
@@ -225,7 +231,7 @@
                         smooth: false,
                         symbol: "none", //去掉折线点
                         symbolSize: 5, //折线点的大小
-                        animationDuration: 1000,
+                        animationDuration: 1000,
                         label: {
                             show: true,
                             // position: 'top',
@@ -247,7 +253,7 @@
                                 //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
                                 lineStyle: { // 系列级个性化折线样式
                                     width: 3,
-                                    type:'dotted',
+                                    type: 'dotted',
                                     color: "#f49f44"
                                 },
                                 borderColor: '#ffffff',  // 拐点边框颜色
@@ -261,12 +267,12 @@
                             //     }
                             // }
                         }, //线条样式
-                        textStyle:{
-                             color:'#f49f44',
+                        textStyle: {
+                            color: '#f49f44',
                         },
                     }
                 ],
-                color:["#4d96f1","#f49f44"],
+                color: ["#4d96f1", "#f49f44"],
                 //图例名
                 legend: {
                     type: "scroll",
@@ -274,7 +280,7 @@
                     icon: "circle",
                     left: 'center',
                     // bottom: 'bottom',
-                    y: '305',
+                    y: '375',
                     textStyle: {
                         color: "#ffffff",
                         fontSize: 14

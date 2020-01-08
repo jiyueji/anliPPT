@@ -1,10 +1,10 @@
 var changeIndex = 1;
 
-var srcArr1 = ["./html/dailyReport/dailySales.html", "./html/monthlyReport/salesHome.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
+var srcArr1 = ["./html/monthlyReport/salesHome.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
 var srcArr2 = ["./html/agpKpi/formTab/formTab.html", "./html/agpKpi/aboSegmentMonthlyData.html", "./html/agpKpi/ppv.html", "./html/agpKpi/endPpv.html"]
 var srcArr3 = []
-var srcArr4 = []
-var srcArr5 = ["./html/dailyReport/dailySales.html"]
+var srcArr4 = ["./html/predictionModel/abo.html"]
+var srcArr5 = ["./html/dailyReport/dailySales.html","./html/dailyReport/csi.html","./html/dailyReport/buyer/buyer.html"]
 
 
 
@@ -304,16 +304,25 @@ function fourImg() {
     console.log("444")
     changeIndex = 4;
     tatleChange.innerHTML = "Prediction Model"
-    var binnerData = ["./img/4/table.png", "./img/4/Sales by Segments.png", "./img/4/High PPV Sales.png", "./img/4/End of Month % of Sales.png"]
     var changeBinner = document.getElementById("changeBinner")
     changeBinner.innerHTML = ""
-    for (var i = 0; i < binnerData.length; i++) {
+    for (var i = 0; i < srcArr4.length; i++) {
+        var iframe = document.createElement("iframe");
+        iframe.className = "iframeStyle";
+        iframe.frameborder = "no";
+        iframe.marginwidth = "0"
+        iframe.marginheight = "0"
+        iframe.scrolling = "no"
+        iframe.align = "center"
+        iframe.src = srcArr4[i];
+        // if()
+        var mask = document.createElement("div");
+        mask.className = 'mask';
         var div = document.createElement("div");
-        var img = document.createElement("img");
-        div.className = 'swiper-slide';
-        img.src = binnerData[i];
-        div.appendChild(img);
-        changeBinner.appendChild(div);
+        div.className = "swiper-slide"
+        div.appendChild(iframe);
+        div.appendChild(mask);
+        changeBinner.appendChild(div)
     }
     var containerUpBig = new Swiper('.swiper-containerUpBig', {
         loop: true,
