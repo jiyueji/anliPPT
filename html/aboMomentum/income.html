@@ -10,13 +10,25 @@
     <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
     <!-- 引入css文件 -->
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .newABO{
+            position:absolute;
+            color:#ffffff;
+            font-size:12px;
+            top: 278px;
+            right: 26px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="middleBorder">
         <div class="smallTitle">PF20 ABO Monthly Income</div>
-        <div id="salesHomeEchartsIncome" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:225px;margin-top: 40px;background:red"></div>
-        <div id="salesHomeEchartsIncome2" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:160px;"></div>
+        <div id="salesHomeEchartsIncome" class="swiper-slide swiper-slide-echarts"
+            style="width: 670px;height:225px;margin:auto;margin-top: 40px;border-bottom:1px dashed #ffffff;"></div>
+        <div id="salesHomeEchartsIncome2" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:160px;">
+        </div>
+        <div class="newABO">新ABO：当前业绩年度的新签约ABO</div>
     </div>
     <script>
         handleEcharts();//折线图
@@ -27,31 +39,20 @@
                 salesHomeEchartsIncome.resize()
             });
             salesHomeEchartsIncome.setOption({
-                animationDuration: 5000,
+                // animationDuration: 5000,
                 tooltip: {
                     axisPointer: { // 坐标轴指示器，坐标轴触发有效
                         type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
                     }
                 },
                 grid: {
-                    left: '5%',
+                    left: '1%',
                     right: '4%',
                     bottom: '5%',
                     top: '16%',
                     containLabel: true
                 },
-                // legend: {
-                //     data: ['外部', '内部'],
-                //     right: 10,
-                //     top: 12,
-                //     textStyle: {
-                //         color: "#fff"
-                //     },
-                //     itemWidth: 12,
-                //     itemHeight: 10,
-                //     // itemGap: 35
-                // },
-                xAxis: {
+                xAxis: [{
                     type: 'category',
                     data: ['DD', 'GP', 'SP'],
                     axisLine: {
@@ -73,6 +74,26 @@
                         show: false
                     }
                 },
+                /*隐藏一个不显示的横坐标，用作横线的位置*/
+                {
+                    type: 'category',
+                    axisLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: false
+                    },
+                    splitArea: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    data: []
+                }],
 
                 yAxis: {
                     type: 'value',
@@ -126,7 +147,7 @@
                             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                                 offset: 0,
                                 color: '#3bedcd',
-                                
+
                             }, {
                                 offset: 1,
                                 color: '#028971'
@@ -135,6 +156,74 @@
 
                     },
                     data: [1932, 994, 849]
+                },
+                // 上边第一个柱子
+                {
+                    name: 'Median income',
+                    type: 'bar',
+                    stack: 'breakevenEleGroup',
+                    barWidth: '60',
+                    animationDuration: 6000,
+                    xAxisIndex: 1,
+                    itemStyle: {
+                        normal: {
+                            color: 'rgba(0,0,0,0)',
+                        }
+
+                    },
+                    data: [1200, 200, 100]
+                },
+                {
+                    /*这个bar是横线的显示*/
+                    name: "Median income",
+                    stack: 'breakevenEleGroup',/*盈亏点数据组，需要设置才能将两个bar堆积在一起*/
+                    type: 'bar',
+                    xAxisIndex: 1,
+                    animationDuration: 6000,
+                    barGap: "0",
+                    itemStyle: {
+                        normal: {
+                            color: '#ffa441',
+                            barBorderColor: '#ffa441',
+                            barBorderWidth:2,
+                            barBorderRadius:10,
+                            borderType:"dotted"
+                        }
+                    },
+                    data: [20, 20, 20],
+                },
+                // 上边第二个图
+                {
+                    name: 'Median income',
+                    type: 'bar',
+                    stack: 'aaa',
+                    barWidth: '60',
+                    xAxisIndex: 1,
+                    itemStyle: {
+                        normal: {
+                            color: 'rgba(0,0,0,0)',
+                        }
+
+                    },
+                    data: [1200, 200, 100]
+                },
+                {
+                    /*这个bar是横线的显示*/
+                    name: "Median income",
+                    stack: 'aaa',/*盈亏点数据组，需要设置才能将两个bar堆积在一起*/
+                    type: 'bar',
+                    xAxisIndex: 1,
+                    barGap: "0",
+                    itemStyle: {
+                        normal: {
+                            color: '#ffa441',
+                            barBorderColor: '#ffa441',
+                            barBorderWidth:2,
+                            barBorderRadius:10,
+                            borderType:"dotted"
+                        }
+                    },
+                    data: [20, 20, 20],
                 }]
             })
         }
@@ -144,7 +233,7 @@
                 salesHomeEchartsIncome2.resize()
             });
             salesHomeEchartsIncome2.setOption({
-                animationDuration: 5000,
+                // animationDuration: 5000,
                 tooltip: {
                     axisPointer: { // 坐标轴指示器，坐标轴触发有效
                         type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
@@ -159,7 +248,7 @@
                 },
                 legend: {
                     orient: 'vertical',
-                    data: ['PF 19 avg income', 'PF 20 avg income'],
+                    data: [{name:'PF 19 avg income',icon:"rect"},{name:'PF 20 avg income',icon:"rect"},{name:'Median income',icon:'image://../../img/3/line.png'}],
                     right: 20,
                     top: 82,
                     textStyle: {
@@ -169,7 +258,7 @@
                     itemHeight: 10,
                     itemGap: 10,
                 },
-                xAxis: {
+                xAxis: [{
                     type: 'category',
                     data: ['New ABO', 'Exiting ABO'],
                     axisLine: {
@@ -191,6 +280,26 @@
                         show: false
                     }
                 },
+                /*隐藏一个不显示的横坐标，用作横线的位置*/
+                {
+                    type: 'category',
+                    axisLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: false
+                    },
+                    splitArea: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                    data: []
+                }],
 
                 yAxis: {
                     type: 'value',
@@ -252,6 +361,73 @@
 
                     },
                     data: [18, 22]
+                },
+                // 上边第一个柱子
+                {
+                    name: 'Median income',
+                    type: 'bar',
+                    stack: 'breakevenEleGroup',
+                    barWidth: '60',
+                    barGap: 0.4,
+                    xAxisIndex: 1,
+                    itemStyle: {
+                        normal: {
+                            color: 'rgba(0,0,0,0)',
+                        }
+
+                    },
+                    data: [10, 10]
+                },
+                {
+                    /*这个bar是横线的显示*/
+                    name: "Median income",
+                    stack: 'breakevenEleGroup',/*盈亏点数据组，需要设置才能将两个bar堆积在一起*/
+                    type: 'bar',
+                    xAxisIndex: 1,
+                    // barGap: 0.4,
+                    itemStyle: {
+                        normal: {
+                            color: '#ffa441',
+                            barBorderColor: '#ffa441',
+                            barBorderWidth:2,
+                            barBorderRadius:10,
+                            borderType:"dotted"
+                        }
+                    },
+                    data: [1, 1],
+                },
+                // 下边第二个柱子
+                {
+                    name: 'Median income',
+                    type: 'bar',
+                    stack: 'aaa',
+                    barWidth: '60',
+                    xAxisIndex: 1,
+                    itemStyle: {
+                        normal: {
+                            color: 'rgba(0,0,0,0)',
+                        }
+
+                    },
+                    data: [10, 10]
+                },
+                {
+                    /*这个bar是横线的显示*/
+                    name: "Median income",
+                    stack: 'aaa',/*盈亏点数据组，需要设置才能将两个bar堆积在一起*/
+                    type: 'bar',
+                    xAxisIndex: 1,
+                    // barGap: "0",
+                    itemStyle: {
+                        normal: {
+                            color: '#ffa441',
+                            barBorderColor: '#ffa441',
+                            barBorderWidth:2,
+                            barBorderRadius:10,
+                            borderType:"dotted"
+                        }
+                    },
+                    data: [1, 1],
                 }]
             })
         }
