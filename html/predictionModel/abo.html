@@ -16,7 +16,7 @@
 <body>
     <div class="middleBorder">
         <div class="smallTitle">1st Year ABO Renewal Model</div>
-        <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts"
+        <div id="salesHomeEchartsAbo" class="swiper-slide swiper-slide-echarts"
         style="width: 730px;height:425px;"></div>
     </div>
 
@@ -97,11 +97,11 @@
 
 
         function handleEcharts() {
-            var salesHomeEcharts = echarts.init(document.getElementById('salesHomeEcharts'));
+            var salesHomeEchartsAbo = echarts.init(document.getElementById('salesHomeEchartsAbo'));
             window.addEventListener('resize', function () {
-                salesHomeEcharts.resize()
+                salesHomeEchartsAbo.resize()
             });
-            salesHomeEcharts.setOption({
+            salesHomeEchartsAbo.setOption({
                 animationDuration: 5000,
                 // title: [
                 //     {

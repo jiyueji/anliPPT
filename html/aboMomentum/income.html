@@ -1,12 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!-- 引入echarts -->
+    <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
+    <!-- 引入css文件 -->
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
+
 <body>
-    
+    <div class="middleBorder">
+        <div class="smallTitle">PF20 ABO Monthly Income</div>
+        <div id="salesHomeEchartsIncome" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:225px;margin-top: 40px;background:red"></div>
+        <div id="salesHomeEchartsIncome2" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:160px;"></div>
+    </div>
+    <script>
+        handleEcharts();//折线图
+        handleEcharts2();//折线图
+        function handleEcharts() {
+            var salesHomeEchartsIncome = echarts.init(document.getElementById('salesHomeEchartsIncome'));
+            window.addEventListener('resize', function () {
+                salesHomeEchartsIncome.resize()
+            });
+            salesHomeEchartsIncome.setOption({
+                animationDuration: 5000,
+                tooltip: {
+                    axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    left: '5%',
+                    right: '4%',
+                    bottom: '5%',
+                    top: '16%',
+                    containLabel: true
+                },
+                // legend: {
+                //     data: ['外部', '内部'],
+                //     right: 10,
+                //     top: 12,
+                //     textStyle: {
+                //         color: "#fff"
+                //     },
+                //     itemWidth: 12,
+                //     itemHeight: 10,
+                //     // itemGap: 35
+                // },
+                xAxis: {
+                    type: 'category',
+                    data: ['DD', 'GP', 'SP'],
+                    axisLine: {
+                        show: false,
+                        lineStyle: {
+                            color: '#425873'
+
+                        }
+                    },
+                    axisLabel: {
+                        margin: 15,
+                        textStyle: {
+                            fontFamily: 'Microsoft YaHei',
+                            color: "#ffffff",
+                            fontSize: 16,
+                        }
+                    },
+                    axisTick: {
+                        show: false
+                    }
+                },
+
+                yAxis: {
+                    type: 'value',
+
+                    axisLine: {
+                        show: false,
+                        lineStyle: {
+                            color: 'white'
+                        }
+                    },
+                    splitLine: {
+                        show: false,
+                        lineStyle: {
+                            color: 'rgba(255,255,255,0.3)'
+                        }
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            color: "#ffffff",
+                            fontSize: 12
+                        }
+                    },
+                    axisTick: {
+                        show: false
+                    }
+                },
+                series: [{
+                    name: 'PF 19 avg income',
+                    type: 'bar',
+                    barWidth: '60',
+                    barGap: 0,
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#75b2ff'
+                            }, {
+                                offset: 1,
+                                color: '#0159ee'
+                            }]),
+                        },
+                    },
+                    data: [1898, 1117, 747]
+                },
+                {
+                    name: 'PF 20 avg income',
+                    type: 'bar',
+                    barWidth: '60',
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#3bedcd',
+                                
+                            }, {
+                                offset: 1,
+                                color: '#028971'
+                            }]),
+                        }
+
+                    },
+                    data: [1932, 994, 849]
+                }]
+            })
+        }
+        function handleEcharts2() {
+            var salesHomeEchartsIncome2 = echarts.init(document.getElementById('salesHomeEchartsIncome2'));
+            window.addEventListener('resize', function () {
+                salesHomeEchartsIncome2.resize()
+            });
+            salesHomeEchartsIncome2.setOption({
+                animationDuration: 5000,
+                tooltip: {
+                    axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                grid: {
+                    left: '7.5%',
+                    right: '28%',
+                    bottom: '14%',
+                    top: '16%',
+                    containLabel: true
+                },
+                legend: {
+                    orient: 'vertical',
+                    data: ['PF 19 avg income', 'PF 20 avg income'],
+                    right: 20,
+                    top: 82,
+                    textStyle: {
+                        color: "#fff"
+                    },
+                    itemWidth: 12,
+                    itemHeight: 10,
+                    itemGap: 10,
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['New ABO', 'Exiting ABO'],
+                    axisLine: {
+                        show: false,
+                        lineStyle: {
+                            color: '#425873'
+
+                        }
+                    },
+                    axisLabel: {
+                        margin: 15,
+                        textStyle: {
+                            // fontFamily: 'Microsoft YaHei',
+                            color: "#ffffff",
+                            fontSize: 16,
+                        }
+                    },
+                    axisTick: {
+                        show: false
+                    }
+                },
+
+                yAxis: {
+                    type: 'value',
+
+                    axisLine: {
+                        show: false,
+                        lineStyle: {
+                            color: 'white'
+                        }
+                    },
+                    splitLine: {
+                        show: false,
+                        lineStyle: {
+                            color: 'rgba(255,255,255,0.3)'
+                        }
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            color: "#ffffff",
+                            fontSize: 12
+                        }
+                    },
+                    axisTick: {
+                        show: false
+                    }
+                },
+                series: [{
+                    name: 'PF 19 avg income',
+                    type: 'bar',
+                    barWidth: '60',
+                    barGap: 0.4,
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#75b2ff'
+                            }, {
+                                offset: 1,
+                                color: '#0159ee'
+                            }]),
+                        },
+                    },
+                    data: [17, 18]
+                },
+                {
+                    name: 'PF 20 avg income',
+                    type: 'bar',
+                    barWidth: '60',
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#3bedcd'
+                            }, {
+                                offset: 1,
+                                color: '#028971'
+                            }]),
+                        }
+
+                    },
+                    data: [18, 22]
+                }]
+            })
+        }
+    </script>
 </body>
+
 </html>

@@ -57,7 +57,7 @@
                 <div>MTD CSL sales</div>
             </div>
         </div>
-        <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:320px;"></div>
+        <div id="salesHomeEchartsCsi" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:320px;"></div>
     </div>
 
 
@@ -168,25 +168,25 @@
 
         handleEcharts();//折线图
 
-        function roll(total, idname, step) {
-            let n = 0;
-            return function () {
-                n = (n + step) >= total ? total : (n + step);
-                if (n <= total) {
-                    console.log(n)
-                    document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
-                }
-            }
-        }
+        // function roll(total, idname, step) {
+        //     let n = 0;
+        //     return function () {
+        //         n = (n + step) >= total ? total : (n + step);
+        //         if (n <= total) {
+        //             console.log(n)
+        //             document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
+        //         }
+        //     }
+        // }
 
 
 
         function handleEcharts() {
-            var salesHomeEcharts = echarts.init(document.getElementById('salesHomeEcharts'));
+            var salesHomeEchartsCsi = echarts.init(document.getElementById('salesHomeEchartsCsi'));
             window.addEventListener('resize', function () {
-                salesHomeEcharts.resize()
+                salesHomeEchartsCsi.resize()
             });
-            salesHomeEcharts.setOption({
+            salesHomeEchartsCsi.setOption({
                 animationDuration: 5000,
                 // title: [
                 //     {

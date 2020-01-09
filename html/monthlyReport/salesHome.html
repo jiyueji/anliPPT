@@ -60,7 +60,7 @@
 <body>
     <div class="centerBorBig">
         <div class="centerTitle">FOA Foresize</div>
-        <div id="root">0m</div>
+        <div id="root">0mil</div>
         <div class="lightAllRight">
             <img src="../../img/lightRight1.gif" class="right1" />
             <img src="../../img/lightRight2.png" class="right2" />
@@ -149,7 +149,7 @@
                 n = (n + step) >= total ? total : (n + step);
                 if (n <= total) {
                     // console.log(n)
-                    document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
+                    document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "mil" + "</span>";
                 }
             }
         }
