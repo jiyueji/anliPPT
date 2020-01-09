@@ -15,7 +15,7 @@
 <body>
     <div class="middleBorder">
         <!-- <div class="smallTitle">PF20 YTD Sales by FC</div> -->
-        <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:425px;"></div>
+        <div id="salesHomeEchartsPpv" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:425px;"></div>
 
         <div style="position: relative;">
             <div style="position: inherit;bottom:300px;left: 610px;">
@@ -127,11 +127,11 @@
 
 
         function handleEcharts() {
-            var salesHomeEcharts = echarts.init(document.getElementById('salesHomeEcharts'));
+            var salesHomeEchartsPpv = echarts.init(document.getElementById('salesHomeEchartsPpv'));
             window.addEventListener('resize', function () {
-                salesHomeEcharts.resize()
+                salesHomeEchartsPpv.resize()
             });
-            salesHomeEcharts.setOption({
+            salesHomeEchartsPpv.setOption({
                 animationDuration: 5000,
                 title: [
                     {

@@ -11,14 +11,64 @@
     <!-- 引入css文件 -->
     <link rel="stylesheet" href="../../css/style.css">
     <style>
+        .lightAllRight {
+            position: absolute;
+            width: 125px;
+            height: 20px;
+            top: 83px;
+            left: 130px;
+        }
 
+        .lightAllRight .right1 {
+            width: 300px;
+            height: 100px;
+            position: absolute;
+            top: -38px;
+            left: -18px;
+        }
+
+        .lightAllRight .right2 {
+            width: 125px;
+            height: 20px;
+            position: absolute;
+        }
+        .lightAllLeft{
+            position: absolute;
+            width: 125px;
+            height: 20px;
+            top: 83px;
+            /* left: 482px; */
+            right: 130px;
+        }
+        .lightAllLeft .left1{
+            width: 300px;
+            height: 100px;
+            position: absolute;
+            top: -38px;
+            /* left: -156px;  */
+            right: -18px;
+
+        }
+        .lightAllLeft .left2{
+            width: 125px;
+            height: 20px;
+            position: absolute;
+        }
     </style>
 </head>
 
 <body>
     <div class="centerBorBig">
         <div class="centerTitle">FOA Foresize</div>
-        <div id="root">0m</div>
+        <div id="root">0mil</div>
+        <div class="lightAllRight">
+            <img src="../../img/lightRight1.gif" class="right1" />
+            <img src="../../img/lightRight2.png" class="right2" />
+        </div>
+        <div class="lightAllLeft">
+            <img src="../../img/lightLeft1.gif" class="left1" />
+            <img src="../../img/lightLeft2.png" class="left2" />
+        </div>
         <div id="salesHomepie" class="swiper-slide swiper-slide-echarts"
             style="width: 730px;height:85px;padding-top: 15%;"></div>
         <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:340px;"></div>
@@ -99,7 +149,7 @@
                 n = (n + step) >= total ? total : (n + step);
                 if (n <= total) {
                     // console.log(n)
-                    document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
+                    document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "mil" + "</span>";
                 }
             }
         }
@@ -263,10 +313,10 @@
                     }
                 },
                 grid: {
-                    top: '10%',
+                    top: '14%',
                     left: '10%',
                     right: '10%',
-                    bottom: '40%',
+                    bottom: '43%',
                     containLabel: true,
                 },
                 xAxis: {
@@ -418,7 +468,7 @@
                     icon: "line",
                     left: 'center',
                     // bottom: 'bottom',
-                    y: '305',
+                    y: '198',
                     textStyle: {
                         color: "#ffffff",
                         fontSize: 14

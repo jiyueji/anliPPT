@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入fishbone-diagram -->
+    <link rel="stylesheet" href="../../fishbone-diagram-1.0.0/css/fishboneDiagram.css">
+    <script type="text/javascript" src="../../fishbone-diagram-1.0.0/js/fishboneDiagram.js"></script>
+    <!-- 引入css文件 -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- 样式 -->
+    <style type="text/css">
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .middleBorder {
+        width: 858px;
+        height: 618px;
+        padding: 38px 40px 20px;
+        background-image: url(../../img/middleBorder.png);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 100%;
+        box-sizing: border-box;
+      }
+      #diagram {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="middleBorder">
+      <div id="diagram"></div>
+    </div>
+    <script type="text/javascript">
+      handler();
+
+      function handler() {
+        var myFishboneDiagram = fishboneDiagram.init(document.getElementById('diagram')),
+          option = {
+            title: {
+              text: 'PIN Migration Model'
+            },
+            subTitle: {
+              tagging: {
+                type: 'rise',
+                value: "2%",
+                valuation: "(1%)"
+              },
+              text: ['Historical PF 19 vs PF 18', 'Prediction PF 19']
+            },
+            legend: {
+              style: {
+                right: '0',
+                bottom: '84px'
+              },
+              data: ['EDC+', 'Diamond', 'Emerald', 'DD', 'GP', 'SP']
+            },
+            diagram: {
+              style: {
+                right: '66px',
+                bottom: '46px'
+              },
+              data: [{
+                startRange: 255, 
+                fishboneFront: false,
+                tagging: {
+                  rise: {
+                    value: "10%",
+                    valuation: "(13%)"
+                  },
+                  fall: {
+                    value: "63%",
+                    valuation: "(62%)"
+                  }
+                }
+              }, {
+                tagging: {
+                  rise: {
+                    value: "15%",
+                    valuation: "(20%)"
+                  },
+                  fall: {
+                    value: "49%",
+                    valuation: "(60%)"
+                  }
+                }
+              }, {
+                tagging: {
+                  rise: {
+                    value: "11%",
+                    valuation: "(1%)"
+                  },
+                  fall: {
+                    value: "11%",
+                    valuation: "(22%)"
+                  }
+                }
+              }, {
+                tagging: {
+                  rise: {
+                    value: "9%",
+                    valuation: "(3%)"
+                  },
+                  fall: {
+                    value: "22%",
+                    valuation: "(20%)"
+                  }
+                }
+              }, {
+                tagging: {
+                  rise: {
+                    value: "34%",
+                    valuation: "(23%)"
+                  },
+                  fall: {
+                    value: "21%",
+                    valuation: "(29%)"
+                  }
+                }
+              }, {
+                tagging: {
+                  fall: {
+                    value: "10%",
+                    valuation: "(14%)"
+                  }
+                }
+              }]
+            }
+          };
+        myFishboneDiagram.setOption(option);
+      }
+    </script>
+  </body>
+</html>

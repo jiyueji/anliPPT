@@ -10,12 +10,54 @@
     <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
     <!-- 引入css文件 -->
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .titleBorder {
+            width: 100%;
+            height: 105px;
+            margin-top: 40px;
+            display: flex;
+        }
+
+        .smallTopTitle {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .smallTopTitle div:nth-of-type(1){
+            font-size:33px;
+            color:#ffffff;
+        }
+        .smallTopTitle div:nth-of-type(2){
+            font-size:12px;
+            color:#3995da;
+        }
+    </style>
 </head>
 
 <body>
     <div class="middleBorder">
         <div class="smallTitle">CSI Daily Report</div>
-        <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:425px;"></div>
+        <div class="titleBorder">
+            <div class="smallTopTitle">
+                <div>5,150</div>
+                <div>MTD CSL sales</div>
+            </div>
+            <div class="smallTopTitle">
+                <div>5150</div>
+                <div>MTD CSL sales</div>
+            </div>
+            <div class="smallTopTitle">
+                <div>5150</div>
+                <div>MTD CSL sales</div>
+            </div>
+            <div class="smallTopTitle">
+                <div>5150</div>
+                <div>MTD CSL sales</div>
+            </div>
+        </div>
+        <div id="salesHomeEchartsCsi" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:320px;"></div>
     </div>
 
 
@@ -126,25 +168,25 @@
 
         handleEcharts();//折线图
 
-        function roll(total, idname, step) {
-            let n = 0;
-            return function () {
-                n = (n + step) >= total ? total : (n + step);
-                if (n <= total) {
-                    console.log(n)
-                    document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
-                }
-            }
-        }
+        // function roll(total, idname, step) {
+        //     let n = 0;
+        //     return function () {
+        //         n = (n + step) >= total ? total : (n + step);
+        //         if (n <= total) {
+        //             console.log(n)
+        //             document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
+        //         }
+        //     }
+        // }
 
 
 
         function handleEcharts() {
-            var salesHomeEcharts = echarts.init(document.getElementById('salesHomeEcharts'));
+            var salesHomeEchartsCsi = echarts.init(document.getElementById('salesHomeEchartsCsi'));
             window.addEventListener('resize', function () {
-                salesHomeEcharts.resize()
+                salesHomeEchartsCsi.resize()
             });
-            salesHomeEcharts.setOption({
+            salesHomeEchartsCsi.setOption({
                 animationDuration: 5000,
                 // title: [
                 //     {
@@ -201,10 +243,10 @@
                     }
                 },
                 grid: {
-                    top: '14%',
+                    top: '6%',
                     left: '4%',
                     right: '8%',
-                    bottom: '16%',
+                    bottom: '30%',
                     containLabel: true,
                 },
                 xAxis: {
@@ -347,7 +389,7 @@
                     icon: "circle",
                     left: 'center',
                     // bottom: 'bottom',
-                    y: '375',
+                    y: '235',
                     textStyle: {
                         color: "#ffffff",
                         fontSize: 14
