@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <!-- 引入echarts -->
+        <script type="text/javascript" src="../../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
+        <script type="text/javascript" src="../../../incubator-echarts-4.6.0/dist/echarts-gl.js"></script>
+        <script type="text/javascript" src="../../../incubator-echarts-4.6.0/map/js/china.js"></script>
+        <!-- 引入css文件 -->
+        <link rel="stylesheet" href="../../../css/style.css">
+        <link rel="stylesheet" href="./css/index.css">
+    </head>
+    <body>
+        <div class="middleBorder">
+            <p class="smallTitle title-font">ABO Recruitment & Force size</p>
+            <main class="main-conent">
+                <div class="left">
+                    <p class="font-large">165,881</p>
+                    <p class="font-small">YTD Recruitment</p>
+                </div>
+                <div class="right">
+                    <p class="font-large">5,057</p>
+                    <p class="font-small">Force size</p>
+                </div>
+            </main>
+            <!--<div class="title-list">
+                <p>80k</p>
+                <p>60k</p>
+                <p>40k</p>
+                <p>30k</p>
+                <p>20k</p>
+                <p>10k</p>
+            </div>-->
+            <footer class="footer" id="footer"></footer>
+        </div>
+    </body>
+    <script>
+
+      var myChart, option;
+      myChart = echarts.init(document.getElementById('footer'));
+      // 指定图表的配置项和数据
+      /*option = {
+        legend: {
+          data: ['Last year', 'This year'],
+          textStyle: {
+            color: "#fff"
+          }
+        },
+        xAxis3D: [
+          {
+            name: '',
+            type: 'category',
+            // 设置坐标轴字体颜色和宽度
+            axisLine: {  // 这是x轴文字颜色
+              lineStyle: {
+                color: "#fff",
+                width:2
+              }
+            },
+            data: ['Jan', 'Fed', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            axisPointer: {
+              type: 'shadow'
+            }
+          }
+        ],
+        yAxis3D: [
+          {
+            name: '',
+            type: 'category',
+            //设置坐标轴字体颜色和宽度
+            axisLine: {  //这是x轴文字颜色
+              lineStyle: {
+                color: "#fff",
+                width:2
+              }
+            },
+            name: '',
+            axisTick: {
+              show: false
+            },
+            data: ['10', '20', '30', '40', '60', '80'],
+            axisLabel: {
+              formatter: '{value} k'
+            }
+          }
+        ],
+        zAxis3D: [{
+          name: '',
+          type: 'value'
+        }],
+        grid3D: {
+          boxWidth: 200,
+          boxDepth: 20,
+          viewControl: {
+            alpha: 0,
+            beta: 0
+          }
+        },
+        series: [
+          {
+            name: 'Last year',
+            type: 'bar',
+            data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+          },
+          {
+            name: 'This year',
+            type: 'bar',
+            data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
+          }
+        ]
+      }*/
+
+      option = {
+        legend: {
+          data: ['Last year', 'This year'],
+          textStyle: {
+            color: "#fff"
+          }
+        },
+        xAxis3D: {
+          type: 'category',
+          data: ['Jan', 'Fed', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          axisLine:{
+            lineStyle:{
+              color:'#fff',
+              width:2
+            }
+          },
+          splitLine:{
+            show:false
+          }
+        },
+        yAxis3D: {
+          type: 'category',
+          data: [],
+          axisLine:{
+            lineStyle:{
+              color:'#fff',
+              width:2
+            }
+          },
+          splitLine:{
+            show: false
+          }
+        },
+        zAxis3D: {
+          type: 'value',
+          axisLine:{
+            lineStyle:{
+              color:'#fff'
+            }
+          },
+          splitLine:{
+            show: false
+          },
+        },
+        grid3D: {
+          boxWidth: 330,
+          boxDepth: 15,
+          axisPointer: {
+            show: false
+          },
+          light: {
+            main: {
+              intensity: 1.2
+            },
+            ambient: {
+              intensity: 0.3
+            }
+          },
+          viewControl: {
+            alpha: 0, //控制场景平移旋转
+            beta: 0,
+            minAlpha: 0,
+            maxAlpha: 0,
+            minBeta: 0,
+            maxBeta: 0
+          }
+        },
+        series: [
+          {
+            type: 'bar3D',
+            name:'1',
+            barSize: 15,
+            itemStyle:{
+                color: '#f6962e'
+            },
+            data: [
+              [0, 0, 20000],
+              [2, 0, 35000],
+              [4, 0, 33000],
+              [6, 0, 27000],
+              [8, 0, 20000],
+              [10, 0, 40000]
+            ],
+            stack: 'stack',
+            shading: 'lambert',
+            emphasis: {
+              label: {
+                show: true
+              }
+            }
+          },
+          {
+            type: 'bar3D',
+            name:'2',
+            barSize: 15,
+            itemStyle:{
+              color: '#17b6a9'
+            },
+            data: [
+              [1, 0, 30000],
+              [3, 0, 45000],
+              [5, 0, 46000],
+              [7, 0, 45000],
+              [9, 0, 0],
+              [11, 0, 0]
+            ],
+            // stack: 'stack',
+            shading: 'lambert',
+            emphasis: {
+              label: {
+                show: true
+              }
+            }
+          }]
+      }
+
+
+      myChart.setOption(option); // 使用刚指定的配置项和数据显示图表。
+    </script>
+</html>
