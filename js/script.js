@@ -5,7 +5,7 @@ var srcArr2 = ["./html/agpKpi/formTab/formTab.html", "./html/agpKpi/aboSegmentMo
 var srcArr3 = ["./html/aboMomentum/force/force.html","./html/aboMomentum/income.html"]
 var srcArr4 = ["./html/predictionModel/abo.html"]
 var srcArr5 = ["./html/dailyReport/dailySales.html","./html/dailyReport/csi.html","./html/dailyReport/buyer/buyer.html"]
-var srcArr6 = []
+var srcArr6 = ["./html/hourlyReport/foaSales.html","./html/hourlyReport/amountComm.html",]
 
 
 var containerUpBig = new Swiper('.swiper-containerUpBig', {
