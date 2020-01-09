@@ -1,8 +1,8 @@
 var changeIndex = 1;
 
-var srcArr1 = ["./html/aboMomentum/income.html","./html/monthlyReport/salesHome.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
+var srcArr1 = ["./html/monthlyReport/salesHome.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
 var srcArr2 = ["./html/agpKpi/formTab/formTab.html", "./html/agpKpi/aboSegmentMonthlyData.html", "./html/agpKpi/ppv.html", "./html/agpKpi/endPpv.html"]
-var srcArr3 = []
+var srcArr3 = ["./html/aboMomentum/income.html"]
 var srcArr4 = ["./html/predictionModel/abo.html"]
 var srcArr5 = ["./html/dailyReport/dailySales.html","./html/dailyReport/csi.html","./html/dailyReport/buyer/buyer.html"]
 
@@ -268,16 +268,25 @@ function threeImg() {
     console.log("333")
     changeIndex = 3;
     tatleChange.innerHTML = "ABO Momentum"
-    var binnerData = ["./img/3/1.png", "./img/3/2.png", "./img/3/3.png", "./img/3/4.png"]
     var changeBinner = document.getElementById("changeBinner")
     changeBinner.innerHTML = ""
-    for (var i = 0; i < binnerData.length; i++) {
+    for (var i = 0; i < srcArr3.length; i++) {
+        var iframe = document.createElement("iframe");
+        iframe.className = "iframeStyle";
+        iframe.frameborder = "no";
+        iframe.marginwidth = "0"
+        iframe.marginheight = "0"
+        iframe.scrolling = "no"
+        iframe.align = "center"
+        iframe.src = srcArr3[i];
+        // if()
+        var mask = document.createElement("div");
+        mask.className = 'mask';
         var div = document.createElement("div");
-        var img = document.createElement("img");
-        div.className = 'swiper-slide';
-        img.src = binnerData[i];
-        div.appendChild(img);
-        changeBinner.appendChild(div);
+        div.className = "swiper-slide"
+        div.appendChild(iframe);
+        div.appendChild(mask);
+        changeBinner.appendChild(div)
     }
     var containerUpBig = new Swiper('.swiper-containerUpBig', {
         loop: true,
