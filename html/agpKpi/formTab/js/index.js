@@ -25,7 +25,7 @@ function init() {
         for (i = 0; i < dotQuantity; i++) {
             dot = document.createElement("div");
             dot.className = "emitter-dot";
-            size = getRandom(dotSizeMin, dotSizeMax);
+            size = getRandom(dotSizeMin, dotSizeMax); // 改变爆炸圆球大小与多少
             container.appendChild(dot);
             angle = Math.random() * Math.PI * 2; // 随机角度
 
@@ -47,6 +47,7 @@ function init() {
             tl.to(dot, 1 + Math.random(), {
                 opacity: 0,
                 // 如果你不想做物理，你可以直接用下面的两行动画来代替physics2D：
+                // 改变爆炸的范围
                 x: Math.cos(angle) * length * 5,
                 y: Math.sin(angle) * length * 5
             }, 0);
@@ -83,11 +84,11 @@ function init() {
         ball.classList.add("ball", "animg100");
         ball.addEventListener('animationstart', function() {
             this.removeEventListener('animationend', function() {}, false);
-            console.log('animate start');
+            // console.log('animate start');
         }, false);
         ball.addEventListener('animationend', function() {
             this.removeEventListener('animationstart', function() {}, false);
-            console.log('animate end');
+            // console.log('animate end');
             this.classList.remove("animg100");
         }, false);
 
