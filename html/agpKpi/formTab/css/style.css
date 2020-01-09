@@ -62,13 +62,12 @@ body {
 }
 
 .label {
-    /*  width: 100%; */
-    /* top: 83px; */
+    /*width: 100%;
+    top: 83px; */
     position: absolute;
     text-align: center;
-    left: 0px;
-    left: 30px;
-    top: 20px;
+    left: 103px;
+    top: 88px;
 }
 
 .label small {
@@ -267,7 +266,7 @@ main .-content.-index>div {
 }
 
 .bounce .-box .front {
-    background: #19cce6;
+    background: #60f4fd;
     -webkit-transform: rotateX(0deg) rotateY(0deg) translateZ(16px) rotateX(90deg);
     transform: rotateX(0deg) rotateY(0deg) translateZ(16px) rotateX(90deg);
     -webkit-transform-origin: 50% 100%;
@@ -279,7 +278,7 @@ main .-content.-index>div {
 
 .bounce .-box .right {
     height: 32px;
-    background: #19cce6;
+    background: #60f4fd;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     -webkit-transform: translateX(16px) rotateY(90deg) rotateX(90deg);
@@ -292,7 +291,7 @@ main .-content.-index>div {
 }
 
 .bounce .-box .back {
-    background: #19cce6;
+    background: #60f4fd;
     -webkit-transform: rotateY(180deg) translateZ(16px) rotateX(90deg);
     transform: rotateY(180deg) translateZ(16px) rotateX(90deg);
     -webkit-transform-origin: 50% 100%;
@@ -302,7 +301,7 @@ main .-content.-index>div {
 }
 
 .bounce .-box .left {
-    background: #19cce6;
+    background: #60f4fd;
     -webkit-transform: translateX(-16px) rotateY(-90deg) rotateX(90deg);
     transform: translateX(-16px) rotateY(-90deg) rotateX(90deg);
     -webkit-transform-origin: 50% 100%;
@@ -322,7 +321,7 @@ main .-content.-index>div {
 }
 
 .bounce .-box .front-right {
-    background: #19cce6;
+    background: #169edd;
     height: 32px;
     -webkit-transform: translateX(16px) rotateY(90deg) translateY(16px);
     transform: translateX(16px) rotateY(90deg) translateY(16px);
@@ -366,7 +365,7 @@ main .-content.-index>div {
     border-radius: 50%;
     cursor: pointer;
     -webkit-transform: translate3d(558px, 190px, 0);
-    opacity: 1;
+    opacity: 0;
 }
 
 
@@ -378,43 +377,43 @@ main .-content.-index>div {
 
 @-webkit-keyframes pao100 {
     100% {
-        -webkit-transform: translate3d(0px, 0, 0);
+        -webkit-transform: translate3d(438px, 70px, 0);
         opacity: 0;
     }
     90% {
-        -webkit-transform: translate3d(60px, 4.5px, 0);
+        -webkit-transform: translate3d(450px, 82px, 0);
         opacity: 0.2;
     }
     80% {
-        -webkit-transform: translate3d(120px, 18px, 0);
+        -webkit-transform: translate3d(462px, 94px, 0);
         opacity: 0.4;
     }
     70% {
-        -webkit-transform: translate3d(180px, 40.5px, 0);
+        -webkit-transform: translate3d(474px, 106px, 0);
         opacity: 0.6;
     }
     60% {
-        -webkit-transform: translate3d(240px, 72px, 0);
+        -webkit-transform: translate3d(486px, 118px, 0);
         opacity: 0.8;
     }
     50% {
-        -webkit-transform: translate3d(300px, 112.5px, 0);
+        -webkit-transform: translate3d(498px, 130px, 0);
         opacity: 0.9;
     }
     40% {
-        -webkit-transform: translate3d(360px, 162px, 0);
+        -webkit-transform: translate3d(510px, 142px, 0);
         opacity: 1;
     }
     30% {
-        -webkit-transform: translate3d(420px, 220.5px, 0);
+        -webkit-transform: translate3d(522px, 154px, 0);
         opacity: 0.8;
     }
     20% {
-        -webkit-transform: translate3d(480px, 288px, 0);
+        -webkit-transform: translate3d(534px, 166px, 0);
         opacity: 0.6;
     }
     10% {
-        -webkit-transform: translate3d(540px, 364.5, 0);
+        -webkit-transform: translate3d(546px, 178px, 0);
         opacity: 0.4;
     }
     0% {
@@ -423,42 +422,45 @@ main .-content.-index>div {
     }
 }
 
-@media screen and (max-width: 1920px) {
-    .form-bg {
-        width: 100%;
-        height: 618px;
-        position: absolute;
-        background: url(../../../../img/middleBorder.png) no-repeat 100% 100%
-    }
-    .form-bg .form-top {
-        position: absolute;
-        right: 32px;
-        top: 20px;
-    }
-    .form-bg .form-top .form-top-font-white {
-        color: #fff;
-        font-size: 16px;
-    }
-    .form-bg .form-top .form-top-font-blue {
-        font-size: 14px;
-        color: blue;
-    }
-    .form-bg .form-content {
-        width: 819px;
-        height: 318px;
-        margin: 260px 0 0 686px;
-    }
-    .form-bg .form-content img {
-        display: block;
-    }
-    .form-bg .form-content p {
-        color: blue;
-        position: absolute;
-        left: 71.3%;
-        top: 309px;
-    }
+.form-bg {
+    width: 100%;
+    height: 618px;
+    position: absolute;
+    background: url(../../../../img/middleBorder.png) no-repeat 100% 100%
 }
-
+.form-bg .form-top {
+    position: absolute;
+    right: 32px;
+    top: 20px;
+}
+.form-bg .form-top .form-top-font-blue{
+    color: blue;
+}
+.form-bg .form-top .form-top-font-flex {
+    display: flex;
+}
+.form-bg .form-top .form-top-font-flex .form-top-font-white {
+    color: #fff;
+    font-size: 16px;
+}
+.form-bg .form-top .form-top-font-flex .form-top-font-blue {
+    font-size: 14px;
+    color: blue;
+}
+.form-bg .form-content {
+    width: 819px;
+    height: 318px;
+    margin: 260px 0 0 686px;
+}
+.form-bg .form-content img {
+    display: block;
+}
+.form-bg .form-content p {
+    color: blue;
+    position: absolute;
+    left: 71.3%;
+    top: 309px;
+}
 @media screen and (max-width: 1366px) {
     .form-bg {
         width: 730px;
@@ -466,29 +468,38 @@ main .-content.-index>div {
         background: url(../../../../img/middleBorder.png)no-repeat;
         background-size: 100% 100%;
     }
+    .form-bg .form-top {
+        top: 10px;
+        line-height: 0px;
+        left: 38px;
+    }
+    .form-bg .form-top .form-p-1 {
+        margin: -4px 0 0 0;
+    }
+    .form-bg .form-top .form-p-2 {
+        margin: -6px 0 0 0;
+    }
+    .form-bg .form-top .form-p-3 {
+        padding: 16px 0 0 0;
+    }
     .form-bg .form-content {
-        width: 614px;
+        width: 650px;
         height: auto;
-        margin: 135px auto;
+        margin: 127px auto;
     }
     .form-bg .form-content img {
         display: block;
-        width: 614px;
-    }
-    .form-bg .form-top {
-        top: 5px;
-        line-height: 7px;
-        left: 54px;
+        width: 650px;
     }
     .form-bg .form-content p {
         font-size: 12px;
-        left: 69.2%;
+        left: 70.4%;
     }
     .form-bg .form-content .form-content-10 {
-        top: 170px;
+        top: 165px;
     }
     .form-bg .form-content .form-content-20 {
-        top: 201px;
+        top: 198px;
     }
     main .-content.-index {
         top: -133px;
