@@ -1,0 +1,199 @@
+/** 鱼骨图 **/
+.fishbone-diagram {
+  position: relative;
+  font-family: 'ArialMT'
+}
+.fishbone-diagram ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/** 鱼骨图-标注 **/
+.fishbone-diagram [class^='tagging-'] {
+  font-size: 14px;
+}
+.fishbone-diagram [class^='tagging-']::before {
+  content: '';
+  position: relative;
+  width: 0;
+  height: 0;
+  border-width: 10px 5px;
+  border-style: solid;
+  margin-right: 10px;
+}
+.fishbone-diagram .tagging-rise {
+  color: #00b8ac;
+}
+.fishbone-diagram .tagging-rise::before {
+  border-color: transparent transparent #00b8ac transparent;
+  top: -15px;
+}
+.fishbone-diagram .tagging-fall {
+  color: #ff0000;
+}
+.fishbone-diagram .tagging-fall::before {
+  border-color: #ff0000 transparent transparent transparent;
+  bottom: -15px;
+}
+.fishbone-diagram [class^='tagging-'] .normal {
+  font-weight: bold;
+}
+.fishbone-diagram [class^='tagging-'] .small {
+  display: inline-block;
+  transform: scale(0.75);
+  font-size: 12px;
+}
+/** 鱼骨图-标题 **/
+.fishbone-diagram .title {
+  color: #fff;
+}
+/** 鱼骨图-副标题 **/
+.fishbone-diagram .sub-title {
+  margin-top: 32px;
+  width: 261px;
+  height: 112px;
+  background-image: url(../assets/legend-bg.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.sub-title [class^='tagging-'] {
+  padding: 6px 0 0 8px;
+}
+.sub-title .text-list {
+  margin-top: -10px;
+  padding-left: 84px;
+  text-align: center;
+  line-height: 26px;
+  color: #fff;
+  font-size: 12px;
+}
+.sub-title .text-list .text-item {
+  position: relative;
+  margin: 0;
+  padding-bottom: 14px;
+}
+.sub-title .text-list .text-item::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 16px;
+  transform: skewY(37deg);
+  width: 0;
+  height: 0;
+  border-width: 7px 14px;
+  border-color: #50b1f4 #50b1f4 transparent transparent;
+  border-style: solid;
+}
+.sub-title .text-list .text-item+.text-item::before {
+  border-width: 7px 20px;
+  left: -39px;
+  top: 2px;
+  transform: skewY(51deg);
+}
+.sub-title .text-list .text-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 94%;
+  height: 14px;
+  background-color: #029bf8;
+}
+/** 鱼骨图-图例 **/
+.fishbone-diagram .legend {
+  position: absolute;
+  color: #fff;
+  font-size: 14px;
+  text-align: left;
+  line-height: 38px;
+}
+.legend .legend-item {
+  position: relative;
+  padding-bottom: 14px;
+}
+.legend .legend-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 32px;
+  height: 14px;
+  background-color: #0059ee;
+}
+/** 鱼骨图-图表 **/
+.fishbone-diagram .diagram {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+.diagram .diagram-item {
+  display: flex;
+  position: relative;
+  padding: 26px 0 38px;
+  height: 14px;
+}
+.diagram .diagram-item:not(:last-child) {
+  margin-top: -26px;
+}
+/** 鱼骨图-图表-鱼骨标注 **/
+.diagram-item .diagram-item_tagging {
+  position: absolute;
+  left: -82px;
+  bottom: 12px;
+  width: 254px;
+}
+.diagram-item_tagging [class^='tagging-'] {
+  position: absolute;
+}
+.diagram-item_tagging .tagging-rise {
+  top: -72px;
+  left: 66px;
+}
+.diagram-item_tagging .tagging-fall {
+  top: -19px;
+  right: 0;
+}
+.diagram-item_tagging .tagging-fall::after {
+  content: '';
+  position: absolute;
+  bottom: 18px;
+  right: 93px;
+  transform: rotate(45deg);
+  width: 20px;
+  height: 4px;
+  background-color: #0076c0;
+}
+/** 鱼骨图-图表-鱼骨鱼刺 **/
+.diagram-item .diagram-item_fishbone {
+  display: flex;
+}
+.diagram-item_fishbone .fishbone-front{
+  position: relative;
+  transform: skewY(-33deg) translate(0, 19px);
+  width: 0;
+  height: 0;
+  border-width: 7px 30px;
+  border-color: transparent #50b1f4 #50b1f4 transparent;
+  border-style: solid;
+}
+.diagram-item_fishbone .fishbone-central {
+  width: 100px;
+  height: 100%;
+  background-color: #029bf8;
+  z-index: 1;
+}
+.diagram-item_fishbone .fishbone-tail {
+  width: 0;
+  height: 0;
+  border-width: 13px 18px;
+  border-style: solid;
+  border-color: transparent transparent transparent #029bf8;
+  margin-top: -6px;
+  margin-left: -1px;
+}

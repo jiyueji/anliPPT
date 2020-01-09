@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入echarts -->
+    <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
+    <!-- 引入css文件 -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .titleBorder {
+            width: 100%;
+            height: 105px;
+            margin-top: 40px;
+            display: flex;
+        }
+
+        .smallTopTitle {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .smallTopTitle div:nth-of-type(1) {
+            font-size: 33px;
+            color: #ffffff;
+        }
+
+        .smallTopTitle div:nth-of-type(2) {
+            font-size: 12px;
+            color: #3995da;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="middleBorder">
+        <div class="smallTitle">Referral Commission Earner Count</div>
+        <div class="titleBorder">
+            <div class="smallTopTitle">
+                <div>4,125,010</div>
+                <div>Tody accumulate RC earner count</div>
+            </div>
+        </div>
+        <div id="salesHomeEchartsCsi" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:320px;">
+        </div>
+    </div>
+
+
+
+    <script>
+        var monthShow = ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00',
+            '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '24:00'];
+        var yShow = ['5%', '10%', '15%', '20%', '25%'];
+        var allData = {
+            // 预测假数据
+            // revenue_forecast_usd_data: [
+            //     { x: "Nov", y: 181839280.998621, labelTooltip: "Monthly Sales" },
+            //     { x: "Dec", y: 205400000, labelTooltip: "Sales Forecast" }
+            // ],
+            // 今年的数据
+            actual_sales_data: [
+                { x: "0:00",y: 12, labelTooltip: "Monthly Sales" },
+                { x:"1:00", y: 13, labelTooltip: "Monthly Sales" },
+                { x: "2:00",y: 15, labelTooltip: "Monthly Sales" },
+                { x: "3:00", y: 14, labelTooltip: "Monthly Sales" },
+                { x: "4:00", y: 16, labelTooltip: "Monthly Sales" },
+                { x: "5:00", y: 17, labelTooltip: "Monthly Sales" },
+                { x: "6:00", y: 18, labelTooltip: "Monthly Sales" },
+                { x: "7:00", y: 13, labelTooltip: "Monthly Sales" },
+                { x: "8:00", y: 19, labelTooltip: "Monthly Sales" },
+                { x: "9:00",  y: 15, labelTooltip: "Monthly Sales" },
+                { x: "10:00",  y: 15, labelTooltip: "Monthly Sales" },
+                { x: "11:00",  y: 14, labelTooltip: "Monthly Sales" },
+                { x: "12:00",  y: 16, labelTooltip: "Monthly Sales" },
+                { x: "13:00",  y: 13, labelTooltip: "Monthly Sales" },
+                { x: "14:00",  y: 18, labelTooltip: "Monthly Sales" },
+                { x: "15:00",  y: 19, labelTooltip: "Monthly Sales" },
+                { x: "16:00",  y: 16, labelTooltip: "Monthly Sales" },
+                { x: "17:00",  y: 17, labelTooltip: "Monthly Sales" },
+                { x: "18:00",  y: '', labelTooltip: "Monthly Sales" },
+                { x: "19:00",  y: '', labelTooltip: "Monthly Sales" },
+                { x: "20:00",  y: '', labelTooltip: "Monthly Sales" },
+                { x: "21:00",  y: '', labelTooltip: "Monthly Sales" },
+                { x: "22:00",  y: '', labelTooltip: "Monthly Sales" },
+                { x: "23:00",  y: '', labelTooltip: "Monthly Sales" },
+                { x: "24:00",  y: '', labelTooltip: "Monthly Sales" }
+            ],
+            // 去年的数据
+            actual_sales_ly_data: [
+                { x: "0:00", y: 3, labelTooltip: "Monthly Ses" },
+                { x: "1:00", y: 4, labelTooltip: "Monthly Ses" },
+                { x: "2:00", y: 4, labelTooltip: "Monthly Ses" },
+                { x: "3:00", y: 6, labelTooltip: "Monthly Ses" },
+                { x: "4:00", y: 9, labelTooltip: "Monthly Ses" },
+                { x: "5:00", y: 3, labelTooltip: "Monthly Ses" },
+                { x: "6:00", y: 5, labelTooltip: "Monthly Ses" },
+                { x: "7:00", y: 5, labelTooltip: "Monthly Ses" },
+                { x: "8:00", y: 4, labelTooltip: "Monthly Ses" },
+                { x: "9:00", y: 2, labelTooltip: "Monthly Ses" },
+                { x: "10:00", y: 3, labelTooltip: "Monthly Ses" },
+                { x: "11:00", y: 2, labelTooltip: "Monthly Ses" },
+                { x: "12:00", y: 3, labelTooltip: "Monthly Ses" },
+                { x: "13:00", y: 4, labelTooltip: "Monthly Ses" },
+                { x: "14:00", y: 5, labelTooltip: "Monthly Ses" },
+                { x: "15:00", y: 4, labelTooltip: "Monthly Ses" },
+                { x: "16:00", y: 3, labelTooltip: "Monthly Ses" },
+                { x: "17:00", y: 2, labelTooltip: "Monthly Ses" },
+                { x: "18:00", y: 1, labelTooltip: "Monthly Ses" },
+                { x: "19:00", y: 2, labelTooltip: "Monthly Ses" },
+                { x: "20:00", y: 3, labelTooltip: "Monthly Ses" },
+                { x: "21:00", y: 4, labelTooltip: "Monthly Ses" },
+                { x: "22:00", y: 5, labelTooltip: "Monthly Ses" },
+                { x: "23:00", y: 6, labelTooltip: "Monthly Ses" },
+                { x: "24:00", y: 7, labelTooltip: "Monthly Sales" }
+            ],
+            // 备注和提示内容
+            tooltip_data_map: []
+        }
+        var thisYear = [];
+        var lastYear = [];
+        var ppvTarget = [];
+        var forecastYear = [];
+        var tooltipData = allData.tooltip_data_map
+        // console.log(allData.tooltip_data_map)
+        if (allData && allData.actual_sales_data.length > 0) {
+            allData.actual_sales_data.map((item, index) => {
+                thisYear.push(item.y)
+            })
+        }
+        if (allData && allData.actual_sales_ly_data.length > 0) {
+            allData.actual_sales_ly_data.map((item, index) => {
+                lastYear.push(item.y)
+            })
+        }
+        // if (allData && allData.revenue_forecast_usd_data.length > 0) {
+        //     allData.revenue_forecast_usd_data.map((item, index) => {
+        //         forecastYear.push(item.y)
+        //     })
+        // }
+        for (var i = 0; forecastYear.length < 12; i++) {
+            forecastYear.unshift("")
+        }
+
+        handleEcharts();//折线图
+
+        function handleEcharts() {
+            var salesHomeEchartsCsi = echarts.init(document.getElementById('salesHomeEchartsCsi'));
+            window.addEventListener('resize', function () {
+                salesHomeEchartsCsi.resize()
+            });
+            salesHomeEchartsCsi.setOption({
+                animationDuration: 5000,
+                tooltip: {//鼠标移入
+                    trigger: 'axis',
+                    confine: true,
+                    formatter: (data) => {
+                    }
+                },
+                grid: {
+                    top: '6%',
+                    left: '4%',
+                    right: '8%',
+                    bottom: '30%',
+                    containLabel: true,
+                },
+                xAxis: {
+                    type: 'category',
+                    data: monthShow,
+                    axisTick: {
+                        show: false //隐藏X轴刻度
+                    },
+                    axisLine: {
+                        show: false,
+                    },
+                    boundaryGap: false,//X轴刻度位置
+                    axisLabel: {
+                        interval: 0,//x轴文字显示不全
+                        textStyle: {
+                            fontSize: 9,
+                            color: '#ffffff'
+                        },
+                    }
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        // data: monthShow,
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: "#ffffff"
+                            },
+                            formatter: function (params) {
+                                return params / 10000 + "W"
+                            }
+                        },
+                        axisLine: {//隐藏X轴
+                            show: false
+                        },
+                        axisTick: {
+                            show: false //隐藏X轴刻度
+                        },
+                        splitLine: {//Y轴的样式虚线
+                            lineStyle: {
+                                type: 'dashed',
+                                color: '#e5e9ee'
+                            }
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: "Last Day",
+                        data: lastYear,
+                        type: 'line',
+                        smooth: true,
+                        symbol: "none", //去掉折线点
+                        symbolSize: 5, //折线点的大小
+                        stack: 100,
+                        animationDuration: 1000,
+                        itemStyle: {
+                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                                color: '#5e50e6', //背景渐变色
+                                lineStyle: { // 系列级个性化折线样式
+                                    width: 0.5,
+                                    type: 'solid',
+                                    color: "rgba(28,213,224,0.36)"//折现颜色
+                                }
+                            },
+                        }, //线条样式
+                        areaStyle: {
+                            normal: {}
+                        },
+                    },
+                    {
+                        name: 'Today',
+                        type: 'bar',
+                        barWidth: '30%',
+                        itemStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: '#39eccb'
+                                }, {
+                                    offset: 1,
+                                    color: '#028871'
+                                }]),
+                                barBorderRadius: 12,
+                            },
+                        },
+                        data: thisYear
+                    }
+                ],
+                //图例名
+                color: ['#ffa441', '#4d96f1'],
+                legend: {
+                    type: "scroll",
+                    // icon: "line",
+                    data: [
+                        { name: "Today",icon: "circle",},
+                        { name: "Last Day", icon: 'image://../../img/6/6.1icon.png' }
+                    ],
+                    left: 'center',
+                    // bottom: 'bottom',
+                    y: '235',
+                    // x:'300',
+                    itemGap: 200,
+                    textStyle: {
+                        color: "#ffffff",
+                        fontSize: 14
+                    },
+                },
+                //  legend: {//图例组件
+                //     x: '35',
+                //     y: '421',
+                //     show: true,
+                //     textStyle: {//图例的公用文本样式。
+                //         fontSize: 24,
+                //         color: "#8D99A4"
+                //     },
+                //     itemGap: 20,//图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
+                //     data: ['活动金额', '流向实际毛利'],//图例的数据数组。
+                //     inactiveColor: '#ccc',//图例关闭时的颜色。
+                // },
+            })
+        }
+    </script>
+</body>
+
+</html>
