@@ -3,7 +3,7 @@ function init() {
         container = document.createElement("div"),
         emitterSize = 100,
         dotQuantity = 50,
-        dotSizeMax = 100,
+        dotSizeMax = 60,
         dotSizeMin = 10,
         speed = 1,
         gravity = 1;
@@ -47,8 +47,8 @@ function init() {
             tl.to(dot, 1 + Math.random(), {
                 opacity: 0,
                 // 如果你不想做物理，你可以直接用下面的两行动画来代替physics2D：
-                x: Math.cos(angle) * length * 24,
-                y: Math.sin(angle) * length * 24
+                x: Math.cos(angle) * length * 5,
+                y: Math.sin(angle) * length * 5
             }, 0);
         }
         return tl;
