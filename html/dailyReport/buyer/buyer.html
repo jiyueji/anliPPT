@@ -19,15 +19,15 @@
             <p class="smallTitle title-font">Daily Recruitment & Buyer</p>
             <div class="main-conent">
                 <div class="left">
-                    <img src="../../../anli UI/安利汇报图表-第五屏/框-（2）.png" alt="安利汇报图表-第五屏/框-（2）.png" class="img-bg">
+                    <img src="../../../anli UI/1.png" alt="安利汇报图表-第五屏/框-（2）.png" class="img-bg">
                     <div class="left-cont">
                         <p class="left-font-01">Recruitment(MTD)</p>
                         <p class="left-font-02">Month to date</p>
                         <div class="left-font-03">
                             <p class="left-n-01">$294K</p>
                             <span class="left-n-02">
-                                <p>vs LM:+47%</p>
-                                <p>vs SPLY:+503%</p>
+                                <p>vs LM:<a style="color: #28ccae;">+47%</a></p>
+                                <p>vs SPLY:<a style="color: #28ccae;">+503% </a></p>
                             </span>
                         </div>
                     </div>
@@ -40,15 +40,15 @@
 
             <div class="main-conent main-top">
                 <div class="left">
-                    <img src="../../../anli UI/安利汇报图表-第五屏/框-（2）.png" alt="安利汇报图表-第五屏/框-（2）.png" class="img-bg">
-                    <div class="left-cont" style="top: 192px;">
+                    <img src="../../../anli UI/1.png" alt="安利汇报图表-第五屏/框-（2）.png" class="img-bg">
+                    <div class="left-cont" style="top: 201px;">
                         <p class="left-font-01">Recruitment(MTD)</p>
                         <p class="left-font-02">Month to date</p>
                         <div class="left-font-03">
                             <p class="left-n-01">$746K</p>
                             <span class="left-n-02">
-                                <p>vs LM:+10%</p>
-                                <p>vs SPLY:+17%</p>
+                                <p>vs LM:<a style="color: #28ccae;">+10% </a></p>
+                                <p>vs SPLY:<a style="color: #28ccae;">+17% </a></p>
                             </span>
                         </div>
                     </div>
@@ -68,19 +68,19 @@
 
         var countData = [{
             value: 27.5,
-            name: 'MTD % changevs .last month',
+            name: 'FOA',
             itemStyle: {
                 color: '#4d96f1'
             }
         }, {
             value: 27.5,
-            name: 'MTD % changevs .last month',
+            name: 'ABO',
             itemStyle: {
                 color: '#ffa441'
             }
         }, {
             value: 45,
-            name: 'MTD % changevs .last month',
+            name: 'PC',
             itemStyle: {
                 color: '#28ccae'
             }
@@ -96,31 +96,16 @@
                     formatter: "{a} <br/> {b} : <br/>{c} ({d}%)"
                 },
                 // 系列列表
-                series: [{
-                    name: 'Month to date($):49m',
-                    type: 'pie', // 数据统计图的类型
-                    radius: '100%', // 大小
-                    itemStyle: {
-                        normal: {
-                            length: 10,
-                            label: {
-                                // 此处为指示线文字
-                                show: true,
-                                position: 'inner', //标签的位置
-                                textStyle: {
-                                    fontWeight: 200,
-                                    fontSize: 10 //文字的字体大小
-                                },
-                                formatter: function(p) { //指示线对应文字
-                                    var data = p.data.value;
-                                    return data;
-                                }
-                            }
-                        }
-                    },
-                    // 放置要展示的数据
-                    data: countData
-                }]
+                series: [
+                      {
+                        type: 'pie', // 数据统计图的类型
+                        name: 'Month to date($):49m',
+                        radius: '45%',
+                        center: ['50%', '50%'],
+                        // 放置要展示的数据
+                        data: countData
+                      }
+                ]
             }
             myChart.setOption(option); // 使用刚指定的配置项和数据显示图表。
         });
