@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入echarts -->
+    <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
+    <!-- 引入css文件 -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .titleBorder {
+            width: 100%;
+            height: 105px;
+            margin-top: 30px;
+            display: flex;
+        }
+
+        .smallTopTitle {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .smallTopTitle div:nth-of-type(1){
+            font-size:33px;
+            color:#ffffff;
+        }
+        .smallTopTitle div:nth-of-type(2){
+            font-size:12px;
+            color:#3995da;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="middleBorder">
+        <div class="smallTitle">FOA Sales</div>
+        <div class="titleBorder">
+            <div class="smallTopTitle">
+                <div>4,125,010</div>
+                <div>Today accumulate sales</div>
+            </div>
+            <div class="smallTopTitle">
+                <div>29,047</div>
+                <div>FOA out of total ACCL sales</div>
+            </div>
+            <div class="smallTopTitle">
+                <div>30,874</div>
+                <div>Today accumulate FOA buyer</div>
+            </div>
+        </div>
+        <div id="salesHomeEchartsCsi" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:320px;"></div>
+    </div>
+
+
+
+    <script>
+        var xDate = ["0:00","1:00","2:00","3:00","4:00","5:00","6:00","7:00","8:00","9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"]
+        var today = ["900","500","400","300","1000","1500","3000","6000","900","500","400","300","1000","1500","3000","6000","900","500","400","300","1000","1500","3000","6000"]
+        var lastDay = ["300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300"]
+
+        handleEcharts();//折线图
+
+        function handleEcharts() {
+            var salesHomeEchartsCsi = echarts.init(document.getElementById('salesHomeEchartsCsi'));
+            window.addEventListener('resize', function () {
+                salesHomeEchartsCsi.resize()
+            });
+            salesHomeEchartsCsi.setOption({
+                animationDuration: 5000,
+                // title: [
+                //     {
+                //         text: 'CSI Daily Report',
+                //         x: '8%',
+                //         y: '0%',
+                //         textStyle: {                  //标题样式
+                //             fontSize: '16',
+                //             color: '#ffffff',
+                //         },
+                //     }
+                // ],
+                tooltip: {//鼠标移入
+                    trigger: 'axis',
+                    confine: false,
+                },
+                grid: {
+                    top: '6%',
+                    left: '4%',
+                    right: '4%',
+                    bottom: '30%',
+                    containLabel: true,
+                },
+                xAxis: {
+                    type: 'category',
+                    data: xDate,
+                    axisTick: {
+                        show: false //隐藏X轴刻度
+                    },
+                    axisLine: {
+                        show: false,
+                    },
+                    boundaryGap: false,//X轴刻度位置
+                    axisLabel: {
+                        interval:0,//x轴文字显示不全
+                        textStyle: {
+                            fontSize: 9,
+                            color: '#ffffff'
+                        },
+                    }
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        // data:["0","1k","2k","3k","4k","5k","6k","7k"],
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: "#ffffff"
+                            },
+                            formatter: function (params) {
+                                if(params == 0){
+                                    return 0
+                                }else{
+                                    return params / 1000 + "K"
+                                }
+                            }
+                        },
+                        axisLine: {//隐藏X轴
+                            show: false
+                        },
+                        axisTick: {
+                            show: false //隐藏X轴刻度
+                        },
+                        splitLine: {//Y轴的样式虚线
+                            lineStyle: {
+                                type: 'dashed',
+                                color: '#e5e9ee'
+                            }
+                        }
+                    }
+                ],
+                series: [ {
+                        name: "Today",
+                        data: today,
+                        type: 'line',
+                        smooth: true,
+                        // symbol: "none", //去掉折线点
+                        symbolSize: 8, //折线点的大小
+                        animationDuration: 1000,
+                        // stack: 100,
+                        itemStyle: {
+                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                                //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
+                                color: '#ebb101', //背景渐变色
+                                lineStyle: { // 系列级个性化折线样式
+                                    width: 1,
+                                    type: 'solid',
+                                    color: "#4d96f1"//折现颜色
+                                },
+                                borderColor: '#4d96f1',  // 拐点边框颜色
+                            },
+                        }, //线条样式
+                    }, {
+                        name: "Last Day",
+                        data: lastDay,
+                        type: 'line',
+                        smooth: true,
+                        symbol: "none", //去掉折线点
+                        symbolSize: 5, //折线点的大小
+                        stack: 100,
+                        animationDuration: 1000,
+                        itemStyle: {
+                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                                color: '#5e50e6', //背景渐变色
+                                // lineStyle: { // 系列级个性化折线样式
+                                //     width: 0.5,
+                                //     type: 'solid',
+                                //     color: "rgba(28,213,224,0.36)"//折现颜色
+                                // }
+                            },
+                        }, //线条样式
+                        areaStyle: {
+                            normal: {}
+                        },
+                    }
+                ],
+                //图例名
+                // color: ['#ffa441', '#4d96f1'],
+                legend: {
+                    type: "scroll",
+                    data:[
+                        {name:"Today"},
+                        {name:"Last Day",icon:'image://../../img/6/6.1icon.png'}
+                    ],
+                    left: 'center',
+                    itemGap: 200,//图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
+                    y: '235',
+                    textStyle: {
+                        color: "#ffffff",
+                        fontSize: 14
+                    },
+                },
+            })
+        }
+    </script>
+</body>
+
+</html>
