@@ -149,19 +149,6 @@
 
         handleEcharts();//折线图
 
-        // function roll(total, idname, step) {
-        //     let n = 0;
-        //     return function () {
-        //         n = (n + step) >= total ? total : (n + step);
-        //         if (n <= total) {
-        //             console.log(n)
-        //             document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
-        //         }
-        //     }
-        // }
-
-
-
         function handleEcharts() {
             var salesHomeEchartsCsi = echarts.init(document.getElementById('salesHomeEchartsCsi'));
             window.addEventListener('resize', function () {
@@ -184,7 +171,7 @@
                 },
                 xAxis: {
                     type: 'category',
-                    data: monthShow,
+                    data: xDate,
                     axisTick: {
                         show: false //隐藏X轴刻度
                     },
@@ -193,13 +180,11 @@
                     },
                     boundaryGap: false,//X轴刻度位置
                     axisLabel: {
+                        interval: 0,//x轴文字显示不全
                         textStyle: {
-                            fontSize: 12,
+                            fontSize: 9,
                             color: '#ffffff'
                         },
-                        formatter: function (params) {
-                            return params.split(' ')[0]
-                        }
                     }
                 },
                 yAxis: [

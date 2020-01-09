@@ -1,11 +1,15 @@
 var changeIndex = 1;
 
+<<<<<<< HEAD
 var srcArr1 = ["./html/hourlyReport/foaSales.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
+=======
+var srcArr1 = ["./html/hourlyReport/referralAmount.html","./html/hourlyReport/referralAmount.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
+>>>>>>> e6621ef2d83fd3155483f27db2fd451d95e0d6a5
 var srcArr2 = ["./html/agpKpi/formTab/formTab.html", "./html/agpKpi/aboSegmentMonthlyData.html", "./html/agpKpi/ppv.html", "./html/agpKpi/endPpv.html"]
 var srcArr3 = ["./html/aboMomentum/force/force.html","./html/aboMomentum/income.html"]
 var srcArr4 = ["./html/predictionModel/abo.html"]
 var srcArr5 = ["./html/dailyReport/dailySales.html","./html/dailyReport/csi.html","./html/dailyReport/buyer/buyer.html"]
-var srcArr6 = []
+var srcArr6 = ["./html/hourlyReport/newSales.html","./html/hourlyReport/amountComm.html","./html/hourlyReport/referralAmount.html"]
 
 
 var containerUpBig = new Swiper('.swiper-containerUpBig', {
