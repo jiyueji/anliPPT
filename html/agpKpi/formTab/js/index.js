@@ -125,15 +125,27 @@ function reset() {
     $('#emitter').attr('style', '');
     $('.js-trigger-reset').hide();
 }
+function delay1500(){
+    $('.form-arrow').css({'opacity': '1'});
+}
+function delay2000(){
+  $('.is-show').css({'opacity': '1'});
+}
 
 $(document).ready(function() {
     init();
+    setTimeout(function () {
+      delay1500();
+    }, 1500);
+    setTimeout(function () {
+        delay2000();
+    }, 2000);
+
     /* var formContent = document.querySelector('.form-content');
     formContent.addEventListener('mouseover', function(e) {
         // init();
     }, false);
     formContent.addEventListener('mouseout', function(e) {
-
     }, false); */
     $('.js-trigger-reset').click(function() {
         reset(); // 重置样式

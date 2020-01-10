@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!-- 引入fishbone-diagram -->
+    <link rel="stylesheet" href="../../fishbone-diagram-1.0.0/css/fishboneDiagram.css">
+    <script type="text/javascript" src="../../fishbone-diagram-1.0.0/js/fishboneDiagram.js"></script>
+    <!-- 引入css文件 -->
+    <link rel="stylesheet" href="../../css/style.css">
     <!-- 样式 -->
     <style type="text/css">
       html, body {
@@ -17,15 +22,90 @@
         width: 858px;
         height: 618px;
         padding: 38px 40px 20px;
-        background-image: url(../../img/middleBorder.png);
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size: 100%;
         box-sizing: border-box;
       }
+      #diagram {
+        width: 100%;
+        height: 100%;
+      }
     </style>
   </head>
   <body>
-    
+    <div class="middleBorder">
+      <div id="diagram"></div>
+    </div>
+    <script type="text/javascript">
+      handler();
+
+      function handler() {
+        var myFishboneDiagram = fishboneDiagram.init(document.getElementById('diagram')),
+          option = {
+            title: {
+              text: 'Bonus Migration Model'
+            },
+            subTitle: {
+              tagging: {
+                type: 'rise',
+                value: "2%",
+                valuation: "(1%)"
+              },
+              text: ['Historical PF 19 vs PF 18', 'Prediction PF 19']
+            },
+            legend: {
+              style: {
+                right: '0',
+                bottom: '148px'
+              },
+              data: ['Bronze(Bonus 15%)', 'Bonus 9-12%', 'Bonus3-6%']
+            },
+            diagram: {
+              style: {
+                right: '134px',
+                bottom: '108px'
+              },
+              data: [{
+                startRange: 190, 
+                fishboneFront: false,
+                tagging: {
+                  rise: {
+                    value: "19%",
+                    valuation: "(13%)"
+                  },
+                  fall: {
+                    value: "40%",
+                    valuation: "(50%)"
+                  }
+                }
+              }, {
+                tagging: {
+                  rise: {
+                    value: "9%",
+                    valuation: "(12%)"
+                  },
+                  fall: {
+                    value: "61%",
+                    valuation: "(46%)"
+                  }
+                }
+              }, {
+                tagging: {
+                  rise: {
+                    value: "4%",
+                    valuation: "(6%)"
+                  },
+                  fall: {
+                    value: "44%",
+                    valuation: "(29%)"
+                  }
+                }
+              }]
+            }
+          };
+        myFishboneDiagram.setOption(option);
+      }
+    </script>
   </body>
 </html>
