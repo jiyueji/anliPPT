@@ -152,7 +152,7 @@
                 n = (n + step) >= total ? total : (n + step);
                 if (n <= total) {
                     // console.log(n)
-                    document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "mil" + "</span>";
+                    document.getElementById(idname).innerHTML = "<span style='font-size:46px;letter-spacing:15px;'>" + "＄" + "</span>" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:22px;letter-spacing: 0;'>" + "mil" + "</span>";
                 }
             }
         }

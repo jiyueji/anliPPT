@@ -311,7 +311,7 @@
         /* transform: translate3d(-79.3921px, 0px, -112.083px) rotateX(0deg) rotateY(71.7013deg) !important; */
     }
     .swiper-containerUpBig .swiper-slide-prev{
-        transform: translate3d(82.667px, 0px, -201.823px) rotateX(0deg) rotateY(75.214deg) !important;
+        transform: translate3d(82.667px, 0px, -190.823px) rotateX(0deg) rotateY(75.214deg) !important;
     }
     .swiper-containerUpBig .swiper-slide-next{
         transform: translate3d(-82.667px, 0px, -184.823px) rotateX(0deg) rotateY(-73.214deg) !important;
@@ -373,11 +373,11 @@
         background-size: 614px 413px;
     }
     #root{
-        letter-spacing: 32px;
+        letter-spacing: 25px;
         font-size: 46px;
         position: absolute;
-        right: 128px;
-        top: 20px;
+        right: 137px;
+        top: 19px;
         color: #ffffff;
     }
     .swiper-containerDownSmall{
