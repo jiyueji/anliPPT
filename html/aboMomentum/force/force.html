@@ -26,16 +26,31 @@
                     <p class="font-small">Force size</p>
                 </div>
             </main>
-            <!--<div class="title-list">
+            <div class="title-list">
                 <p>80k</p>
                 <p>60k</p>
                 <p>40k</p>
                 <p>30k</p>
                 <p>20k</p>
                 <p>10k</p>
-            </div>-->
+            </div>
+            <ul class="title-dotm">
+                <li>Jan</li>
+                <li>Fed</li>
+                <li>Mar</li>
+                <li>Apr</li>
+                <li>May</li>
+                <li>Jun</li>
+                <li>Jul</li>
+                <li>Aug</li>
+                <li>Sep</li>
+                <li>Oct</li>
+                <li>Nov</li>
+                <li>Dec</li>
+            </ul>
             <footer class="footer" id="footer"></footer>
         </div>
+        <div class="mask-plane"></div>
     </body>
     <script>
 
@@ -50,43 +65,75 @@
           }
         },
         xAxis3D: {
+          name: '',
           type: 'category',
           data: ['Jan', 'Fed', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
           axisLine:{
             lineStyle:{
-              color:'#fff',
-              width:2
+              color:'#fff', // 线条颜色
+              width:1, // 线条宽度
+              option: 1 // 线条是否透明
             }
           },
+          axisLabel: {
+            show: false, // 是否显示字体
+            margin: 10 ,// 字体距离头部线条的距离
+            textStyle: {
+              fontSize: 16
+            }
+          },
+          axisTick: {
+            show: false // 是否显示刻度
+          },
           splitLine:{
-            show:false
+            show:false // 是否显示坐标系
           }
         },
         yAxis3D: {
+          name: '',
           type: 'category',
           data: [],
           axisLine:{
             lineStyle:{
-              color:'#fff',
-              width:2
-            }
-          },
-          splitLine:{
-            show: false
-          }
-        },
-        zAxis3D: {
-          type: 'value',
-          axisLine:{
-            lineStyle:{
+              width: 0,
+              option: 0,
               color:'#fff'
             }
           },
-          splitLine:{
-            show: false
+          axisLabel: {
+            show: true, // 是否显示字体
+            margin: 10 // 字体距离头部线条的距离
           },
+          axisTick: {
+            show: false // 是否显示刻度
+          },
+          splitLine:{
+            show:false // 是否显示坐标系
+          }
+        },
+        zAxis3D: {
+          name: '',
+          type: 'value',
+          axisLine:{
+            lineStyle:{
+              width: 0,
+              option: 0,
+              color:'#fff'
+            }
+          },
+          axisLabel: {
+            show: true, // 是否显示字体
+            margin: 10 // 字体距离头部线条的距离
+          },
+          axisTick: {
+            show: false // 是否显示刻度
+          },
+          splitLine:{
+            show:false // 是否显示坐标系
+          }
         },
         grid3D: {
+          show: true,
           boxWidth: 330,
           boxDepth: 15,
           axisPointer: {
@@ -112,18 +159,18 @@
         series: [
           {
             type: 'bar3D',
-            name:'1',
+            name:'',
             barSize: 15,
             itemStyle:{
-                color: '#f6962e'
+              color: '#f6962e'
             },
             data: [
-              [0, 0, 20000],
-              [2, 0, 35000],
-              [4, 0, 33000],
-              [6, 0, 27000],
-              [8, 0, 20000],
-              [10, 0, 40000]
+              [0, 0, 10],
+              [2, 0, 20],
+              [4, 0, 30],
+              [6, 0, 40],
+              [8, 0, 50],
+              [10, 0, 60]
             ],
             stack: 'stack',
             shading: 'lambert',
@@ -135,18 +182,18 @@
           },
           {
             type: 'bar3D',
-            name:'2',
+            name:'',
             barSize: 15,
             itemStyle:{
               color: '#17b6a9'
             },
             data: [
-              [1, 0, 30000],
-              [3, 0, 45000],
-              [5, 0, 46000],
-              [7, 0, 45000],
-              [9, 0, 0],
-              [11, 0, 0]
+              [1, 0, 10],
+              [3, 0, 20],
+              [5, 0, 30],
+              [7, 0, 40],
+              [9, 0, 50],
+              [11, 0, 60]
             ],
             // stack: 'stack',
             shading: 'lambert',
@@ -157,8 +204,6 @@
             }
           }]
       }
-
-
       myChart.setOption(option); // 使用刚指定的配置项和数据显示图表。
     </script>
 </html>
