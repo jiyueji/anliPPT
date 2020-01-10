@@ -77,8 +77,8 @@
     setDiagramItem(diagram) {
       var style = this.option.diagram.style,
         data = this.option.diagram.data;
-      var fishboneFrontWidth = 59,
-        fishboneTailWidth = 36,
+      var fishboneFrontWidth = 40,
+        fishboneTailWidth = 43,
         containerWidth = parseInt(style.width) || (this.container.offsetWidth - (parseInt(style.left) || 0) - (parseInt(style.right) || 0) ),
         diagramItemWidth = containerWidth,
         diagramItems = '';
