@@ -16,7 +16,10 @@
       this.container.classList.add('fishbone-diagram');
     },
     setOption(option) {
-      this.option = option || {};
+      this.option = this.deepObjectMerge({
+        legend: { style: {}, data: [] },
+        diagram: { style: {}, data: [] }
+      }, option);
       this.fragment = document.createDocumentFragment();
       this.setTitle();
       this.setSubTitle();
@@ -26,15 +29,17 @@
       this.animationHandler();
     },
     setTitle() {
-      var title = document.createElement('div'),
-        titleOpt = this.option.title;
+      var titleOpt = this.option.title;
+      if(!titleOpt) return false;
+      var title = document.createElement('div');
       title.classList.add('title');
       title.innerText = titleOpt.text;
       this.fragment.appendChild(title);
     },
     setSubTitle() {
+      var subTitleOpt = this.option.subTitle;
+      if(!subTitleOpt) return false;
       var subTitle = document.createElement('ul'),
-        subTitleOpt = this.option.subTitle;
         subTitleTemplate = '';
       subTitle.classList.add('sub-title');
       var tagging = subTitleOpt.tagging;
@@ -46,16 +51,15 @@
     },
     setLegend() {
       var legend = document.createElement('ul'),
-        legendStyle = this.option.legend.style || {};
+        legendStyle = this.option.legend.style;
       legend.classList.add('legend');
       this.setStyle(legend, legendStyle);
       this.setLegendItem(legend);
       this.fragment.appendChild(legend);
     },
     setLegendItem(legend) {
-      var data = this.option.legend.data;
-      if(!data) return false;
-      var legendItems = '';
+      var data = this.option.legend.data,
+        legendItems = '';
       for(var i=0, length=data.length; i<length; i+=1) {
         var item = data[i];
         legendItems += `<li class="legend-item">${item}</li>`;
@@ -63,8 +67,8 @@
       legend.innerHTML = legendItems;
     },
     setDiagram() {
-      var diagram = document.createElement('div'),
-        diagramStyle = this.option.diagram.style || {};
+      var diagram = document.createElement('ul'),
+        diagramStyle = this.option.diagram.style;
       diagram.classList.add('diagram');
       this.setStyle(diagram, diagramStyle);
       this.setDiagramItem(diagram);
@@ -73,17 +77,19 @@
     setDiagramItem(diagram) {
       var style = this.option.diagram.style,
         data = this.option.diagram.data;
-      if(!data) return false;
-      var diagramItems = '';
-        fishboneFrontWidth = 59,
+      var fishboneFrontWidth = 59,
         fishboneTailWidth = 36,
-        fishboneCentralWidth = parseInt(style.width) || (this.container.offsetWidth - (parseInt(style.left) || 0) - (parseInt(style.right) || 0) - fishboneTailWidth);
+        containerWidth = parseInt(style.width) || (this.container.offsetWidth - (parseInt(style.left) || 0) - (parseInt(style.right) || 0) ),
+        diagramItemWidth = containerWidth,
+        diagramItems = '';
+      diagramItemWidth += fishboneFrontWidth;
       for(var i=0, length=data.length; i<length; i+=1) {
+        diagramItemWidth -= fishboneFrontWidth;
         var item = data[i],
-          fishboneFront = item.fishboneFront,
+          fishboneFront = [undefined, true].includes(item.fishboneFront),
           startRange = item.startRange || 0,
-          taggingRange = startRange;
-          serTemplate = '';
+          serTemplate = '',
+          fishboneCentralWidth = diagramItemWidth - fishboneTailWidth;
         // 鱼骨标注
         var tagging = item.tagging;
         if(tagging) {
@@ -108,23 +114,29 @@
             }
             taggingTemplate += `<li class="tagging-fall">${fallTemplate}</li>`;
           }
-          if(fishboneFront === false && taggingRange) {
-            taggingRange -= 60;
-          }
-          serTemplate += `<ul class="diagram-item_tagging" style="transform: translateX(${taggingRange}px)">${taggingTemplate}</ul>`
+          serTemplate += `<ul class="diagram-item_tagging" style="transform: translateX(${startRange}px)">${taggingTemplate}</ul>`
         }
         // 鱼骨鱼刺
         var fishboneTemplate = '';
-        if(fishboneFront !== false) {
+        if(fishboneFront) {
           fishboneCentralWidth -= fishboneFrontWidth;
           fishboneTemplate += `<li class="fishbone-front"></li>`;
+        } else if(i !== 0){
+          diagramItemWidth += fishboneFrontWidth;
+          fishboneCentralWidth += fishboneFrontWidth;
         }
         fishboneTemplate += `<li class="fishbone-central" style="width: ${fishboneCentralWidth}px"></li><li class="fishbone-tail"></li>`;
         serTemplate += `<ul class="diagram-item_fishbone">${fishboneTemplate}</ul>`;
-        diagramItems += `<div class="diagram-item">${serTemplate}</div>`;
-        fishboneCentralWidth -= startRange;
+        diagramItems += `<li class="animation-container w0" style="left: ${containerWidth - diagramItemWidth}px; width: ${diagramItemWidth}px"><div class="diagram-item">${serTemplate}</div></li>`;
+        diagramItemWidth -= startRange;
       }
       diagram.innerHTML = diagramItems;
+    },
+    deepObjectMerge(FirstOBJ, SecondOBJ) {
+      for (var key in SecondOBJ) {
+        FirstOBJ[key] = FirstOBJ[key] && FirstOBJ[key].toString() === "[object Object]" ? this.deepObjectMerge(FirstOBJ[key], SecondOBJ[key]) : FirstOBJ[key] = SecondOBJ[key];
+      }
+      return FirstOBJ;
     },
     setStyle(elm, style) {
       for(var key in style) {
@@ -137,7 +149,14 @@
       this.container.appendChild(this.fragment);
     },
     animationHandler() {
-
+      var elms = this.container.querySelectorAll('.animation-container');
+      for(var i=0,length=elms.length; i<length; i+= 1) {
+        (function(i) {
+          setTimeout(function() {
+            elms[i].classList.remove('w0');
+          }, i * 1500);
+        })(i);
+      }
     }
   };
   

@@ -43,6 +43,20 @@
   transform: scale(0.75);
   font-size: 12px;
 }
+/** 鱼骨图-动画 **/
+.fishbone-diagram .animation-container {
+  position: relative;
+  margin-left: -16px;
+  padding: 28px 0 53px;
+  transition: width 1.5s;
+  overflow: hidden;
+}
+.fishbone-diagram .animation-container.w0 {
+  width: 0 !important;
+}
+.fishbone-diagram .animation-container:not(:last-child) {
+  margin-top: -28px;
+}
 /** 鱼骨图-标题 **/
 .fishbone-diagram .title {
   color: #fff;
@@ -109,6 +123,7 @@
 }
 .legend .legend-item {
   position: relative;
+  margin-top: 1px;
   padding-bottom: 14px;
 }
 .legend .legend-item::after {
@@ -124,7 +139,6 @@
 .fishbone-diagram .diagram {
   display: flex;
   flex-direction: column-reverse;
-  align-items: flex-end;
   position: absolute;
   top: 0;
   right: 0;
@@ -134,18 +148,15 @@
 }
 .diagram .diagram-item {
   display: flex;
-  position: relative;
-  padding: 26px 0 38px;
+  position: absolute;
+  left: 16px;  
   height: 14px;
-}
-.diagram .diagram-item:not(:last-child) {
-  margin-top: -26px;
 }
 /** 鱼骨图-图表-鱼骨标注 **/
 .diagram-item .diagram-item_tagging {
   position: absolute;
   left: -82px;
-  bottom: 12px;
+  bottom: -26px;
   width: 254px;
 }
 .diagram-item_tagging [class^='tagging-'] {

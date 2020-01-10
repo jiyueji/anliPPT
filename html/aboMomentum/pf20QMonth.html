@@ -15,19 +15,20 @@
 <body>
     <div class="middleBorder">
         <div class="smallTitle">CSI Daily Report</div>
-        <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts" style="width: 400px;height:425px;display:inline-block"></div>
-        <div style="display:inline-block;width: 300px;">
-              <div id="salesRight1Echarts" class="swiper-slide swiper-slide-echarts" style="height:165px;"></div>
-              <div id="salesRight2Echarts" class="swiper-slide swiper-slide-echarts" style="height:165px;"></div>
+        <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts"
+            style="width: 338px;height:413px;display:inline-block"></div>
+        <div style="display:inline-block;width: 264px;">
+            <div id="salesRight1Echarts" class="swiper-slide swiper-slide-echarts" style="height:165px;"></div>
+            <div id="salesRight2Echarts" class="swiper-slide swiper-slide-echarts" style="height:165px;"></div>
         </div>
     </div>
-    
-   
+
+
 
 
 
     <script>
-       var monthShow = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var monthShow = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         var yShow = ['5%', '10%', '15%', '20%', '25%'];
         var allData = {
             // 预测假数据
@@ -52,7 +53,7 @@
             ],
             // 去年的数据
             actual_sales_ly_data: [
-            { x: "Jan", y: '14', labelTooltip: "Monthly Sales" },
+                { x: "Jan", y: '14', labelTooltip: "Monthly Sales" },
                 { x: "Feb", y: '13', labelTooltip: "Monthly Sales" },
                 { x: "Mar", y: '12', labelTooltip: "Monthly Sales" },
                 { x: "Apr", y: '11', labelTooltip: "Monthly Sales" },
@@ -335,104 +336,157 @@
                 salesHomeEcharts1.resize()
             });
             salesHomeEcharts1.setOption({
-                
-    dataset: {
-        source: [
-        [39914, 'Acc . #of'],
-        [37950, 'QMonth']
-        ]
-    },
-    grid: {containLabel: true,
-        top:'2%',
-        left:'2%'},
-    xAxis: {name: ''},
-    yAxis: {type: 'category'},
-    visualMap: {
-        show:false,
-        orient: 'horizontal',
-        left: 'center',
-        min: 0,
-        max: 1,
-        text: ['Acc . #of', 'QMonth'],
-        // Map the score column to color
-        dimension: 1,
-        inRange: {
-            color: ['#28ccae', '#0059ee']
-        }
-    },
-    textStyle: {
-                 color: '#ffffff',
-             },
-    series: [
-        {
-            barWidth:'30',
-            type: 'bar',
-            encode: {
-                // Map the "amount" column to X axis.
-                x: 'amount',
-                // Map the "product" column to Y axis
-                y: 'product'
-            }
-        }
-    ]
+
+                dataset: {
+                    source: [
+                        [39914, 'Acc . #of'],
+                        [37950, 'QMonth']
+                    ]
+                },
+                grid: {
+                    containLabel: true,
+                    top: '2%',
+                    left: '2%'
+                },
+                xAxis: {
+                    name: '',
+                    // show:false,
+                    boundaryGap: true,
+                    splitLine: {
+                        "show": false
+                    },
+                    axisLine: {
+                        show: false,
+                    },
+                    axisTick: {
+                        show: false
+                    }
+                },
+                yAxis: {
+                    type: 'category',
+                    "axisTick": {       //y轴刻度线
+                        "show": false
+                    },
+                    "splitLine": {     //网格线
+                        "show": false
+                    },
+                    axisLine: {
+                        show: false,
+                    },
+                },
+                visualMap: {
+                    show: false,
+                    orient: 'horizontal',
+                    left: 'center',
+                    min: 0,
+                    max: 1,
+                    text: ['Acc . #of', 'QMonth'],
+                    // Map the score column to color
+                    dimension: 1,
+                    inRange: {
+                        color: ['#28ccae', '#0059ee']
+                    }
+                },
+                textStyle: {
+                    color: '#ffffff',
+                },
+                series: [
+                    {
+                        barWidth: '30',
+                        type: 'bar',
+                        encode: {
+                            // Map the "amount" column to X axis.
+                            x: 'amount',
+                            // Map the "product" column to Y axis
+                            y: 'product'
+                        }
+                    }
+                ]
             })
         }
 
         handleEcharts2();
 
-function handleEcharts2() {
-    var salesHomeEcharts2 = echarts.init(document.getElementById('salesRight2Echarts'));
-    window.addEventListener('resize', function () {
-        salesHomeEcharts2.resize()
-    });
-    salesHomeEcharts2.setOption({
-        
-dataset: {
-source: [
-    [9085, 'PV per'],
-    [9168, 'QMonths']
-    ] },
-    grid: {containLabel: true,
-    top:'1%',
-    left:'2%'},
-    xAxis: {name: ''},
-    yAxis: {type: 'category'},
-    // visualMap: {
-    //     inRange: {
-    //             color: ['#28ccae', '#0059ee']
-    //         }
-    // },
-    textStyle: {
-                 color: '#ffffff',
-             },
-    visualMap: {
-        show:false,
-        orient: 'horizontal',
-        left: 'center',
-        min: 0,
-        max: 1,
-        // text: ['Acc . #of', 'QMonth'],
-        // Map the score column to color
-        dimension: 1,
-        inRange: {
-            color: ['#28ccae', '#0059ee']
+        function handleEcharts2() {
+            var salesHomeEcharts2 = echarts.init(document.getElementById('salesRight2Echarts'));
+            window.addEventListener('resize', function () {
+                salesHomeEcharts2.resize()
+            });
+            salesHomeEcharts2.setOption({
+
+                dataset: {
+                    source: [
+                        [9085, 'PV per'],
+                        [9168, 'QMonths']
+                    ]
+                },
+                grid: {
+                    containLabel: true,
+                    top: '1%',
+                    left: '2%'
+                },
+                xAxis: {
+                    name: '',
+                    // show:false,
+                    boundaryGap: true,
+                    splitLine: {
+                        "show": false
+                    },
+                    axisLine: {
+                        show: false,
+                    },
+                    axisTick: {
+                        show: false
+                    }
+                },
+                yAxis: {
+                    type: 'category',
+                    "axisTick": {       //y轴刻度线
+                        "show": false
+                    },
+                    "splitLine": {     //网格线
+                        "show": false
+                    },
+                    axisLine: {
+                        show: false,
+                    },
+                },
+                // visualMap: {
+                //     inRange: {
+                //             color: ['#28ccae', '#0059ee']
+                //         }
+                // },
+                textStyle: {
+                    color: '#ffffff',
+                },
+                visualMap: {
+                    show: false,
+                    orient: 'horizontal',
+                    left: 'center',
+                    min: 0,
+                    max: 1,
+                    // text: ['Acc . #of', 'QMonth'],
+                    // Map the score column to color
+                    dimension: 1,
+                    inRange: {
+                        color: ['#28ccae', '#0059ee']
+                    }
+                },
+                series: [
+                    {
+                        barWidth: '30',
+                        type: 'bar',
+                        encode: {
+                            // Map the "amount" column to X axis.
+                            x: 'amount',
+                            // Map the "product" column to Y axis
+                            y: 'product'
+                        }
+                    }
+                ]
+            })
         }
-    },
-    series: [
-    {
-        barWidth:'30',
-        type: 'bar',
-        encode: {
-            // Map the "amount" column to X axis.
-            x: 'amount',
-            // Map the "product" column to Y axis
-            y: 'product'
-        }
-    }
-    ]
-    })
-}
-        
+
     </script>
 </body>
 

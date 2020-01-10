@@ -19,19 +19,21 @@
         }
 
         .smallTopTitle {
-            width: 30%;
+            width: 33.33%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-        .smallTopTitle div:nth-of-type(1){
-            font-size:33px;
-            color:#ffffff;
+
+        .smallTopTitle div:nth-of-type(1) {
+            font-size: 33px;
+            color: #ffffff;
         }
-        .smallTopTitle div:nth-of-type(2){
-            font-size:12px;
-            color:#3995da;
+
+        .smallTopTitle div:nth-of-type(2) {
+            font-size: 12px;
+            color: #3995da;
         }
     </style>
 </head>
@@ -53,40 +55,109 @@
                 <div>Today accumulate FOA buyer</div>
             </div>
         </div>
-        <div id="salesHomeEchartsCsi" class="swiper-slide swiper-slide-echarts" style="width: 730px;height:320px;"></div>
+        <div id="hourlysBar" class="swiper-slide swiper-slide-echarts" style="width: 530px;height:40px;margin:0 auto;"></div>
+        <div id="hourlysCsi" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:268px;">
+        </div>
     </div>
 
     <script>
-        var xDate = ["0:00","1:00","2:00","3:00","4:00","5:00","6:00","7:00","8:00","9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","24:00"]
-        var today = ["900","500","400","300","1000","1500","3000","6000","900","500","400","300","1000","1500","3000","6000","900","500","400","300","1000","1500","3000","6000"]
-        var lastDay = ["300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300","300"]
+        var xDate = ["0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00"]
+        var today = ["300", "12000", "300", "10000", "13000", "40000", "30000", "10000", "13000", "300", "300", "300", "10000", "13000", "300", "300", "300", "300", "10000", "13000", "300", "20000", "300", "300"]
+        var lastDay = ["300", "300", "300", "10000", "13000", "300", "300", "10000", "13000", "300", "300", "300", "10000", "13000", "300", "300", "300", "300", "10000", "13000", "300", "300", "300", "300"]
 
+        handleEchartsBar();//折线图
         handleEcharts();//折线图
 
-        function handleEcharts() {
-            var salesHomeEchartsCsi = echarts.init(document.getElementById('salesHomeEchartsCsi'));
+        function handleEchartsBar() {
+            var hourlysBar = echarts.init(document.getElementById('hourlysBar'));
             window.addEventListener('resize', function () {
-                salesHomeEchartsCsi.resize()
+                hourlysBar.resize()
             });
-            salesHomeEchartsCsi.setOption({
+            hourlysBar.setOption({
                 animationDuration: 5000,
-                // title: [
-                //     {
-                //         text: 'CSI Daily Report',
-                //         x: '8%',
-                //         y: '0%',
-                //         textStyle: {                  //标题样式
-                //             fontSize: '16',
-                //             color: '#ffffff',
-                //         },
-                //     }
-                // ],
                 tooltip: {//鼠标移入
                     trigger: 'axis',
                     confine: false,
                 },
                 grid: {
-                    top: '6%',
+                    top: '2%',
+                    left: '4%',
+                    right: '4%',
+                    bottom: '2%',
+                    containLabel: true,
+                },
+                xAxis: {
+                    show: false,
+                },
+                yAxis: {
+                    type: 'category',
+                    axisLabel: {
+                        margin: 40,
+                        show: true,
+                        color: '#4DCEF8',
+                        fontSize: 14
+                    },
+                    axisTick: {
+                        show: false,
+                    },
+                    axisLine: {
+                        show: false,
+                    },
+                    data: ["Proportion of Sales"]
+                },
+                series: [{
+                    type: 'bar',
+                    barGap: '-100%',
+                    barWidth: '60%',
+                    itemStyle: {
+                        normal: {
+                            // borderColor: '#4DCEF8',
+                            // borderWidth: 2,
+                            // barBorderRadius: 15,
+                            color: '#1b3255'
+                        },
+                    },
+                    z: 1,
+                    data: ["100"],
+                    // data: da
+                }, {
+                    type: 'bar',
+                    barGap: '-98%',
+                    barWidth: '60%',
+                    itemStyle: {
+                        normal: {
+                            // barBorderRadius: 16,
+                            color: {
+                                type: 'linear',
+                                x: 0,
+                                x1: 1,
+                                colorStops: [{
+                                    offset: 0,
+                                    color: '#023bae'
+                                }, {
+                                    offset: 1,
+                                    color: '#075de9'
+                                }]
+                            }
+                        },
+                    },
+                    data: ["13.72"],
+                }]
+            })
+        }
+        function handleEcharts() {
+            var hourlysCsi = echarts.init(document.getElementById('hourlysCsi'));
+            window.addEventListener('resize', function () {
+                hourlysCsi.resize()
+            });
+            hourlysCsi.setOption({
+                animationDuration: 5000,
+                tooltip: {//鼠标移入
+                    trigger: 'axis',
+                    confine: false,
+                },
+                grid: {
+                    top: '3%',
                     left: '4%',
                     right: '4%',
                     bottom: '30%',
@@ -103,7 +174,7 @@
                     },
                     boundaryGap: false,//X轴刻度位置
                     axisLabel: {
-                        interval:0,//x轴文字显示不全
+                        interval: 0,//x轴文字显示不全
                         textStyle: {
                             fontSize: 9,
                             color: '#ffffff'
@@ -120,10 +191,10 @@
                                 color: "#ffffff"
                             },
                             formatter: function (params) {
-                                if(params == 0){
+                                if (params == 0) {
                                     return 0
-                                }else{
-                                    return params / 1000 + "K"
+                                } else {
+                                    return params / 10000 + "W"
                                 }
                             }
                         },
@@ -141,62 +212,75 @@
                         }
                     }
                 ],
-                series: [ {
-                        name: "Today",
-                        data: today,
-                        type: 'line',
-                        smooth: true,
-                        // symbol: "none", //去掉折线点
-                        symbolSize: 8, //折线点的大小
-                        animationDuration: 1000,
-                        // stack: 100,
-                        itemStyle: {
-                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                                //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
-                                color: '#4d96f1', //背景渐变色
-                                lineStyle: { // 系列级个性化折线样式
-                                    width: 1,
-                                    type: 'solid',
-                                    color: "#4d96f1"//折现颜色
-                                },
-                                borderColor: '#4d96f1',  // 拐点边框颜色
+                series: [{
+                    name: "Today",
+                    data: today,
+                    type: 'line',
+                    smooth: true,
+                    // symbol: "none", //去掉折线点
+                    symbolSize: 8, //折线点的大小
+                    animationDuration: 1000,
+                    // stack: 100,
+                    areaStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: 'rgba(77,150,241,0.28)'
+                            }, {
+                                offset: 0.8,
+                                color: 'rgba(77,150,241,0.28)'
+                            }], false),
+                            shadowColor: 'rgba(0, 0, 0, 0.1)',
+                            shadowBlur: 10
+                        }
+                    },
+                    itemStyle: {
+                        normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                            //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
+                            color: '#4d96f1', //背景渐变色
+                            lineStyle: { // 系列级个性化折线样式
+                                width: 1,
+                                type: 'solid',
+                                color: "#4d96f1"//折现颜色
                             },
-                        }, //线条样式
-                    }, {
-                        name: "Last Day",
-                        data: lastDay,
-                        type: 'line',
-                        smooth: true,
-                        symbol: "none", //去掉折线点
-                        symbolSize: 5, //折线点的大小
-                        stack: 100,
-                        animationDuration: 1000,
-                        itemStyle: {
-                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                                color: '#5e50e6', //背景渐变色
-                                // lineStyle: { // 系列级个性化折线样式
-                                //     width: 0.5,
-                                //     type: 'solid',
-                                //     color: "rgba(28,213,224,0.36)"//折现颜色
-                                // }
-                            },
-                        }, //线条样式
-                        areaStyle: {
-                            normal: {}
+                            borderColor: '#4d96f1',  // 拐点边框颜色
                         },
-                    }
+                    }, //线条样式
+                }, {
+                    name: "Last Day",
+                    data: lastDay,
+                    type: 'line',
+                    smooth: true,
+                    symbol: "none", //去掉折线点
+                    symbolSize: 5, //折线点的大小
+                    stack: 100,
+                    animationDuration: 1000,
+                    itemStyle: {
+                        normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                            color: 'rgba(94,80,230,0.5)', //背景渐变色
+                            lineStyle: { // 系列级个性化折线样式
+                                width: 0.5,
+                                type: 'solid',
+                                color: "rgba(28,213,224,0.5)"//折现颜色
+                            }
+                        },
+                    }, //线条样式
+                    areaStyle: {
+                        normal: {}
+                    },
+                }
                 ],
                 //图例名
                 // color: ['#ffa441', '#4d96f1'],
                 legend: {
                     type: "scroll",
-                    data:[
-                        {name:"Today"}, 
-                        {name:"Last Day",icon:'image://../../img/6/6.1icon.png'}
+                    data: [
+                        { name: "Today" },
+                        { name: "Last Day", icon: 'image://../../img/6/6.1icon.png' }
                     ],
                     left: 'center',
                     itemGap: 200,//图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
-                    y: '235',
+                    y: '205',
                     textStyle: {
                         color: "#ffffff",
                         fontSize: 14

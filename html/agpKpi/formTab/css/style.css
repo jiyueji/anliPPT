@@ -54,7 +54,7 @@ body {
     font-size: 1rem;
     font-family: "Open Sans", sans-serif;
     color: #fff;
-    background-color: #36373c;
+    /* background-color: #36373c; */
     -webkit-font-smoothing: antialiased;
     margin: 0;
     padding: 0;
@@ -214,7 +214,7 @@ main .-content.-index>div {
 
 .bounce {
     position: relative;
-    margin: 11rem 8rem 0 0;
+    margin: 16rem 6rem 0 0;
 }
 
 .bounce .-box,
@@ -470,13 +470,13 @@ main .-content.-index>div {
 }
 @media screen and (max-width: 1366px) {
     .form-bg {
-        width: 730px;
-        height: 425px;
+        width: 614px;
+        height: 413px;
         background: url(../../../../img/middleBorder.png)no-repeat;
         background-size: 100% 100%;
     }
     .form-bg .form-top {
-        top: 10px;
+        top: 17px;
         line-height: 0px;
         left: 38px;
     }
@@ -487,35 +487,35 @@ main .-content.-index>div {
         margin: -6px 0 0 0;
     }
     .form-bg .form-top .form-p-3 {
-        padding: 16px 0 0 0;
+        padding: 44px 0 0 0;
     }
     .form-bg .form-content {
-        width: 650px;
+        width: 548px;
         height: auto;
-        margin: 127px auto;
+        margin: 168px auto;
     }
     .form-bg .form-content img {
         display: block;
-        width: 650px;
+        width: 548px;
     }
     .form-bg .form-content .form-arrow01{
         transform: rotate(50deg);
-        right: 161px;
-        top: 187px;
+        right: 134px;
+        top: 220px;
     }
     .form-bg .form-content .form-arrow02 {
-        right: 161px;
-        top: 207px;
+        right: 134px;
+        top: 233px;    
     }
     .form-bg .form-content p {
         font-size: 12px;
         left: 70.4%;
     }
     .form-bg .form-content .form-content-10 {
-        top: 165px;
+        top: 197px;
     }
     .form-bg .form-content .form-content-20 {
-        top: 198px;
+        top: 225px
     }
     main .-content.-index {
         top: -133px;

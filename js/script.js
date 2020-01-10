@@ -1,31 +1,31 @@
 var changeIndex = 1;
 
-var srcArr1 = ["./html/hourlyReport/referralAmount.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
+var srcArr1 = ["./html/monthlyReport/salesHome.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
 var srcArr2 = ["./html/agpKpi/formTab/formTab.html", "./html/agpKpi/aboSegmentMonthlyData.html", "./html/agpKpi/ppv.html", "./html/agpKpi/endPpv.html"]
-var srcArr3 = ["./html/aboMomentum/force/force.html","./html/aboMomentum/income.html"]
-var srcArr4 = ["./html/predictionModel/abo.html"]
+var srcArr3 = ["./html/aboMomentum/force/force.html","./html/aboMomentum/pf20QMonth.html","./html/aboMomentum/income.html"]
+var srcArr4 = ["./html/predictionModel/abo.html","./html/predictionModel/pinMigrationModel.html","./html/predictionModel/bonusMigrationModel.html"]
 var srcArr5 = ["./html/dailyReport/dailySales.html","./html/dailyReport/csi.html","./html/dailyReport/buyer/buyer.html"]
-var srcArr6 = ["./html/hourlyReport/newSales.html","./html/hourlyReport/amountComm.html","./html/hourlyReport/referralAmount.html"]
+var srcArr6 = ["./html/hourlyReport/newSales.html","./html/hourlyReport/foaSales.html","./html/hourlyReport/amountComm.html","./html/hourlyReport/referralAmount.html"]
 
 
 var containerUpBig = new Swiper('.swiper-containerUpBig', {
     loop: true,
-    effect: 'coverflow',
+    effect : 'coverflow',
     slidesPerView: 3,
     freeMod: false,
     initialSlide: 0, //初始展示
     slideToClickedSlide: true,
     centeredSlides: true, //设置slide居中
-    slidesOffsetBefore: -10,
+    slidesOffsetBefore: -245,
     observer: true,//修改swiper自己或子元素时，自动初始化swiper
     // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
     //         observeSlideChildren:true,
     coverflowEffect: {
         rotate: 50, // rotate：slide做3d旋转时Y轴的旋转角度。默认50。
-        stretch: -50, //stretch：每个slide之间的拉伸值，越大slide靠得越紧。 默认0。
+        stretch: 60, //stretch：每个slide之间的拉伸值，越大slide靠得越紧。 默认0。
         depth: 120, //depth：slide的位置深度。值越大z轴距离越远，看起来越小。 默认100。
         modifier: 1, //modifier：depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1。
-        slideShadows: true //slideShadows：开启slide阴影。默认 true。
+        slideShadows: false //slideShadows：开启slide阴影。默认 true。
     },
     on: {
         // touchEnd: function (event) {
@@ -193,8 +193,9 @@ function oneImg() {
         slidesPerView: 3,
         freeMod: false,
         initialSlide: 0, //初始展示
+        slideToClickedSlide: true,
         centeredSlides: true, //设置slide居中
-        slidesOffsetBefore: -10,
+        slidesOffsetBefore: -245,
         observer: true,//修改swiper自己或子元素时，自动初始化swiper
         // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
         //         observeSlideChildren:true,
@@ -203,7 +204,7 @@ function oneImg() {
             stretch: -50, //stretch：每个slide之间的拉伸值，越大slide靠得越紧。 默认0。
             depth: 120, //depth：slide的位置深度。值越大z轴距离越远，看起来越小。 默认100。
             modifier: 1, //modifier：depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1。
-            slideShadows: true //slideShadows：开启slide阴影。默认 true。
+            slideShadows: false //slideShadows：开启slide阴影。默认 true。
         },
     })
 }
@@ -251,8 +252,9 @@ function twoImg() {
         slidesPerView: 3,
         freeMod: false,
         initialSlide: 0, //初始展示
+        slideToClickedSlide: true,
         centeredSlides: true, //设置slide居中
-        slidesOffsetBefore: -10,
+        slidesOffsetBefore: -245,
         observer: true,//修改swiper自己或子元素时，自动初始化swiper
         // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
         //         observeSlideChildren:true,
@@ -261,7 +263,7 @@ function twoImg() {
             stretch: -50, //stretch：每个slide之间的拉伸值，越大slide靠得越紧。 默认0。
             depth: 120, //depth：slide的位置深度。值越大z轴距离越远，看起来越小。 默认100。
             modifier: 1, //modifier：depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1。
-            slideShadows: true //slideShadows：开启slide阴影。默认 true。
+            slideShadows: false //slideShadows：开启slide阴影。默认 true。
         },
     })
 }
@@ -296,8 +298,9 @@ function threeImg() {
         slidesPerView: 3,
         freeMod: false,
         initialSlide: 0, //初始展示
+        slideToClickedSlide: true,
         centeredSlides: true, //设置slide居中
-        slidesOffsetBefore: -10,
+        slidesOffsetBefore: -245,
         observer: true,//修改swiper自己或子元素时，自动初始化swiper
         // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
         //         observeSlideChildren:true,
@@ -306,7 +309,7 @@ function threeImg() {
             stretch: -50, //stretch：每个slide之间的拉伸值，越大slide靠得越紧。 默认0。
             depth: 120, //depth：slide的位置深度。值越大z轴距离越远，看起来越小。 默认100。
             modifier: 1, //modifier：depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1。
-            slideShadows: true //slideShadows：开启slide阴影。默认 true。
+            slideShadows: false //slideShadows：开启slide阴影。默认 true。
         },
     })
 }
@@ -341,17 +344,18 @@ function fourImg() {
         slidesPerView: 3,
         freeMod: false,
         initialSlide: 0, //初始展示
+        slideToClickedSlide: true,
         centeredSlides: true, //设置slide居中
-        slidesOffsetBefore: -10,
+        slidesOffsetBefore: -245,
         observer: true,//修改swiper自己或子元素时，自动初始化swiper
         // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
         //         observeSlideChildren:true,
         coverflowEffect: {
-            rotate: 50,// rotate：slide做3d旋转时Y轴的旋转角度。默认50。
-            stretch: -50,//stretch：每个slide之间的拉伸值，越大slide靠得越紧。 默认0。
-            depth: 120,//depth：slide的位置深度。值越大z轴距离越远，看起来越小。 默认100。
-            modifier: 1,//modifier：depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1。
-            slideShadows: true//slideShadows：开启slide阴影。默认 true。
+            rotate: 50, // rotate：slide做3d旋转时Y轴的旋转角度。默认50。
+            stretch: -50, //stretch：每个slide之间的拉伸值，越大slide靠得越紧。 默认0。
+            depth: 120, //depth：slide的位置深度。值越大z轴距离越远，看起来越小。 默认100。
+            modifier: 1, //modifier：depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1。
+            slideShadows: false //slideShadows：开启slide阴影。默认 true。
         },
     })
 }
@@ -387,9 +391,10 @@ function fiveImg() {
         effect: 'coverflow',
         slidesPerView: 3,
         freeMod: false,
-        initialSlide: 0,//初始展示
+        initialSlide: 0, //初始展示
+        slideToClickedSlide: true,
         centeredSlides: true, //设置slide居中
-        slidesOffsetBefore: -10,
+        slidesOffsetBefore: -245,
         observer: true,//修改swiper自己或子元素时，自动初始化swiper
         // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
         //         observeSlideChildren:true,
@@ -398,7 +403,7 @@ function fiveImg() {
             stretch: -50, //stretch：每个slide之间的拉伸值，越大slide靠得越紧。 默认0。
             depth: 120, //depth：slide的位置深度。值越大z轴距离越远，看起来越小。 默认100。
             modifier: 1, //modifier：depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1。
-            slideShadows: true //slideShadows：开启slide阴影。默认 true。
+            slideShadows: false //slideShadows：开启slide阴影。默认 true。
         },
     })
 }
@@ -434,9 +439,10 @@ function sixImg() {
         effect: 'coverflow',
         slidesPerView: 3,
         freeMod: false,
-        initialSlide: 0,//初始展示
+        initialSlide: 0, //初始展示
+        slideToClickedSlide: true,
         centeredSlides: true, //设置slide居中
-        slidesOffsetBefore: -10,
+        slidesOffsetBefore: -245,
         observer: true,//修改swiper自己或子元素时，自动初始化swiper
         // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
         //         observeSlideChildren:true,
@@ -445,7 +451,7 @@ function sixImg() {
             stretch: -50, //stretch：每个slide之间的拉伸值，越大slide靠得越紧。 默认0。
             depth: 120, //depth：slide的位置深度。值越大z轴距离越远，看起来越小。 默认100。
             modifier: 1, //modifier：depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1。
-            slideShadows: true //slideShadows：开启slide阴影。默认 true。
+            slideShadows: false //slideShadows：开启slide阴影。默认 true。
         },
     })
 }
