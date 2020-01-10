@@ -13,6 +13,7 @@ var containerUpBig = new Swiper('.swiper-containerUpBig', {
     effect : 'coverflow',
     slidesPerView: 3,
     freeMod: false,
+    touchRatio : 0,//禁止滑动
     initialSlide: 0, //初始展示
     slideToClickedSlide: true,
     centeredSlides: true, //设置slide居中
