@@ -63,8 +63,8 @@
 
 
     <script>
-        var monthShow = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'
-            , '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
+        var monthShow = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18'
+            , '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30','31'];
         var yShow = ['5%', '10%', '15%', '20%', '25%'];
         var allData = {
             // 预测假数据
@@ -199,9 +199,9 @@
                 //         },
                 //     }
                 // ],
-                tooltip: {//鼠标移入
-                    trigger: 'axis',
-                    confine: true,
+                // tooltip: {//鼠标移入
+                //     trigger: 'axis',
+                //     confine: true,
                     //                 tooltip_data_map:
                     // Jan:
                     // monthName: "2019 January"
@@ -209,7 +209,7 @@
                     // actual_sales_ly: "$235m"
                     // sales_forecast: null
                     // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
-                    formatter: (data) => {
+                    // formatter: (data) => {
                         // console.log(data)
                         // var yearThisData = 0;
                         // var yearLastData = 0;
@@ -240,8 +240,8 @@
                         //     })
                         // }
                         // return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "%" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
-                    }
-                },
+                //     }
+                // },
                 grid: {
                     top: '6%',
                     left: '4%',
@@ -260,9 +260,16 @@
                     },
                     boundaryGap: false,//X轴刻度位置
                     axisLabel: {
+                        interval: 0,//x轴文字显示不全
                         textStyle: {
                             fontSize: 12,
-                            color: '#ffffff'
+                            color:(val)=>{
+                                if(val == 30 || val == 31){
+                                    return "gray"
+                                }else{
+                                    return  '#ffffff'
+                                }
+                            }
                         },
                         formatter: function (params) {
                             return params.split(' ')[0]
@@ -291,14 +298,14 @@
                         splitLine: {//Y轴的样式虚线
                             lineStyle: {
                                 type: 'dashed',
-                                color: '#e5e9ee'
+                                color: '#757575'//这里改成757575
                             }
                         }
                     }
                 ],
                 series: [
                     {
-                        name: 'This month',
+                        name: '2020 Feb',
                         type: 'line',
                         symbolSize: 5,   //拐点圆的大小
                         // color:['#fd0022'],  //折线条的颜色
@@ -323,7 +330,7 @@
                             }
                         },
                     }, {
-                        name: "Last month",
+                        name: "2020 Feb",
                         data: thisYear,
                         type: 'line',
                         smooth: true,
@@ -358,7 +365,7 @@
                             },
                         }, //线条样式
                     }, {
-                        name: "Last month",
+                        name: "2019 Feb",
                         data: lastYear,
                         type: 'line',
                         smooth: true,
@@ -368,11 +375,11 @@
                         animationDuration: 1000,
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                                color: 'rgba(28,213,224,0.36)', //背景渐变色
+                                color: 'rgba(94,80,230,0.28)', //背景渐变色
                                 lineStyle: { // 系列级个性化折线样式
                                     width: 0.5,
                                     type: 'solid',
-                                    color: "rgba(28,213,224,0.36)"//折现颜色
+                                    color: "rgba(94,80,230,0.28)"//折现颜色
                                 }
                             },
                         }, //线条样式
@@ -389,7 +396,12 @@
                     icon: "circle",
                     left: 'center',
                     // bottom: 'bottom',
-                    y: '235',
+                    data:[
+                        {name:"2020 Feb", icon: 'image://../../img/tuli/lineYellow.jpg'},
+                        {name:"2019 Feb", icon: 'image://../../img/tuli/yy.png'}
+                    ],
+                    y: '225',
+                    itemGap: 160,
                     textStyle: {
                         color: "#ffffff",
                         fontSize: 14
