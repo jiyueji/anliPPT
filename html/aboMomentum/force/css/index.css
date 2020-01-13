@@ -32,7 +32,8 @@
 .footer{
     position: absolute;
     width: 100%;
-    margin: 286px 0 0 68px;
+    top: 466px;
+    left: 68px;
 }
 
 .title-list{
