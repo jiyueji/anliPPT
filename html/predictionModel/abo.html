@@ -50,24 +50,24 @@
             ],
             //虚线数据
             actual_sales_data_target: [
-                { x: "Jan", y: '', labelTooltip: "Monthly Sales" },
-                { x: "Feb", y: '', labelTooltip: "Monthly Sales" },
-                { x: "Mar", y: '', labelTooltip: "Monthly Sales" },
-                { x: "Apr", y: '', labelTooltip: "Monthly Sales" },
-                { x: "May", y: '', labelTooltip: "Monthly Sales" },
-                { x: "Jun", y: '', labelTooltip: "Monthly Sales" },
-                { x: "Jul", y: '', labelTooltip: "Monthly Sales" },
-                { x: "Aug", y: '', labelTooltip: "Monthly Sales" },
-                { x: "Sep", y: '', labelTooltip: "Monthly Sales" },
-                { x: "Oct", y: '', labelTooltip: "Monthly Sales" },
-                { x: "Nov", y: 36, labelTooltip: "Monthly Sales" },
-                { x: "Dec", y: 34, labelTooltip: "Monthly Sales" }
+                { x: "Jan", value: '', labelTooltip: "Monthly Sales" },
+                { x: "Feb", value: '', labelTooltip: "Monthly Sales" },
+                { x: "Mar", value: '', labelTooltip: "Monthly Sales" },
+                { x: "Apr", value: '', labelTooltip: "Monthly Sales" },
+                { x: "May", value: '', labelTooltip: "Monthly Sales" },
+                { x: "Jun", value: '', labelTooltip: "Monthly Sales" },
+                { x: "Jul", value: '', labelTooltip: "Monthly Sales" },
+                { x: "Aug", value: '', labelTooltip: "Monthly Sales" },
+                { x: "Sep", value: '', labelTooltip: "Monthly Sales" },
+                { x: "Oct", value: '', labelTooltip: "Monthly Sales" },
+                { x: "Nov", value: 36, labelTooltip: "Monthly Sales",indexShow:true },
+                { x: "Dec", value: 34, labelTooltip: "Monthly Sales" }
             ],
             // 备注和提示内容
             tooltip_data_map: []
         }
         var thisYear = [];
-        var ppvTarget = [];
+        var ppvTarget = allData.actual_sales_data_target;
         var forecastYear = [];
         var tooltipData = allData.tooltip_data_map
         // console.log(allData.tooltip_data_map)
@@ -77,11 +77,11 @@
             })
         }
 
-        if (allData && allData.actual_sales_data_target.length > 0) {
-            allData.actual_sales_data_target.map((item, index) => {
-                ppvTarget.push(item.y)
-            })
-        }
+        // if (allData && allData.actual_sales_data_target.length > 0) {
+        //     allData.actual_sales_data_target.map((item, index) => {
+        //         ppvTarget.push(item.y)
+        //     })
+        // }
         // if (allData && allData.revenue_forecast_usd_data.length > 0) {
         //     allData.revenue_forecast_usd_data.map((item, index) => {
         //         forecastYear.push(item.y)
@@ -114,19 +114,19 @@
                 //         },
                 //     }
                 // ],
-                tooltip: {//鼠标移入
-                    trigger: 'axis',
-                    confine: true,
+                // tooltip: {//鼠标移入
+                //     trigger: 'axis',
+                //     confine: true,
 
-                    formatter: (data) => {
+                //     formatter: (data) => {
 
-                    }
-                },
+                //     }
+                // },
                 grid: {
-                    top: '18%',
+                    top: '20%',
                     left: '4%',
                     right: '8%',
-                    bottom: '16%',
+                    bottom: '12%',
                     containLabel: true,
                 },
                 xAxis: {
@@ -189,6 +189,60 @@
                     }
                 ],
                 series: [
+                {
+                        name: "Prediction Renewal Rate",
+                        data: ppvTarget,
+                        type: 'line',
+                        smooth: true,
+                        symbol: "circle", //去掉折线点
+                        symbolSize: 1, //折线点的大小
+                        animationDuration: 1000,
+                        label: {
+                            show: true,
+                            // position: 'top',
+                            position: ['0', '-20'],
+                            formatter: function (params) {
+                                if(params.data.indexShow){
+                                    return ""
+                                }else{
+                                    return Math.round((params.value || 0) / 1) + "%"
+                                }
+                            },
+                            backgroundColor: '#f49f44',
+                            borderRadius: 5,
+                            padding: 4,
+                            textStyle: {
+                                fontSize: 8,
+                                color: '#ffffff',
+                            },
+                        },
+                        // stack: 100,
+                        itemStyle: {
+                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                                color: 'rgba(244, 159, 68,0.36)', //背景渐变色
+                                lineStyle: { // 系列级个性化折线样式
+                                    width: 3,
+                                    type: 'dotted',
+                                    color: "#f49f44"
+                                },
+                                borderColor: '#ffffff',  // 拐点边框颜色
+                            },
+                            // emphasis: {
+                            //     color: '#fd0022',
+                            //     lineStyle: { // 系列级个性化折线样式
+                            //         width: 0.5,
+                            //         type: 'dotted',
+                            //         color: "#fd0022" //折线的颜色
+                            //     }
+                            // }
+                        }, //线条样式
+                        textStyle: {
+                            color: '#f49f44',
+                        },
+                        areaStyle: {
+                            normal: {}
+                        },
+                    },
                     {
                         name: "Actual Renewal Rate",
                         data: thisYear,
@@ -235,56 +289,7 @@
                         areaStyle: {
                             normal: {}
                         },
-                    }, {
-                        name: "Prediction Renewal Rate",
-                        data: ppvTarget,
-                        type: 'line',
-                        smooth: true,
-                        symbol: "circle", //去掉折线点
-                        symbolSize: 1, //折线点的大小
-                        animationDuration: 1000,
-                        label: {
-                            show: true,
-                            // position: 'top',
-                            position: ['0', '-20'],
-                            formatter: function (params) {
-                                return Math.round((params.data || 0) / 1) + "%"
-                            },
-                            backgroundColor: '#f49f44',
-                            borderRadius: 5,
-                            padding: 4,
-                            textStyle: {
-                                fontSize: 8,
-                                color: '#ffffff',
-                            },
-                        },
-                        // stack: 100,
-                        itemStyle: {
-                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                                color: 'rgba(244, 159, 68,0.36)', //背景渐变色
-                                lineStyle: { // 系列级个性化折线样式
-                                    width: 3,
-                                    type: 'dotted',
-                                    color: "#f49f44"
-                                },
-                                borderColor: '#ffffff',  // 拐点边框颜色
-                            },
-                            // emphasis: {
-                            //     color: '#fd0022',
-                            //     lineStyle: { // 系列级个性化折线样式
-                            //         width: 0.5,
-                            //         type: 'dotted',
-                            //         color: "#fd0022" //折线的颜色
-                            //     }
-                            // }
-                        }, //线条样式
-                        textStyle: {
-                            color: '#f49f44',
-                        },
-                        areaStyle: {
-                            normal: {}
-                        },
-                    }
+                    },
                 ],
                 color: ["#4d96f1", "#f49f44"],
                 //图例名
@@ -294,7 +299,7 @@
                     icon: "arrow",
                     left: 'center',
                     // bottom: 'bottom',
-                    y: '375',
+                    y: '368',
                     data:[
                         {name: "Actual Renewal Rate",icon: "image://../../img/tuli/line2.jpg",},
                         {name: "Prediction Renewal Rate",icon: "image://../../img/tuli/line.png",}
