@@ -16,11 +16,11 @@
 .main-conent .left {
     width: 376px;
     height: 139px;
-    margin: 10px 0;
+    margin: 10px 0 0 16px;
 }
 
 .main-conent .left .img-bg {
-    width: 376px;
+    width: 292px;
     height: 139px;
 }
 
@@ -28,6 +28,7 @@
     position: absolute;
     top: 18px;
     color: #fff;
+    left: -5px;
 }
 
 .main-conent .left .left-cont .left-font-01,
@@ -53,7 +54,7 @@
 }
 
 .main-conent .left .left-cont .left-font-03 .left-n-02 {
-    margin: -10px 0 0 113px;
+    margin: -10px 0 0 76px;
     font-size: 16px;
     font-weight: 800;
 }
