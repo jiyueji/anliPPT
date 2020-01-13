@@ -101,6 +101,7 @@
 
 .footer-font span label{
     padding: 8px;
+    cursor: pointer;
 }
 
 .mask-plane{
