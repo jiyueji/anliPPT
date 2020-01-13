@@ -5,7 +5,7 @@ var srcArr2 = ["./html/agpKpi/formTab/formTab.html", "./html/agpKpi/aboSegmentMo
 var srcArr3 = ["./html/aboMomentum/force/force.html", "./html/aboMomentum/pf20QMonth.html", "./html/aboMomentum/income.html"]
 var srcArr4 = ["./html/predictionModel/abo.html", "./html/predictionModel/pinMigrationModel.html", "./html/predictionModel/bonusMigrationModel.html"]
 var srcArr5 = ["./html/dailyReport/dailySales.html", "./html/dailyReport/buyer/buyer.html", "./html/dailyReport/csi.html"]
-var srcArr6 = ["./html/hourlyReport/newSales.html", "./html/hourlyReport/amountComm.html", "./html/hourlyReport/referralAmount.html"]
+var srcArr6 = ["./html/hourlyReport/newSales.html","./html/hourlyReport/foaSales.html","./html/hourlyReport/amountComm.html", "./html/hourlyReport/referralAmount.html"]
 
 
 var containerUpBig = new Swiper('.swiper-containerUpBig', {
