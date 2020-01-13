@@ -28,10 +28,10 @@
             <img src="../../../img/form/form-01.jpg">
             <p class="form-content-10">10%</p>
             <img src="../../../img/form/arrow.png"  class="form-arrow form-arrow01"/>
-            <img src="../../../img/form/form-02A.jpg"/>
+            <img id= "form02" src="../../../img/form/form-02A.jpg"/>
             <p class="form-content-20">20%</p>
             <img src="../../../img/form/arrow.png" class="form-arrow form-arrow02"/>
-            <img  src="../../../img/form/form-03A.jpg"/>
+            <img id= "form03" src="../../../img/form/form-03A.jpg"/>
             <img src="../../../img/form/form-04.jpg">
             <img src="../../../img/form/form-05.jpg">
             <img src="../../../img/form/form-06.jpg">
@@ -78,5 +78,11 @@
 </body>
 <script src="../../../assets/jquery-2.1.1.min.js"></script>
 <script src='js/TweenMax.min.js'></script>
+<script>
+  $(document).ready(function() {
+    $('#form02').attr("src","../../../img/form/form-02.jpg");
+    $('#form03').attr("src","../../../img/form/form-03.jpg");
+  });
+</script>
 <script src="js/index.js"></script>
 </html>
