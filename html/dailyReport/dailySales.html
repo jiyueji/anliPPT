@@ -22,7 +22,7 @@
     </div>
 
     <script>
-        var monthShow = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
+        var monthShow = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29"];
         var allData = {
             // 今年的数据
             actual_sales_data: [
@@ -103,7 +103,7 @@
                 animationDuration: 5000,
                 title: [{
                     text: '89.1%',
-                    subtext: 'on target',
+                    subtext: 'VS target',
                     itemGap: 1,
                     x: '21%',
                     top: '32%',
@@ -118,7 +118,7 @@
                 },
                 //  {
                 //     x: "46.5%",
-                //     y: '78%',
+                //     y: '95%',
                 //     text: '$77m',
                 //     textStyle: {
                 //         fontWeight: 'normal',
@@ -128,7 +128,7 @@
                 // },
                 {
                     text: '92%',
-                    subtext: 'on SPLY',
+                    subtext: 'VS SPLY',
                     itemGap: 1,
                     x: '71.5%',
                     top: '32%',
@@ -151,7 +151,7 @@
                                 show: false
                             }
                         },
-                        center: ["25%", "45%"],
+                        center: ["26%", "45%"],
                         itemStyle: {
                             normal: {
                                 color: "#f3e126",
@@ -246,7 +246,7 @@
                                 show: false
                             }
                         },
-                        center: ["75%", "45%"],
+                        center: ["76%", "45%"],
                         data: [
                             { value: 92 },
                             { value: 8 }
@@ -262,60 +262,60 @@
                 salesHomeLine.resize()
             });
             salesHomeLine.setOption({
-                // title: [
-                //     {
-                //         text: 'PF20 Monthly Sales',
-                //         x: '6%',
-                //         y: '8',
-                //         textStyle: {                  //标题样式
-                //             fontSize: '16',
-                //             color: '#ffffff',
-                //         },
-                //     }
-                // ],
-                tooltip: {//鼠标移入
-                    trigger: 'axis',
-                    confine: true,
-                    //                 tooltip_data_map:
-                    // Jan:
-                    // monthName: "2019 January"
-                    // actual_sales: "$277m"
-                    // actual_sales_ly: "$235m"
-                    // sales_forecast: null
-                    // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
-                    formatter: (data) => {
-                        // console.log(data)
-                        var yearThisData = 0;
-                        var yearLastData = 0;
-                        var forecastData = 0;
-                        var nameShow = "";
-                        var toolShow = "";
-                        var monthUp = "";
-                        var yearUp = new Date().getFullYear()
-                        data.map((item, index) => {
-                            if (item.componentIndex && item.componentIndex == 1) {
-                                yearThisData = Math.round((item.data || 0) / 1000000) || 0
-                            } else if (item.componentIndex && item.componentIndex == 2) {
-                                yearLastData = Math.round((item.data || 0) / 1000000) || 0
-                            } else {
-                                forecastData = Math.round((item.data || 0) / 1000000) || 0
-                            }
-                            nameShow = item.name
-                            monthUp = item.axisValue
-                        })
-                        if (yearThisData) {
-                            var thisNow = "Monthly Sales This Year:" + yearThisData;
-                        } else {
-                            var thisNow = "Sales forecast:" + forecastData;
-                        }
-                        if (tooltipData && tooltipData[nameShow]) {
-                            tooltipData[nameShow].events.map((item, index) => {
-                                toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
-                            })
-                        }
-                        return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "m" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
+                title: [
+                    {
+                        text: 'Month to date',
+                        x: '41%',
+                        y: '0',
+                        textStyle: {                  //标题样式
+                            fontSize: '14',
+                            color: '#ffffff',
+                        },
                     }
-                },
+                ],
+                // tooltip: {//鼠标移入
+                //     trigger: 'axis',
+                //     confine: true,
+                //     //                 tooltip_data_map:
+                //     // Jan:
+                //     // monthName: "2019 January"
+                //     // actual_sales: "$277m"
+                //     // actual_sales_ly: "$235m"
+                //     // sales_forecast: null
+                //     // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
+                //     formatter: (data) => {
+                //         // console.log(data)
+                //         var yearThisData = 0;
+                //         var yearLastData = 0;
+                //         var forecastData = 0;
+                //         var nameShow = "";
+                //         var toolShow = "";
+                //         var monthUp = "";
+                //         var yearUp = new Date().getFullYear()
+                //         data.map((item, index) => {
+                //             if (item.componentIndex && item.componentIndex == 1) {
+                //                 yearThisData = Math.round((item.data || 0) / 1000000) || 0
+                //             } else if (item.componentIndex && item.componentIndex == 2) {
+                //                 yearLastData = Math.round((item.data || 0) / 1000000) || 0
+                //             } else {
+                //                 forecastData = Math.round((item.data || 0) / 1000000) || 0
+                //             }
+                //             nameShow = item.name
+                //             monthUp = item.axisValue
+                //         })
+                //         if (yearThisData) {
+                //             var thisNow = "Monthly Sales This Year:" + yearThisData;
+                //         } else {
+                //             var thisNow = "Sales forecast:" + forecastData;
+                //         }
+                //         if (tooltipData && tooltipData[nameShow]) {
+                //             tooltipData[nameShow].events.map((item, index) => {
+                //                 toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
+                //             })
+                //         }
+                //         return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "m" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
+                //     }
+                // },
                 grid: {
                     top: '12%',
                     left: '4%',
@@ -334,6 +334,7 @@
                     },
                     boundaryGap: false,//X轴刻度位置
                     axisLabel: {
+                        interval: 0,//x轴文字显示不全
                         textStyle: {
                             fontSize: 12,
                             color: '#ffffff'
@@ -371,7 +372,7 @@
                 ],
                 animationDuration: 5000,
                 series: [{
-                    name: "2019",
+                    name: "2020 Feb",
                     data: thisYear,
                     type: 'line',
                     smooth: true,
@@ -440,7 +441,7 @@
                     }, //线条样式
                 },
                 {
-                    name: "2018",
+                    name: "2019 Feb",
                     data: lastYear,
                     type: 'line',
                     smooth: true,
@@ -465,9 +466,13 @@
                 //图例名
                 legend: {
                     type: "scroll",
-                    icon: "line",
+                    // icon: "line",
                     left: 'center',
-                    // bottom: 'bottom',
+                    data:[
+                        {name:"2020 Feb", icon: 'image://../../img/tuli/line2.jpg'},
+                        {name:"2019 Feb", icon: 'image://../../img/tuli/yy.jpg'}
+                    ],
+                    itemGap: 180,
                     y: '205',
                     textStyle: {
                         color: "#ffffff",
