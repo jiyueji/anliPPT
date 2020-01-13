@@ -19,44 +19,51 @@
       margin: 0;
       padding: 0;
     }
-
-    /* .middleBorder {
-      width: 858px;
-      height: 618px;
-      padding: 38px 40px 20px;
-      background-image: url(../../img/middleBorder.png);
-      background-repeat: no-repeat;
-      background-position: 0 0;
-      background-size: 100%;
-      box-sizing: border-box;
-    } */
-
     .title {
-      position: absolute;
-      width: calc(100% - 106px);
-      top: 4%;
-      left: 4%;
-      display: flex;
-      justify-content: space-between;
+      margin-top: 27px;
+      padding: 0 32px 0 26px;
     }
-
     .title .title-text {
       color: #fff;
       font-size: 16px;
       text-align: left;
       font-family: 'Arial-BoldMT'
     }
-
     .title .title-subtext {
       color: #f3f3f3;
       font-size: 12px;
       text-align: right;
       font-family: 'ArialMT';
     }
-
+    .nav {
+      list-style: none;
+      position: absolute;
+      top: 10px;
+      left: 260px;
+      padding: 0;
+      line-height: 30px;
+      color: #fff;
+      font-size: 12px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.6);
+    }
+    .nav .nav-item {
+      float: left;
+      padding: 0 6px;
+      border-right: 1px solid #122d61;
+      background-color: #1d4083;
+      cursor: pointer;
+    }
+    .nav .nav-item.active {
+      background-color: #4d96f1;
+    }
+    .nav .nav-item:last-child {
+      border-right: none;
+    }
     #chart {
-      width: 730px;
-      height: 425px;
+      width: 614px;
+      height:413px;
     }
   </style>
 </head>
@@ -67,26 +74,22 @@
       <div class="title-text">ABO Segment MonthlyData</div>
       <div class="title-subtext">As of 2019 Nov</div>
     </div>
+    <ul class="nav">
+      <li class="nav-item active" onClick="switchChart(0)">Sales($)</li>
+      <li class="nav-item" onClick="switchChart(1)">Population</li>
+      <li class="nav-item" onClick="switchChart(2)">Productivity($)</li>
+    </ul>
     <div id="chart"></div>
   </div>
   <script type="text/javascript">
-    var myChart;
-
-    window.addEventListener('resize', function () {
-      myChart && myChart.resize && myChart.resize();
-    });
-
-    handler();
-
-    function handler() {
-      myChart = echarts.init(document.getElementById('chart'));
-      var option = {
+    var myChart,
+      defaultOpt = {
         animationDuration: 5000,
         grid: {
-          left: "75",
-          right: "20",
-          bottom: "120",
-          top: "80",
+          left: 71,
+          right: 32,
+          bottom: 155,
+          top: 18,
           containLabel: false
         },
         xAxis: [
@@ -129,21 +132,23 @@
             splitLine: {
               lineStyle: {
                 type: 'dashed',
-                color: '#ccc'
+                color: '#757575'
               }
             }
           }
         ],
         color: ['#4d96f1', '#28ccae', '#ffa441', '#eb5653', '#f3e126'],
         legend: {
-          bottom: 16,
+          left: 30,
+          bottom: 78,
           icon: 'rect',
-          itemWidth: 14,
+          itemWidth: 10,
+          itemHeight: 10,
           formatter: '{default|{name}}',
           textStyle: {
             rich: {
               default: {
-                width: 220,
+                width: 165,
                 color: '#fff',
                 fontSize: 14,
                 padding: [-2, 0, 0, 0]
@@ -151,42 +156,210 @@
             }
           },
           data: ['Customer', 'ABO (Purchasing Only)', 'Developing ABO', 'Building ABO', 'ABO Leader']
-        },
-        series: [
-          {
-            name: 'Customer',
-            type: 'bar',
-            barWidth: 30,
-            stack: 'stack',
-            data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
-          },
-          {
-            name: 'ABO (Purchasing Only)',
-            type: 'bar',
-            stack: 'stack',
-            data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
-          },
-          {
-            name: 'Developing ABO',
-            type: 'bar',
-            stack: 'stack',
-            data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
-          },
-          {
-            name: 'Building ABO',
-            type: 'bar',
-            stack: 'stack',
-            data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
-          },
-          {
-            name: 'ABO Leader',
-            type: 'bar',
-            stack: 'stack',
-            data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
-          }
-        ]
-      };
-      myChart.setOption(option);
+        }
+      },
+      chartArray = [
+        {
+          series: [
+            {
+              name: 'Customer',
+              type: 'bar',
+              barWidth: 26,
+              stack: 'stack',
+              data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
+            },
+            {
+              name: 'ABO (Purchasing Only)',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
+            },
+            {
+              name: 'Developing ABO',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
+            },
+            {
+              name: 'Building ABO',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
+            },
+            {
+              name: 'ABO Leader',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
+            }
+          ]
+        }, {
+          series: [
+            {
+              name: 'Customer',
+              type: 'line',
+              stack: 'stack',
+              areaStyle: {
+                color: {
+                  type: 'linear',
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [{
+                    offset: 0, color: '#4d96f180'
+                  }, {
+                    offset: 1, color: '#4d96f100'
+                  }],
+                  global: false
+                }
+              },
+              data: [38, 26, 26, 25, 38, 26, 25, 41, 26, 38, 22]
+            },
+            {
+              name: 'ABO (Purchasing Only)',
+              type: 'line',
+              stack: 'stack',
+              areaStyle: {
+                color: {
+                  type: 'linear',
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [{
+                    offset: 0, color: '#28ccae66'
+                  }, {
+                    offset: 1, color: '#28ccae00'
+                  }],
+                  global: false
+                }
+              },
+              data: [38, 38, 26, 25, 38, 26, 25, 41, 38, 22, 22]
+            },
+            {
+              name: 'Developing ABO',
+              type: 'line',
+              stack: 'stack',
+              areaStyle: {
+                color: {
+                  type: 'linear',
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [{
+                    offset: 0, color: '#ffa4414d'
+                  }, {
+                    offset: 1, color: '#ffa44100'
+                  }],
+                  global: false
+                }
+              },
+              data: [38, 26, 38, 25, 38, 26, 25, 41, 26, 38, 22]
+            },
+            {
+              name: 'Building ABO',
+              type: 'line',
+              stack: 'stack',
+              areaStyle: {
+                color: {
+                  type: 'linear',
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [{
+                    offset: 0, color: '#eb565333'
+                  }, {
+                    offset: 1, color: '#eb565300'
+                  }],
+                  global: false
+                }
+              },
+              data: [38, 38, 26, 25, 23, 38, 25, 41, 26, 22, 38]
+            },
+            {
+              name: 'ABO Leader',
+              type: 'line',
+              stack: 'stack',
+              areaStyle: {
+                color: {
+                  type: 'linear',
+                  x: 0,
+                  y: 0,
+                  x2: 0,
+                  y2: 1,
+                  colorStops: [{
+                    offset: 0, color: '#f3e12633'
+                  }, {
+                    offset: 1, color: '#f3e12600'
+                  }],
+                  global: false
+                }
+              },
+              data: [38, 38, 26, 25, 23, 38, 25, 41, 26, 22, 38]
+            }
+          ]
+        }, {
+          series: [
+            {
+              name: 'Customer',
+              type: 'bar',
+              barWidth: 26,
+              stack: 'stack',
+              data: [38, 26, 26, 25, 38, 26, 25, 41, 26, 38, 22]
+            },
+            {
+              name: 'ABO (Purchasing Only)',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 38, 26, 25, 38, 26, 25, 41, 38, 22, 22]
+            },
+            {
+              name: 'Developing ABO',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 26, 38, 25, 38, 26, 25, 41, 26, 38, 22]
+            },
+            {
+              name: 'Building ABO',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 38, 26, 25, 23, 38, 25, 41, 26, 22, 38]
+            },
+            {
+              name: 'ABO Leader',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 38, 26, 25, 23, 38, 25, 41, 26, 22, 38]
+            }
+          ]
+        }
+      ];
+
+    window.addEventListener('resize', function () {
+      myChart && myChart.resize && myChart.resize();
+    });
+
+    handler();
+
+    function handler() {
+      myChart = echarts.init(document.getElementById('chart'));
+      var idx = 0,
+        option = chartArray[idx];
+      document.querySelector(`.nav-item:nth-child(${idx + 1})`).classList.add('active');
+      myChart.setOption({ ...defaultOpt, ...option });
+    }
+    function switchChart(idx) {
+      var elm = event.currentTarget,
+        elmClassList = elm.classList;
+      if(elmClassList.contains('active')) return false;
+      var parent = elm.parentElement,
+        activeClassList = parent.querySelector('.active').classList;
+      activeClassList.remove('active');
+      elmClassList.add('active');
+      myChart.setOption(chartArray[idx]);
     }
   </script>
 </body>

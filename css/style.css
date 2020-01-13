@@ -56,6 +56,7 @@
     width: 884px !important;
     height: 618px !important;
     transform: initial !important;
+    margin-top:10px !important;
 }
 
 .swiper-containerUpBig .swiper-slide-prev,
@@ -311,10 +312,10 @@
         /* transform: translate3d(-79.3921px, 0px, -112.083px) rotateX(0deg) rotateY(71.7013deg) !important; */
     }
     .swiper-containerUpBig .swiper-slide-prev{
-        transform: translate3d(82.667px, 0px, -201.823px) rotateX(0deg) rotateY(435.214deg) !important;
+        transform: translate3d(82.667px, 0px, -190.823px) rotateX(0deg) rotateY(76.214deg) !important;
     }
     .swiper-containerUpBig .swiper-slide-next{
-        transform: translate3d(-82.667px, 0px, -184.823px) rotateX(0deg) rotateY(-433.214deg) !important;
+        transform: translate3d(-82.667px, 0px, -184.823px) rotateX(0deg) rotateY(-74.214deg) !important;
     }
     .allBackground .backgroundUpGif {
         transform: scale(0.7);
@@ -340,7 +341,7 @@
     }
     .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder .smallImgTital {
         width: 217px;
-        top: -56px;
+        top: -99px;
         font-size: 16px;
     }
     .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder img {
@@ -373,20 +374,22 @@
         background-size: 614px 413px;
     }
     #root{
-        letter-spacing: 32px;
+        letter-spacing: 25px;
         font-size: 46px;
         position: absolute;
-        right: 128px;
-        top: 20px;
+        right: 137px;
+        top: 19px;
         color: #ffffff;
     }
     .swiper-containerDownSmall{
-        top: -22px;
+        top: -30px;
     }
     .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper {
-        height: 125px;
+        height: 175px;
     }
     .dataBottom .swiper-containerDownSmall .downSmallBorderSwiper .downBorder {
-        height: 125px;
+        height: 176px;
+        /* position: relative; */
+        top: 30px;
     }
 }
