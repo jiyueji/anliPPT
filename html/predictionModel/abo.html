@@ -194,13 +194,14 @@
                         data: thisYear,
                         type: 'line',
                         smooth: true,
-                        symbol: "none", //去掉折线点
-                        symbolSize: 5, //折线点的大小
+                        symbol: "circle", //去掉折线点
+                        symbolSize: 1, //折线点的大小
                         animationDuration: 1000,
+                        stack: 100,
                         label: {
                             show: true,
-                            // position: 'top',
-                            position: ['0', '-20'],
+                            position: 'top',
+                            // position: ['0', '-20'],
                             formatter: function (params) {
                                 return Math.round((params.data || 0) / 1) + "%"
                             },
@@ -216,30 +217,40 @@
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
                                 //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
+                                color: 'rgba(28,213,224,0.36)',
                                 lineStyle: { // 系列级个性化折线样式
                                     width: 3,
                                     type: 'solid',
                                     color: "#4d96f1"//折现颜色
                                 },
+                                // lineStyle: { // 系列级个性化折线样式
+                                //     width: 0.5,
+                                //     type: 'solid',
+                                //     color: "rgba(28,213,224,0.36)"//折现颜色
+                                // },
                                 borderColor: '#ffffff',  // 拐点边框颜色
                             },
+                            
                         }, //线条样式
+                        areaStyle: {
+                            normal: {}
+                        },
                     }, {
                         name: "Prediction Renewal Rate",
                         data: ppvTarget,
                         type: 'line',
-                        smooth: false,
-                        symbol: "none", //去掉折线点
-                        symbolSize: 5, //折线点的大小
+                        smooth: true,
+                        symbol: "circle", //去掉折线点
+                        symbolSize: 1, //折线点的大小
                         animationDuration: 1000,
                         label: {
                             show: true,
                             // position: 'top',
                             position: ['0', '-20'],
-                            // formatter: function (params) {
-                            //     return Math.round((params.data || 0) / 1) + "%"
-                            // },
-                            backgroundColor: '#5198ee',
+                            formatter: function (params) {
+                                return Math.round((params.data || 0) / 1) + "%"
+                            },
+                            backgroundColor: '#f49f44',
                             borderRadius: 5,
                             padding: 4,
                             textStyle: {
@@ -250,7 +261,7 @@
                         // stack: 100,
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                                //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
+                                color: 'rgba(244, 159, 68,0.36)', //背景渐变色
                                 lineStyle: { // 系列级个性化折线样式
                                     width: 3,
                                     type: 'dotted',
@@ -270,6 +281,9 @@
                         textStyle: {
                             color: '#f49f44',
                         },
+                        areaStyle: {
+                            normal: {}
+                        },
                     }
                 ],
                 color: ["#4d96f1", "#f49f44"],
@@ -277,10 +291,14 @@
                 legend: {
                     type: "scroll",
                     // icon: "line",
-                    icon: "circle",
+                    icon: "arrow",
                     left: 'center',
                     // bottom: 'bottom',
                     y: '375',
+                    data:[
+                        {name: "Actual Renewal Rate",icon: "image://../../img/tuli/line2.jpg",},
+                        {name: "Prediction Renewal Rate",icon: "image://../../img/tuli/line.png",}
+                    ],
                     textStyle: {
                         color: "#ffffff",
                         fontSize: 14
