@@ -1,6 +1,6 @@
 var changeIndex = 1;
 
-var srcArr1 = ["./html/hourlyReport/referralAmount.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
+var srcArr1 = ["./html/monthlyReport/salesHome.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
 var srcArr2 = ["./html/agpKpi/formTab/formTab.html", "./html/agpKpi/aboSegmentMonthlyData.html", "./html/agpKpi/ppv.html", "./html/agpKpi/endPpv.html"]
 var srcArr3 = ["./html/aboMomentum/force/force.html", "./html/aboMomentum/pf20QMonth.html", "./html/aboMomentum/income.html"]
 var srcArr4 = ["./html/predictionModel/abo.html", "./html/predictionModel/pinMigrationModel.html", "./html/predictionModel/bonusMigrationModel.html"]
@@ -17,7 +17,7 @@ var containerUpBig = new Swiper('.swiper-containerUpBig', {
     initialSlide: 0, //初始展示
     slideToClickedSlide: true,
     centeredSlides: true, //设置slide居中
-    slidesOffsetBefore: -10,
+    slidesOffsetBefore: -245,
     observer: true, //修改swiper自己或子元素时，自动初始化swiper
     // 　　　　 observeParents: true,//修改swiper的父元素时，自动初始化swiper
     //         observeSlideChildren:true,
