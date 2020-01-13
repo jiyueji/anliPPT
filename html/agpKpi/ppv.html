@@ -243,41 +243,6 @@
                 ],
                 series: [
                     {
-                        name: "2019 Calendar year YTD High PPV % of Sales",
-                        data: thisYear,
-                        type: 'line',
-                        smooth: true,
-                        symbol: "none", //去掉折线点
-                        symbolSize: 5, //折线点的大小
-                        animationDuration: 8000,
-                        label: {
-                            show: true,
-                            // position: 'top',
-                            position: ['0', '-20'],
-                            formatter: function (params) {
-                                return Math.round((params.data || 0) / 1) + "%"
-                            },
-                            backgroundColor: '#4d96f1',
-                            borderRadius: 5,
-                            padding: 4,
-                            textStyle: {
-                                fontSize: 8,
-                                color: '#ffffff',
-                            }
-                        },
-                        // stack: 100,
-                        itemStyle: {
-                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                                //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
-                                lineStyle: { // 系列级个性化折线样式
-                                    width: 3,
-                                    type: 'solid',
-                                    color: "#4d96f1"//折现颜色
-                                },
-                                borderColor: '#ffffff',  // 拐点边框颜色
-                            },
-                        }, //线条样式
-                    }, {
                         name: "2019",
                         data: lastYear,
                         type: 'line',
@@ -329,18 +294,6 @@
                         fontSize: 14
                     },
                 },
-                //  legend: {//图例组件
-                //     x: '35',
-                //     y: '421',
-                //     show: true,
-                //     textStyle: {//图例的公用文本样式。
-                //         fontSize: 24,
-                //         color: "#8D99A4"
-                //     },
-                //     itemGap: 20,//图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
-                //     data: ['活动金额', '流向实际毛利'],//图例的数据数组。
-                //     inactiveColor: '#ccc',//图例关闭时的颜色。
-                // },
             })
         }
     </script>
