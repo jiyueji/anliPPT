@@ -96,14 +96,19 @@
                         show: false //隐藏X轴刻度
                     },
                     axisLine: {
-                        show: false,
+                         show: false,
+                        lineStyle: {
+                             color: '#757575',
+                            //  width: 3 // 粗细
+                   }
                     },
                     boundaryGap: false,//X轴刻度位置
+                    color:'#757575',
                     axisLabel: {
                         interval: 0,//x轴文字显示不全
                         textStyle: {
                             fontSize: 9,
-                            color: '#ffffff'
+                            color: '#757575'
                         },
                     }
                 },
@@ -112,7 +117,7 @@
                         type: 'value',
                         // data:["0","1k","2k","3k","4k","5k","6k","7k"],
                         axisLabel: {
-                            show: true,
+                            show: false,
                             textStyle: {
                                 color: "#ffffff"
                             },
@@ -125,7 +130,11 @@
                             }
                         },
                         axisLine: {//隐藏X轴
-                            show: false
+                            //  show: false,
+                //             lineStyle: {
+                //              color: '#757575',
+                //             //  width: 3 // 粗细
+                //    }
                         },
                         axisTick: {
                             show: false //隐藏X轴刻度
@@ -133,7 +142,7 @@
                         splitLine: {//Y轴的样式虚线
                             lineStyle: {
                                 type: 'dashed',
-                                color: '#e5e9ee'
+                                color: '#757575'
                             }
                         }
                     }
