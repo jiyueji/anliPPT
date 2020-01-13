@@ -139,7 +139,7 @@
         ],
         color: ['#4d96f1', '#28ccae', '#ffa441', '#eb5653', '#f3e126'],
         legend: {
-          left: 30,
+          left: 76,
           bottom: 78,
           icon: 'rect',
           itemWidth: 10,
@@ -148,14 +148,25 @@
           textStyle: {
             rich: {
               default: {
-                width: 165,
+                width: 120,
                 color: '#fff',
-                fontSize: 14,
-                padding: [-2, 0, 0, 0]
+                fontSize: 12,
+                padding: [-2, 10, 0, 0]
               }
             }
           },
-          data: ['Customer', 'ABO (Purchasing Only)', 'Developing ABO', 'Building ABO', 'ABO Leader']
+          data: [
+            'Customer', 
+            {
+              name: 'ABO (Purchasing Only)',
+              textStyle: {
+                padding: [0, 70, 0, 0]
+              }
+            }, 
+            'Developing ABO', 
+            'Building ABO',
+            'ABO Leader'
+          ]
         }
       },
       chartArray = [
@@ -164,7 +175,7 @@
             {
               name: 'Customer',
               type: 'bar',
-              barWidth: 26,
+              barWidth: 18,
               stack: 'stack',
               data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
             },
@@ -191,6 +202,40 @@
               type: 'bar',
               stack: 'stack',
               data: [38, 26, 26, 25, 23, 26, 25, 41, 26, 22, 22]
+            }
+          ]
+        }, {
+          series: [
+            {
+              name: 'Customer',
+              type: 'bar',
+              barWidth: 18,
+              stack: 'stack',
+              data: [38, 26, 26, 25, 38, 26, 25, 41, 26, 38, 22]
+            },
+            {
+              name: 'ABO (Purchasing Only)',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 38, 26, 25, 38, 26, 25, 41, 38, 22, 22]
+            },
+            {
+              name: 'Developing ABO',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 26, 38, 25, 38, 26, 25, 41, 26, 38, 22]
+            },
+            {
+              name: 'Building ABO',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 38, 26, 25, 23, 38, 25, 41, 26, 22, 38]
+            },
+            {
+              name: 'ABO Leader',
+              type: 'bar',
+              stack: 'stack',
+              data: [38, 38, 26, 25, 23, 38, 25, 41, 26, 22, 38]
             }
           ]
         }, {
@@ -298,40 +343,6 @@
                   global: false
                 }
               },
-              data: [38, 38, 26, 25, 23, 38, 25, 41, 26, 22, 38]
-            }
-          ]
-        }, {
-          series: [
-            {
-              name: 'Customer',
-              type: 'bar',
-              barWidth: 26,
-              stack: 'stack',
-              data: [38, 26, 26, 25, 38, 26, 25, 41, 26, 38, 22]
-            },
-            {
-              name: 'ABO (Purchasing Only)',
-              type: 'bar',
-              stack: 'stack',
-              data: [38, 38, 26, 25, 38, 26, 25, 41, 38, 22, 22]
-            },
-            {
-              name: 'Developing ABO',
-              type: 'bar',
-              stack: 'stack',
-              data: [38, 26, 38, 25, 38, 26, 25, 41, 26, 38, 22]
-            },
-            {
-              name: 'Building ABO',
-              type: 'bar',
-              stack: 'stack',
-              data: [38, 38, 26, 25, 23, 38, 25, 41, 26, 22, 38]
-            },
-            {
-              name: 'ABO Leader',
-              type: 'bar',
-              stack: 'stack',
               data: [38, 38, 26, 25, 23, 38, 25, 41, 26, 22, 38]
             }
           ]

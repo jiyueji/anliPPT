@@ -62,7 +62,7 @@
 
 <body>
     <div class="centerBorBig">
-        <div class="centerTitle">FOA Foresize</div>
+        <div class="centerTitle">YTD Sales</div>
         <div id="root">0mil</div>
         <div class="lightAllRight">
             <img src="../../img/lightRight1.gif" class="right1" />
@@ -234,7 +234,7 @@
                         type: 'pie',
                         radius: ['85%', '75%'],
                         clockWise: false,
-                        color: ['#ff9c3a', '#0c264d'],
+                        color: ['#f3e126', '#0c264d'],
                         label: {
                             normal: {
                                 show: false
@@ -272,49 +272,49 @@
                         },
                     }
                 ],
-                tooltip: {//鼠标移入
-                    trigger: 'axis',
-                    confine: true,
-                    //                 tooltip_data_map:
-                    // Jan:
-                    // monthName: "2019 January"
-                    // actual_sales: "$277m"
-                    // actual_sales_ly: "$235m"
-                    // sales_forecast: null
-                    // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
-                    formatter: (data) => {
-                        // console.log(data)
-                        var yearThisData = 0;
-                        var yearLastData = 0;
-                        var forecastData = 0;
-                        var nameShow = "";
-                        var toolShow = "";
-                        var monthUp = "";
-                        var yearUp = new Date().getFullYear()
-                        data.map((item, index) => {
-                            if (item.componentIndex && item.componentIndex == 1) {
-                                yearThisData = Math.round((item.data || 0) / 1000000) || 0
-                            } else if (item.componentIndex && item.componentIndex == 2) {
-                                yearLastData = Math.round((item.data || 0) / 1000000) || 0
-                            } else {
-                                forecastData = Math.round((item.data || 0) / 1000000) || 0
-                            }
-                            nameShow = item.name
-                            monthUp = item.axisValue
-                        })
-                        if (yearThisData) {
-                            var thisNow = "Monthly Sales This Year:" + yearThisData;
-                        } else {
-                            var thisNow = "Sales forecast:" + forecastData;
-                        }
-                        if (tooltipData && tooltipData[nameShow]) {
-                            tooltipData[nameShow].events.map((item, index) => {
-                                toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
-                            })
-                        }
-                        return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "m" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
-                    }
-                },
+                // tooltip: {//鼠标移入
+                //     trigger: 'axis',
+                //     confine: true,
+                //     //                 tooltip_data_map:
+                //     // Jan:
+                //     // monthName: "2019 January"
+                //     // actual_sales: "$277m"
+                //     // actual_sales_ly: "$235m"
+                //     // sales_forecast: null
+                //     // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
+                //     formatter: (data) => {
+                //         // console.log(data)
+                //         var yearThisData = 0;
+                //         var yearLastData = 0;
+                //         var forecastData = 0;
+                //         var nameShow = "";
+                //         var toolShow = "";
+                //         var monthUp = "";
+                //         var yearUp = new Date().getFullYear()
+                //         data.map((item, index) => {
+                //             if (item.componentIndex && item.componentIndex == 1) {
+                //                 yearThisData = Math.round((item.data || 0) / 1000000) || 0
+                //             } else if (item.componentIndex && item.componentIndex == 2) {
+                //                 yearLastData = Math.round((item.data || 0) / 1000000) || 0
+                //             } else {
+                //                 forecastData = Math.round((item.data || 0) / 1000000) || 0
+                //             }
+                //             nameShow = item.name
+                //             monthUp = item.axisValue
+                //         })
+                //         if (yearThisData) {
+                //             var thisNow = "Monthly Sales This Year:" + yearThisData;
+                //         } else {
+                //             var thisNow = "Sales forecast:" + forecastData;
+                //         }
+                //         if (tooltipData && tooltipData[nameShow]) {
+                //             tooltipData[nameShow].events.map((item, index) => {
+                //                 toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
+                //             })
+                //         }
+                //         return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "m" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
+                //     }
+                // },
                 grid: {
                     top: '14%',
                     left: '10%',
@@ -388,17 +388,21 @@
                                 },
                             }
                         },
-                        // label: {
-                        //     show: true,
-                        //     position: 'top',
-                        //     textStyle: {
-                        //         color: '#fd0022',
-                        //     },
-                        //     formatter: function (params) {
-                        //         console.log(params)
-                        //         return params.data / 1000000 + "m"
-                        //     }
-                        // },
+                        label: {
+                            show: true,
+                            // position: 'top',
+                            position: ['0', '-20'],
+                            formatter: function (params) {
+                                return Math.round((params.data || 0) / 1000000) + "m"
+                            },
+                            backgroundColor: '#ff9c3a',
+                            borderRadius: 5,
+                            padding: 4,
+                            textStyle: {
+                                fontSize: 8,
+                                color: '#ffffff',
+                            }
+                        },
                     }, {
                         name: "Monthly Sales This Year",
                         data: thisYear,
@@ -468,13 +472,19 @@
                 //图例名
                 legend: {
                     type: "scroll",
-                    icon: "line",
+                    // icon: "line",
+                    data:[
+                        {name:"Monthly Sales Last Year",icon: "image://../../img/tuli/line2.jpg"},
+                        {name:"Monthly Sales This Year",icon:'image://../../img/tuli/yy.jpg'},
+                        {name:"Sales forecast",icon:'image://../../img/tuli/line.png'}
+                    ],
                     left: 'center',
                     // bottom: 'bottom',
+                    itemGap: 40,//图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
                     y: '198',
                     textStyle: {
                         color: "#ffffff",
-                        fontSize: 14
+                        fontSize: 10
                     },
                 },
                 //  legend: {//图例组件

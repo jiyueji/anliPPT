@@ -22,15 +22,12 @@
             display: block; */
             display:none;
         }
-
         .redball-flicker:after {
             background-color: #ff0000;
         }
-
         .redball-flicker:before {
             background-color: rgba(0, 168, 253, 0.2);
         }
-
         .redball-flicker:before,
         .redball-flicker:after {
             content: '';
@@ -44,7 +41,6 @@
             background-color: #ff0000;
             display: block;
         }
-
         @keyframes warn {
             0% {
                 transform: scale(0.5);
@@ -66,7 +62,7 @@
 <body>
     <div class="middleBorder">
         <!-- <div class="smallTitle">PF20 YTD Sales by FC</div> -->
-        <div id="salesHomeEchartsEndppv" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:413px;">
+        <div id="salesHomeEchartsPpv" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:413px;">
         </div>
         <!-- div闪烁 https://blog.csdn.net/qq_43258252/article/details/102958790 -->
         <div class="redball redball-flicker"></div>
@@ -77,10 +73,9 @@
         // 延迟加载
         var redball = document.getElementsByClassName("redball")
         console.log(redball[0])
-        setTimeout(() => {
+        setTimeout(()=>{
             redball[0].style.display = "block"
-        }, 6000);
-
+        },6000);
 
         var monthShow = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         var yShow = ['5%', '10%', '15%', '20%', '25%'];
@@ -184,15 +179,15 @@
 
 
         function handleEcharts() {
-            var salesHomeEchartsEndppv = echarts.init(document.getElementById('salesHomeEchartsEndppv'));
+            var salesHomeEchartsPpv = echarts.init(document.getElementById('salesHomeEchartsPpv'));
             window.addEventListener('resize', function () {
-                salesHomeEchartsEndppv.resize()
+                salesHomeEchartsPpv.resize()
             });
-            salesHomeEchartsEndppv.setOption({
+            salesHomeEchartsPpv.setOption({
                 animationDuration: 5000,
                 title: [
                     {
-                        text: 'End of Month % of Sales',
+                        text: 'High PPV % of Sales',
                         x: '2%',
                         y: '8%',
                         textStyle: {                  //标题样式
@@ -201,49 +196,49 @@
                         },
                     }
                 ],
-                tooltip: {//鼠标移入
-                    trigger: 'axis',
-                    confine: true,
-                    //                 tooltip_data_map:
-                    // Jan:
-                    // monthName: "2019 January"
-                    // actual_sales: "$277m"
-                    // actual_sales_ly: "$235m"
-                    // sales_forecast: null
-                    // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
-                    formatter: (data) => {
-                        // console.log(data)
-                        // var yearThisData = 0;
-                        // var yearLastData = 0;
-                        // var forecastData = 0;
-                        // var nameShow = "";
-                        // var toolShow = "";
-                        // var monthUp = "";
-                        // var yearUp = new Date().getFullYear()
-                        // data.map((item, index) => {
-                        //     if (item.componentIndex && item.componentIndex == 1) {
-                        //         yearThisData = Math.round((item.data || 0) / 1000000) || 0
-                        //     } else if (item.componentIndex && item.componentIndex == 2) {
-                        //         yearLastData = Math.round((item.data || 0) / 1000000) || 0
-                        //     } else {
-                        //         forecastData = Math.round((item.data || 0) / 1000000) || 0
-                        //     }
-                        //     nameShow = item.name
-                        //     monthUp = item.axisValue
-                        // })
-                        // if (yearThisData) {
-                        //     var thisNow = "Monthly Sales This Year:" + yearThisData;
-                        // } else {
-                        //     var thisNow = "Sales forecast:" + forecastData;
-                        // }
-                        // if (tooltipData && tooltipData[nameShow]) {
-                        //     tooltipData[nameShow].events.map((item, index) => {
-                        //         toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
-                        //     })
-                        // }
-                        // return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "%" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
-                    }
-                },
+                // tooltip: {//鼠标移入
+                //     trigger: 'axis',
+                //     confine: true,
+                //     //                 tooltip_data_map:
+                //     // Jan:
+                //     // monthName: "2019 January"
+                //     // actual_sales: "$277m"
+                //     // actual_sales_ly: "$235m"
+                //     // sales_forecast: null
+                //     // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
+                //     formatter: (data) => {
+                //         // console.log(data)
+                //         // var yearThisData = 0;
+                //         // var yearLastData = 0;
+                //         // var forecastData = 0;
+                //         // var nameShow = "";
+                //         // var toolShow = "";
+                //         // var monthUp = "";
+                //         // var yearUp = new Date().getFullYear()
+                //         // data.map((item, index) => {
+                //         //     if (item.componentIndex && item.componentIndex == 1) {
+                //         //         yearThisData = Math.round((item.data || 0) / 1000000) || 0
+                //         //     } else if (item.componentIndex && item.componentIndex == 2) {
+                //         //         yearLastData = Math.round((item.data || 0) / 1000000) || 0
+                //         //     } else {
+                //         //         forecastData = Math.round((item.data || 0) / 1000000) || 0
+                //         //     }
+                //         //     nameShow = item.name
+                //         //     monthUp = item.axisValue
+                //         // })
+                //         // if (yearThisData) {
+                //         //     var thisNow = "Monthly Sales This Year:" + yearThisData;
+                //         // } else {
+                //         //     var thisNow = "Sales forecast:" + forecastData;
+                //         // }
+                //         // if (tooltipData && tooltipData[nameShow]) {
+                //         //     tooltipData[nameShow].events.map((item, index) => {
+                //         //         toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
+                //         //     })
+                //         // }
+                //         // return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "%" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
+                //     }
+                // },
                 grid: {
                     top: '25%',
                     left: '40',
@@ -300,6 +295,8 @@
                 ],
                 series: [
                     {
+<<<<<<< HEAD
+=======
                         name: "2019 Calendar year YTD High PPV % of Sales",
                         data: thisYear,
                         type: 'line',
@@ -307,14 +304,31 @@
                         // symbol: "none", //去掉折线点
                         symbolSize: 3, //折线点的大小
                         animationDuration: 6000,
+                        // label: {
+                        //     show: true,
+                        //     // position: 'top',
+                        //     position: ['0', '-20'],
+                        //     formatter: function (params) {
+                        //         return Math.round((params.data || 0) / 1) + "%"
+                        //     },
+                        //     backgroundColor: '#4d96f1',
+                        //     borderRadius: 5,
+                        //     padding: 4,
+                        //     textStyle: {
+                        //         fontSize: 8,
+                        //         color: '#ffffff',
+                        //     }
+                        // },
+                        // stack: 100,
                         label: {
+                            animationDuration: 6000,
                             show: true,
                             // position: 'top',
                             position: ['-10', '-20'],
                             formatter: function (params) {
                                 return Math.round((params.data || 0) / 1) + "%"
                             },
-                            backgroundColor: '#f3e126',
+                            backgroundColor: '#4d96f1',
                             borderRadius: 5,
                             padding: 4,
                             textStyle: {
@@ -322,19 +336,19 @@
                                 color: '#ffffff',
                             }
                         },
-                        // stack: 100,
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
                                 //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
                                 lineStyle: { // 系列级个性化折线样式
                                     width: 3,
                                     type: 'solid',
-                                    color: "#f3e126"//折现颜色
+                                    color: "#4d96f1"//折现颜色
                                 },
                                 borderColor: '#ffffff',  // 拐点边框颜色
                             },
                         }, //线条样式
                     }, {
+>>>>>>> 04fcab8a0af269c32738652c1f28ffa6ec4719b0
                         name: "2019",
                         data: lastYear,
                         type: 'line',
@@ -345,11 +359,11 @@
                         animationDuration: 6000,
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                                color: 'rgba(243,225,38,0.36)', //背景渐变色
+                                color: 'rgba(28,213,224,0.36)', //背景渐变色
                                 lineStyle: { // 系列级个性化折线样式
                                     width: 0.5,
                                     type: 'solid',
-                                    color: "rgba(243,225,38,0.36)"//折现颜色
+                                    color: "rgba(28,213,224,0.36)"//折现颜色
                                 }
                             },
                         }, //线条样式
