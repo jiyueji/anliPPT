@@ -35,8 +35,8 @@
             position: absolute;
             bottom: 200px;
             left: 310px;
-            width: 15px;
-            height: 15px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background-color: #ff0000;
             display: block;
@@ -61,7 +61,7 @@
 
 <body>
     <div class="middleBorder">
-        <!-- <div class="smallTitle">PF20 YTD Sales by FC</div> -->
+        <div class="smallTitle">High PPV % of Sales</div>
         <div id="salesHomeEchartsPpv" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:413px;">
         </div>
         <!-- div闪烁 https://blog.csdn.net/qq_43258252/article/details/102958790 -->
@@ -72,7 +72,7 @@
 
         // 延迟加载
         var redball = document.getElementsByClassName("redball")
-        console.log(redball[0])
+        // console.log(redball[0])
         setTimeout(()=>{
             redball[0].style.display = "block"
         },6000);
@@ -170,7 +170,7 @@
             return function () {
                 n = (n + step) >= total ? total : (n + step);
                 if (n <= total) {
-                    console.log(n)
+                    // console.log(n)
                     document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
                 }
             }
@@ -185,17 +185,17 @@
             });
             salesHomeEchartsPpv.setOption({
                 animationDuration: 5000,
-                title: [
-                    {
-                        text: 'High PPV % of Sales',
-                        x: '2%',
-                        y: '8%',
-                        textStyle: {                  //标题样式
-                            fontSize: '16',
-                            color: '#ffffff',
-                        },
-                    }
-                ],
+                // title: [
+                //     {
+                //         text: 'High PPV % of Sales',
+                //         x: '2%',
+                //         y: '8%',
+                //         textStyle: {                  //标题样式
+                //             fontSize: '16',
+                //             color: '#ffffff',
+                //         },
+                //     }
+                // ],
                 // tooltip: {//鼠标移入
                 //     trigger: 'axis',
                 //     confine: true,
@@ -300,10 +300,25 @@
                         data: lastYear,
                         type: 'line',
                         smooth: true,
-                        symbol: "none", //去掉折线点
-                        symbolSize: 5, //折线点的大小
+                        // symbol: "none", //去掉折线点
+                        symbolSize: 3, //折线点的大小
                         stack: 100,
                         animationDuration: 6000,
+                        label: {
+                            show: true,
+                            // position: 'top',
+                            position: ['-10', '-20'],
+                            formatter: function (params) {
+                                return Math.round((params.data || 0) / 1) + "%"
+                            },
+                            backgroundColor: 'rgba(28,213,224,0.36)',
+                            borderRadius: 5,
+                            padding: 4,
+                            textStyle: {
+                                fontSize: 8,
+                                color: '#ffffff',
+                            }
+                        },
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
                                 color: 'rgba(28,213,224,0.36)', //背景渐变色

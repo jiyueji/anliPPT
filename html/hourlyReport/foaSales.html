@@ -55,15 +55,16 @@
                 <div>Today accumulate FOA buyer</div>
             </div>
         </div>
-        <div id="hourlysBar" class="swiper-slide swiper-slide-echarts" style="width: 530px;height:40px;margin:0 auto;"></div>
+        <div id="hourlysBar" class="swiper-slide swiper-slide-echarts" style="width: 530px;height:40px;margin:0 auto;">
+        </div>
         <div id="hourlysCsi" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:268px;">
         </div>
     </div>
 
     <script>
-        var xDate = ["0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00"]
-        var today = ["300", "12000", "300", "10000", "13000", "40000", "30000", "10000", "13000", "300", "300", "300", "10000", "13000", "300", "300", "300", "300", "10000", "13000", "300", "20000", "300", "300"]
-        var lastDay = ["300", "300", "300", "10000", "13000", "300", "300", "10000", "13000", "300", "300", "300", "10000", "13000", "300", "300", "300", "300", "10000", "13000", "300", "300", "300", "300"]
+        var xDate = ["1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00"]
+        var today = ["12000", "300", "10000", "13000", "40000", "30000", "10000", "13000", "300", "300", "300", "10000", "13000", "300", "300", "300", "300", "10000", "13000", "300", "20000", "300", "300"]
+        var lastDay = ["300", "300", "10000", "13000", "300", "300", "10000", "13000", "300", "300", "300", "10000", "13000", "300", "300", "300", "300", "10000", "13000", "300", "300", "300", "300"]
 
         handleEchartsBar();//折线图
         handleEcharts();//折线图
@@ -80,41 +81,42 @@
                 //     confine: false,
                 // },
                 grid: {
-                    top: '2%',
+                    top: '100%',
                     left: '4%',
                     right: '4%',
-                    bottom: '2%',
+                    bottom: '0%',
                     containLabel: true,
                 },
                 xAxis: {
-                    type: 'category',
+                    // type: 'category',
                     // data: xDate,
-                    axisTick: {
-                        show: false //隐藏X轴刻度
-                    },
-                    axisLine: {
-                         show: false,
-                        lineStyle: {
-                             color: '#757575',
-                            //  width: 3 // 粗细
-                   }
-                    },
-                    boundaryGap: false,//X轴刻度位置
-                    color:'#757575',
-                    axisLabel: {
-                        interval: 0,//x轴文字显示不全
-                        textStyle: {
-                            fontSize: 9,
-                            color: '#757575'
-                        },
-                    }
+                    show: false,
+                    //     axisTick: {
+                    //         show: false //隐藏X轴刻度
+                    //     },
+                    //     axisLine: {
+                    //          show: false,
+                    //         lineStyle: {
+                    //              color: '#757575',
+                    //             //  width: 3 // 粗细
+                    //    }
+                    //     },
+                    //     boundaryGap: false,//X轴刻度位置
+                    //     color:'#757575',
+                    //     axisLabel: {
+                    //         interval: 0,//x轴文字显示不全
+                    //         textStyle: {
+                    //             fontSize: 9,
+                    //             color: '#757575'
+                    //         },
+                    //     }
                 },
                 yAxis: {
                     type: 'category',
                     axisLabel: {
                         margin: 40,
                         show: true,
-                        color: '#4DCEF8',
+                        color: '#ffffff',
                         fontSize: 14
                     },
                     axisTick: {
@@ -125,7 +127,7 @@
                     },
                     data: ["Proportion of Sales"]
                 },
-                
+
                 series: [{
                     type: 'bar',
                     barGap: '-100%',
@@ -162,6 +164,24 @@
                             }
                         },
                     },
+                    label: {
+                        normal: {
+                            borderWidth: 3,
+                            distance: 13,
+                            align: 'center',
+                            verticalAlign: 'middle',
+                            borderRadius: 1,
+                            borderColor: 'rgba(0,0,0,0.3)',
+                            backgroundColor: 'rgba(0,0,0,0.3)',
+                            show: true,
+                            position: 'top',
+                            formatter: function (val) {
+                                console.log(val)
+                                return val.value
+                            },
+                            color: '#ffffff'
+                        }
+                    },
                     data: ["13.72"],
                 }]
             })
@@ -173,12 +193,12 @@
             });
             hourlysCsi.setOption({
                 animationDuration: 5000,
-                tooltip: {//鼠标移入
-                    trigger: 'axis',
-                    confine: false,
-                },
+                // tooltip: {//鼠标移入
+                //     trigger: 'axis',
+                //     confine: false,
+                // },
                 grid: {
-                    top: '3%',
+                    top: '8%',
                     left: '4%',
                     right: '4%',
                     bottom: '30%',
@@ -193,9 +213,9 @@
                     axisLine: {
                         show: false,
                         lineStyle: {
-                             color: '#757575',
+                            color: '#757575',
                             //  width: 3 // 粗细
-                   }
+                        }
                     },
                     boundaryGap: false,//X轴刻度位置
                     axisLabel: {
@@ -305,7 +325,7 @@
                     ],
                     left: 'center',
                     itemGap: 200,//图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
-                    y: '223',
+                    y: '200',
                     textStyle: {
                         color: "#ffffff",
                         fontSize: 14

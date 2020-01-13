@@ -117,16 +117,16 @@ body {
 .dataBottom .imgLeft .loading {
     /* top: -15px;
     left: -10px; */
-    top: 9px;
-    left: 76px;
+    top: 7px;
+    left: 69px;
     transform: scale(2);
 }
 
 .dataBottom .imgRight .loading {
     /* top: -17px;
     right: -15px; */
-    top: 8px;
-    right: 74px;
+    top: 6px;
+    right: 66px;
     transform: scale(2);
 }
 
@@ -270,7 +270,7 @@ body {
     color: #ffffff;
     font-size: 18px;
     left: 4%;
-    top: 4%;
+    top: 25px;
     line-height: 16px;
 }
 

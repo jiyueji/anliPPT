@@ -38,8 +38,8 @@
             position: absolute;
             bottom: 200px;
             left: 310px;
-            width: 15px;
-            height: 15px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background-color: #ff0000;
             display: block;
@@ -65,7 +65,7 @@
 
 <body>
     <div class="middleBorder">
-        <!-- <div class="smallTitle">PF20 YTD Sales by FC</div> -->
+        <div class="smallTitle">End of Month % of Sales</div>
         <div id="salesHomeEchartsEndppv" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:413px;">
         </div>
         <!-- div闪烁 https://blog.csdn.net/qq_43258252/article/details/102958790 -->
@@ -76,7 +76,7 @@
 
         // 延迟加载
         var redball = document.getElementsByClassName("redball")
-        console.log(redball[0])
+        // console.log(redball[0])
         setTimeout(() => {
             redball[0].style.display = "block"
         }, 6000);
@@ -190,17 +190,17 @@
             });
             salesHomeEchartsEndppv.setOption({
                 animationDuration: 5000,
-                title: [
-                    {
-                        text: 'End of Month % of Sales',
-                        x: '2%',
-                        y: '8%',
-                        textStyle: {                  //标题样式
-                            fontSize: '16',
-                            color: '#ffffff',
-                        },
-                    }
-                ],
+                // title: [
+                //     {
+                //         text: 'End of Month % of Sales',
+                //         x: '2%',
+                //         y: '8%',
+                //         textStyle: {                  //标题样式
+                //             fontSize: '16',
+                //             color: '#ffffff',
+                //         },
+                //     }
+                // ],
                 tooltip: {//鼠标移入
                     trigger: 'axis',
                     confine: true,
