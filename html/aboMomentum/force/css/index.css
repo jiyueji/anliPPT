@@ -13,10 +13,11 @@
 .main-conent .left,.main-conent .right{
     margin-top: -16px;
     line-height: 0px;
+    margin-left: -25%;
 }
 
 .main-conent .right {
-    margin: -16px 0 0 191px;
+    margin: -16px 0 0 55px;
 }
 
 .main-conent .left .font-large,.main-conent .right .font-large{
@@ -29,34 +30,76 @@
 }
 
 .footer{
-    width: 800px;
-    height: 350px;
-    margin: -45px 0 0 -27px;
+    position: absolute;
+    width: 100%;
+    margin: 286px 0 0 68px;
 }
 
 .title-list{
     position: absolute;
     width: 38px;
     height: 236px;
-    background: #072057;
     color: #ffffff;
     left: 24px;
-    top: 143px;
+    top: 120px;
     font-size: 16px;
     opacity: 0.9;
     z-index: 2;
 }
 
+.title-line{
+    position: absolute;
+    width: 88%;
+    border-bottom: 1px dashed #fff;
+    left: 55px;
+    top: 356px;
+}
+
 .title-dotm li {
-    width: 23px;
+    width: 15px;
     height: 10px;
-    font-size: 16px;
+    font-size: 12px;
     color: #fff;
-    padding-top: 229px;
-    padding-left: 0px;
-    margin-left: 30px;
+    padding-top: 213px;
+    padding-left: 9px;
+    margin-left: 20px;
     float: left;
     display: block;
+}
+.footer-font{
+    position: absolute;
+    display: flex;
+    color: #ffffff;
+    bottom: 2px;
+    font-size: 12px;
+}
+
+.footer-font span{
+    display: flex;
+}
+
+.footer-font .span-01{
+    margin-left: -102px;
+}
+
+.footer-font .span-02{
+    margin-left: 60px;
+}
+
+.footer-font span p{
+    width: 10px;
+    height: 10px;
+}
+.footer-font span .p-01{
+    background:#fda444;
+}
+
+.footer-font span .p-02{
+    background: #17b6a9;
+}
+
+.footer-font span label{
+    padding: 8px;
 }
 
 .mask-plane{
