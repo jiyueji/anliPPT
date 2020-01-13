@@ -1,11 +1,11 @@
 var changeIndex = 1;
 
-var srcArr1 = ["./html/monthlyReport/salesHome.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
+var srcArr1 = ["./html/monthlyReport/salesHome.html","./html/monthlyReport/salesHome.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
 var srcArr2 = ["./html/agpKpi/formTab/formTab.html", "./html/agpKpi/aboSegmentMonthlyData.html", "./html/agpKpi/ppv.html", "./html/agpKpi/endPpv.html"]
 var srcArr3 = ["./html/aboMomentum/force/force.html", "./html/aboMomentum/pf20QMonth.html", "./html/aboMomentum/income.html"]
 var srcArr4 = ["./html/predictionModel/abo.html", "./html/predictionModel/pinMigrationModel.html", "./html/predictionModel/bonusMigrationModel.html"]
-var srcArr5 = ["./html/dailyReport/dailySales.html", "./html/dailyReport/csi.html", "./html/dailyReport/buyer/buyer.html"]
-var srcArr6 = ["./html/hourlyReport/newSales.html", "./html/hourlyReport/amountComm.html", "./html/hourlyReport/referralAmount.html"]
+var srcArr5 = ["./html/dailyReport/dailySales.html", "./html/dailyReport/buyer/buyer.html", "./html/dailyReport/csi.html"]
+var srcArr6 = ["./html/hourlyReport/newSales.html","./html/hourlyReport/foaSales.html","./html/hourlyReport/amountComm.html", "./html/hourlyReport/referralAmount.html"]
 
 
 var containerUpBig = new Swiper('.swiper-containerUpBig', {
@@ -226,18 +226,18 @@ function twoImg() {
         iframe.scrolling = "no"
         iframe.align = "center"
         iframe.src = srcArr2[i];
-        if (i == 0) {
-            var mask1 = document.createElement("div");
-            var mask2 = document.createElement("div");
-            mask1.className = 'mask-01';
-            mask2.className = 'mask-02';
-            var div = document.createElement("div");
-            div.className = "swiper-slide"
-            div.appendChild(iframe);
-            div.appendChild(mask1);
-            div.appendChild(mask2);
-            changeBinner.appendChild(div)
-        } else {
+        // if (i == 0) {
+            // var mask1 = document.createElement("div");
+            // var mask2 = document.createElement("div");
+            // mask1.className = 'mask-01';
+            // mask2.className = 'mask-02';
+            // var div = document.createElement("div");
+            // div.className = "swiper-slide"
+            // div.appendChild(iframe);
+            // div.appendChild(mask1);
+            // div.appendChild(mask2);
+            // changeBinner.appendChild(div)
+        // } else {
             var mask = document.createElement("div");
             mask.className = 'mask';
             var div = document.createElement("div");
@@ -245,7 +245,7 @@ function twoImg() {
             div.appendChild(iframe);
             div.appendChild(mask);
             changeBinner.appendChild(div)
-        }
+        // }
     }
     var containerUpBig = new Swiper('.swiper-containerUpBig', {
         loop: true,

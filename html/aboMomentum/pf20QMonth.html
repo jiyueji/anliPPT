@@ -96,19 +96,6 @@
 
         handleEcharts();//折线图
 
-        function roll(total, idname, step) {
-            let n = 0;
-            return function () {
-                n = (n + step) >= total ? total : (n + step);
-                if (n <= total) {
-                    console.log(n)
-                    document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
-                }
-            }
-        }
-
-
-
         function handleEcharts() {
             var salesHomeEcharts = echarts.init(document.getElementById('salesHomeEcharts'));
             window.addEventListener('resize', function () {
@@ -127,54 +114,56 @@
                 //         },
                 //     }
                 // ],
-                tooltip: {//鼠标移入
-                    trigger: 'axis',
-                    confine: true,
-                    //                 tooltip_data_map:
-                    // Jan:
-                    // monthName: "2019 January"
-                    // actual_sales: "$277m"
-                    // actual_sales_ly: "$235m"
-                    // sales_forecast: null
-                    // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
-                    formatter: (data) => {
-                        // console.log(data)
-                        // var yearThisData = 0;
-                        // var yearLastData = 0;
-                        // var forecastData = 0;
-                        // var nameShow = "";
-                        // var toolShow = "";
-                        // var monthUp = "";
-                        // var yearUp = new Date().getFullYear()
-                        // data.map((item, index) => {
-                        //     if (item.componentIndex && item.componentIndex == 1) {
-                        //         yearThisData = Math.round((item.data || 0) / 1000000) || 0
-                        //     } else if (item.componentIndex && item.componentIndex == 2) {
-                        //         yearLastData = Math.round((item.data || 0) / 1000000) || 0
-                        //     } else {
-                        //         forecastData = Math.round((item.data || 0) / 1000000) || 0
-                        //     }
-                        //     nameShow = item.name
-                        //     monthUp = item.axisValue
-                        // })
-                        // if (yearThisData) {
-                        //     var thisNow = "Monthly Sales This Year:" + yearThisData;
-                        // } else {
-                        //     var thisNow = "Sales forecast:" + forecastData;
-                        // }
-                        // if (tooltipData && tooltipData[nameShow]) {
-                        //     tooltipData[nameShow].events.map((item, index) => {
-                        //         toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
-                        //     })
-                        // }
-                        // return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "%" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
-                    }
-                },
+
+                // tooltip: {//鼠标移入
+                //     trigger: 'axis',
+                //     confine: true,
+                //                 tooltip_data_map:
+                // Jan:
+                // monthName: "2019 January"
+                // actual_sales: "$277m"
+                // actual_sales_ly: "$235m"
+                // sales_forecast: null
+                // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
+                // formatter: (data) => {
+                // console.log(data)
+                // var yearThisData = 0;
+                // var yearLastData = 0;
+                // var forecastData = 0;
+                // var nameShow = "";
+                // var toolShow = "";
+                // var monthUp = "";
+                // var yearUp = new Date().getFullYear()
+                // data.map((item, index) => {
+                //     if (item.componentIndex && item.componentIndex == 1) {
+                //         yearThisData = Math.round((item.data || 0) / 1000000) || 0
+                //     } else if (item.componentIndex && item.componentIndex == 2) {
+                //         yearLastData = Math.round((item.data || 0) / 1000000) || 0
+                //     } else {
+                //         forecastData = Math.round((item.data || 0) / 1000000) || 0
+                //     }
+                //     nameShow = item.name
+                //     monthUp = item.axisValue
+                // })
+                // if (yearThisData) {
+                //     var thisNow = "Monthly Sales This Year:" + yearThisData;
+                // } else {
+                //     var thisNow = "Sales forecast:" + forecastData;
+                // }
+                // if (tooltipData && tooltipData[nameShow]) {
+                //     tooltipData[nameShow].events.map((item, index) => {
+                //         toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
+                //     })
+                // }
+                // return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "%" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
+                //     }
+                // },
+
                 grid: {
-                    top: '34%',
-                    left: '4%',
+                    top: '24%',
+                    left: '8%',
                     right: '4%',
-                    bottom: '26%',
+                    bottom: '15%',
                     // barWidth:'30',
                     containLabel: true,
                 },
@@ -228,48 +217,12 @@
                 series: [
                     {
                         name: "PF19",
-                        data: thisYear,
-                        type: 'line',
-                        smooth: true,
-                        // symbol: "none", //去掉折线点
-                        symbolSize: 5, //折线点的大小
-                        animationDuration: 1000,
-                        // stack: 100,
-                        // areaStyle: {
-                        //     normal: {
-                        //         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        //             offset: 0,
-                        //             color: '#ffa441'
-                        //         }, {
-                        //             offset: 0.8,
-                        //             // color: color[x] + ', 0)'
-                        //             color: 'rgba(77,150,241,0)'
-                        //         }], false),
-                        //         shadowColor: 'rgba(0, 0, 0, 0.1)',
-                        //         shadowBlur: 10
-                        //     }
-                        // },
-                        itemStyle: {
-                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                                //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
-                                color: 'rgba(28,213,224,0.36)', //背景渐变色
-                                lineStyle: { // 系列级个性化折线样式
-                                    width: 3,
-                                    type: 'solid',
-                                    color: "#28ccae"//折现颜色
-                                },
-                                borderColor: '#28ccae',  // 拐点边框颜色
-                            },
-                        }, //线条样式
-                    }, {
-                        name: "PF20",
                         data: lastYear,
                         type: 'line',
                         smooth: true,
                         // symbol: "none", //去掉折线点
                         symbolSize: 5, //折线点的大小
                         animationDuration: 1000,
-                        // stack: 100,
                         areaStyle: {
                             normal: {
                                 color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -287,13 +240,34 @@
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
                                 //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
-                                color: 'rgba(0,89,238,0.36)', //背景渐变色
+                                color: '#0059ee', //背景渐变色
                                 lineStyle: { // 系列级个性化折线样式
                                     width: 3,
                                     type: 'solid',
                                     color: "#0059ee"//折现颜色
                                 },
                                 borderColor: '#0059ee',  // 拐点边框颜色
+                            },
+                        }, //线条样式
+                    }, {
+                        name: "PF20",
+                        data: thisYear,
+                        type: 'line',
+                        smooth: true,
+                        // symbol: "none", //去掉折线点
+                        symbolSize: 5, //折线点的大小
+                        animationDuration: 1000,
+                        // stack: 100,
+                        itemStyle: {
+                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                                //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
+                                color: '#28ccae', //背景渐变色
+                                lineStyle: { // 系列级个性化折线样式
+                                    width: 3,
+                                    type: 'solid',
+                                    color: "#28ccae"//折现颜色
+                                },
+                                borderColor: '#28ccae',  // 拐点边框颜色
                             },
                         }, //线条样式
                     }
@@ -303,11 +277,12 @@
                 legend: {
                     type: "scroll",
                     // icon: "line",
-                    icon: "circle",
-                    left: '170',
+                    icon: "line",
+                    left: 'center',
                     // bottom: 'bottom',
-                    y: '340',
+                    y: '360',
                     // x:'100',
+                    itemGap: 50,
                     textStyle: {
                         color: "#ffffff",
                         fontSize: 14
@@ -339,14 +314,15 @@
 
                 dataset: {
                     source: [
-                        [39914, 'Acc . #of'],
-                        [37950, 'QMonth']
+                        [37950, 'QMonth'],
+                        [39914, 'Acc . #of']
                     ]
                 },
                 grid: {
                     containLabel: true,
                     top: '2%',
-                    left: '2%'
+                    left: '2%',
+                    right: "15%"
                 },
                 xAxis: {
                     name: '',
@@ -360,6 +336,19 @@
                     },
                     axisTick: {
                         show: false
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            fontSize: 12,
+                            color: '#ffffff'
+                        },
+                        formatter: function (params) {
+                            if (params == 0) {
+                                return ""
+                            } else {
+                                return (params / 10000) + "W"
+                            }
+                        }
                     }
                 },
                 yAxis: {
@@ -380,11 +369,11 @@
                     left: 'center',
                     min: 0,
                     max: 1,
-                    text: ['Acc . #of', 'QMonth'],
+                    text: ['QMonth', 'Acc . #of'],
                     // Map the score column to color
                     dimension: 1,
                     inRange: {
-                        color: ['#28ccae', '#0059ee']
+                        color: ['#0059ee', '#28ccae']
                     }
                 },
                 textStyle: {
@@ -392,6 +381,7 @@
                 },
                 series: [
                     {
+
                         barWidth: '30',
                         type: 'bar',
                         encode: {
@@ -401,7 +391,7 @@
                             y: 'product'
                         }
                     }
-                ]
+                ],
             })
         }
 
@@ -416,14 +406,15 @@
 
                 dataset: {
                     source: [
-                        [9085, 'PV per'],
-                        [9168, 'QMonths']
+                        [9168, 'QMonths'],
+                        [9085, 'PV per']
                     ]
                 },
                 grid: {
                     containLabel: true,
                     top: '1%',
-                    left: '2%'
+                    left: '2%',
+                    right: "15%"
                 },
                 xAxis: {
                     name: '',
@@ -437,6 +428,19 @@
                     },
                     axisTick: {
                         show: false
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            fontSize: 12,
+                            color: '#ffffff'
+                        },
+                        formatter: function (params) {
+                            if (params == 0) {
+                                return ""
+                            } else {
+                                return (params / 1000) + "K"
+                            }
+                        }
                     }
                 },
                 yAxis: {
@@ -469,21 +473,44 @@
                     // Map the score column to color
                     dimension: 1,
                     inRange: {
-                        color: ['#28ccae', '#0059ee']
+                        color: ['#0059ee', '#28ccae']
                     }
                 },
                 series: [
                     {
+                        name:"PF19",
                         barWidth: '30',
                         type: 'bar',
+                        stack: 'one',
                         encode: {
                             // Map the "amount" column to X axis.
                             x: 'amount',
                             // Map the "product" column to Y axis
                             y: 'product'
                         }
+                    },
+                    {
+                        name:"PF20",
+                        type: 'bar',
+                        data:[0,0],
+                        stack: 'one',
                     }
-                ]
+
+                ],
+                color: ['#28ccae',"#0059ee"],
+                legend: {
+                    type: "scroll",
+                    // icon: "line",
+                    icon: "plain",
+                    // left: 'right',
+                    // x: "170",
+                    y: '115',
+                    itemGap: 50,
+                    textStyle: {
+                        color: "#ffffff",
+                        fontSize: 14
+                    },
+                },
             })
         }
 
