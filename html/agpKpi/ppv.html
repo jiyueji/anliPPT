@@ -144,49 +144,49 @@
                         },
                     }
                 ],
-                tooltip: {//鼠标移入
-                    trigger: 'axis',
-                    confine: true,
-                    //                 tooltip_data_map:
-                    // Jan:
-                    // monthName: "2019 January"
-                    // actual_sales: "$277m"
-                    // actual_sales_ly: "$235m"
-                    // sales_forecast: null
-                    // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
-                    formatter: (data) => {
-                        // console.log(data)
-                        // var yearThisData = 0;
-                        // var yearLastData = 0;
-                        // var forecastData = 0;
-                        // var nameShow = "";
-                        // var toolShow = "";
-                        // var monthUp = "";
-                        // var yearUp = new Date().getFullYear()
-                        // data.map((item, index) => {
-                        //     if (item.componentIndex && item.componentIndex == 1) {
-                        //         yearThisData = Math.round((item.data || 0) / 1000000) || 0
-                        //     } else if (item.componentIndex && item.componentIndex == 2) {
-                        //         yearLastData = Math.round((item.data || 0) / 1000000) || 0
-                        //     } else {
-                        //         forecastData = Math.round((item.data || 0) / 1000000) || 0
-                        //     }
-                        //     nameShow = item.name
-                        //     monthUp = item.axisValue
-                        // })
-                        // if (yearThisData) {
-                        //     var thisNow = "Monthly Sales This Year:" + yearThisData;
-                        // } else {
-                        //     var thisNow = "Sales forecast:" + forecastData;
-                        // }
-                        // if (tooltipData && tooltipData[nameShow]) {
-                        //     tooltipData[nameShow].events.map((item, index) => {
-                        //         toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
-                        //     })
-                        // }
-                        // return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "%" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
-                    }
-                },
+                // tooltip: {//鼠标移入
+                //     trigger: 'axis',
+                //     confine: true,
+                //     //                 tooltip_data_map:
+                //     // Jan:
+                //     // monthName: "2019 January"
+                //     // actual_sales: "$277m"
+                //     // actual_sales_ly: "$235m"
+                //     // sales_forecast: null
+                //     // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
+                //     formatter: (data) => {
+                //         // console.log(data)
+                //         // var yearThisData = 0;
+                //         // var yearLastData = 0;
+                //         // var forecastData = 0;
+                //         // var nameShow = "";
+                //         // var toolShow = "";
+                //         // var monthUp = "";
+                //         // var yearUp = new Date().getFullYear()
+                //         // data.map((item, index) => {
+                //         //     if (item.componentIndex && item.componentIndex == 1) {
+                //         //         yearThisData = Math.round((item.data || 0) / 1000000) || 0
+                //         //     } else if (item.componentIndex && item.componentIndex == 2) {
+                //         //         yearLastData = Math.round((item.data || 0) / 1000000) || 0
+                //         //     } else {
+                //         //         forecastData = Math.round((item.data || 0) / 1000000) || 0
+                //         //     }
+                //         //     nameShow = item.name
+                //         //     monthUp = item.axisValue
+                //         // })
+                //         // if (yearThisData) {
+                //         //     var thisNow = "Monthly Sales This Year:" + yearThisData;
+                //         // } else {
+                //         //     var thisNow = "Sales forecast:" + forecastData;
+                //         // }
+                //         // if (tooltipData && tooltipData[nameShow]) {
+                //         //     tooltipData[nameShow].events.map((item, index) => {
+                //         //         toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
+                //         //     })
+                //         // }
+                //         // return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "%" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
+                //     }
+                // },
                 grid: {
                     top: '25%',
                     left: '40',
@@ -250,21 +250,21 @@
                         symbol: "none", //去掉折线点
                         symbolSize: 5, //折线点的大小
                         animationDuration: 8000,
-                        label: {
-                            show: true,
-                            // position: 'top',
-                            position: ['0', '-20'],
-                            formatter: function (params) {
-                                return Math.round((params.data || 0) / 1) + "%"
-                            },
-                            backgroundColor: '#4d96f1',
-                            borderRadius: 5,
-                            padding: 4,
-                            textStyle: {
-                                fontSize: 8,
-                                color: '#ffffff',
-                            }
-                        },
+                        // label: {
+                        //     show: true,
+                        //     // position: 'top',
+                        //     position: ['0', '-20'],
+                        //     formatter: function (params) {
+                        //         return Math.round((params.data || 0) / 1) + "%"
+                        //     },
+                        //     backgroundColor: '#4d96f1',
+                        //     borderRadius: 5,
+                        //     padding: 4,
+                        //     textStyle: {
+                        //         fontSize: 8,
+                        //         color: '#ffffff',
+                        //     }
+                        // },
                         // stack: 100,
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
@@ -286,6 +286,22 @@
                         symbolSize: 5, //折线点的大小
                         stack: 100,
                         animationDuration: 8000,
+                        label: {
+                            show: true,
+                            // position: 'top',
+                            position: ['0', '-20'],
+                            formatter: function (params) {
+                                console.log(params)
+                                return Math.round((params.data || 0) / 1) + "%"
+                            },
+                            backgroundColor: '#4d96f1',
+                            borderRadius: 5,
+                            padding: 4,
+                            textStyle: {
+                                fontSize: 8,
+                                color: '#ffffff',
+                            }
+                        },
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
                                 color: 'rgba(28,213,224,0.36)', //背景渐变色

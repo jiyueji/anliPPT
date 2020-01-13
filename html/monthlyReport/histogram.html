@@ -472,34 +472,34 @@
             histogram.setOption({
                 animationDuration: 5000,
                 // backgroundColor: '#00265f',
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        type: 'shadow'
-                    },
-                    formatter: (value) => {
-                        var name = "total";
-                        var salesVsSply = "";
-                        var percOfTotalSales = "";
-                        for (var i = 0; i < showAllData.length; i++) {
-                            if (showAllData[i].name === value[0].name) {
-                                name = showAllData[i].name;
-                                salesVsSply = showAllData[i].salesVsSply;
-                                percOfTotalSales = "% of total sales:" + showAllData[i].percOfTotalSales
-                            }
-                        }
-                        if (salesVsSply) {
-                            salesVsSply = salesVsSply.replace(/%/g, '')
-                            if (Number(salesVsSply) >= 0) {
-                                salesVsSply = "Sales vs SPLY:" + "<span style='color:#17b6a9'>" + salesVsSply + "%" + "</span>"
-                            } else {
-                                salesVsSply = "Sales vs SPLY:" + "<span style='color:#fd0022'>" + salesVsSply + "%" + "</span>"
-                            }
-                        }
-                        // console.log(value,showAllData)
-                        return "<div style='border-bottom:1px solid #ffffff'>" + name + "</div>" + percOfTotalSales + "<br/>" + salesVsSply
-                    },
-                },
+                // tooltip: {
+                //     trigger: 'axis',
+                //     axisPointer: {
+                //         type: 'shadow'
+                //     },
+                //     formatter: (value) => {
+                //         var name = "total";
+                //         var salesVsSply = "";
+                //         var percOfTotalSales = "";
+                //         for (var i = 0; i < showAllData.length; i++) {
+                //             if (showAllData[i].name === value[0].name) {
+                //                 name = showAllData[i].name;
+                //                 salesVsSply = showAllData[i].salesVsSply;
+                //                 percOfTotalSales = "% of total sales:" + showAllData[i].percOfTotalSales
+                //             }
+                //         }
+                //         if (salesVsSply) {
+                //             salesVsSply = salesVsSply.replace(/%/g, '')
+                //             if (Number(salesVsSply) >= 0) {
+                //                 salesVsSply = "Sales vs SPLY:" + "<span style='color:#17b6a9'>" + salesVsSply + "%" + "</span>"
+                //             } else {
+                //                 salesVsSply = "Sales vs SPLY:" + "<span style='color:#fd0022'>" + salesVsSply + "%" + "</span>"
+                //             }
+                //         }
+                //         // console.log(value,showAllData)
+                //         return "<div style='border-bottom:1px solid #ffffff'>" + name + "</div>" + percOfTotalSales + "<br/>" + salesVsSply
+                //     },
+                // },
                 grid: {
                     top: '80',
                     right: '20',
@@ -534,7 +534,7 @@
                         interval: 0,
                         color: '#ffffff',
                         textStyle: {
-                            fontSize: 12
+                            fontSize: 10
                         },
                     },
                 }],
@@ -560,7 +560,7 @@
                     name: "Sales by FC Group",
                     type: 'bar',
                     data: totalSales,
-                    barWidth: '15px',
+                    barWidth: '10px',
                     barGap: '-100%', //向左平移100%假装堆叠
                     // barCategoryGap: '20%',  // 柱形的间距
                     itemStyle: {
@@ -583,7 +583,7 @@
                     name: "Increase",
                     type: 'bar',
                     data: echY,
-                    barWidth: '15px',
+                    barWidth: '10px',
                     stack: "one", //同样属性值可以堆叠
                     // barCategoryGap: '20%',  // 柱形的间距
                     itemStyle: {
@@ -607,7 +607,7 @@
                             rotate: 0, // 旋转角度
                             // lineHeight: 30,
                             position: 'bottom', // 相对位置
-                            fontSize: 10,
+                            fontSize: 7,
                             // width: 80,
                             // height: 30,
                             // backgroundColor: 'rgba(0,160,221,0.1)',
@@ -639,7 +639,11 @@
                 color:["#5198ee","#17b6a9","#fd0022"],
                 legend: {
                     type: "scroll",
-                    data: ["Sales by FC Group", "Increase", "Fall"],
+                    data: [
+                        {name:"Sales by FC Group",icon:'image://../../img/tuli/1.3sales.jpg'},
+                        {name:"Increase",icon:'image://../../img/tuli/1.3increase.jpg'},
+                        {name:"Fall",icon:'image://../../img/tuli/1.3fail.jpg'},
+                    ],
                     // icon: "line",
                     left: 'center',
                     // bottom: 'bottom',
