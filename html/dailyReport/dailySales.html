@@ -82,7 +82,8 @@
             tooltip_data_map: [
                 { x: "01", y: 15.1, xMonth: "dec.01 2019", Activity: "", Description: "Nutrilite eCommerce Launch on 3E platform" },
                 { x: "06", y: 12.5, xMonth: "dec.06 2019", Activity: "", Description: "Kid’s DHA Gummy" },
-                { x: "12", y: 20, xMonth: "dec.12 2019", Activity: "", Description: "Artistry December Perfume Promotion" },
+                { x: "12", y: 20, xMonth: "dec.12 2019", Activity: "", Description: "DEC FOA Activation" },
+                { x: "19", y: 20, xMonth: "dec.19 2019", Activity: "", Description: "Artistry December Perfume Promotion" },
 
             ]
         }
@@ -110,7 +111,7 @@
             toolSolid = tooltipData[indexChange]
             handleEcharts();//折线图
             indexChange ++;
-            if(indexChange >= 3){
+            if(indexChange >= 4){
                 indexChange = 0
             }
             handleEcharts();//折线图
@@ -396,10 +397,11 @@
                         }
                     }
                 ],
-                animationDuration: 5000,
+
                 series: [{
                     name: "2020 Feb",
                     data: thisYear,
+                    animationDuration: 5000,
                     type: 'line',
                     smooth: true,
                     // symbol:"triangle",
@@ -469,6 +471,7 @@
                 {
                     name: "2019 Feb",
                     data: lastYear,
+                    animationDuration: 2000,
                     type: 'line',
                     smooth: true,
                     symbol: "none", //去掉折线点
