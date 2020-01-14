@@ -157,6 +157,18 @@ var containerDownSmall = new Swiper('.swiper-containerDownSmall', {
 // var aaa = document.getElementById("aaa")
 // aaa.addEventListener('click', test)
 
+var carouselInterval;
+function startCarousel() {
+  if(carouselInterval !== undefined) return false;
+  carouselInterval = setInterval(function() {
+    console.log('carousel interval');
+  }, 1000);
+}
+function stopCarousel() {
+  clearInterval(carouselInterval);
+  carouselInterval = undefined;
+}
+
 // 标题替换
 var tatleChange = document.getElementById("tatleChange")
 

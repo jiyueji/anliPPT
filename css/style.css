@@ -1,9 +1,20 @@
-body {
+html, body {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-  }
+}
+.start-carousel {
+    position: absolute;
+    top: 18px;
+    left: 546px;
+    right: 0;
+    margin: auto;
+    width: 42px;
+    height: 16px;
+    cursor: pointer;
+    opacity: 0;
+}
 .allBackground {
     background: url(../img/background.png) no-repeat;
     background-size: 100% 100%;
