@@ -161,6 +161,7 @@ var containerDownSmall = new Swiper('.swiper-containerDownSmall', {
 var tatleChange = document.getElementById("tatleChange")
 
 function oneImg() {
+    
     console.log("111")
     changeIndex = 1;
     tatleChange.innerHTML = "Sales Performance"
