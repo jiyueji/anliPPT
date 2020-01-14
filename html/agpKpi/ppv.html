@@ -77,7 +77,7 @@
             redball[0].style.display = "block"
         },6000);
 
-        var monthShow = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var monthShow = ['Sep', 'Oct', 'Nov', 'Dec','Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         var yShow = ['5%', '10%', '15%', '20%', '25%'];
         var allData = {
             // 预测假数据
@@ -164,18 +164,6 @@
         }
 
         handleEcharts();//折线图
-
-        function roll(total, idname, step) {
-            let n = 0;
-            return function () {
-                n = (n + step) >= total ? total : (n + step);
-                if (n <= total) {
-                    // console.log(n)
-                    document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
-                }
-            }
-        }
-
 
 
         function handleEcharts() {
@@ -297,7 +285,8 @@
                     {
 
                         name: "2019",
-                        data: lastYear,
+                        // data: lastYear,
+                        data: ["16","7","11","10","10",'','','','','','',''],
                         type: 'line',
                         smooth: true,
                         // symbol: "none", //去掉折线点
@@ -343,7 +332,7 @@
                             },
 
                             data: [
-                                { yAxis: 18, name: '' }
+                                { yAxis: 17, name: '' }
                             ]
                         },
                     }

@@ -82,7 +82,7 @@
         }, 6000);
 
 
-        var monthShow = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var monthShow = ['Sep', 'Oct', 'Nov', 'Dec','Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', ];
         var yShow = ['5%', '10%', '15%', '20%', '25%'];
         var allData = {
             // 预测假数据
@@ -201,9 +201,9 @@
                 //         },
                 //     }
                 // ],
-                tooltip: {//鼠标移入
-                    trigger: 'axis',
-                    confine: true,
+                // tooltip: {//鼠标移入
+                //     trigger: 'axis',
+                //     confine: true,
                     //                 tooltip_data_map:
                     // Jan:
                     // monthName: "2019 January"
@@ -211,7 +211,7 @@
                     // actual_sales_ly: "$235m"
                     // sales_forecast: null
                     // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
-                    formatter: (data) => {
+                    // formatter: (data) => {
                         // console.log(data)
                         // var yearThisData = 0;
                         // var yearLastData = 0;
@@ -242,8 +242,8 @@
                         //     })
                         // }
                         // return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "%" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
-                    }
-                },
+                //     }
+                // },
                 grid: {
                     top: '25%',
                     left: '40',
@@ -301,7 +301,7 @@
                 series: [
                     {
                         name: "2019 Calendar year YTD High PPV % of Sales",
-                        data: thisYear,
+                        data: ['15','15','16','15','13'],
                         type: 'line',
                         smooth: true,
                         // symbol: "none", //去掉折线点
@@ -336,7 +336,7 @@
                         }, //线条样式
                     }, {
                         name: "2019",
-                        data: lastYear,
+                        data: ['15','15','16','15','13'],
                         type: 'line',
                         smooth: true,
                         symbol: "none", //去掉折线点

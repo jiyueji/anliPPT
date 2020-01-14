@@ -82,37 +82,44 @@
         var allData = {
             // 预测假数据
             revenue_forecast_usd_data: [
-                { x: "Nov", y: 181839280.998621, labelTooltip: "Monthly Sales" },
-                { x: "Dec", y: 205400000, labelTooltip: "Sales Forecast" }
+                { x: "Jan", y: 219696416.523284, labelTooltip: "Monthly Sales" },
+                { x: "Feb", y: 167339280.998621, labelTooltip: "Monthly Sales" },
+                { x: "Mar", y: 168439280.998621, labelTooltip: "Sales Forecast" },
+                { x: "Apr", y: 164039280.998621, labelTooltip: "Sales Forecast" },
+                { x: "May", y: 161739280.998621, labelTooltip: "Sales Forecast" },
+                { x: "Jun", y: 155939280.998621, labelTooltip: "Sales Forecast" },
+                { x: "Jul", y: 160339280.998621, labelTooltip: "Sales Forecast" },
+                { x: "Aug", y: 153939280.998621, labelTooltip: "Sales Forecast" },
             ],
             // 今年的数据
             actual_sales_data: [
-                { x: "Jan", y: 259182182.448299, labelTooltip: "Monthly Sales" },
-                { x: "Feb", y: 141008903.613831, labelTooltip: "Monthly Sales" },
-                { x: "Mar", y: 186254864.365569, labelTooltip: "Monthly Sales" },
-                { x: "Apr", y: 163577009.942271, labelTooltip: "Monthly Sales" },
-                { x: "May", y: 167704246.1877, labelTooltip: "Monthly Sales" },
-                { x: "Jun", y: 157906823.07325, labelTooltip: "Monthly Sales" },
-                { x: "Jul", y: 154569943.579371, labelTooltip: "Monthly Sales" },
-                { x: "Aug", y: 167639863.957207, labelTooltip: "Monthly Sales" },
-                { x: "Sep", y: 231611473.006812, labelTooltip: "Monthly Sales" },
-                { x: "Oct", y: 186714599.278695, labelTooltip: "Monthly Sales" },
-                { x: "Nov", y: 181839280.998621, labelTooltip: "Monthly Sales" }
+                { x: "Sep", y: 231614978.062069, labelTooltip: "Monthly Sales" },
+                { x: "Oct", y: 186617037.404651, labelTooltip: "Monthly Sales" },
+                { x: "Nov", y: 171731279.375087, labelTooltip: "Monthly Sales" },
+                {x: "Dec", y: 192990177.795902, labelTooltip: "Monthly Sales" },
+                { x: "Jan", y: 219696416.523284, labelTooltip: "Monthly Sales" },
+                { x: "Feb", y: '', labelTooltip: "Monthly Sales" },
+                { x: "Mar", y: '', labelTooltip: "Monthly Sales" },
+                { x: "Apr", y: '', labelTooltip: "Monthly Sales" },
+                { x: "May", y: '', labelTooltip: "Monthly Sales" },
+                { x: "Jun", y: '', labelTooltip: "Monthly Sales" },
+                { x: "Jul", y: '', labelTooltip: "Monthly Sales" },
+                { x: "Aug", y: '', labelTooltip: "Monthly Sales" },
             ],
             // 去年的数据
             actual_sales_ly_data: [
-                { x: "Jan", y: 220148225.348956, labelTooltip: "Monthly Sales Last Year" },
-                { x: "Feb", y: 220029133.037112, labelTooltip: "Monthly Sales Last Year" },
-                { x: "Mar", y: 191906223.932465, labelTooltip: "Monthly Sales Last Year" },
-                { x: "Apr", y: 187582766.562842, labelTooltip: "Monthly Sales Last Year" },
-                { x: "May", y: 186091372.77103, labelTooltip: "Monthly Sales Last Year" },
-                { x: "Jun", y: 179788691.045646, labelTooltip: "Monthly Sales Last Year" },
-                { x: "Jul", y: 183970140.209618, labelTooltip: "Monthly Sales Last Year" },
-                { x: "Aug", y: 177614966.795802, labelTooltip: "Monthly Sales Last Year" },
-                { x: "Sep", y: 232577346.147572, labelTooltip: "Monthly Sales Last Year" },
-                { x: "Oct", y: 201336344.638635, labelTooltip: "Monthly Sales Last Year" },
-                { x: "Nov", y: 190356725.93657, labelTooltip: "Monthly Sales Last Year" },
-                { x: "Dec", y: 208842233.540768, labelTooltip: "Monthly Sales Last Year" }
+                { x: "Sep", y: 232557945.268906, labelTooltip: "Monthly Sales Last Year" },
+                { x: "Oct", y: 201307295.021253, labelTooltip: "Monthly Sales Last Year" },
+                { x: "Nov", y: 190329385.394482, labelTooltip: "Monthly Sales Last Year" },
+                { x: "Dec", y: 208839904.273653, labelTooltip: "Monthly Sales Last Year" },
+                { x: "Jan", y: 259213111.401469, labelTooltip: "Monthly Sales Last Year" },
+                { x: "Feb", y: 141043144.816552, labelTooltip: "Monthly Sales Last Year" },
+                { x: "Mar", y: 186233310.344828, labelTooltip: "Monthly Sales Last Year" },
+                { x: "Apr", y: 163270309.070137, labelTooltip: "Monthly Sales Last Year" },
+                { x: "May", y: 167723519.871724, labelTooltip: "Monthly Sales Last Year" },
+                { x: "Jun", y: 157931407.695287, labelTooltip: "Monthly Sales Last Year" },
+                { x: "Jul", y: 154579026.885298, labelTooltip: "Monthly Sales Last Year" },
+                { x: "Aug", y: 167565922.911224, labelTooltip: "Monthly Sales Last Year" },
             ],
             // 备注和提示内容
             tooltip_data_map: []
@@ -143,7 +150,7 @@
 
         handleEcharts();//饼图
         handlePieEcharts();//折线图
-        start(2133, 'root', 4)
+        start(1004, 'root', 1)
         // start函数用于启动动画，roll函数是具体进行数字滚动的函数，它返回一个闭包用于存储变化的数组n（也就是实现的数字）。参数total是你所设置的最后停止的数字，step是你所希望的跳动的间隔。
 
         function roll(total, idname, step) {
@@ -174,10 +181,10 @@
             salesHomepie.setOption({
                 animationDuration: 5000,
                 title: [{
-                    text: '89.1%',
+                    text: '93%',
                     subtext: 'on target',
                     itemGap: 1,
-                    x: '21%',
+                    x: '21.5%',
                     top: '38%',
                     textStyle: {
                         color: '#fff',
