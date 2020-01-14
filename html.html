@@ -18,6 +18,7 @@
 
 <body>
 <div class="allBackground">
+    <div class="start-carousel" onclick="startCarousel()"></div>
     <p class="title">Amway China</p>
     <img class="backgroundUpGif" src="./img/backgroundUp.gif" />
     <p class="titleUp" id="tatleChange">Sales Performance</p>
@@ -74,7 +75,7 @@
             <img src="./img/left.gif " class="loading " />
         </div>
         <div class="swiper-containerDownSmall swiper-container">
-            <div class="swiper-wrapper downSmallBorderSwiper" id="imageChange">
+            <div class="swiper-wrapper downSmallBorderSwiper" id="imageChange" onclick="stopCarousel()">
                 <!-- <div class="swiper-slide"><img src="./img/1.png" /></div> -->
                 <div class="downBorder swiper-slide" onclick="oneImg()">
                     <div class="smallImgTital">Sales Performance</div>
