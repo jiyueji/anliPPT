@@ -307,6 +307,7 @@
                 dataShow()
                 // console.log(datas)
                 var seriesDate = seriesAll[0];
+                histogram.clear()
                 histogram.setOption({...oldDate, ...seriesDate},true);
             } else {
                 sortFlag = true
@@ -323,7 +324,8 @@
                 }
                 dataShow()
                 var seriesDate = seriesAll[0];
-                histogram.setOption({...oldDate, ...seriesDate},true);
+                histogram.clear()
+                histogram.setOption({...oldDate, ...seriesDate});
             }
         }
 
