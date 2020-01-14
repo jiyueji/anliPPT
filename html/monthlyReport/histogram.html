@@ -13,547 +13,591 @@
     <!-- 引入css文件 -->
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-
+        .sort {
+            position: absolute;
+            top: 25px;
+            background: red;
+            right: 40px;
+            font-size: 14px;
+            width: 100px;
+            text-align: center;
+            z-index:102;
+        }
     </style>
 </head>
 
 <body>
     <div class="middleBorder">
         <div class="smallTitle">PF20 YTD Sales by FC</div>
+        <div class="sort" onClick="changeSort()">Sort By Sales</div>
         <div id="histogram" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:413px;"></div>
     </div>
 
     <script>
-        var data = [{
-            x: "黄安莉  林海峰",
-            val: 2.9,
-        }, {
-            x: "AMWAY",
-            val: 1.4,
-        }, {
-            x: "李丽莉  ",
-            val: 0.4,
-        }, {
-            x: "韩世荣  ",
-            val: 0.2,
-        }, {
-            x: "简水兰  ",
-            val: 0.3,
-        }, {
-            x: "何迅  龚玲姬",
-            val: -0.2,
-        }, {
-            x: "朱生才  张盛举",
-            val: 0.2,
-        }, {
-            x: "江芝英  王纪接",
-            val: 0.1,
-        }, {
-            x: "袁为群  周亚星",
-            val:-0.1,
-        }, {
-            x: "钟光文  何静",
-            val: 0.0,
-        }, {
-            x: "梁丁苏  孙东",
-            val: -0.3,
-        }, {
-            x: "雷宇鸣  叶桂花",
-            val: -0.5,
-        }, {
-            x: "傅后坚  柯淑真",
-            val: -1.0,
-        }, {
-            x: "郑维良  罗斌",
-            val: -0.6,
-        }, {
-            x: "陈婉芬  嵇龙生",
-            val: -1.2,
-        }, {
-            x: "葛勇芹  ",
-            val: -0.6,
-        }, {
-            x: "金梅  刘德沛",
-            val: -0.8,
-        }, {
-            x: "王寒茹  毛忠",
-            val: -0.7,
-        }, {
-            x: "尹建平  王成安",
-            val: -0.7,
-        }, {
-            x: "杜国渊  沈艳",
-            val: -0.9,
-        }, {
-            x: "傅南生  吴彩云",
-            val: -1.0,
-        }, {
-            x: "陈来发  李月容",
-            val: -1.3,
-        }, {
-            x: "康君  ",
-            val: -1.4,
-        }, {
-            x: "张忆平  ",
-            val: -1.6,
-        }, {
-            x: "任英才  ",
-            val: -1.9,
-        }, {
-            x: "周帆扬  郑新清",
-            val: -1.9,
-        }, {
-            x: "郭洪斌  范建平",
-            val: -1.7,
-        }, {
-            x: "许旭昇  谢淑芬",
-            val: -2.1,
-        }, {
-            x: "刘红  狄晋",
-            val: -2.0,
-        }, {
-            x: "周志坚  欧帼英",
-            val: -3.7,
-        }, {
-            x: "金乃刚  王淑真",
-            val: -2.7,
-        }, {
-            x: "卢宪新  卜范芝",
-            val: -4.5,
-        }, {
-            x: "陈毅鼎  周婉明",
-            val: -4.6,
-        }, {
-            x: "熊世翔  吴奕",
-            val: -6.0,
-        },
-            // { x: "Total", val: -27787331.673994523, close: -27787331.673994523, open: 0, high: 0 }
-        ];
+
         var datas = [{
             fc_group: "周志坚  欧帼英",
+            val: -3.7,
             total_sales_sum: 70.8,
             perc_of_total_sales: "12 %",
             sales_vs_sply: "-5 %",
             sales_vs_sply_cur: -2345164.868231401
         }, {
             fc_group: "陈婉芬  嵇龙生",
+            val: -1.2,
             total_sales_sum: 38.5,
             perc_of_total_sales: "6.7 %",
             sales_vs_sply: "-1.1 %",
             sales_vs_sply_cur: -452459.82297089696
         }, {
             fc_group: "熊世翔  吴奕",
+            val: -6.0,
             total_sales_sum: 38.2,
             perc_of_total_sales: "6.6 %",
             sales_vs_sply: "-12 %",
             sales_vs_sply_cur: -5296393.458032504
         }, {
             fc_group: "傅后坚  柯淑真",
+            val: -1.0,
             total_sales_sum: 34.7,
             perc_of_total_sales: "6 %",
             sales_vs_sply: "-1.2 %",
             sales_vs_sply_cur: -420307.7350932956
         }, {
             fc_group: "许旭昇  谢淑芬",
+            val: -2.1,
             total_sales_sum: 33.4,
             perc_of_total_sales: "5.7 %",
             sales_vs_sply: "-4.9 %",
             sales_vs_sply_cur: -1733400.4485523999
         }, {
             fc_group: "陈毅鼎  周婉明",
+            val: -4.6,
             total_sales_sum: 32.4,
             perc_of_total_sales: "5.6 %",
             sales_vs_sply: "-10.8 %",
             sales_vs_sply_cur: -4000570.8952460997
         }, {
             fc_group: "卢宪新  卜范芝",
+            val: -4.5,
             total_sales_sum: 24.9,
             perc_of_total_sales: "4.3 %",
             sales_vs_sply: "-13.6 %",
             sales_vs_sply_cur: -3990928.9143001027
         }, {
             fc_group: "金乃刚  王淑真",
+            val: -2.7,
             total_sales_sum: 22.4,
             perc_of_total_sales: "3.8 %",
             sales_vs_sply: "-9.5 %",
             sales_vs_sply_cur: -2386444.938727401
         }, {
             fc_group: "周帆扬  郑新清",
-            total_sales_sum:21.5,
+            val: -1.9,
+            total_sales_sum: 21.5,
             perc_of_total_sales: "3.7 %",
             sales_vs_sply: "-6.2 %",
             sales_vs_sply_cur: -1440783.9624000005
         }, {
             fc_group: "陈来发  李月容",
-            total_sales_sum:20.0,
+            val: -1.3,
+            total_sales_sum: 20.0,
             perc_of_total_sales: "3.4 %",
             sales_vs_sply: "-4.5 %",
             sales_vs_sply_cur: -951797.5713698976
         }, {
             fc_group: "任英才  ",
-            total_sales_sum:15.7,
+            val: -1.9,
+            total_sales_sum: 15.7,
             perc_of_total_sales: "2.7 %",
             sales_vs_sply: "-8.1 %",
             sales_vs_sply_cur: -1428969.9266650993
         }, {
             fc_group: "康君  ",
+            val: -1.4,
             total_sales_sum: 15.8,
             perc_of_total_sales: "2.7 %",
             sales_vs_sply: "-6.3 %",
             sales_vs_sply_cur: -1079899.989153698
         }, {
             fc_group: "韩世荣  ",
+            val: 0.2,
             total_sales_sum: 12.4,
             perc_of_total_sales: "2.1 %",
             sales_vs_sply: "3.1 %",
             sales_vs_sply_cur: 377031.68782420084
         }, {
             fc_group: "张忆平  ",
+            val: -1.6,
             total_sales_sum: 12.2,
             perc_of_total_sales: "2.1 %",
             sales_vs_sply: "-10.2 %",
             sales_vs_sply_cur: -1406604.0746743008
         }, {
             fc_group: "雷宇鸣  叶桂花",
+            val: -0.5,
             total_sales_sum: 11.6,
             perc_of_total_sales: "2 %",
             sales_vs_sply: "-2.2 %",
             sales_vs_sply_cur: -271130.54789680056
         }, {
             fc_group: "杜国渊  沈艳",
+            val: -0.9,
             total_sales_sum: 11.6,
             perc_of_total_sales: "2 %",
             sales_vs_sply: "-5.9 %",
             sales_vs_sply_cur: -732959.7941808999
         }, {
             fc_group: "刘红  狄晋",
+            val: -2.0,
             total_sales_sum: 10.9,
             perc_of_total_sales: "1.9 %",
             sales_vs_sply: "-14 %",
             sales_vs_sply_cur: -1810779.4190612007
         }, {
             fc_group: "郑维良  罗斌",
+            val: -0.6,
             total_sales_sum: 10.4,
             perc_of_total_sales: "1.8 %",
             sales_vs_sply: "-4 %",
             sales_vs_sply_cur: -437174.05780480057
         }, {
             fc_group: "袁为群  周亚星",
+            val: -0.1,
             total_sales_sum: 9.9,
             perc_of_total_sales: "1.7 %",
             sales_vs_sply: "0.6 %",
             sales_vs_sply_cur: 61830.40435339883
         }, {
             fc_group: "何迅  龚玲姬",
+            val: -0.2,
             total_sales_sum: 9.6,
             perc_of_total_sales: "1.7 %",
             sales_vs_sply: "3 %",
             sales_vs_sply_cur: 297102.6046266407
         }, {
             fc_group: "傅南生  吴彩云",
+            val: -1.0,
             total_sales_sum: 9.6,
             perc_of_total_sales: "1.6 %",
             sales_vs_sply: "-8.3 %",
             sales_vs_sply_cur: -878108.3879023399
         }, {
             fc_group: "金梅  刘德沛",
-            total_sales_sum:8.6,
+            val: -0.8,
+            total_sales_sum: 8.6,
             perc_of_total_sales: "1.5 %",
             sales_vs_sply: "-6.3 %",
             sales_vs_sply_cur: -591966.6046303902
         }, {
             fc_group: "黄安莉  林海峰",
+            val: 2.9,
             total_sales_sum: 8.5,
             perc_of_total_sales: "1.4 %",
             sales_vs_sply: "52.3 %",
             sales_vs_sply_cur: 2933664.2855858495
         }, {
             fc_group: "郭洪斌  范建平",
+            val: -1.7,
             total_sales_sum: 8.1,
             perc_of_total_sales: "1.4 %",
             sales_vs_sply: "-16.4 %",
             sales_vs_sply_cur: -1614556.6942544198
         }, {
             fc_group: "王寒茹  毛忠",
+            val: -0.7,
             total_sales_sum: 6.8,
             perc_of_total_sales: "1.2 %",
             sales_vs_sply: "-8 %",
             sales_vs_sply_cur: -601059.2602422303
         }, {
             fc_group: "李丽莉  ",
+            val: 0.4,
             total_sales_sum: 6.4,
             perc_of_total_sales: "1.1 %",
             sales_vs_sply: "11.6 %",
             sales_vs_sply_cur: 687609.2068611896
         }, {
             fc_group: "梁丁苏  孙东",
+            val: -0.3,
             total_sales_sum: 5.8,
             perc_of_total_sales: "1 %",
             sales_vs_sply: "-2.4 %",
             sales_vs_sply_cur: -145034.1582115693
         }, {
             fc_group: "尹建平  王成安",
+            val: -0.7,
             total_sales_sum: 5.5,
             perc_of_total_sales: "0.9 %",
             sales_vs_sply: "-9.7 %",
             sales_vs_sply_cur: -602194.3848625198
         }, {
             fc_group: "葛勇芹  ",
-            total_sales_sum:5.1,
+            val: -0.6,
+            total_sales_sum: 5.1,
             perc_of_total_sales: "0.9 %",
             sales_vs_sply: "-9.9 %",
             sales_vs_sply_cur: -566535.2738556005
         }, {
             fc_group: "简水兰  ",
+            val: 0.3,
             total_sales_sum: 3.2,
             perc_of_total_sales: "0.5 %",
             sales_vs_sply: "10.9 %",
             sales_vs_sply_cur: 315382.88528743014
         }, {
             fc_group: "江芝英  王纪接",
+            val: 0.1,
             total_sales_sum: 2.0,
             perc_of_total_sales: "0.3 %",
             sales_vs_sply: "9.2 %",
             sales_vs_sply_cur: 167500.94390496006
         }, {
             fc_group: "朱生才  张盛举",
-            total_sales_sum:1.3,
+            val: 0.2,
+            total_sales_sum: 1.3,
             perc_of_total_sales: "0.2 %",
             sales_vs_sply: "20.9 %",
             sales_vs_sply_cur: 231298.86809467012
         }, {
             fc_group: "钟光文  何静",
-            total_sales_sum:0.9,
+            val: 0.0,
+            total_sales_sum: 0.9,
             perc_of_total_sales: "0.1 %",
             sales_vs_sply: "3.3 %",
             sales_vs_sply_cur: 28196.66710300604
         }, {
             fc_group: "AMWAY",
+            val: 1.4,
             total_sales_sum: 51.6,
             perc_of_total_sales: "8.9 %",
             sales_vs_sply: "4.6 %",
             sales_vs_sply_cur: 2298275.9606840014
         }]
+        var sortFlag = true
+        // debugger;
+        // 冒泡排序
+        for (var i = 0; i < datas.length - 1; i++) {
+            for (var j = 0; j < datas.length - i - 1; j++) {
+                //交换位置
+                if (datas[j].val < datas[j + 1].val) {
+                    var temp = datas[j];
+                    datas[j] = datas[j + 1];
+                    datas[j + 1] = temp;
+                }
+            }
+        }
+
+        // function changeSort() {
+        //     var sortDiv = document.getElementsByClassName("sort");
+        //     sortFlag ? sortDiv[0].style.background = "yellow" : sortDiv[0].style.background = "red";
+        //     var series = JSON.parse(JSON.stringify(seriesAll[0]));
+
+        //     datas.sort((a,b) => b.val - a.val)
+        //     console.log(datas)
+        //     // if (datas || datas.length > 0) {
+        //     //     datas.map((item, index) => {
+        //     //         echX.push(item.fc_group)
+        //     //         echY.push(item.val)
+        //     //     })
+        //     // }
+        //     // if (datas || datas.length > 0) {
+        //     //     datas.map((item, index) => {
+        //     //         for (var i = 0; i < datas.length; i++) {
+        //     //             var obj = {}
+        //     //             if (datas[i].fc_group === echX[index]) {
+        //     //                 // console.log(index,echX[index],datas[i].fc_group,datas[i].total_sales_sum)
+        //     //                 totalSales.push(datas[i].total_sales_sum)
+        //     //                 obj.name = datas[i].fc_group || "";
+        //     //                 obj.salesVsSply = datas[i].sales_vs_sply || 0;
+        //     //                 obj.percOfTotalSales = datas[i].perc_of_total_sales || 0;
+        //     //                 showAllData.push(obj)
+        //     //             }
+        //     //         }
+        //     //     })
+        //     // }
+        //     // var xDate = JSON.parse(JSON.stringify(oldDate))
+        //     // oldDate.xAxis[0].data
+        //     (sortFlag = !sortFlag) && series.series[0].data.sort((a, b) => b - a );
+        //     histogram.setOption({ ...oldDate, ...series });
+        //     // histogram.clear();
+        //     var sortDiv = document.getElementsByClassName("sort")
+        //     if (sortFlag) {
+        //         sortFlag = false
+        //         sortDiv[0].style.background = "yellow"
+        //         for (var i = 0; i < datas.length - 1; i++) {
+        //             for (var j = 0; j < datas.length - i - 1; j++) {
+        //                 //交换位置
+        //                 if (datas[j].total_sales_sum < datas[j + 1].total_sales_sum) {
+        //                     var temp = datas[j];
+        //                     datas[j] = datas[j + 1];
+        //                     datas[j + 1] = temp;
+        //                 }
+        //             }
+        //         }
+        //         dataShow()
+        //         // console.log(datas)
+        //         // var seriesDate = seriesAll[0];
+        //         // histogram.clear()
+        //         histogram.setOption({ ...oldDate, ...series });
+        //     } else {
+        //         sortFlag = true
+        //         sortDiv[0].style.background = "red"
+        //         for (var i = 0; i < datas.length - 1; i++) {
+        //             for (var j = 0; j < datas.length - i - 1; j++) {
+        //                 //交换位置
+        //                 if (datas[j].val < datas[j + 1].val) {
+        //                     var temp = datas[j];
+        //                     datas[j] = datas[j + 1];
+        //                     datas[j + 1] = temp;
+        //                 }
+        //             }
+        //         }
+        //         dataShow()
+        //         histogram.setOption(seriesAll[0]);
+        //     }
+        // }
+
         var echX = [];
         var echY = [];
         var totalSales = [];
         var showAllData = [];
-        if (data || data.length > 0) {
-            data.map((item, index) => {
-                echX.push(item.x)
-                echY.push(item.val)
-            })
-        }
-        if (datas || datas.length > 0) {
-            datas.map((item, index) => {
-                for (var i = 0; i < datas.length; i++) {
-                    var obj = {}
-                    if (datas[i].fc_group === echX[index]) {
-                        // console.log(index,echX[index],datas[i].fc_group,datas[i].total_sales_sum)
-                        totalSales.push(datas[i].total_sales_sum)
-                        obj.name = datas[i].fc_group || "";
-                        obj.salesVsSply = datas[i].sales_vs_sply || 0;
-                        obj.percOfTotalSales = datas[i].perc_of_total_sales || 0;
-                        showAllData.push(obj)
+        dataShow()
+
+        var oldDate = {
+            animationDuration: 5000,
+            // backgroundColor: '#00265f',
+            // tooltip: {
+            //     trigger: 'axis',
+            //     axisPointer: {
+            //         type: 'shadow'
+            //     },
+            //     formatter: (value) => {
+            //         var name = "total";
+            //         var salesVsSply = "";
+            //         var percOfTotalSales = "";
+            //         for (var i = 0; i < showAllData.length; i++) {
+            //             if (showAllData[i].name === value[0].name) {
+            //                 name = showAllData[i].name;
+            //                 salesVsSply = showAllData[i].salesVsSply;
+            //                 percOfTotalSales = "% of total sales:" + showAllData[i].percOfTotalSales
+            //             }
+            //         }
+            //         if (salesVsSply) {
+            //             salesVsSply = salesVsSply.replace(/%/g, '')
+            //             if (Number(salesVsSply) >= 0) {
+            //                 salesVsSply = "Sales vs SPLY:" + "<span style='color:#17b6a9'>" + salesVsSply + "%" + "</span>"
+            //             } else {
+            //                 salesVsSply = "Sales vs SPLY:" + "<span style='color:#fd0022'>" + salesVsSply + "%" + "</span>"
+            //             }
+            //         }
+            //         // console.log(value,showAllData)
+            //         return "<div style='border-bottom:1px solid #ffffff'>" + name + "</div>" + percOfTotalSales + "<br/>" + salesVsSply
+            //     },
+            // },
+            grid: {
+                top: '80',
+                right: '20',
+                left: '20',
+                bottom: '12%',
+                containLabel: true,
+            },
+            xAxis: [{
+                type: 'category',
+                data: echX,
+                axisLine: {
+                    lineStyle: {
+                        color: 'rgba(255,255,255,0.12)'
                     }
-                }
-            })
-        }
-
-        handleEcharts()
-
-        function handleEcharts() {
-            var histogram = echarts.init(document.getElementById('histogram'));
-            window.addEventListener('resize', function () {
-                histogram.resize()
-            });
-            histogram.setOption({
-                animationDuration: 5000,
-                // backgroundColor: '#00265f',
-                // tooltip: {
-                //     trigger: 'axis',
-                //     axisPointer: {
-                //         type: 'shadow'
-                //     },
-                //     formatter: (value) => {
-                //         var name = "total";
-                //         var salesVsSply = "";
-                //         var percOfTotalSales = "";
-                //         for (var i = 0; i < showAllData.length; i++) {
-                //             if (showAllData[i].name === value[0].name) {
-                //                 name = showAllData[i].name;
-                //                 salesVsSply = showAllData[i].salesVsSply;
-                //                 percOfTotalSales = "% of total sales:" + showAllData[i].percOfTotalSales
-                //             }
-                //         }
-                //         if (salesVsSply) {
-                //             salesVsSply = salesVsSply.replace(/%/g, '')
-                //             if (Number(salesVsSply) >= 0) {
-                //                 salesVsSply = "Sales vs SPLY:" + "<span style='color:#17b6a9'>" + salesVsSply + "%" + "</span>"
-                //             } else {
-                //                 salesVsSply = "Sales vs SPLY:" + "<span style='color:#fd0022'>" + salesVsSply + "%" + "</span>"
-                //             }
-                //         }
-                //         // console.log(value,showAllData)
-                //         return "<div style='border-bottom:1px solid #ffffff'>" + name + "</div>" + percOfTotalSales + "<br/>" + salesVsSply
-                //     },
-                // },
-                grid: {
-                    top: '80',
-                    right: '20',
-                    left: '20',
-                    bottom: '12%',
-                    containLabel: true,
                 },
-                xAxis: [{
-                    type: 'category',
-                    data: echX,
-                    axisLine: {
-                        lineStyle: {
-                            color: 'rgba(255,255,255,0.12)'
-                        }
-                    },
-                    axisLabel: {
-                        formatter: function (value) {
-                            // 去掉字符串多余的中间的空白
-                            var repStr = "";
-                            for (var i = 0; i < value.length; i++) {
-                                if (value.substring(i, i + 1) != " ")
-                                    repStr = repStr + value.substring(i, i + 1);
-                                else {
-                                    if (repStr.substring(repStr.length - 1, repStr.length) != " ") {
-                                        repStr = repStr + " ";
-                                    }
+                axisLabel: {
+                    formatter: function (value) {
+                        // 去掉字符串多余的中间的空白
+                        var repStr = "";
+                        for (var i = 0; i < value.length; i++) {
+                            if (value.substring(i, i + 1) != " ")
+                                repStr = repStr + value.substring(i, i + 1);
+                            else {
+                                if (repStr.substring(repStr.length - 1, repStr.length) != " ") {
+                                    repStr = repStr + " ";
                                 }
                             }
-                            return repStr.split("").join("\n")
-                            // return value.split("").join("\n")
-                        },
-                        interval: 0,
-                        color: '#ffffff',
-                        textStyle: {
-                            fontSize: 10
-                        },
-                    },
-                }],
-                yAxis: [{
-                    axisLabel: {
-                        formatter: (value) => {
-                            // var val = ((value || 0) / 1000000)
-                            return value + "m"
-                        },
-                        color: '#ffffff',
-                    },
-                    axisLine: {
-                        show: false
-                    },
-                    splitLine: {
-                        lineStyle: {
-                            type: 'dashed',
-                            color: '#757575'
                         }
-                    }
-                }],
-                series: [{
-                    name: "Sales by FC Group",
-                    type: 'bar',
-                    data: totalSales,
-                    barWidth: '10px',
-                    barGap: '-100%', //向左平移100%假装堆叠
-                    // barCategoryGap: '20%',  // 柱形的间距
-                    itemStyle: {
-                        normal: {
-                            color: "#5198ee",
-                        }
+                        return repStr.split("").join("\n")
+                        // return value.split("").join("\n")
                     },
-                    label: {
-                        normal: {
-                            show: true,
-                            rotate: 0, // 旋转角度
-                            position: 'top', // 相对位置
-                            formatter: (value) => {
-                                // var val = ((value.data || 0) / 1000000).toFixed(1)
-                                return value.data + "m"
-                            },
-                        }
-                    }
-                }, {
-                    name: "Increase",
-                    type: 'bar',
-                    data: echY,
-                    barWidth: '10px',
-                    stack: "one", //同样属性值可以堆叠
-                    // barCategoryGap: '20%',  // 柱形的间距
-                    itemStyle: {
-                        normal: {
-                            color: (value) => {
-                                // var val = ((value.data || 0) / 1000000).toFixed(1)
-                                if (value.data >= 0) {
-                                    return "#17b6a9"
-                                } else {
-                                    return "#fd0022"
-                                }
-                            },
-                            // barBorderRadius: [30, 30, 30, 30],
-                            // shadowColor: 'rgba(0,160,221,1)',
-                            // shadowBlur: 4,
-                        }
-                    },
-                    label: {
-                        normal: {
-                            show: true,
-                            rotate: 0, // 旋转角度
-                            // lineHeight: 30,
-                            position: 'bottom', // 相对位置
-                            fontSize: 7,
-                            // width: 80,
-                            // height: 30,
-                            // backgroundColor: 'rgba(0,160,221,0.1)',
-                            // borderRadius: 200,
-                            // position: ['-3', '-10'],
-                            // distance: 1,
-                            formatter: (value) => {
-                                // var val = ((value.data || 0) / 1000000).toFixed(1)
-                                if (value.data >= 0) {
-                                    value = "+" + value.data
-                                }else{
-                                    value = "-" + value.data
-                                }
-                                return value + "m"
-                            },
-                        }
-                    }
-                }, {
-                    name: "Fall",
-                    type: 'bar',
-                    data: [],
-                    stack: "one", //同样属性值可以堆叠
-                    // barGap: '0',//向左平移100%假装堆叠
-                    itemStyle: {
-                        normal: {
-                            color: "#fd0022",
-                        }
-                    },
-                }],
-                //图例名
-                color: ["#5198ee", "#17b6a9", "#fd0022"],
-                legend: {
-                    type: "scroll",
-                    data: [
-                        { name: "Sales by FC Group", icon: 'image://../../img/tuli/1.3sales.jpg' },
-                        { name: "Increase", icon: 'image://../../img/tuli/1.3increase.jpg' },
-                        { name: "Fall", icon: 'image://../../img/tuli/1.3fail.jpg' },
-                    ],
-                    // icon: "line",
-                    left: 'center',
-                    // bottom: 'bottom',
-                    y: '375',
+                    interval: 0,
+                    color: '#ffffff',
                     textStyle: {
-                        color: "#666",
                         fontSize: 10
                     },
                 },
-            })
+            }],
+            yAxis: [{
+                axisLabel: {
+                    formatter: (value) => {
+                        // var val = ((value || 0) / 1000000)
+                        return value + "m"
+                    },
+                    color: '#ffffff',
+                },
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed',
+                        color: '#757575'
+                    }
+                }
+            }],
+
+            //图例名
+            color: ["#5198ee", "#17b6a9", "#fd0022"],
+            legend: {
+                type: "scroll",
+                data: [
+                    { name: "Sales by FC Group", icon: 'image://../../img/tuli/1.3sales.jpg' },
+                    { name: "Increase", icon: 'image://../../img/tuli/1.3increase.jpg' },
+                    { name: "Fall", icon: 'image://../../img/tuli/1.3fail.jpg' },
+                ],
+                // icon: "line",
+                left: 'center',
+                // bottom: 'bottom',
+                y: '375',
+                textStyle: {
+                    color: "#666",
+                    fontSize: 10
+                },
+            }
+        }
+        var histogram,seriesAll = [
+                {
+                    series: [{
+                        name: "Sales by FC Group",
+                        type: 'bar',
+                        data: totalSales,
+                        barWidth: '10px',
+                        barGap: '-100%', //向左平移100%假装堆叠
+                        // barCategoryGap: '20%',  // 柱形的间距
+                        itemStyle: {
+                            normal: {
+                                color: "#5198ee",
+                            }
+                        },
+                        label: {
+                            normal: {
+                                show: true,
+                                rotate: 0, // 旋转角度
+                                position: 'top', // 相对位置
+                                formatter: (value) => {
+                                    // var val = ((value.data || 0) / 1000000).toFixed(1)
+                                    return value.data + "m"
+                                },
+                            }
+                        }
+                    }, {
+                        name: "Increase",
+                        type: 'bar',
+                        data: echY,
+                        barWidth: '10px',
+                        stack: "one", //同样属性值可以堆叠
+                        // barCategoryGap: '20%',  // 柱形的间距
+                        itemStyle: {
+                            normal: {
+                                color: (value) => {
+                                    // var val = ((value.data || 0) / 1000000).toFixed(1)
+                                    if (value.data >= 0) {
+                                        return "#17b6a9"
+                                    } else {
+                                        return "#fd0022"
+                                    }
+                                },
+                                // barBorderRadius: [30, 30, 30, 30],
+                                // shadowColor: 'rgba(0,160,221,1)',
+                                // shadowBlur: 4,
+                            }
+                        },
+                        label: {
+                            normal: {
+                                show: true,
+                                rotate: 0, // 旋转角度
+                                // lineHeight: 30,
+                                position: 'bottom', // 相对位置
+                                fontSize: 7,
+                                // width: 80,
+                                // height: 30,
+                                // backgroundColor: 'rgba(0,160,221,0.1)',
+                                // borderRadius: 200,
+                                // position: ['-3', '-10'],
+                                // distance: 1,
+                                formatter: (value) => {
+                                    // var val = ((value.data || 0) / 1000000).toFixed(1)
+                                    if (value.data >= 0) {
+                                        value = "+" + value.data
+                                    } else {
+                                        value = "-" + value.data
+                                    }
+                                    return value + "m"
+                                },
+                            }
+                        }
+                    }, {
+                        name: "Fall",
+                        type: 'bar',
+                        data: [],
+                        stack: "one", //同样属性值可以堆叠
+                        // barGap: '0',//向左平移100%假装堆叠
+                        itemStyle: {
+                            normal: {
+                                color: "#fd0022",
+                            }
+                        },
+                    }]
+                }
+            ]
+
+        function dataShow() {
+            if (datas || datas.length > 0) {
+                datas.map((item, index) => {
+                    echX.push(item.fc_group)
+                    echY.push(item.val)
+                })
+            }
+            if (datas || datas.length > 0) {
+                datas.map((item, index) => {
+                    for (var i = 0; i < datas.length; i++) {
+                        var obj = {}
+                        if (datas[i].fc_group === echX[index]) {
+                            // console.log(index,echX[index],datas[i].fc_group,datas[i].total_sales_sum)
+                            totalSales.push(datas[i].total_sales_sum)
+                            obj.name = datas[i].fc_group || "";
+                            obj.salesVsSply = datas[i].sales_vs_sply || 0;
+                            obj.percOfTotalSales = datas[i].perc_of_total_sales || 0;
+                            showAllData.push(obj)
+                        }
+                    }
+                })
+            }
+            console.log(datas,111)
+            // handleEcharts()
+        }
+
+
+
+
+        window.addEventListener('resize', function () {
+            histogram.resize()
+        });
+        handleEcharts()
+
+        function handleEcharts() {
+            histogram = echarts.init(document.getElementById('histogram'));
+            // console.log(seriesAll[0])
+            var seriesDate = seriesAll[0];
+            // debugger;
+            histogram.setOption({ ...oldDate, ...seriesDate },true)
+
         }
     </script>
 </body>
