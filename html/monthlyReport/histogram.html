@@ -21,6 +21,7 @@
             font-size: 14px;
             width: 100px;
             text-align: center;
+            z-index:102;
         }
     </style>
 </head>
@@ -274,6 +275,7 @@
             sales_vs_sply_cur: 2298275.9606840014
         }]
         var sortFlag = true
+        // debugger;
         // 冒泡排序
         for (var i = 0; i < datas.length - 1; i++) {
             for (var j = 0; j < datas.length - i - 1; j++) {
@@ -286,48 +288,75 @@
             }
         }
 
-        function changeSort() {
-            // console.log("1")
-            console.log(datas)
-            histogram.clear();
-            var sortDiv = document.getElementsByClassName("sort")
-            if (sortFlag) {
-                sortFlag = false
-                sortDiv[0].style.background = "yellow"
-                for (var i = 0; i < datas.length - 1; i++) {
-                    for (var j = 0; j < datas.length - i - 1; j++) {
-                        //交换位置
-                        if (datas[j].total_sales_sum < datas[j + 1].total_sales_sum) {
-                            var temp = datas[j];
-                            datas[j] = datas[j + 1];
-                            datas[j + 1] = temp;
-                        }
-                    }
-                }
-                dataShow()
-                // console.log(datas)
-                var seriesDate = seriesAll[0];
-                histogram.clear()
-                histogram.setOption({...oldDate, ...seriesDate},true);
-            } else {
-                sortFlag = true
-                sortDiv[0].style.background = "red"
-                for (var i = 0; i < datas.length - 1; i++) {
-                    for (var j = 0; j < datas.length - i - 1; j++) {
-                        //交换位置
-                        if (datas[j].val < datas[j + 1].val) {
-                            var temp = datas[j];
-                            datas[j] = datas[j + 1];
-                            datas[j + 1] = temp;
-                        }
-                    }
-                }
-                dataShow()
-                var seriesDate = seriesAll[0];
-                histogram.clear()
-                histogram.setOption({...oldDate, ...seriesDate});
-            }
-        }
+        // function changeSort() {
+        //     var sortDiv = document.getElementsByClassName("sort");
+        //     sortFlag ? sortDiv[0].style.background = "yellow" : sortDiv[0].style.background = "red";
+        //     var series = JSON.parse(JSON.stringify(seriesAll[0]));
+
+        //     datas.sort((a,b) => b.val - a.val)
+        //     console.log(datas)
+        //     // if (datas || datas.length > 0) {
+        //     //     datas.map((item, index) => {
+        //     //         echX.push(item.fc_group)
+        //     //         echY.push(item.val)
+        //     //     })
+        //     // }
+        //     // if (datas || datas.length > 0) {
+        //     //     datas.map((item, index) => {
+        //     //         for (var i = 0; i < datas.length; i++) {
+        //     //             var obj = {}
+        //     //             if (datas[i].fc_group === echX[index]) {
+        //     //                 // console.log(index,echX[index],datas[i].fc_group,datas[i].total_sales_sum)
+        //     //                 totalSales.push(datas[i].total_sales_sum)
+        //     //                 obj.name = datas[i].fc_group || "";
+        //     //                 obj.salesVsSply = datas[i].sales_vs_sply || 0;
+        //     //                 obj.percOfTotalSales = datas[i].perc_of_total_sales || 0;
+        //     //                 showAllData.push(obj)
+        //     //             }
+        //     //         }
+        //     //     })
+        //     // }
+        //     // var xDate = JSON.parse(JSON.stringify(oldDate))
+        //     // oldDate.xAxis[0].data
+        //     (sortFlag = !sortFlag) && series.series[0].data.sort((a, b) => b - a );
+        //     histogram.setOption({ ...oldDate, ...series });
+        //     // histogram.clear();
+        //     var sortDiv = document.getElementsByClassName("sort")
+        //     if (sortFlag) {
+        //         sortFlag = false
+        //         sortDiv[0].style.background = "yellow"
+        //         for (var i = 0; i < datas.length - 1; i++) {
+        //             for (var j = 0; j < datas.length - i - 1; j++) {
+        //                 //交换位置
+        //                 if (datas[j].total_sales_sum < datas[j + 1].total_sales_sum) {
+        //                     var temp = datas[j];
+        //                     datas[j] = datas[j + 1];
+        //                     datas[j + 1] = temp;
+        //                 }
+        //             }
+        //         }
+        //         dataShow()
+        //         // console.log(datas)
+        //         // var seriesDate = seriesAll[0];
+        //         // histogram.clear()
+        //         histogram.setOption({ ...oldDate, ...series });
+        //     } else {
+        //         sortFlag = true
+        //         sortDiv[0].style.background = "red"
+        //         for (var i = 0; i < datas.length - 1; i++) {
+        //             for (var j = 0; j < datas.length - i - 1; j++) {
+        //                 //交换位置
+        //                 if (datas[j].val < datas[j + 1].val) {
+        //                     var temp = datas[j];
+        //                     datas[j] = datas[j + 1];
+        //                     datas[j + 1] = temp;
+        //                 }
+        //             }
+        //         }
+        //         dataShow()
+        //         histogram.setOption(seriesAll[0]);
+        //     }
+        // }
 
         var echX = [];
         var echY = [];
@@ -550,6 +579,7 @@
                     }
                 })
             }
+            console.log(datas,111)
             // handleEcharts()
         }
 
