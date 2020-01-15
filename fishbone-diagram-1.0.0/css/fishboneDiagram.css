@@ -60,6 +60,9 @@
 /** 鱼骨图-标题 **/
 .fishbone-diagram .title {
   color: #fff;
+  font-family: Arial;
+  font-weight: 700;
+  line-height: 21px;
 }
 /** 鱼骨图-副标题 **/
 .fishbone-diagram .sub-title {
