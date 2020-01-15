@@ -29,6 +29,7 @@
         .smallTopTitle div:nth-of-type(1) {
             font-size: 33px;
             color: #ffffff;
+            font-family: Impact;
         }
 
         .smallTopTitle div:nth-of-type(2) {
@@ -157,7 +158,7 @@
                 salesHomeEchartsCsi.resize()
             });
             salesHomeEchartsCsi.setOption({
-                animationDuration: 5000,
+                animationDuration: 2000,
                 // tooltip: {//鼠标移入
                 //     trigger: 'axis',
                 //     confine: true,
@@ -199,7 +200,7 @@
                                 color: "#ffffff"
                             },
                             formatter: function (params) {
-                                return params / 10000 + "W"
+                                return params / 1000 + "k"
                             }
                         },
                         axisLine: {//隐藏X轴
@@ -257,7 +258,25 @@
                             },
                         },
                         data: today
-                    }
+                    }, {
+                    type: 'effectScatter',
+                    coordinateSystem: 'cartesian2d',
+                    data: ['', '', '', '', '', '','', '', '', '', '', '','', '', '', '','', '287', '','', '', '', '', '', ''], //2d坐标系
+                    symbolSize: 10,
+                    showEffectOn: 'render',
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    hoverAnimation: true,
+                    itemStyle: {
+                        normal: {
+                            color: '#028871',
+                            shadowBlur: 0,
+                            shadowColor: '#333'
+                        }
+                    },
+                    zlevel: 1
+                }
                 ],
                 //图例名
                 color: ['#ffa441', '#4d96f1'],

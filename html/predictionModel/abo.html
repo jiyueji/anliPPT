@@ -96,18 +96,18 @@
                 salesHomeEchartsAbo.resize()
             });
             salesHomeEchartsAbo.setOption({
-                animationDuration: 5000,
-                // title: [
-                //     {
-                //         text: '1st Year ABO Renewal Model',
-                //         x: '8%',
-                //         y: '0%',
-                //         textStyle: {                  //标题样式
-                //             fontSize: '16',
-                //             color: '#ffffff',
-                //         },
-                //     }
-                // ],
+                animationDuration: 2000,
+                title: [
+                    {
+                        text: 'PF20',
+                        x: '3%',
+                        y: '14%',
+                        textStyle: {                  //标题样式
+                            fontSize: '14',
+                            color: '#ffffff',
+                        },
+                    }
+                ],
                 // tooltip: {//鼠标移入
                 //     trigger: 'axis',
                 //     confine: true,
@@ -117,7 +117,7 @@
                 //     }
                 // },
                 grid: {
-                    top: '20%',
+                    top: '24%',
                     left: '4%',
                     right: '8%',
                     bottom: '12%',
@@ -146,6 +146,8 @@
                 yAxis: [
                     {
                         type: 'value',
+                        min:30,
+                        max:40,
                         // data: monthShow,
                         axisLabel: {
                             show: true,
@@ -243,7 +245,7 @@
                         type: 'line',
                         smooth: true,
                         symbol: "circle", //去掉折线点
-                        symbolSize: 1, //折线点的大小
+                        symbolSize: 5, //折线点的大小
                         animationDuration: 1000,
                         stack: 100,
                         label: {
@@ -283,7 +285,25 @@
                         areaStyle: {
                             normal: {}
                         },
-                    },
+                    },{
+                        type: 'effectScatter',
+                        coordinateSystem: 'cartesian2d',
+                        data: ['','','','','','36.17','36.28','36.23','36.09','35.9','35.31','35.06'], //2d坐标系
+                        symbolSize: 10,
+                        showEffectOn: 'render',
+                        rippleEffect: {
+                            brushType: 'stroke'
+                        },
+                        hoverAnimation: true,
+                        itemStyle: {
+                            normal: {
+                                color: '#ff9c3a',
+                                shadowBlur: 0,
+                                shadowColor: '#333'
+                            }
+                        },
+                        zlevel: 1
+                    }
                 ],
                 color: ["#4d96f1", "#f49f44"],
                 //图例名

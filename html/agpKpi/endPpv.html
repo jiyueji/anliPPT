@@ -65,7 +65,7 @@
 
 <body>
     <div class="middleBorder">
-        <div class="smallTitle">End of Month % of Sales</div>
+        <div class="smallTitle">PF20 End of Month % of Sales</div>
         <div id="salesHomeEchartsEndppv" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:413px;">
         </div>
         <!-- div闪烁 https://blog.csdn.net/qq_43258252/article/details/102958790 -->
@@ -189,14 +189,14 @@
                 salesHomeEchartsEndppv.resize()
             });
             salesHomeEchartsEndppv.setOption({
-                animationDuration: 5000,
+                animationDuration: 2000,
                 // title: [
                 //     {
-                //         text: 'End of Month % of Sales',
-                //         x: '2%',
-                //         y: '8%',
+                //         text: 'PF20',
+                //         x: '5%',
+                //         y: '16%',
                 //         textStyle: {                  //标题样式
-                //             fontSize: '16',
+                //             fontSize: '14',
                 //             color: '#ffffff',
                 //         },
                 //     }
@@ -275,6 +275,8 @@
                     {
                         type: 'value',
                         // data: monthShow,
+                        max:"20",
+                        min:"0",
                         axisLabel: {
                             show: true,
                             textStyle: {
@@ -301,12 +303,12 @@
                 series: [
                     {
                         name: "2019 Calendar year YTD High PPV % of Sales",
-                        data: ['15','15','16','15','13'],
+                        data: ['14.6','14.7','15.9','14.7','13.3','','','','','','',''],
                         type: 'line',
                         smooth: true,
                         // symbol: "none", //去掉折线点
                         symbolSize: 3, //折线点的大小
-                        animationDuration: 6000,
+                        animationDuration: 2000,
                         label: {
                             show: true,
                             // position: 'top',
@@ -342,7 +344,7 @@
                         symbol: "none", //去掉折线点
                         symbolSize: 5, //折线点的大小
                         stack: 100,
-                        animationDuration: 6000,
+                        animationDuration: 2000,
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
                                 color: 'rgba(243,225,38,0.36)', //背景渐变色
@@ -363,7 +365,7 @@
                                 width: '2'
                             },
                             label: {
-                                show: false,
+                                show: true,
                             },
 
                             data: [

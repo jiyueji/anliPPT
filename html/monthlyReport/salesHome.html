@@ -62,7 +62,7 @@
 
 <body>
     <div class="centerBorBig">
-        <div class="centerTitle">YTD Sales</div>
+        <div class="centerTitle">PF 20 YTD Sales</div>
         <div id="root">0mil</div>
         <div class="lightAllRight">
             <img src="../../img/lightRight1.gif" class="right1" />
@@ -78,7 +78,7 @@
     </div>
 
     <script>
-        var monthShow = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var monthShow = ['Sep', 'Oct', 'Nov', 'Dec','Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', ];
         var allData = {
             // 预测假数据
             revenue_forecast_usd_data: [
@@ -96,7 +96,7 @@
                 { x: "Sep", y: 231614978.062069, labelTooltip: "Monthly Sales" },
                 { x: "Oct", y: 186617037.404651, labelTooltip: "Monthly Sales" },
                 { x: "Nov", y: 171731279.375087, labelTooltip: "Monthly Sales" },
-                {x: "Dec", y: 192990177.795902, labelTooltip: "Monthly Sales" },
+                { x: "Dec", y: 192990177.795902, labelTooltip: "Monthly Sales" },
                 { x: "Jan", y: 219696416.523284, labelTooltip: "Monthly Sales" },
                 { x: "Feb", y: '', labelTooltip: "Monthly Sales" },
                 { x: "Mar", y: '', labelTooltip: "Monthly Sales" },
@@ -179,7 +179,7 @@
                 salesHomepie.resize()
             });
             salesHomepie.setOption({
-                animationDuration: 5000,
+                animationDuration: 2000,
                 title: [{
                     text: '93%',
                     subtext: 'on target',
@@ -270,7 +270,7 @@
             salesHomeEcharts.setOption({
                 title: [
                     {
-                        text: 'PF20 Monthly Sales',
+                        text: 'Monthly Sales',
                         x: '6%',
                         y: '8',
                         textStyle: {                  //标题样式
@@ -375,7 +375,7 @@
                         }
                     }
                 ],
-                animationDuration: 5000,
+                animationDuration: 2000,
                 series: [
                     {
                         name: 'Sales forecast',
@@ -384,7 +384,7 @@
                         // color:['#fd0022'],  //折线条的颜色
                         data: forecastYear,
                         // symbol: "none", //去掉折线点
-                        animationDuration: 5000,
+                        animationDuration: 2000,
                         smooth: false,   //关键点，为true是不支持虚线的，实线就用true
                         itemStyle: {
                             normal: {
@@ -474,16 +474,34 @@
                         areaStyle: {
                             normal: {}
                         },
+                    }, {
+                        type: 'effectScatter',
+                        coordinateSystem: 'cartesian2d',
+                        data: ['','','','','',{ value:'167339280.998621', symbolSize: 10, },'168439280.998621','164039280.998621','161739280.998621','155939280.998621','160339280.998621','153939280.998621'], //2d坐标系
+                        symbolSize: 10,
+                        showEffectOn: 'render',
+                        rippleEffect: {
+                            brushType: 'stroke'
+                        },
+                        hoverAnimation: true,
+                        itemStyle: {
+                            normal: {
+                                color: '#ff9c3a',
+                                shadowBlur: 0,
+                                shadowColor: '#333'
+                            }
+                        },
+                        zlevel: 1
                     }
                 ],
                 //图例名
                 legend: {
                     type: "scroll",
                     // icon: "line",
-                    data:[
-                        {name:"Monthly Sales Last Year",icon: "image://../../img/tuli/line2.jpg"},
-                        {name:"Monthly Sales This Year",icon:'image://../../img/tuli/yy.png'},
-                        {name:"Sales forecast",icon:'image://../../img/tuli/line.png'}
+                    data: [
+                        { name: "Monthly Sales Last Year", icon: "image://../../img/tuli/line2.jpg" },
+                        { name: "Monthly Sales This Year", icon: 'image://../../img/tuli/yy.png' },
+                        { name: "Sales forecast", icon: 'image://../../img/tuli/line.png' }
                     ],
                     left: 'center',
                     // bottom: 'bottom',

@@ -28,6 +28,7 @@
         .smallTopTitle div:nth-of-type(1){
             font-size:33px;
             color:#ffffff;
+            font-family: Impact;
         }
         .smallTopTitle div:nth-of-type(2){
             font-size:12px;
@@ -45,7 +46,7 @@
                 <div>Today accumulate new FOA count</div>
             </div>
             <div class="smallTopTitle">
-                <div>4243360</div>
+                <div>424,3360</div>
                 <div>Total FOA Force size</div>
             </div>
         </div>
@@ -67,7 +68,7 @@
                 salesHomeEchartsCsi.resize()
             });
             salesHomeEchartsCsi.setOption({
-                animationDuration: 5000,
+                animationDuration: 2000,
                 // title: [
                 //     {
                 //         text: 'CSI Daily Report',
@@ -151,6 +152,21 @@
                         // symbol: "none", //去掉折线点
                         symbolSize: 8, //折线点的大小
                         animationDuration: 1000,
+                        label: {
+                            show: true,
+                            // position: 'top',
+                            position: ['-10', '-20'],
+                            formatter: function (params) {
+                                    return Math.round((params.data || 0) / 1) + ""
+                            },
+                            backgroundColor: 'rgba(235,177,1,0.36)',
+                            borderRadius: 5,
+                            padding: 4,
+                            textStyle: {
+                                fontSize: 8,
+                                color: '#ffffff',
+                            }
+                        },
                         // stack: 100,
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
@@ -186,7 +202,25 @@
                         areaStyle: {
                             normal: {}
                         },
-                    }
+                    }, {
+                    type: 'effectScatter',
+                    coordinateSystem: 'cartesian2d',
+                    data: ['', '', '', '', '', '','', '', '', '', '', '','', '', '', '','', '290', '','', '', '', '', '', ''], //2d坐标系
+                    symbolSize: 10,
+                    showEffectOn: 'render',
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    hoverAnimation: true,
+                    itemStyle: {
+                        normal: {
+                            color: '#ebb101',
+                            shadowBlur: 0,
+                            shadowColor: '#333'
+                        }
+                    },
+                    zlevel: 1
+                }
                 ],
                 //图例名
                 // color: ['#ffa441', '#4d96f1'],

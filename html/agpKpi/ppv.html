@@ -61,7 +61,7 @@
 
 <body>
     <div class="middleBorder">
-        <div class="smallTitle">High PPV % of Sales</div>
+        <div class="smallTitle">PF20 High PPV % of Sales</div>
         <div id="salesHomeEchartsPpv" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:413px;">
         </div>
         <!-- div闪烁 https://blog.csdn.net/qq_43258252/article/details/102958790 -->
@@ -172,14 +172,14 @@
                 salesHomeEchartsPpv.resize()
             });
             salesHomeEchartsPpv.setOption({
-                animationDuration: 5000,
+                animationDuration: 2000,
                 // title: [
                 //     {
-                //         text: 'High PPV % of Sales',
-                //         x: '2%',
-                //         y: '8%',
+                //         text: 'PF20',
+                //         x: '5%',
+                //         y: '16%',
                 //         textStyle: {                  //标题样式
-                //             fontSize: '16',
+                //             fontSize: '14',
                 //             color: '#ffffff',
                 //         },
                 //     }
@@ -258,6 +258,8 @@
                     {
                         type: 'value',
                         // data: monthShow,
+                        max:"20",
+                        min:"0",
                         axisLabel: {
                             show: true,
                             textStyle: {
@@ -286,19 +288,26 @@
 
                         name: "2019",
                         // data: lastYear,
-                        data: ["16","7","11","10","10",'','','','','','',''],
+                        data: ["15.6","7.4","10.5","9.8","9.7",'','','','','','',''],
                         type: 'line',
                         smooth: true,
                         // symbol: "none", //去掉折线点
                         symbolSize: 3, //折线点的大小
                         stack: 100,
-                        animationDuration: 6000,
+                        animationDuration: 2000,
                         label: {
                             show: true,
                             // position: 'top',
                             position: ['-10', '-20'],
                             formatter: function (params) {
-                                return Math.round((params.data || 0) / 1) + "%"
+                                // var index = params.dataIndex;
+                                // if(index==0){   
+                                //     var content='<span style="margin-left:333px;">'+params.data + "%"+"</span>";
+                                //     return content
+                                // }else{
+                                    return Math.round((params.data || 0) / 1) + "%"
+                                // }
+                                
                             },
                             backgroundColor: 'rgba(28,213,224,0.36)',
                             borderRadius: 5,
@@ -321,14 +330,15 @@
                         areaStyle: {
                             normal: {}
                         },
-                        markLine: {
+                        markLine: { 
+                            
                             animationDuration: 1000,
                             lineStyle: {
                                 color: '#f49f44',
                                 width: '2'
                             },
                             label: {
-                                show: false,
+                                show: true,
                             },
 
                             data: [

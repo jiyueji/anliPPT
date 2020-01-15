@@ -14,7 +14,7 @@
 
 <body>
     <div class="middleBorder">
-        <div class="smallTitle">CSI Daily Report</div>
+        <div class="smallTitle">PF20 Q Month Tracking</div>
         <div id="salesHomeEcharts" class="swiper-slide swiper-slide-echarts"
             style="width: 338px;height:413px;display:inline-block"></div>
         <div style="display:inline-block;width: 264px;">
@@ -28,7 +28,7 @@
 
 
     <script>
-        var monthShow = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var monthShow = ['Sep', 'Oct', 'Nov', 'Dec','Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', ];
         var yShow = ['5%', '10%', '15%', '20%', '25%'];
         var allData = {
             // 预测假数据
@@ -53,18 +53,18 @@
             ],
             // 去年的数据
             actual_sales_ly_data: [
-              { x: "Sep", y: '14994', labelTooltip: "Monthly Sales" },
-              { x: "Oct", y: '12721', labelTooltip: "Monthly Sales" },
-              { x: "Nov", y: '12199', labelTooltip: "Monthly Sales" },
-              { x: "Dec", y: '12865', labelTooltip: "Monthly Sales" },
-              { x: "Jan", y: '15299', labelTooltip: "Monthly Sales" },
-              { x: "Feb", y: '9873', labelTooltip: "Monthly Sales" },
-              { x: "Mar", y: '11155', labelTooltip: "Monthly Sales" },
-              { x: "Apr", y: '10121', labelTooltip: "Monthly Sales" },
-              { x: "May", y: '10848', labelTooltip: "Monthly Sales" },
-              { x: "Jun", y: '10529', labelTooltip: "Monthly Sales" },
-              { x: "Jul", y: '10165', labelTooltip: "Monthly Sales" },
-              { x: "Aug", y: '10307', labelTooltip: "Monthly Sales" }
+                { x: "Sep", y: '14994', labelTooltip: "Monthly Sales" },
+                { x: "Oct", y: '12721', labelTooltip: "Monthly Sales" },
+                { x: "Nov", y: '12199', labelTooltip: "Monthly Sales" },
+                { x: "Dec", y: '12865', labelTooltip: "Monthly Sales" },
+                { x: "Jan", y: '15299', labelTooltip: "Monthly Sales" },
+                { x: "Feb", y: '9873', labelTooltip: "Monthly Sales" },
+                { x: "Mar", y: '11155', labelTooltip: "Monthly Sales" },
+                { x: "Apr", y: '10121', labelTooltip: "Monthly Sales" },
+                { x: "May", y: '10848', labelTooltip: "Monthly Sales" },
+                { x: "Jun", y: '10529', labelTooltip: "Monthly Sales" },
+                { x: "Jul", y: '10165', labelTooltip: "Monthly Sales" },
+                { x: "Aug", y: '10307', labelTooltip: "Monthly Sales" }
             ],
             // 备注和提示内容
             tooltip_data_map: []
@@ -102,7 +102,7 @@
                 salesHomeEcharts.resize()
             });
             salesHomeEcharts.setOption({
-                animationDuration: 5000,
+                animationDuration: 2000,
                 // title: [
                 //     {
                 //         text: 'CSI Daily Report',
@@ -115,49 +115,49 @@
                 //     }
                 // ],
 
-                // tooltip: {//鼠标移入
-                //     trigger: 'axis',
-                //     confine: true,
-                //                 tooltip_data_map:
-                // Jan:
-                // monthName: "2019 January"
-                // actual_sales: "$277m"
-                // actual_sales_ly: "$235m"
-                // sales_forecast: null
-                // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
-                // formatter: (data) => {
-                // console.log(data)
-                // var yearThisData = 0;
-                // var yearLastData = 0;
-                // var forecastData = 0;
-                // var nameShow = "";
-                // var toolShow = "";
-                // var monthUp = "";
-                // var yearUp = new Date().getFullYear()
-                // data.map((item, index) => {
-                //     if (item.componentIndex && item.componentIndex == 1) {
-                //         yearThisData = Math.round((item.data || 0) / 1000000) || 0
-                //     } else if (item.componentIndex && item.componentIndex == 2) {
-                //         yearLastData = Math.round((item.data || 0) / 1000000) || 0
-                //     } else {
-                //         forecastData = Math.round((item.data || 0) / 1000000) || 0
-                //     }
-                //     nameShow = item.name
-                //     monthUp = item.axisValue
-                // })
-                // if (yearThisData) {
-                //     var thisNow = "Monthly Sales This Year:" + yearThisData;
-                // } else {
-                //     var thisNow = "Sales forecast:" + forecastData;
-                // }
-                // if (tooltipData && tooltipData[nameShow]) {
-                //     tooltipData[nameShow].events.map((item, index) => {
-                //         toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
-                //     })
-                // }
-                // return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "%" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
-                //     }
-                // },
+                tooltip: {//鼠标移入
+                    trigger: 'axis',
+                    confine: true,
+                    //                 tooltip_data_map:
+                    // Jan:
+                    // monthName: "2019 January"
+                    // actual_sales: "$277m"
+                    // actual_sales_ly: "$235m"
+                    // sales_forecast: null
+                    // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
+                    formatter: (data) => {
+                        console.log(data)
+                        var yearThisData = 0;
+                        var yearLastData = 0;
+                        var forecastData = 0;
+                        var nameShow = "";
+                        var toolShow = "";
+                        var monthUp = "";
+                        var yearUp = new Date().getFullYear()
+                        data.map((item, index) => {
+                            if (item.componentIndex && item.componentIndex == 1) {
+                                yearThisData = Math.round((item.data || 0) / 1000) || 0
+                            } else if (item.componentIndex && item.componentIndex == 2) {
+                                yearLastData = Math.round((item.data || 0) / 1000) || 0
+                            } else {
+                                forecastData = Math.round((item.data || 0) / 1000) || 0
+                            }
+                            nameShow = item.name
+                            monthUp = item.axisValue
+                        })
+                        if (yearThisData) {
+                            var thisNow = "Monthly Sales This Year:" + yearThisData;
+                        } else {
+                            var thisNow = "Sales forecast:" + forecastData;
+                        }
+                        if (tooltipData && tooltipData[nameShow]) {
+                            tooltipData[nameShow].events.map((item, index) => {
+                                toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
+                            })
+                        }
+                        return "<div style='border-bottom:1px solid #ffffff'>" + yearUp + "  " + monthUp + "</div>" + "<div style='border-bottom:1px solid #ffffff'>" + thisNow + "%" + "<br/>" + "Monthly Sales Last Year:" + yearLastData + "m" + "</div>" + toolShow
+                    }
+                },
 
                 grid: {
                     top: '24%',
@@ -197,7 +197,7 @@
                                 color: "#ffffff"
                             },
                             formatter: function (params) {
-                                return params / 1 + "K"
+                                return params / 1000 + "K"
                             }
                         },
                         axisLine: {//隐藏X轴
@@ -216,6 +216,27 @@
                 ],
                 series: [
                     {
+                        name: "PF20",
+                        data: thisYear,
+                        type: 'line',
+                        smooth: true,
+                        // symbol: "none", //去掉折线点
+                        symbolSize: 5, //折线点的大小
+                        animationDuration: 1000,
+                        // stack: 100,
+                        itemStyle: {
+                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                                //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
+                                color: '#28ccae', //背景渐变色
+                                lineStyle: { // 系列级个性化折线样式
+                                    width: 3,
+                                    type: 'solid',
+                                    color: "#28ccae"//折现颜色
+                                },
+                                borderColor: '#28ccae',  // 拐点边框颜色
+                            },
+                        }, //线条样式
+                    }, {
                         name: "PF19",
                         data: lastYear,
                         type: 'line',
@@ -249,39 +270,20 @@
                                 borderColor: '#0059ee',  // 拐点边框颜色
                             },
                         }, //线条样式
-                    }, {
-                        name: "PF20",
-                        data: thisYear,
-                        type: 'line',
-                        smooth: true,
-                        // symbol: "none", //去掉折线点
-                        symbolSize: 5, //折线点的大小
-                        animationDuration: 1000,
-                        // stack: 100,
-                        itemStyle: {
-                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                                //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
-                                color: '#28ccae', //背景渐变色
-                                lineStyle: { // 系列级个性化折线样式
-                                    width: 3,
-                                    type: 'solid',
-                                    color: "#28ccae"//折现颜色
-                                },
-                                borderColor: '#28ccae',  // 拐点边框颜色
-                            },
-                        }, //线条样式
-                    }
+                    },
                 ],
                 //图例名
                 color: ['#28ccae', '#0059ee'],
                 legend: {
                     type: "scroll",
                     // icon: "line",
-                    icon: "line",
-                    left: 'center',
+                    data: [
+                        { name: "PF20", icon: "line", }
+                    ],
+                    // left: 'right',
                     // bottom: 'bottom',
-                    y: '360',
-                    // x:'100',
+                    y: '365',
+                    x: '220',
                     itemGap: 50,
                     textStyle: {
                         color: "#ffffff",
@@ -314,7 +316,7 @@
 
                 dataset: {
                     source: [
-                        [68078, 'QMonth'],
+                        [68078, 'Q Month'],
                         [64162, 'Acc . #of']
                     ]
                 },
@@ -375,11 +377,11 @@
                     left: 'center',
                     min: 0,
                     max: 1,
-                    text: ['QMonth', 'Acc . #of'],
+                    text: ['Q Month', 'Acc . #of'],
                     // Map the score column to color
                     dimension: 1,
                     inRange: {
-                        color: ['#0059ee', '#28ccae']
+                        color: ['#28ccae','#0059ee', ]
                     }
                 },
                 textStyle: {
@@ -388,13 +390,32 @@
                 series: [
                     {
 
-                        barWidth: '30',
+                        barWidth: '25',
                         type: 'bar',
                         encode: {
                             // Map the "amount" column to X axis.
                             x: 'amount',
                             // Map the "product" column to Y axis
                             y: 'product'
+                        },
+                        label: {
+                            normal: {
+                                show: true,
+                                rotate: 0, // 旋转角度
+                                position: 'right', // 相对位置
+                                formatter: (value) => {
+                                    console.log(value)
+                                    // var val = ((value.data || 0) / 1000000).toFixed(1)
+                                    return ((value.data[0] || 0) / 10000).toFixed(1) + "W"
+                                },
+                                // backgroundColor: '#ff9c3a',
+                                // borderRadius: 5,
+                                // padding: 4,
+                                textStyle: {
+                                    fontSize: 10,
+                                    color: '#ffffff',
+                                }
+                            }
                         }
                     }
                 ],
@@ -412,7 +433,7 @@
 
                 dataset: {
                     source: [
-                        [9245, 'QMonths'],
+                        [9245, 'Q Month'],
                         [9203, 'PV per']
                     ]
                 },
@@ -481,17 +502,17 @@
                     left: 'center',
                     min: 0,
                     max: 1,
-                    // text: ['Acc . #of', 'QMonth'],
+                    // text: ['Acc . #of', 'Q Month'],
                     // Map the score column to color
                     dimension: 1,
                     inRange: {
-                        color: ['#0059ee', '#28ccae']
+                        color: ['#28ccae','#0059ee']
                     }
                 },
                 series: [
                     {
                         name: "PF19",
-                        barWidth: '30',
+                        barWidth: '25',
                         type: 'bar',
                         stack: 'one',
                         encode: {
@@ -499,23 +520,45 @@
                             x: 'amount',
                             // Map the "product" column to Y axis
                             y: 'product'
+                        },
+                        label: {
+                            normal: {
+                                show: true,
+                                rotate: 0, // 旋转角度
+                                position: 'right', // 相对位置
+                                formatter: (value) => {
+                                    console.log(value)
+                                    // var val = ((value.data || 0) / 1000000).toFixed(1)
+                                    return ((value.data[0] || 0) / 1000).toFixed(1) + "K"
+                                },
+                                // backgroundColor: '#ff9c3a',
+                                // borderRadius: 5,
+                                // padding: 4,
+                                textStyle: {
+                                    fontSize: 10,
+                                    color: '#ffffff',
+                                }
+                            }
                         }
                     },
                     {
                         name: "PF20",
                         type: 'bar',
+                        barWidth: '25',
                         data: [0, 0],
                         stack: 'one',
                     }
 
                 ],
-                color: ['#28ccae', "#0059ee"],
+                color: [ "#0059ee",'#28ccae',],
                 legend: {
                     type: "scroll",
                     // icon: "line",
-                    icon: "plain",
+                    data: [
+                        { name: "PF19", icon: "line", }
+                    ],
                     // left: 'right',
-                    // x: "170",
+                    x: "10",
                     y: '115',
                     itemGap: 50,
                     textStyle: {
