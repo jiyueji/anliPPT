@@ -298,7 +298,14 @@
                             // position: 'top',
                             position: ['-10', '-20'],
                             formatter: function (params) {
-                                return Math.round((params.data || 0) / 1) + "%"
+                                // var index = params.dataIndex;
+                                // if(index==0){   
+                                //     var content='<span style="margin-left:333px;">'+params.data + "%"+"</span>";
+                                //     return content
+                                // }else{
+                                    return Math.round((params.data || 0) / 1) + "%"
+                                // }
+                                
                             },
                             backgroundColor: 'rgba(28,213,224,0.36)',
                             borderRadius: 5,
@@ -322,13 +329,14 @@
                             normal: {}
                         },
                         markLine: {
+                            
                             animationDuration: 1000,
                             lineStyle: {
                                 color: '#f49f44',
                                 width: '2'
                             },
                             label: {
-                                show: false,
+                                show: true,
                             },
 
                             data: [

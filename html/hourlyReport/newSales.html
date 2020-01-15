@@ -45,7 +45,7 @@
                 <div>Today accumulate new FOA count</div>
             </div>
             <div class="smallTopTitle">
-                <div>4243360</div>
+                <div>424,3360</div>
                 <div>Total FOA Force size</div>
             </div>
         </div>
@@ -151,6 +151,21 @@
                         // symbol: "none", //去掉折线点
                         symbolSize: 8, //折线点的大小
                         animationDuration: 1000,
+                        label: {
+                            show: true,
+                            // position: 'top',
+                            position: ['-10', '-20'],
+                            formatter: function (params) {
+                                    return Math.round((params.data || 0) / 1) + ""
+                            },
+                            backgroundColor: 'rgba(235,177,1,0.36)',
+                            borderRadius: 5,
+                            padding: 4,
+                            textStyle: {
+                                fontSize: 8,
+                                color: '#ffffff',
+                            }
+                        },
                         // stack: 100,
                         itemStyle: {
                             normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
