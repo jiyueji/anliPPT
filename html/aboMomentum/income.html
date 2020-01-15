@@ -28,7 +28,7 @@
             style="width: 564px;height:200px;margin:auto;margin-top: 30px;border-bottom:1px dashed #ffffff;"></div>
         <div id="salesHomeEchartsIncome2" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:183px;">
         </div>
-        <div class="newABO">新ABO：当前业绩年度的新签约ABO</div>
+        <!-- <div class="newABO">新ABO：当前业绩年度的新签约ABO</div> -->
     </div>
     <script>
         handleEcharts();//折线图
@@ -124,7 +124,7 @@
                     name: 'PF 19 avg income',
                     type: 'bar',
                     barWidth: '60',
-                    barGap: 0,
+                    barGap: 0.3,
                     itemStyle: {
                         normal: {
                             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -136,7 +136,7 @@
                             }]),
                         },
                     },
-                    data: [1966, 1834, 747]
+                    data: [1281, 726, 627]
                 },
                 {
                     name: 'PF 20 avg income',
@@ -155,7 +155,7 @@
                         }
 
                     },
-                    data: [1281, 1191, 849]
+                    data: [1966, 1159, 741]
                 },
                 // 上边第一个柱子
                 {
@@ -171,7 +171,7 @@
                         }
 
                     },
-                    data: [1159, 1105, 100]
+                    data: [1191, 672, 546]
                 },
                 {
                     /*这个bar是横线的显示*/
@@ -180,7 +180,7 @@
                     type: 'bar',
                     xAxisIndex: 1,
                     animationDuration: 6000,
-                    barGap: "0",
+                    // barGap: 0.3,
                     itemStyle: {
                         normal: {
                             color: '#ffa441',
@@ -205,7 +205,7 @@
                         }
 
                     },
-                    data: [726, 672, 100]
+                    data: [1834, 1105, 685]
                 },
                 {
                     /*这个bar是横线的显示*/
@@ -213,7 +213,7 @@
                     stack: 'aaa',/*盈亏点数据组，需要设置才能将两个bar堆积在一起*/
                     type: 'bar',
                     xAxisIndex: 1,
-                    barGap: "0",
+                    barGap: "0.3",
                     itemStyle: {
                         normal: {
                             color: '#ffa441',
@@ -240,7 +240,7 @@
                     }
                 },
                 grid: {
-                    left: '7.5%',
+                    left: '6.5%',
                     right: '28%',
                     bottom: '14%',
                     top: '16%',
@@ -251,8 +251,8 @@
                     data: [{name:'PF 19 avg income',icon:"rect"},
                     {name:'PF 20 avg income',icon:"rect"},
                     {name:'Median income',icon:'image://../../img/3/line.png'}],
-                    right: 20,
-                    top: 82,
+                    right: 55,
+                    top: 50,
                     textStyle: {
                         color: "#fff"
                     },
@@ -332,7 +332,7 @@
                     name: 'PF 19 avg income',
                     type: 'bar',
                     barWidth: '60',
-                    barGap: 0.4,
+                    barGap: 0.3,
                     itemStyle: {
                         normal: {
                             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -344,7 +344,7 @@
                             }]),
                         },
                     },
-                    data: [372,97]
+                    data: [29,57]
                 },
                 {
                     name: 'PF 20 avg income',
@@ -362,7 +362,7 @@
                         }
 
                     },
-                    data: [210, 76]
+                    data: [51, 82]
                 },
                 // 上边第一个柱子
                 {
@@ -370,7 +370,7 @@
                     type: 'bar',
                     stack: 'breakevenEleGroup',
                     barWidth: '60',
-                    barGap: 0.4,
+                    barGap: 0.3,
                     xAxisIndex: 1,
                     itemStyle: {
                         normal: {
@@ -378,7 +378,7 @@
                         }
 
                     },
-                    data: [10, 10]
+                    data: [10, 13]
                 },
                 {
                     /*这个bar是横线的显示*/
@@ -411,7 +411,7 @@
                         }
 
                     },
-                    data: [10, 10]
+                    data: [13, 16]
                 },
                 {
                     /*这个bar是横线的显示*/

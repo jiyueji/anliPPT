@@ -456,17 +456,20 @@
             color: ["#5198ee", "#17b6a9", "#fd0022"],
             legend: {
                 type: "scroll",
+                icon:"rect",
+                // itemWidth: 10,
+                // itemHeight: 10,
                 data: [
                     { name: "Sales by FC Group", icon: 'image://../../img/tuli/1.3sales.jpg' },
                     { name: "Increase", icon: 'image://../../img/tuli/1.3increase.jpg' },
-                    { name: "Fall", icon: 'image://../../img/tuli/1.3fail.jpg' },
+                    { name: "Decrease", icon: 'image://../../img/tuli/1.3fail.jpg' },
                 ],
                 // icon: "line",
                 left: 'center',
                 // bottom: 'bottom',
                 y: '375',
                 textStyle: {
-                    color: "#666",
+                    color: "#ffffff",
                     fontSize: 10
                 },
             }
@@ -543,7 +546,7 @@
                             }
                         }
                     }, {
-                        name: "Fall",
+                        name: "Decrease",
                         type: 'bar',
                         data: [],
                         stack: "one", //同样属性值可以堆叠
