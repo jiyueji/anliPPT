@@ -43,7 +43,7 @@
         <div class="smallTitle">FOA Sales</div>
         <div class="titleBorder">
             <div class="smallTopTitle">
-                <div>75034</div>
+                <div>$7,5034k</div>
                 <div>Today accumulate sales</div>
             </div>
             <div class="smallTopTitle">
@@ -55,8 +55,8 @@
                 <div>Today accumulate FOA buyer</div>
             </div>
         </div>
-        <div id="hourlysBar" class="swiper-slide swiper-slide-echarts" style="width: 530px;height:40px;margin:0 auto;">
-        </div>
+        <!-- <div id="hourlysBar" class="swiper-slide swiper-slide-echarts" style="width: 530px;height:40px;margin:0 auto;">
+        </div> -->
         <div id="hourlysCsi" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:268px;">
         </div>
     </div>
@@ -66,31 +66,31 @@
         var today = ["13338", "6202", "2890", "1728", "1982", "2707", "6551", "14801", "24835", "43521", "403340", "169584", "121598", "113518", "100067", "96456", "89326", "73506", "0", "0", "0", "0", "0", "0"]
         var lastDay = ["13850", "4403", "2039", "1295", "1603", "2828", "4541", "16490", "27114", "43328", "193122", "123411", "93923", "82162", "61717", "51133", "47436", "41142", "39814", "39221", "52047", "48780", "51460","35802"]
 
-        handleEchartsBar();//折线图
+        // handleEchartsBar();//折线图
         handleEcharts();//折线图
 
-        function handleEchartsBar() {
-            var hourlysBar = echarts.init(document.getElementById('hourlysBar'));
-            window.addEventListener('resize', function () {
-                hourlysBar.resize()
-            });
-            hourlysBar.setOption({
-                animationDuration: 5000,
+        // function handleEchartsBar() {
+        //     var hourlysBar = echarts.init(document.getElementById('hourlysBar'));
+        //     window.addEventListener('resize', function () {
+        //         hourlysBar.resize()
+        //     });
+        //     hourlysBar.setOption({
+        //         animationDuration: 5000,
                 // tooltip: {//鼠标移入
                 //     trigger: 'axis',
                 //     confine: false,
                 // },
-                grid: {
-                    top: '100%',
-                    left: '4%',
-                    right: '4%',
-                    bottom: '0%',
-                    containLabel: true,
-                },
-                xAxis: {
+                // grid: {
+                //     top: '100%',
+                //     left: '4%',
+                //     right: '4%',
+                //     bottom: '0%',
+                //     containLabel: true,
+                // },
+                // xAxis: {
                     // type: 'category',
                     // data: xDate,
-                    show: false,
+                    // show: false,
                     //     axisTick: {
                     //         show: false //隐藏X轴刻度
                     //     },
@@ -110,82 +110,85 @@
                     //             color: '#757575'
                     //         },
                     //     }
-                },
-                yAxis: {
-                    type: 'category',
-                    axisLabel: {
-                        margin: 40,
-                        show: true,
-                        color: '#ffffff',
-                        fontSize: 14
-                    },
-                    axisTick: {
-                        show: false,
-                    },
-                    axisLine: {
-                        show: false,
-                    },
-                    data: ["Proportion of Sales"]
-                },
+                // },
+                // yAxis: {
+                //     type: 'category',
+                //     axisLabel: {
+                //         margin: 40,
+                //         show: true,
+                //         color: '#ffffff',
+                //         fontSize: 14
+                //     },
+                //     axisTick: {
+                //         show: false,
+                //     },
+                //     axisLine: {
+                //         show: false,
+                //     },
+                    // data: ["Proportion of Sales"]
+                // },
 
-                series: [{
-                    type: 'bar',
-                    barGap: '-100%',
-                    barWidth: '60%',
-                    itemStyle: {
-                        normal: {
-                            // borderColor: '#4DCEF8',
-                            // borderWidth: 2,
-                            // barBorderRadius: 15,
-                            color: '#1b3255'
-                        },
-                    },
-                    z: 1,
-                    data: ["100"],
-                    // data: da
-                }, {
-                    type: 'bar',
-                    barGap: '-98%',
-                    barWidth: '60%',
-                    itemStyle: {
-                        normal: {
-                            // barBorderRadius: 16,
-                            color: {
-                                type: 'linear',
-                                x: 0,
-                                x1: 1,
-                                colorStops: [{
-                                    offset: 0,
-                                    color: '#023bae'
-                                }, {
-                                    offset: 1,
-                                    color: '#075de9'
-                                }]
-                            }
-                        },
-                    },
-                    label: {
-                        normal: {
-                            borderWidth: 3,
-                            distance: 13,
-                            align: 'center',
-                            verticalAlign: 'middle',
-                            borderRadius: 1,
-                            borderColor: 'rgba(0,0,0,0.3)',
-                            backgroundColor: 'rgba(0,0,0,0.3)',
-                            show: true,
-                            position: 'top',
-                            formatter: function (val) {
-                                console.log(val)
-                                return val.value
-                            },
-                            color: '#ffffff'
-                        }
-                    },
-                    data: ["13.72"],
-                }]
-            })
-        }
+                // series: [
+                //     {
+                //     type: 'bar',
+                //     barGap: '-100%',
+                //     barWidth: '60%',
+                //     itemStyle: {
+                //         normal: {
+                //             // borderColor: '#4DCEF8',
+                //             // borderWidth: 2,
+                //             // barBorderRadius: 15,
+                //             color: '#1b3255'
+                //         },
+                //     },
+                //     z: 1,
+                //     data: ["100"],
+                //     // data: da
+                // },
+                //  {
+                //     type: 'bar',
+                //     barGap: '-98%',
+                //     barWidth: '60%',
+                //     itemStyle: {
+                //         normal: {
+                //             // barBorderRadius: 16,
+                //             color: {
+                //                 type: 'linear',
+                //                 x: 0,
+                //                 x1: 1,
+                //                 colorStops: [{
+                //                     offset: 0,
+                //                     color: '#023bae'
+                //                 }, {
+                //                     offset: 1,
+                //                     color: '#075de9'
+                //                 }]
+                //             }
+                //         },
+                //     },
+                //     label: {
+                //         normal: {
+                //             borderWidth: 3,
+                //             distance: 13,
+                //             align: 'center',
+                //             verticalAlign: 'middle',
+                //             borderRadius: 1,
+                //             borderColor: 'rgba(0,0,0,0.3)',
+                //             backgroundColor: 'rgba(0,0,0,0.3)',
+                //             show: true,
+                //             position: 'top',
+                //             formatter: function (val) {
+                //                 console.log(val)
+                //                 return val.value
+                //             },
+                //             color: '#ffffff'
+                //         }
+                //     },
+                //     data: ["13.72"],
+                // }
+        //     ]
+        //     })
+        // }
         function handleEcharts() {
             var hourlysCsi = echarts.init(document.getElementById('hourlysCsi'));
             window.addEventListener('resize', function () {
@@ -198,10 +201,10 @@
                 //     confine: false,
                 // },
                 grid: {
-                    top: '8%',
+                    top: '6%',
                     left: '4%',
                     right: '4%',
-                    bottom: '30%',
+                    bottom: '22%',
                     containLabel: true,
                 },
                 xAxis: {
@@ -239,7 +242,7 @@
                                 if (params == 0) {
                                     return 0
                                 } else {
-                                    return params / 10000 + "W"
+                                    return params / 10000 + "k"
                                 }
                             }
                         },
@@ -266,6 +269,21 @@
                     symbolSize: 8, //折线点的大小
                     animationDuration: 1000,
                     // stack: 100,
+                    label: {
+                            show: true,
+                            // position: 'top',
+                            position: ['-10', '-20'],
+                            formatter: function (params) {
+                                    return Math.round((params.data || 0) / 1) + ""
+                            },
+                            backgroundColor: 'rgba(28,213,224,0.36)',
+                            borderRadius: 5,
+                            padding: 4,
+                            textStyle: {
+                                fontSize: 8,
+                                color: '#ffffff',
+                            }
+                        },
                     areaStyle: {
                         normal: {
                             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -291,6 +309,7 @@
                             borderColor: '#4d96f1',  // 拐点边框颜色
                         },
                     }, //线条样式
+                    
                 }, {
                     name: "Last Day",
                     data: lastDay,
@@ -313,6 +332,17 @@
                     areaStyle: {
                         normal: {}
                     },
+                    markLine: {
+                            
+                            animationDuration: 1000,
+                            lineStyle: {
+                                color: '#f49f44',
+                                width: '2'
+                            },
+                            label: {
+                                show: true,
+                            },
+                        },
                 }
                 ],
                 //图例名
@@ -325,7 +355,7 @@
                     ],
                     left: 'center',
                     itemGap: 200,//图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。
-                    y: '200',
+                    y: '223',
                     textStyle: {
                         color: "#ffffff",
                         fontSize: 14
