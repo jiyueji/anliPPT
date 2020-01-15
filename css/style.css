@@ -204,6 +204,10 @@ html, body {
     content: initial;
 }
 
+.swiper-container-3d .swiper-slide-shadow-left,
+.swiper-container-3d .swiper-slide-shadow-right {
+    background-image: none;
+}
 
 /* 三角 */
 
