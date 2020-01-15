@@ -34,7 +34,7 @@
     </div>
 
     <script>
-        var isSort = false;
+        var sortBySales = true;
         var datas = [
             {
                 fc_group: "周志坚  欧帼英",
@@ -453,7 +453,7 @@
                 }
             ];
 
-        dataHandler();
+        sortHandler();
 
         window.addEventListener('resize', function () {
             histogram && histogram.resize();
@@ -461,7 +461,11 @@
 
         function sortHandler() {
           var temp = [...datas];
-          (isSort = !isSort) && temp.sort((a, b) => b.total_sales_sum - a.total_sales_sum);
+          if( (sortBySales = !sortBySales) ) {
+            temp.sort((a, b) => b.total_sales_sum - a.total_sales_sum);
+          } else {
+            temp.sort((a, b) => b.val - a.val);
+          }
           dataHandler(temp);
         }
         function dataHandler(temp = datas) {
