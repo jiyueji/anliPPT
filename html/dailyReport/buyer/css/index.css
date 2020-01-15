@@ -16,46 +16,46 @@
 .main-conent .left {
     width: 376px;
     height: 139px;
-    margin: 10px 0 0 25px;
+    margin: 20px 0 0 25px;
 }
 
 .main-conent .left .img-bg {
     width: 280px;
-    height: 139px;
+    height: 110px;
 }
 
 .main-conent .left .left-cont {
     position: absolute;
-    top: 18px;
+    top: 26px;
     color: #fff;
     left: 7px;
 }
 
 .main-conent .left .left-cont .left-font-01,
 .main-conent .left .left-cont .left-font-02 {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
-    padding: 52px 0 0 30px;
+    padding: 46px 0 0 30px;
 }
 
 .main-conent .left .left-cont .left-font-02 {
-    padding: 0 0 0 30px;
+    margin: -53px 0 0 0;
 }
 
 .main-conent .left .left-cont .left-font-03 {
     display: flex;
-    margin-top: -32px;
+    margin-top: -10px;
     margin-left: 28px;
 }
 
 .main-conent .left .left-cont .left-font-03 .left-n-01 {
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 800;
 }
 
 .main-conent .left .left-cont .left-font-03 .left-n-02 {
-    margin: -10px 0 0 63px;
-    font-size: 16px;
+    margin: -6px 0 0 96px;
+    font-size: 14px;
     font-weight: 800;
 }
 
