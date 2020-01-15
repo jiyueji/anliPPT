@@ -291,10 +291,13 @@
                         data: ["15.6","7.4","10.5","9.8","9.7",'','','','','','',''],
                         type: 'line',
                         smooth: true,
-                        // symbol: "none", //去掉折线点
+                        symbol: "none", //去掉折线点
                         symbolSize: 3, //折线点的大小
                         stack: 100,
                         animationDuration: 2000,
+                        showSymbolAfterAnimation: {
+                          delay: 0
+                        },
                         label: {
                             show: true,
                             position: 'bottom',
