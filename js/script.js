@@ -1,9 +1,9 @@
 var changeIndex = 1;
 
-var srcArr1 = ["./html/monthlyReport/salesHome.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
+var srcArr1 = ["./html/aboMomentum/income.html","./html/monthlyReport/salesHome.html", "./html/monthlyReport/map.html", "./html/monthlyReport/histogram.html"]
 var srcArr2 = ["./html/agpKpi/formTab/formTab.html", "./html/agpKpi/aboSegmentMonthlyData.html", "./html/agpKpi/ppv.html", "./html/agpKpi/endPpv.html"]
 var srcArr3 = ["./html/aboMomentum/force/force.html", "./html/aboMomentum/pf20QMonth.html", "./html/aboMomentum/income.html"]
-var srcArr4 = ["./html/predictionModel/abo.html", "./html/predictionModel/pinMigrationModel.html", "./html/predictionModel/bonusMigrationModel.html"]
+var srcArr4 = ["./html/predictionModel/abo.html", "./html/predictionModel/bonusMigrationModel.html", "./html/predictionModel/pinMigrationModel.html"]
 var srcArr5 = ["./html/dailyReport/dailySales.html", "./html/dailyReport/buyer/buyer.html", "./html/dailyReport/csi.html"]
 var srcArr6 = ["./html/hourlyReport/newSales.html","./html/hourlyReport/foaSales.html","./html/hourlyReport/amountComm.html", "./html/hourlyReport/referralAmount.html"]
 

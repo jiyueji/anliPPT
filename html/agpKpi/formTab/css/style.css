@@ -453,6 +453,15 @@ main .-content.-index>div {
     height: 318px;
     margin: 260px 0 0 686px;
 }
+.form-bg .form-content ul{
+    position: absolute;
+    display: flex;
+    font-size: 10px;
+}
+.form-bg .form-content ul li{
+    width: 108px;
+    list-style-type:none;
+}
 .form-bg .form-content img {
     display: block;
 }
@@ -501,21 +510,21 @@ main .-content.-index>div {
     .form-bg .form-content .form-arrow01{
         transform: rotate(50deg);
         right: 134px;
-        top: 220px;
+        top: 217px;
     }
     .form-bg .form-content .form-arrow02 {
         right: 134px;
-        top: 233px;
+        top: 243px;
     }
     .form-bg .form-content p {
         font-size: 12px;
-        left: 70.4%;
+        left: 70%;
     }
     .form-bg .form-content .form-content-10 {
-        top: 197px;
+        top: 199px;
     }
     .form-bg .form-content .form-content-20 {
-        top: 225px
+        top: 230px
     }
     main .-content.-index {
         top: -133px;
