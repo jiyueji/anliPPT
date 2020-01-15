@@ -44,8 +44,15 @@
       subTitle.classList.add('sub-title');
       var tagging = subTitleOpt.tagging;
       subTitleTemplate += `<li class="tagging-${tagging.type}"><span class="normal">${tagging.value}</span><span class="small">${tagging.valuation}</span></li>`;
-      var text = subTitleOpt.text;
-      subTitleTemplate += `<li class="text-list"><p class="text-item">${text[0]}</p><p class="text-item">${text[1]}</p></li>`;
+      var text = subTitleOpt.text,
+        textTemplate = '';
+      for(var i=0, length=text.length; i<length; i+=1) {
+        var textItem = text[i],
+          brArr = textItem.match(/<\/br>/ig),
+          lineNum = brArr && (brArr.length + 1) || 1;
+        textTemplate += `<p class="text-item line-num${lineNum}">${textItem}</p>`;
+      }
+      subTitleTemplate += `<li class="text-list">${textTemplate}</li>`;
       subTitle.innerHTML = subTitleTemplate;
       this.fragment.appendChild(subTitle);
     },
@@ -78,7 +85,7 @@
       var style = this.option.diagram.style,
         data = this.option.diagram.data;
       var fishboneFrontWidth = 40,
-        fishboneTailWidth = 43,
+        fishboneTailWidth = 46,
         containerWidth = parseInt(style.width) || (this.container.offsetWidth - (parseInt(style.left) || 0) - (parseInt(style.right) || 0) ),
         diagramItemWidth = containerWidth,
         diagramItems = '';
@@ -154,7 +161,7 @@
         (function(i) {
           setTimeout(function() {
             elms[i].classList.remove('w0');
-          }, i * 1500);
+          }, i * 500);
         })(i);
       }
     }
