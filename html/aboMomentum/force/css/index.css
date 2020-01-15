@@ -1,6 +1,7 @@
 .title-font {
     top: 10px;
     position: relative;
+    font-family: Arial;
 }
 
 .main-conent {
@@ -23,17 +24,20 @@
 .main-conent .left .font-large,.main-conent .right .font-large{
     color: #ffffff;
     font-size: 33px;
+    font-family: Impact;
 }
 .main-conent .left .font-small,.main-conent .right .font-small{
-    color: blue;
+    color: #3995da;
     font-size: 15px;
+    font-family: Arial;
 }
 
 .footer{
     position: absolute;
     width: 100%;
-    top: 466px;
+    /*top: 466px;*/
     left: 68px;
+    bottom: -53px;
 }
 
 .title-list{
@@ -53,7 +57,7 @@
     width: 88%;
     border-bottom: 1px dashed #757575;
     left: 55px;
-    top: 356px;
+    top: 352px;
 }
 
 .title-dotm li {
@@ -61,7 +65,7 @@
     height: 10px;
     font-size: 12px;
     color: #fff;
-    padding-top: 213px;
+    padding-top: 203px;
     padding-left: 9px;
     margin-left: 20px;
     float: left;
@@ -92,11 +96,11 @@
     height: 10px;
 }
 .footer-font span .p-01{
-    background:#fda444;
+    background: #17b6a9;
 }
 
 .footer-font span .p-02{
-    background: #17b6a9;
+    background:#fda444;
 }
 
 .footer-font span label{
