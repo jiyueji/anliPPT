@@ -66,8 +66,8 @@ body {
     top: 83px; */
     position: absolute;
     text-align: center;
-    left: 105px;
-    top: 122px;
+    left: 106px;
+    top: 103px;
 }
 
 .label small {
@@ -132,18 +132,19 @@ main .-content.-index>div {
     font-weight: 800;
     color: #ffffff;
     display: block;
+    margin: 2px 0 0 6px;
 }
 
 .button:hover:before {
     opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    /*-webkit-transform: scale(1);
+    transform: scale(1);*/
 }
 
 .button:hover:after {
     opacity: 0;
-    -webkit-transform: scale(0.85);
-    transform: scale(0.85);
+    /*-webkit-transform: scale(0.85);
+    transform: scale(0.85);*/
 }
 
 .button:before,
@@ -168,14 +169,15 @@ main .-content.-index>div {
 
 .button:after {
     /*background-color: #f8981c;*/
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .button:before {
-    opacity: 0;
-    -webkit-transform: scale(1.15);
-    transform: scale(1.15);
+    opacity: 1;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
    /* background-color: #6f7dbc;*/
+    border: 2px dashed #f6962e;
 }
 
 #emitter {
@@ -432,7 +434,7 @@ main .-content.-index>div {
 .form-bg .form-top {
     position: absolute;
     right: 32px;
-    top: 20px;
+    top: 8px;
 }
 .form-bg .form-top .form-top-font-blue{
     color: #4d96f1;
@@ -457,6 +459,7 @@ main .-content.-index>div {
     position: absolute;
     display: flex;
     font-size: 10px;
+    font-family: Arial;
 }
 .form-bg .form-content ul li{
     width: 108px;
@@ -485,9 +488,10 @@ main .-content.-index>div {
         background-size: 100% 100%;
     }
     .form-bg .form-top {
-        top: 17px;
+        top: 6px;
         line-height: 0px;
-        left: 38px;
+        left: 30px;
+        font-family: Arial;
     }
     .form-bg .form-top .form-p-1 {
         margin: -4px 0 0 0;
@@ -496,7 +500,7 @@ main .-content.-index>div {
         margin: -6px 0 0 0;
     }
     .form-bg .form-top .form-p-3 {
-        padding: 44px 0 0 0;
+        padding: 55px 0 0 0;
     }
     .form-bg .form-content {
         width: 548px;
@@ -508,23 +512,24 @@ main .-content.-index>div {
         width: 548px;
     }
     .form-bg .form-content .form-arrow01{
-        transform: rotate(50deg);
+        transform: rotate(180deg);
         right: 134px;
-        top: 217px;
+        top: 216px;
     }
     .form-bg .form-content .form-arrow02 {
         right: 134px;
         top: 243px;
+        transform: rotate(210deg);
     }
     .form-bg .form-content p {
         font-size: 12px;
         left: 70%;
     }
     .form-bg .form-content .form-content-10 {
-        top: 199px;
+        top: 200px;
     }
     .form-bg .form-content .form-content-20 {
-        top: 230px
+        top: 227px;
     }
     main .-content.-index {
         top: -133px;

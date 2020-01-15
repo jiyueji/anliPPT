@@ -16,12 +16,17 @@
         .sort {
             position: absolute;
             top: 25px;
-            background: red;
+            /* background: red; */
             right: 40px;
             font-size: 14px;
-            width: 100px;
+            width: 14px;
+            height: 18px;
             text-align: center;
-            z-index:102;
+            z-index: 102;
+        }
+
+        #sortImg {
+            /* background: #5198ee; */
         }
     </style>
 </head>
@@ -29,7 +34,7 @@
 <body>
     <div class="middleBorder">
         <div class="smallTitle">PF20 YTD Sales by FC</div>
-        <div class="sort" onClick="sortHandler()">Sort By Sales</div>
+        <div class="sort" onClick="sortHandler()"><img src="../../img/tuli/sort.png" id="sortImg" /></div>
         <div id="histogram" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:413px;"></div>
     </div>
 
@@ -346,7 +351,7 @@
             color: ["#5198ee", "#17b6a9", "#fd0022"],
             legend: {
                 type: "scroll",
-                icon:"rect",
+                icon: "rect",
                 // itemWidth: 10,
                 // itemHeight: 10,
                 data: [
@@ -453,6 +458,7 @@
                 }
             ];
 
+        var sortFlag = true;
         sortHandler();
 
         window.addEventListener('resize', function () {
@@ -460,23 +466,28 @@
         });
 
         function sortHandler() {
-          var temp = [...datas];
-          if( (sortBySales = !sortBySales) ) {
-            temp.sort((a, b) => b.total_sales_sum - a.total_sales_sum);
-          } else {
-            temp.sort((a, b) => b.val - a.val);
-          }
-          dataHandler(temp);
+
+            var sortImg = document.getElementById("sortImg");
+            sortFlag = !sortFlag;
+            sortFlag ? sortImg.style.background = "#5198ee" : sortImg.style.background = "none";
+
+            var temp = [...datas];
+            if ((sortBySales = !sortBySales)) {
+                temp.sort((a, b) => b.total_sales_sum - a.total_sales_sum);
+            } else {
+                temp.sort((a, b) => b.val - a.val);
+            }
+            dataHandler(temp);
         }
         function dataHandler(temp = datas) {
-            if(!temp || !temp.length) return false;
+            if (!temp || !temp.length) return false;
             var newEchX = [],
-              newEchY = [],
-              newTotalSales = [];
+                newEchY = [],
+                newTotalSales = [];
             temp.forEach(item => {
-              newEchX.push(item.fc_group);
-              newEchY.push(item.val);
-              newTotalSales.push(item.total_sales_sum);
+                newEchX.push(item.fc_group);
+                newEchY.push(item.val);
+                newTotalSales.push(item.total_sales_sum);
             });
             echX.splice(0, echX.length, ...newEchX);
             echY.splice(0, echY.length, ...newEchY);
@@ -487,8 +498,8 @@
             var seriesData = seriesAll[0];
             histogram = echarts.init(document.getElementById('histogram'));
             histogram.setOption({
-              ...oldData,
-              ...seriesData
+                ...oldData,
+                ...seriesData
             });
         }
     </script>

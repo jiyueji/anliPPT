@@ -297,15 +297,15 @@
                         animationDuration: 2000,
                         label: {
                             show: true,
-                            // position: 'top',
-                            position: ['-10', '-20'],
+                            position: 'bottom',
+                            // position: ['-10', '-20'],
                             formatter: function (params) {
                                 // var index = params.dataIndex;
                                 // if(index==0){   
                                 //     var content='<span style="margin-left:333px;">'+params.data + "%"+"</span>";
                                 //     return content
                                 // }else{
-                                    return Math.round((params.data || 0) / 1) + "%"
+                                    return params.data + "%"
                                 // }
                                 
                             },
