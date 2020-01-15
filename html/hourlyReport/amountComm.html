@@ -11,7 +11,7 @@
     <!-- 引入css文件 -->
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-        /* .titleBorder {
+        .titleBorder {
             width: 100%;
             height: 105px;
             margin-top: 40px;
@@ -29,12 +29,13 @@
         .smallTopTitle div:nth-of-type(1) {
             font-size: 33px;
             color: #ffffff;
+            font-family: Impact;
         }
 
         .smallTopTitle div:nth-of-type(2) {
             font-size: 12px;
             color: #3995da;
-        } */
+        }
     </style>
 </head>
 
@@ -96,14 +97,14 @@
                         show: false //隐藏X轴刻度
                     },
                     axisLine: {
-                         show: false,
+                        show: false,
                         lineStyle: {
-                             color: '#757575',
+                            color: '#757575',
                             //  width: 3 // 粗细
-                   }
+                        }
                     },
                     boundaryGap: false,//X轴刻度位置
-                    color:'#757575',
+                    color: '#757575',
                     axisLabel: {
                         interval: 0,//x轴文字显示不全
                         textStyle: {
@@ -173,7 +174,7 @@
                     },
                     xAxisIndex: 0,
                     data: today
-                },{
+                }, {
                     name: "Last Day",
                     data: lastDay,
                     type: 'line',
@@ -195,6 +196,24 @@
                     areaStyle: {
                         normal: {}
                     },
+                }, {
+                    type: 'effectScatter',
+                    coordinateSystem: 'cartesian2d',
+                    data: ['', '', '', '', '', '','', '', '', '', '', '','', '', '', '','', '240', '','', '', '', '', '', ''], //2d坐标系
+                    symbolSize: 10,
+                    showEffectOn: 'render',
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    hoverAnimation: true,
+                    itemStyle: {
+                        normal: {
+                            color: '#0257d4',
+                            shadowBlur: 0,
+                            shadowColor: '#333'
+                        }
+                    },
+                    zlevel: 1
                 }
                 ],
                 //图例名

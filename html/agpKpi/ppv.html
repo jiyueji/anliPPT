@@ -61,7 +61,7 @@
 
 <body>
     <div class="middleBorder">
-        <div class="smallTitle">High PPV % of Sales</div>
+        <div class="smallTitle">PF20 High PPV % of Sales</div>
         <div id="salesHomeEchartsPpv" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:413px;">
         </div>
         <!-- div闪烁 https://blog.csdn.net/qq_43258252/article/details/102958790 -->
@@ -175,11 +175,11 @@
                 animationDuration: 2000,
                 // title: [
                 //     {
-                //         text: 'High PPV % of Sales',
-                //         x: '2%',
-                //         y: '8%',
+                //         text: 'PF20',
+                //         x: '5%',
+                //         y: '16%',
                 //         textStyle: {                  //标题样式
-                //             fontSize: '16',
+                //             fontSize: '14',
                 //             color: '#ffffff',
                 //         },
                 //     }
@@ -258,6 +258,8 @@
                     {
                         type: 'value',
                         // data: monthShow,
+                        max:"20",
+                        min:"0",
                         axisLabel: {
                             show: true,
                             textStyle: {
@@ -286,7 +288,7 @@
 
                         name: "2019",
                         // data: lastYear,
-                        data: ["16","7","11","10","10",'','','','','','',''],
+                        data: ["15.6","7.4","10.5","9.8","9.7",'','','','','','',''],
                         type: 'line',
                         smooth: true,
                         // symbol: "none", //去掉折线点
