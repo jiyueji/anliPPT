@@ -425,7 +425,7 @@ function fiveImg() {
 function sixImg() {
     console.log("666")
     changeIndex = 6;
-    tatleChange.innerHTML = "Daily Report"
+    tatleChange.innerHTML = "Hourly Report"
 
 
     var changeBinner = document.getElementById("changeBinner")
