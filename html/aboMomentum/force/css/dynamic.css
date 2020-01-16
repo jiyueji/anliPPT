@@ -6,7 +6,7 @@ html, body {
     /*background-color: white;*/
     -webkit-perspective: 1500;
     perspective: 1500;
-    font-family: 'Asar', serif;
+    /*font-family: 'Asar', serif;*/
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -14,8 +14,8 @@ html, body {
 }
 .card {
     border-radius: 10px;
-    -webkit-perspective: 7500;
-    perspective: 7500;
+    -webkit-perspective: 10000;
+    perspective: 10000;
     -webkit-transition: box-shadow 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
     transition: box-shadow 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
@@ -82,8 +82,8 @@ html, body {
 
 .card .bar {
     will-change: height;
-    width: 15px;
-    height: 1px;
+    width: 0px;
+    height: 0px;
     background-color: white;
     -webkit-transform: translateX(-7.5px) rotateX(2deg) rotateY(-45deg);
     transform: translateX(-7.5px) rotateX(2deg) rotateY(-45deg);
@@ -118,31 +118,31 @@ html, body {
     background: linear-gradient(to bottom, #feffff 0%, #85d7f7 0%, #4c8596 100%);
 }
 .card .bar.bar1:after{
-    background: #008ca1;
+    background: #008c81;
 }
 .card .bar.bar2:after{
     background: #e57c0b;
 }
 .card .bar.bar3:after{
-    background: #008ca1;
+    background: #008c81;
 }
 .card .bar.bar4:after{
     background: #e57c0b;
 }
 .card .bar.bar5:after{
-    background: #008ca1;
+    background: #008c81;
 }
 .card .bar.bar6:after{
     background: #e57c0b;
 }
 .card .bar.bar7:after{
-    background: #008ca1;
+    background: #008c81;
 }
 .card .bar.bar8:after{
     background: #e57c0b;
 }
 .card .bar.bar9:after{
-    background: #008ca1;
+    background: #008c81;
 }
 .card .bar.bar10:after{
     background: #e57c0b;
@@ -263,7 +263,7 @@ html, body {
 
 .card .bar span {
    /* font-family: 'Oxygen', sans-serif;*/
-    font-family: Impact;
+    font-family: Arial;
     position: absolute;
     /*-webkit-transform: rotateZ(-90deg);
     transform: rotateZ(-90deg);*/
@@ -298,8 +298,8 @@ html, body {
 }
 .details .card .bar {
     width: 10px;
-    -webkit-transform: translateX(-7.5px) rotateX(-90deg) rotateY(-25deg);
-    transform: translateX(-7.5px) rotateX(-90deg) rotateY(-25deg);
+    -webkit-transform: translateX(-7.5px) rotateX(-80deg) rotateY(-25deg);
+    transform: translateX(-7.5px) rotateX(-80deg) rotateY(-25deg);
     animation: grow-1 3s;
 }
 @keyframes grow-1 {
@@ -383,11 +383,11 @@ html, body {
     background: #f6962e;
 }
 .details .card .bar.bar11 {
-    height: 30.1px;
+    height: 15px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
     background: #f6962e;
-    margin: -30.1px 0 0 18px;
+    margin: -15px 0 0 18px;
 }
 .details .card .bar.bar12 {
     height: 49px;
@@ -457,4 +457,5 @@ html, body {
     left: 56px;
     bottom: 196px;
     transform: scaleY(1.8);
+   /* opacity: 0.5;*/
 }

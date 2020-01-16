@@ -86,6 +86,118 @@
     var myChart,
       defaultOpt = {
         animationDuration: 2000,
+        tooltip: {//鼠标移入
+                    trigger: 'axis',
+                    confine: true,
+                    //                 tooltip_data_map:
+                    // Jan:
+                    // monthName: "2019 January"
+                    // actual_sales: "$277m"
+                    // actual_sales_ly: "$235m"
+                    // sales_forecast: null
+                    // events: (3) ["Olive Oil Launch", "Nutrilite XS Jan Promotion", "Olive Oil Experience"]
+                    formatter: (data) => {
+                        // console.log(data)
+                        var yearThisData = 0;
+                        var yearLastData = 0;
+                        var forecastData = 0;
+
+                        var customer = 0;
+                        var aboPurchasing = 0;
+                        var developingAbo = 0;
+                        var buildingAbo = 0;
+                        var aboLeader = 0;
+                        // var nameShow = "";
+                        // var toolShow = "";
+                        var monthUp = "";
+                        // var yearUp = new Date().getFullYear()
+                        data.map((item, index) => {
+                            // console.log(item.componentIndex)
+                            if ("Customer"==item.seriesName) {
+                              customer = item.data || ""
+
+                            } else if ("ABO (Purchasing Only)"==item.seriesName) {
+                              aboPurchasing = item.data || ""
+
+                            } else if ("Developing ABO"==item.seriesName) {
+                              developingAbo = item.data || ""
+
+                            } else if ("Building ABO"==item.seriesName) {
+                              buildingAbo = item.data || ""
+
+                            } else if ("ABO Leader"==item.seriesName) {
+                              aboLeader = item.data || ""
+
+                            } 
+                            // nameShow = item.name
+                            monthUp = item.axisValue
+                        })
+                        
+                        // if (yearThisData) {
+                        //     var b = parseInt(yearThisData).toString();
+                        //     var len = b.length;
+                        //     if (len <= 3) { yearThisData = b; }
+                        //     var r = len % 3;
+                        //     r > 0 ? yearThisData = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : yearThisData = b.slice(r, len).match(/\d{3}/g).join(",");
+                        // }
+                        // if (yearLastData) {
+                        //     var b = parseInt(yearLastData).toString();
+                        //     var len = b.length;
+                        //     if (len <= 3) { yearLastData = b; }
+                        //     var r = len % 3;
+                        //     r > 0 ? yearLastData = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : yearLastData = b.slice(r, len).match(/\d{3}/g).join(",");
+                        // }
+                        if (customer&&customer.length>3) {
+                            var b = parseInt(customer).toString();
+                            var len = b.length;
+                            if (len <= 3) { customer = b; }
+                            var r = len % 3;
+                            r > 0 ? customer = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : customer = b.slice(r, len).match(/\d{3}/g).join(",");
+                        }
+                        if (aboPurchasing&&aboPurchasing.length>3) {
+                            var b = parseInt(aboPurchasing).toString();
+                            var len = b.length;
+                            if (len <= 3) { aboPurchasing = b; }
+                            var r = len % 3;
+                            r > 0 ? aboPurchasing = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : aboPurchasing = b.slice(r, len).match(/\d{3}/g).join(",");
+                        }
+                        if (developingAbo&&developingAbo.length>3) {
+                            var b = parseInt(developingAbo).toString();
+                            var len = b.length;
+                            if (len <= 3) { developingAbo = b; }
+                            var r = len % 3;
+                            r > 0 ? developingAbo = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : developingAbo = b.slice(r, len).match(/\d{3}/g).join(",");
+                        }
+                        if (buildingAbo&&buildingAbo.length>3) {
+                            var b = parseInt(buildingAbo).toString();
+                            var len = b.length;
+                            if (len <= 3) { buildingAbo = b; }
+                            var r = len % 3;
+                            r > 0 ? buildingAbo = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : buildingAbo = b.slice(r, len).match(/\d{3}/g).join(",");
+                        }
+                        if (aboLeader&&aboLeader.length>3) {
+                            var b = parseInt(aboLeader).toString();
+                            var len = b.length;
+                            if (len <= 3) { aboLeader = b; }
+                            var r = len % 3;
+                            r > 0 ? aboLeader = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : aboLeader = b.slice(r, len).match(/\d{3}/g).join(",");
+                        }
+                        
+                        var customerShow = "<div style='color:#4d96f1'>" + "Customer:" + customer + "</div>";
+                        var aboPurchasingShow = "<div style='color:#28ccae'>" + "ABO(Purchasing Only):" + aboPurchasing + "</div>";
+                        var developingAboShow = "<div style='color:#ffa441'>" + "Developing ABO:" + developingAbo + "</div>";
+                        var buildingAboShow = "<div style='color:#eb5653'>" + "Building ABO:" + buildingAbo + "</div>";
+                        var aboLeaderShow = "<div style='color:#f3e126'>" + "ABO Leader:" + aboLeader + "</div>";
+
+
+                        // if (tooltipData && tooltipData[nameShow]) {
+                        //     tooltipData[nameShow].events.map((item, index) => {
+                        //         toolShow += "<div style='display:flex;justify-content: space-between'><span style='color:#f2df3f'>" + "★" + "</span>" + item + "</div>"
+                        //     })
+                        // }
+                        return "<div style='border-bottom:1px solid #ffffff'>" + monthUp + "</div>" + customerShow + aboPurchasingShow+developingAboShow+buildingAboShow+aboLeaderShow;
+                    }
+                },
         grid: {
           left: 71,
           right: 32,
@@ -178,31 +290,31 @@
               type: 'bar',
               barWidth: 18,
               stack: 'stack',
-              data: [170.8, 204.2, 144.6,203.6, '', '', '', '', '', '', '','']
+              data: [23.5, 28.2, 19.9,28.1, 11.5, '', '', '', '', '', '','']
             },
             {
               name: 'ABO (Purchasing Only)',
               type: 'bar',
               stack: 'stack',
-              data: [  311.2, 338.1,869.7,966.7, '', '', '', '', '', '', '','']
+              data: [  42.9,46.6,35.5,42.8,40.9, '', '', '', '', '', '','']
             },
             {
               name: 'Developing ABO',
               type: 'bar',
               stack: 'stack',
-              data: [486.8,377.6, 154.8,152.9, '', '', '', '', '', '', '','']
+              data: [67.1,52.1,52.9,55.4,77.1, '', '', '', '', '', '', '','']
             },
             {
               name: 'Building ABO',
               type: 'bar',
               stack: 'stack',
-              data: [641.1, 349.3, '', '', '', '', '', '', '','','','']
+              data: [88.4,48.2,52.9,56.3,109.7, '', '', '', '', '', '', '','','','']
             },
             {
               name: 'ABO Leader',
               type: 'bar',
               stack: 'stack',
-              data: [ 104.6,64.2,86.6,85.7,  '', '', '', '', '', '', '','']
+              data: [ 14.4,8.9,11.9,11.8,20.5,  '', '', '', '', '', '', '','']
             }
           ]
         }, {
