@@ -26,8 +26,8 @@
                         <div class="left-font-03">
                             <p class="left-n-01">427K</p>
                             <span class="left-n-02">
-                                <p>vs LM:<a style="color: #28ccae;">+5%</a></p>
-                                <p>vs SPLY:<a style="color: #28ccae;">+3936% </a></p>
+                                <p>vs LM:&nbsp;<a style="color: #28ccae;">+5%</a></p>
+                                <p style="margin-left: -12px;">vs SPLY:&nbsp;<a style="color: #28ccae;">+3936% </a></p>
                             </span>
                         </div>
                     </div>
@@ -45,10 +45,10 @@
                         <p class="left-font-01">Recruitment</p>
                         <p class="left-font-02">Month to date</p>
                         <div class="left-font-03">
-                            <p class="left-n-01">1144K</p>
+                            <p class="left-n-01">114,4K</p>
                             <span class="left-n-02">
-                                <p>vs LM:<a style="color: #28ccae;">+5% </a></p>
-                                <p>vs SPLY:<a style="color: #28ccae;">+815% </a></p>
+                                <p>vs LM:&nbsp;<a style="color: #28ccae;">+5% </a></p>
+                                <p style="margin-left: -12px;">vs SPLY:&nbsp;<a style="color: #28ccae;">+815% </a></p>
                             </span>
                         </div>
                     </div>
@@ -68,19 +68,19 @@
 
         var countData = [{
             value: 385,
-            name: 'FOA',
+            name: 'FOA385',
             itemStyle: {
                 color: '#4d96f1'
             }
         }, {
             value: 38,
-            name: 'ABO',
+            name: 'ABO38',
             itemStyle: {
                 color: '#ffa441'
             }
         }, {
             value: 4,
-            name: 'PC',
+            name: 'PC4',
             itemStyle: {
                 color: '#28ccae'
             }
@@ -88,19 +88,19 @@
 
         var countData1 = [{
             value: 585.80,
-            name: 'FOA',
+            name: 'FOA585.80',
             itemStyle: {
                 color: '#4d96f1'
             }
         }, {
             value: 535.65,
-            name: 'ABO',
+            name: 'ABO535.65',
             itemStyle: {
                 color: '#ffa441'
             }
         }, {
             value: 22.61,
-            name: 'PC',
+            name: 'PC22.61',
             itemStyle: {
                 color: '#28ccae'
             }
@@ -116,7 +116,7 @@
             option = {
                 // 设置
                 tooltip: {
-                    show:false,
+                    show:true,
                     trigger: 'item',
                     formatter: "{a} <br/> {b} : <br/>{c} ({d}%)"
                 },
@@ -125,10 +125,21 @@
                       {
                         type: 'pie', // 数据统计图的类型
                         name: 'Month to date($):49m',
-                        radius: '45%',
-                        center: ['50%', '50%'],
+                        radius: '70%',
+                        center: ['40%', '50%'],
+                        labelLine:{
+                          length:2,
+                          length2: 1
+                        },
                         // 放置要展示的数据
-                        data: chardata
+                        data: chardata,
+                        itemStyle: {
+                          emphasis: {
+                            shadowBlur: 5,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                          }
+                        }
                       }
                 ]
             }
