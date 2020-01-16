@@ -75,206 +75,207 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-font">
+        </div>
+    </div>
+    <div class="footer-font">
                 <span  class="span-01">
                     <p class="p-01"></p>
                     <label>PF20</label>
                 </span>
 
-                <span class="span-02">
+        <span class="span-02">
                     <p class="p-02"></p>
                     <label>PF19</label>
                 </span>
-            </div>
-        </div>
-        <!--<div class="mask-plane"></div>-->
-    </body>
-    <!--<script>
-
-      var myChart, option;
-      myChart = echarts.init(document.getElementById('footer'));
-      // 指定图表的配置项和数据
-      option = {
-        legend: {
-          data: ['Last year', 'This year'],
-          textStyle: {
-            color: "#fff"
-          }
-        },
-        xAxis3D: {
-          name: '',
-          type: 'category',
-          data: ['Jan', 'Fed', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-          axisLine:{
-            lineStyle:{
-              color:'#fff', // 线条颜色
-              width:1, // 线条宽度
-              option: 1 // 线条是否透明
-            }
-          },
-          axisLabel: {
-            show: false, // 是否显示字体
-            margin: 10 ,// 字体距离头部线条的距离
-            textStyle: {
-              fontSize: 16
-            }
-          },
-          axisTick: {
-            show: false // 是否显示刻度
-          },
-          splitLine:{
-            show:false // 是否显示坐标系
-          }
-        },
-        yAxis3D: {
-          name: '',
-          type: 'category',
-          data: [],
-          axisLine:{
-            lineStyle:{
-              width: 0,
-              option: 0,
-              color:'#fff'
-            }
-          },
-          axisLabel: {
-            show: true, // 是否显示字体
-            margin: 10 // 字体距离头部线条的距离
-          },
-          axisTick: {
-            show: false // 是否显示刻度
-          },
-          splitLine:{
-            show:false // 是否显示坐标系
-          }
-        },
-        zAxis3D: {
-          name: '',
-          type: 'value',
-          axisLine:{
-            lineStyle:{
-              width: 0,
-              option: 0,
-              color:'#fff'
-            }
-          },
-          axisLabel: {
-            show: true, // 是否显示字体
-            margin: 10 // 字体距离头部线条的距离
-          },
-          axisTick: {
-            show: false // 是否显示刻度
-          },
-          splitLine:{
-            show:false // 是否显示坐标系
-          }
-        },
-        grid3D: {
-          show: true,
-          boxWidth: 330,
-          boxDepth: 15,
-          axisPointer: {
-            show: false
-          },
-          light: {
-            main: {
-              intensity: 1.2
-            },
-            ambient: {
-              intensity: 0.3
-            }
-          },
-          viewControl: {
-            alpha: 0, //控制场景平移旋转
-            beta: 0,
-            minAlpha: 0,
-            maxAlpha: 0,
-            minBeta: 0,
-            maxBeta: 0
-          }
-        },
-        series: [
-          {
-            type: 'bar3D',
-            name:'',
-            barSize: 15,
-            itemStyle:{
-              color: '#f6962e'
-            },
-            data: [
-              [0, 0, 10],
-              [2, 0, 20],
-              [4, 0, 30],
-              [6, 0, 40],
-              [8, 0, 50],
-              [10, 0, 60]
-            ],
-            stack: 'stack',
-            shading: 'lambert',
-            emphasis: {
-              label: {
-                show: true
-              }
-            }
-          },
-          {
-            type: 'bar3D',
-            name:'',
-            barSize: 15,
-            itemStyle:{
-              color: '#17b6a9'
-            },
-            data: [
-              [1, 0, 10],
-              [3, 0, 20],
-              [5, 0, 30],
-              [7, 0, 40],
-              [9, 0, 50],
-              [11, 0, 60]
-            ],
-            // stack: 'stack',
-            shading: 'lambert',
-            emphasis: {
-              label: {
-                show: true
-              }
-            }
-          }]
+    </div>
+</div>
+<!--<div class="mask-plane"></div>-->
+</body>
+<!--<script>
+  var myChart, option;
+  myChart = echarts.init(document.getElementById('footer'));
+  // 指定图表的配置项和数据
+  option = {
+    legend: {
+      data: ['Last year', 'This year'],
+      textStyle: {
+        color: "#fff"
       }
-      myChart.setOption(option); // 使用刚指定的配置项和数据显示图表。
-    </script>-->
-    <script src="../../../assets/jquery-2.1.1.min.js"></script>
-    <script>
-      var body = document.body;
-      var toggleTilt = function () {
-        body.classList.add('details');
+    },
+    xAxis3D: {
+      name: '',
+      type: 'category',
+      data: ['Jan', 'Fed', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      axisLine:{
+        lineStyle:{
+          color:'#fff', // 线条颜色
+          width:1, // 线条宽度
+          option: 1 // 线条是否透明
+        }
+      },
+      axisLabel: {
+        show: false, // 是否显示字体
+        margin: 10 ,// 字体距离头部线条的距离
+        textStyle: {
+          fontSize: 16
+        }
+      },
+      axisTick: {
+        show: false // 是否显示刻度
+      },
+      splitLine:{
+        show:false // 是否显示坐标系
       }
-      setTimeout(toggleTilt, 1000);
+    },
+    yAxis3D: {
+      name: '',
+      type: 'category',
+      data: [],
+      axisLine:{
+        lineStyle:{
+          width: 0,
+          option: 0,
+          color:'#fff'
+        }
+      },
+      axisLabel: {
+        show: true, // 是否显示字体
+        margin: 10 // 字体距离头部线条的距离
+      },
+      axisTick: {
+        show: false // 是否显示刻度
+      },
+      splitLine:{
+        show:false // 是否显示坐标系
+      }
+    },
+    zAxis3D: {
+      name: '',
+      type: 'value',
+      axisLine:{
+        lineStyle:{
+          width: 0,
+          option: 0,
+          color:'#fff'
+        }
+      },
+      axisLabel: {
+        show: true, // 是否显示字体
+        margin: 10 // 字体距离头部线条的距离
+      },
+      axisTick: {
+        show: false // 是否显示刻度
+      },
+      splitLine:{
+        show:false // 是否显示坐标系
+      }
+    },
+    grid3D: {
+      show: true,
+      boxWidth: 330,
+      boxDepth: 15,
+      axisPointer: {
+        show: false
+      },
+      light: {
+        main: {
+          intensity: 1.2
+        },
+        ambient: {
+          intensity: 0.3
+        }
+      },
+      viewControl: {
+        alpha: 0, //控制场景平移旋转
+        beta: 0,
+        minAlpha: 0,
+        maxAlpha: 0,
+        minBeta: 0,
+        maxBeta: 0
+      }
+    },
+    series: [
+      {
+        type: 'bar3D',
+        name:'',
+        barSize: 15,
+        itemStyle:{
+          color: '#f6962e'
+        },
+        data: [
+          [0, 0, 10],
+          [2, 0, 20],
+          [4, 0, 30],
+          [6, 0, 40],
+          [8, 0, 50],
+          [10, 0, 60]
+        ],
+        stack: 'stack',
+        shading: 'lambert',
+        emphasis: {
+          label: {
+            show: true
+          }
+        }
+      },
+      {
+        type: 'bar3D',
+        name:'',
+        barSize: 15,
+        itemStyle:{
+          color: '#17b6a9'
+        },
+        data: [
+          [1, 0, 10],
+          [3, 0, 20],
+          [5, 0, 30],
+          [7, 0, 40],
+          [9, 0, 50],
+          [11, 0, 60]
+        ],
+        // stack: 'stack',
+        shading: 'lambert',
+        emphasis: {
+          label: {
+            show: true
+          }
+        }
+      }]
+  }
+  myChart.setOption(option); // 使用刚指定的配置项和数据显示图表。
+</script>-->
+<script src="../../../assets/jquery-2.1.1.min.js"></script>
+<script>
+  var body = document.body;
+  var toggleTilt = function () {
+    body.classList.add('details');
+  }
+  setTimeout(toggleTilt, 1000);
 
-      $(document).ready(function() {
-        var index = 0,index1 = 0;
-        $(".footer-font span label").each(function(index) {
-          $(this).click(function(e) {
-            switch (e.target.innerText) {
-              case 'PF19':
-                index ++ ;
-                if(index%2 ===1){
-                  $('.bar-001').css({'opacity': 0});
-                } else {
-                  $('.bar-001').css({'opacity': 1});
-                }
-                break;
-              case 'PF20':
-                index1 ++ ;
-                if(index1 % 2 ===1){
-                  $('.bar-002').css({'opacity': 0});
-                } else {
-                  $('.bar-002').css({'opacity': 1});
-                }
-                break;
+  $(document).ready(function() {
+    var index = 0,index1 = 0;
+    $(".footer-font span label").each(function(index) {
+      $(this).click(function(e) {
+        switch (e.target.innerText) {
+          case 'PF19':
+            index ++ ;
+            if(index%2 ===1){
+              $('.bar-001').css({'opacity': 0});
+            } else {
+              $('.bar-001').css({'opacity': 1});
             }
-          });
-        })
-      })
-    </script>
+            break;
+          case 'PF20':
+            index1 ++ ;
+            if(index1 % 2 ===1){
+              $('.bar-002').css({'opacity': 0});
+            } else {
+              $('.bar-002').css({'opacity': 1});
+            }
+            break;
+        }
+      });
+    })
+  })
+</script>
 </html>

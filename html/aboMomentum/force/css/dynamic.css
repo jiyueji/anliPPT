@@ -262,7 +262,7 @@ html, body {
 }
 
 .card .bar span {
-   /* font-family: 'Oxygen', sans-serif;*/
+    /* font-family: 'Oxygen', sans-serif;*/
     font-family: Arial;
     position: absolute;
     /*-webkit-transform: rotateZ(-90deg);
@@ -457,5 +457,5 @@ html, body {
     left: 56px;
     bottom: 196px;
     transform: scaleY(1.8);
-   /* opacity: 0.5;*/
+    /* opacity: 0.5;*/
 }
