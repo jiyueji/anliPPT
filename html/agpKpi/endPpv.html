@@ -73,6 +73,9 @@
         <div class="remark" style="position: absolute;left: 280px;top: 153px; display:none;">
             <div style="color: rgb(253, 243, 243); font-size: small;">YTD Actual: 14.6%</div>
         </div>
+        <div class="remarkTarget" style="position: absolute;left: 480px;top: 80px; display:none;">
+            <div style="color: rgb(244,159,68);font-size: small;">Target: 19.5%</div>
+        </div>
     </div>
 
     <script>
@@ -89,6 +92,12 @@
         setTimeout(() => {
             remark[0].style.display = "block"
         }, 2000);
+        // 延迟加载
+        var remarkTarget = document.getElementsByClassName("remarkTarget")
+        // console.log(redball[0])
+        setTimeout(()=>{
+            remarkTarget[0].style.display = "block"
+        },1000);
 
 
         var monthShow = ['Sep', 'Oct', 'Nov', 'Dec','Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', ];
@@ -372,11 +381,11 @@
                                 width: '2'
                             },
                             label: {
-                                show: true,
+                                show: false,
                             },
 
                             data: [
-                                { yAxis: 18, name: '' }
+                                { yAxis: 19.5, name: '' }
                             ]
                         },
                     }
