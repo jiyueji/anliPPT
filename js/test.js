@@ -67,7 +67,7 @@ var index = 0,
       ]
     }, 
     { // 六
-      title: 'Daily Report',
+      title: 'Hourly Report',
       src: [
         "./html/hourlyReport/newSales.html",
         "./html/hourlyReport/foaSales.html",

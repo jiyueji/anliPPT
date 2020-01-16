@@ -147,35 +147,35 @@
                         //     var r = len % 3;
                         //     r > 0 ? yearLastData = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : yearLastData = b.slice(r, len).match(/\d{3}/g).join(",");
                         // }
-                        if (customer&&customer.length>3) {
+                        if (customer&&customer>999) {
                             var b = parseInt(customer).toString();
                             var len = b.length;
                             if (len <= 3) { customer = b; }
                             var r = len % 3;
                             r > 0 ? customer = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : customer = b.slice(r, len).match(/\d{3}/g).join(",");
                         }
-                        if (aboPurchasing&&aboPurchasing.length>3) {
+                        if (aboPurchasing&&aboPurchasing>999) {
                             var b = parseInt(aboPurchasing).toString();
                             var len = b.length;
                             if (len <= 3) { aboPurchasing = b; }
                             var r = len % 3;
                             r > 0 ? aboPurchasing = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : aboPurchasing = b.slice(r, len).match(/\d{3}/g).join(",");
                         }
-                        if (developingAbo&&developingAbo.length>3) {
+                        if (developingAbo&&developingAbo>999) {
                             var b = parseInt(developingAbo).toString();
                             var len = b.length;
                             if (len <= 3) { developingAbo = b; }
                             var r = len % 3;
                             r > 0 ? developingAbo = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : developingAbo = b.slice(r, len).match(/\d{3}/g).join(",");
                         }
-                        if (buildingAbo&&buildingAbo.length>3) {
+                        if (buildingAbo&&buildingAbo>999) {
                             var b = parseInt(buildingAbo).toString();
                             var len = b.length;
                             if (len <= 3) { buildingAbo = b; }
                             var r = len % 3;
                             r > 0 ? buildingAbo = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : buildingAbo = b.slice(r, len).match(/\d{3}/g).join(",");
                         }
-                        if (aboLeader&&aboLeader.length>3) {
+                        if (aboLeader&&aboLeader>999) {
                             var b = parseInt(aboLeader).toString();
                             var len = b.length;
                             if (len <= 3) { aboLeader = b; }
@@ -240,7 +240,13 @@
             axisLabel: {
               fontSize: 14,
               fontFamily: 'ArialMT',
-              formatter: '{value}m'
+              formatter: (val)=>{
+                // console.log(sheet)
+                if(sheet==1){
+                  return val / 1000000 + 'm';
+                }
+                return val / 1 + 'm';
+              }
             },
             splitLine: {
               lineStyle: {
@@ -475,7 +481,9 @@
       document.querySelector(`.nav-item:nth-child(${idx + 1})`).classList.add('active');
       myChart.setOption({ ...defaultOpt, ...option });
     }
+    var sheet = 0;
     function switchChart(idx) {
+      sheet=idx;
       var elm = event.currentTarget,
         elmClassList = elm.classList;
       if(elmClassList.contains('active')) return false;
