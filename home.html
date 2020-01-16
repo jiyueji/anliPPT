@@ -5,120 +5,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
+    <title>Amway China</title>
     <link rel="stylesheet" href="./css/common.css">
     <!-- 引入swiper -->
     <link rel="stylesheet" href="./swiper-5.2.1/package/css/swiper.min.css">
     <script type="text/javascript" src="./swiper-5.2.1/package//js/swiper.min.js"></script>
-    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
-        <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-        <script src="https://unpkg.com/swiper/js/swiper.js"> </script>
-        <script src="https://unpkg.com/swiper/js/swiper.min.js"></script> -->
-
     <!-- 引入echarts -->
     <script type="text/javascript" src="./incubator-echarts-4.6.0/dist/echarts.min.js"></script>
-    <!--<script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script> -->
-
     <!-- 引入css文件 -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div class="allBackground">
-        <div class="title">Amway China</div>
-        <div class="swiper-container swiper-containerUpBig">
-            <img src="./img/backgroundUp.gif" class="backgroundUpGif" />
-            <div class="titleUp" id="tatleChange">Monthly Report</div>
-            <div class="swiper-wrapper upBigBorderSwiper" id="changeBinner">
-                <!-- <div id="main"  class="swiper-slide swiper-slide-echarts" style="width: 100%;height:50%;"></div> -->
-                <!-- <div class="swiper-slide"><img src="./img/1/1.1Monthly Sales trend.png" /></div> -->
-                <!-- 饼图加折线图 -->
-                <div class="swiper-slide">
-                    <iframe align="center" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" style="position: absolute;" src="./html/monthlyReport/salesHome.html"></iframe>
-                    <div style="width: 100%;height:618px;position:absolute;z-index:101;"></div>
-                </div>
-                <!-- 地图 -->
-                <div class="swiper-slide">
-                    <iframe align="center" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" style="position: absolute;" src="./html/monthlyReport/map.html"></iframe>
-                    <div style="width: 100%;height:618px;position:absolute;z-index:101;"></div>
-                </div>
-                <!-- 柱状图 -->
-                <div class="swiper-slide">
-                    <iframe align="center" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" style="position: absolute;" src="./html/monthlyReport/histogram.html"></iframe>
-                    <div style="width: 100%;height:618px;position:absolute;z-index:101;"></div>
-                </div>
-                <!-- 表格 -->
-                <div class="swiper-slide">
-                    <iframe align="center" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" style="position: absolute;" src="./html/agpKpi/formTab.html"></iframe>
-                    <div style="width: 100%;height:618px;position:absolute;z-index:101;"></div>
-                </div>
-                <!-- 叠加柱状图 -->
-                <!-- <div class="swiper-slide">
-                    <iframe align="center" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" style="position: absolute;" src="./html/agpKpi/aboSegmentMonthlyData.html"></iframe>
-                    <div style="width: 100%;height:618px;position:absolute;z-index:101;"></div>
-                </div> -->
-                <!-- <div id="maina"  class="swiper-slide swiper-slide-echarts" style="width: 100%;height:50%;"></div> -->
-                <!-- <div class="swiper-slide"><img src="./img/1/map.png" /></div>
-                <div class="swiper-slide"><img src="./img/1/Sales by FC group.png" /></div> -->
-                <!-- <div class="swiper-slide"> <img src="./img/1/1.1Monthly Sales trend.png" /></div> -->
-            </div>
+<div class="allBackground">
+    <div class="start-carousel" onclick="startCarousel()"></div>
+    <p class="title">MD Dashboard</p>
+    <img class="backgroundUpGif" src="./img/backgroundUp.gif" />
+    <p class="titleUp" id="tatleChange">Sales Performance</p>
 
-            <!-- 如果需要分页器 -->
-            <!-- <div class="swiper-pagination"></div> -->
-
-            <!-- 如果需要导航按钮 -->
-            <!-- <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div> -->
-
-            <!-- 如果需要滚动条 -->
-            <!-- <div class="swiper-scrollbar"></div> -->
-        </div>
-        <div class="dataBottom">
-            <div class="imgLeft swiper-button-prev">
-                <img src="./img/leftRoad.png" />
-                <img src="./img/left.gif" class="loading" />
+    <div class="swiper-container swiper-containerUpBig">
+        <div class="swiper-wrapper upBigBorderSwiper" id="changeBinner">
+            <!-- 饼图加折线图 -->
+            <div class="swiper-slide">
+                <iframe class="iframeStyle" align="center" frameborder="no" marginwidth="0" marginheight="0"
+                        scrolling="no" src="./html/monthlyReport/salesHome.html"></iframe>
+                <div class="mask"></div>
             </div>
-            <div class="swiper-containerDownSmall swiper-container">
-                <div class="swiper-wrapper downSmallBorderSwiper" id="imageChange">
-                    <!-- <div class="swiper-slide"><img src="./img/1.png" /></div> -->
-                    <div class="downBorder swiper-slide" onclick="oneImg()">
-                        <div class="smallImgTital">Monthly Report</div>
-                        <img src="./img/1/map.png" />
-                    </div>
-                    <div class="downBorder swiper-slide" onclick="twoImg()">
-                        <div class="smallImgTital">Daily Report</div>
-                        <img src="./img/2/Dally Sales.png" />
-                    </div class="downBorder swiper-slide">
-                    <div class="downBorder swiper-slide" onclick="threeImg()" id="imgShowHidden">
-                        <div class="smallImgTital">Hourly Report</div>
-                        <img src="./img/3/2.png" />
-                    </div class="downBorder swiper-slide">
-                    <div class="downBorder swiper-slide" onclick="fourImg()">
-                        <div class="smallImgTital">AGP KPI</div>
-                        <img src="./img/4/End of Month % of Sales.png" />
-                    </div>
-                    <div class="downBorder swiper-slide">
-                        <div class="smallImgTital">ABO Report</div>
-                        <img src="" />
-                    </div>
-                </div>
+            <!-- 地图 -->
+            <div class="swiper-slide">
+                <iframe class="iframeStyle" align="center" frameborder="no" marginwidth="0" marginheight="0"
+                        scrolling="no" src="./html/monthlyReport/map.html"></iframe>
+                <div class="mask"></div>
             </div>
+            <!-- 柱状图 -->
+            <div class="swiper-slide">
+                <iframe class="iframeStyle" align="center" frameborder="no" marginwidth="0" marginheight="0"
+                        scrolling="no" src="./html/monthlyReport/histogram.html"></iframe>
+               <div class="mask"></div>
+            </div>
+            <!-- 表格 -->
+             <!--<div class="swiper-slide">
+                <iframe class="iframeStyle" align="center" frameborder="no" marginwidth="0" marginheight="0"
+                scrolling="no" src="./html/agpKpi/formTab/formTab.html"></iframe>
+                <div class="mask-01"></div>
+                <div class="mask-02"></div>
+            </div>-->
 
-            <div class="imgRight swiper-button-next">
-                <img src="./img/rightRoad.png" />
-                <img src="./img/right.gif" class="loading" />
-            </div>
+            <!-- buyer -->
+             <!--<div class="swiper-slide">
+                <iframe class="iframeStyle" align="center" frameborder="no" marginwidth="0" marginheight="0"
+                scrolling="no" src="./html/dailyReport/buyer/buyer.html"></iframe>
+                <div style="width: 76%;height:421px;position:absolute;z-index:101;"></div>
+            </div>-->
+
+            <!-- force -->
+            <!--<div class="swiper-slide">
+               <iframe class="iframeStyle" align="center" frameborder="no" marginwidth="0" marginheight="0"
+               scrolling="no" src="./html/aboMomentum/force/force.html"></iframe>
+               div class = "mask"></div>
+           </div>-->
 
         </div>
-        <div class="triangle">▲</div>
     </div>
 
-    <!-- 引入js文件 -->
-    <script type="text/javascript" src="./js/script.js"></script>
+
+    <div class="dataBottom ">
+        <div class="imgLeft swiper-button-prev ">
+            <img src="./img/leftRoad.png " />
+            <img src="./img/left.gif " class="loading " />
+        </div>
+        <div class="swiper-containerDownSmall swiper-container">
+            <div class="swiper-wrapper downSmallBorderSwiper" id="imageChange">
+                <!-- <div class="swiper-slide"><img src="./img/1.png" /></div> -->
+                <div class="downBorder swiper-slide">
+                    <div class="smallImgTital">Sales Performance</div>
+                    <img src="./img/home/1home.png" />
+                </div>
+                <div class="downBorder swiper-slide">
+                    <div class="smallImgTital">AGP KPI</div>
+                    <img src="./img/home/2home.png" />
+                </div>
+                <div class="downBorder swiper-slide" id="imgShowHidden">
+                    <div class="smallImgTital">ABO Momentum</div>
+                    <img src="./img/home/3home.png" />
+                </div>
+                <div class="downBorder swiper-slide">
+                    <div class="smallImgTital">Prediction Model</div>
+                    <img src="./img/home/4home.png" />
+                </div>
+                <div class="downBorder swiper-slide">
+                    <div class="smallImgTital">Daily Report</div>
+                    <img src="./img/home/5home.png" />
+                </div>
+                <div class="downBorder swiper-slide">
+                    <div class="smallImgTital">Hourly Report</div>
+                    <img src="./img/home/6home.png" />
+                </div>
+            </div>
+        </div>
+        <div class="imgRight swiper-button-next ">
+            <img src="./img/rightRoad.png " />
+            <img src="./img/right.gif " class="loading " />
+        </div>
+    </div>
+    <span class="triangle ">▲</span>
+</div>
 </body>
-
-
-
+<!-- 引入js文件 -->
+<script type="text/javascript " src="./js/test.js "></script>
 
 </html>
