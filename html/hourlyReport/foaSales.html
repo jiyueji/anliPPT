@@ -195,6 +195,115 @@
             window.addEventListener('resize', function () {
                 hourlysCsi.resize()
             });
+            var series = [{
+                name: "Today",
+                data: today,
+                type: 'line',
+                smooth: true,
+                symbol: "none", //去掉折线点
+                showSymbolAfterAnimation: {},//动画之后显示小圆点
+                symbolSize: 8, //折线点的大小
+                animationDuration: 2000,
+                // stack: 100,
+                label: {
+                    show: true,
+                    // position: 'top',
+                    position: ['-10', '-20'],
+                    formatter: function (params) {
+                        return Math.round((params.data || 0) / 1) + ""
+                    },
+                    backgroundColor: 'rgba(28,213,224,0.36)',
+                    borderRadius: 5,
+                    padding: 4,
+                    textStyle: {
+                        fontSize: 8,
+                        color: '#ffffff',
+                    }
+                },
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: 'rgba(77,150,241,0.28)'
+                        }, {
+                            offset: 0.8,
+                            color: 'rgba(77,150,241,0.28)'
+                        }], false),
+                        shadowColor: 'rgba(0, 0, 0, 0.1)',
+                        shadowBlur: 10
+                    }
+                },
+                itemStyle: {
+                    normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                        //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
+                        color: '#4d96f1', //背景渐变色
+                        lineStyle: { // 系列级个性化折线样式
+                            width: 1,
+                            type: 'solid',
+                            color: "#4d96f1"//折现颜色
+                        },
+                        borderColor: '#4d96f1',  // 拐点边框颜色
+                    },
+                }, //线条样式
+
+            }, {
+                name: "Yesterday",
+                data: lastDay,
+                type: 'line',
+                smooth: true,
+                symbol: "none", //去掉折线点
+                symbolSize: 5, //折线点的大小
+                stack: 100,
+                animationDuration: 2000,
+                itemStyle: {
+                    normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                        color: 'rgba(94,80,230,0.5)', //背景渐变色
+                        lineStyle: { // 系列级个性化折线样式
+                            width: 0.5,
+                            type: 'solid',
+                            color: "rgba(28,213,224,0.5)"//折现颜色
+                        }
+                    },
+                }, //线条样式
+                areaStyle: {
+                    normal: {}
+                },
+                markLine: {
+
+                    animationDuration: 2000,
+                    lineStyle: {
+                        color: '#f49f44',
+                        width: '2'
+                    },
+                    label: {
+                        show: true,
+                    },
+                },
+            }
+            ];
+
+            setTimeout(() => {
+                series.push({
+                    type: 'effectScatter',
+                    coordinateSystem: 'cartesian2d',
+                    data: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '73506', '', '', '', '', '', '', ''], //2d坐标系
+                    symbolSize: 10,
+                    showEffectOn: 'render',
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    hoverAnimation: true,
+                    itemStyle: {
+                        normal: {
+                            color: '#4d96f1',
+                            shadowBlur: 0,
+                            shadowColor: '#333'
+                        }
+                    },
+                    zlevel: 1
+                });
+                hourlysCsi.setOption({ series });
+            }, 2000)
             hourlysCsi.setOption({
                 animationDuration: 2000,
                 // tooltip: {//鼠标移入
@@ -223,7 +332,7 @@
                     },
                     boundaryGap: false,//X轴刻度位置
                     axisLabel: {
-                        interval: 0,//x轴文字显示不全
+                        // interval: 0,//x轴文字显示不全
                         textStyle: {
                             fontSize: 9,
                             color: '#ffffff'
@@ -261,116 +370,14 @@
                         }
                     }
                 ],
-                series: [{
-                    name: "Today",
-                    data: today,
-                    type: 'line',
-                    smooth: true,
-                    // symbol: "none", //去掉折线点
-                    symbolSize: 8, //折线点的大小
-                    animationDuration: 1000,
-                    // stack: 100,
-                    label: {
-                        show: true,
-                        // position: 'top',
-                        position: ['-10', '-20'],
-                        formatter: function (params) {
-                            return Math.round((params.data || 0) / 1) + ""
-                        },
-                        backgroundColor: 'rgba(28,213,224,0.36)',
-                        borderRadius: 5,
-                        padding: 4,
-                        textStyle: {
-                            fontSize: 8,
-                            color: '#ffffff',
-                        }
-                    },
-                    areaStyle: {
-                        normal: {
-                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                offset: 0,
-                                color: 'rgba(77,150,241,0.28)'
-                            }, {
-                                offset: 0.8,
-                                color: 'rgba(77,150,241,0.28)'
-                            }], false),
-                            shadowColor: 'rgba(0, 0, 0, 0.1)',
-                            shadowBlur: 10
-                        }
-                    },
-                    itemStyle: {
-                        normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                            //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
-                            color: '#4d96f1', //背景渐变色
-                            lineStyle: { // 系列级个性化折线样式
-                                width: 1,
-                                type: 'solid',
-                                color: "#4d96f1"//折现颜色
-                            },
-                            borderColor: '#4d96f1',  // 拐点边框颜色
-                        },
-                    }, //线条样式
-
-                }, {
-                    name: "Last Day",
-                    data: lastDay,
-                    type: 'line',
-                    smooth: true,
-                    symbol: "none", //去掉折线点
-                    symbolSize: 5, //折线点的大小
-                    stack: 100,
-                    animationDuration: 1000,
-                    itemStyle: {
-                        normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                            color: 'rgba(94,80,230,0.5)', //背景渐变色
-                            lineStyle: { // 系列级个性化折线样式
-                                width: 0.5,
-                                type: 'solid',
-                                color: "rgba(28,213,224,0.5)"//折现颜色
-                            }
-                        },
-                    }, //线条样式
-                    areaStyle: {
-                        normal: {}
-                    },
-                    markLine: {
-
-                        animationDuration: 1000,
-                        lineStyle: {
-                            color: '#f49f44',
-                            width: '2'
-                        },
-                        label: {
-                            show: true,
-                        },
-                    },
-                }, {
-                    type: 'effectScatter',
-                    coordinateSystem: 'cartesian2d',
-                    data: ['', '', '', '', '', '','', '', '', '', '', '','', '', '', '','', '73506', '','', '', '', '', '', ''], //2d坐标系
-                    symbolSize: 10,
-                    showEffectOn: 'render',
-                    rippleEffect: {
-                        brushType: 'stroke'
-                    },
-                    hoverAnimation: true,
-                    itemStyle: {
-                        normal: {
-                            color: '#4d96f1',
-                            shadowBlur: 0,
-                            shadowColor: '#333'
-                        }
-                    },
-                    zlevel: 1
-                }
-                ],
+                series: series,
                 //图例名
                 // color: ['#ffa441', '#4d96f1'],
                 legend: {
                     type: "scroll",
                     data: [
                         { name: "Today" },
-                        { name: "Last Day", icon: 'image://../../img/6/6.1icon.png' }
+                        { name: "Yesterday", icon: 'image://../../img/6/6.1icon.png' }
                     ],
                     left: 'center',
                     itemGap: 200,//图例每项之间的间隔。横向布局时为水平间隔，纵向布局时为纵向间隔。

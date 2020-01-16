@@ -157,6 +157,71 @@
             window.addEventListener('resize', function () {
                 salesHomeEchartsCsi.resize()
             });
+            var series = [
+                {
+                    name: "Yesterday",
+                    data: lastDay,
+                    type: 'line',
+                    smooth: true,
+                    symbol: "none", //去掉折线点
+                    symbolSize: 5, //折线点的大小
+                    stack: 100,
+                    animationDuration: 2000,
+                    itemStyle: {
+                        normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                            color: '#5e50e6', //背景渐变色
+                            lineStyle: { // 系列级个性化折线样式
+                                width: 0.5,
+                                type: 'solid',
+                                color: "rgba(28,213,224,0.36)"//折现颜色
+                            }
+                        },
+                    }, //线条样式
+                    areaStyle: {
+                        normal: {}
+                    },
+                },
+                {
+                    name: 'Today',
+                    type: 'bar',
+                    barWidth: '30%',
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#39eccb'
+                            }, {
+                                offset: 1,
+                                color: '#028871'
+                            }]),
+                            barBorderRadius: 12,
+                        },
+                    },
+                    data: today
+                }
+            ];
+            setTimeout(()=>{
+                series.push({
+                    type: 'effectScatter',
+                    coordinateSystem: 'cartesian2d',
+                    data: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '287', '', '', '', '', '', '', ''], //2d坐标系
+                    symbolSize: 10,
+                    showEffectOn: 'render',
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    hoverAnimation: true,
+                    itemStyle: {
+                        normal: {
+                            color: '#028871',
+                            shadowBlur: 0,
+                            shadowColor: '#333'
+                        }
+                    },
+                    zlevel: 1
+                });
+                salesHomeEchartsCsi.setOption({ series });
+            },2000)
             salesHomeEchartsCsi.setOption({
                 animationDuration: 2000,
                 // tooltip: {//鼠标移入
@@ -183,7 +248,7 @@
                     },
                     boundaryGap: false,//X轴刻度位置
                     axisLabel: {
-                        interval: 0,//x轴文字显示不全
+                        // interval: 0,//x轴文字显示不全
                         textStyle: {
                             fontSize: 9,
                             color: '#ffffff'
@@ -217,67 +282,7 @@
                         }
                     }
                 ],
-                series: [
-                    {
-                        name: "Last Day",
-                        data: lastDay,
-                        type: 'line',
-                        smooth: true,
-                        symbol: "none", //去掉折线点
-                        symbolSize: 5, //折线点的大小
-                        stack: 100,
-                        animationDuration: 1000,
-                        itemStyle: {
-                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                                color: '#5e50e6', //背景渐变色
-                                lineStyle: { // 系列级个性化折线样式
-                                    width: 0.5,
-                                    type: 'solid',
-                                    color: "rgba(28,213,224,0.36)"//折现颜色
-                                }
-                            },
-                        }, //线条样式
-                        areaStyle: {
-                            normal: {}
-                        },
-                    },
-                    {
-                        name: 'Today',
-                        type: 'bar',
-                        barWidth: '30%',
-                        itemStyle: {
-                            normal: {
-                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                    offset: 0,
-                                    color: '#39eccb'
-                                }, {
-                                    offset: 1,
-                                    color: '#028871'
-                                }]),
-                                barBorderRadius: 12,
-                            },
-                        },
-                        data: today
-                    }, {
-                    type: 'effectScatter',
-                    coordinateSystem: 'cartesian2d',
-                    data: ['', '', '', '', '', '','', '', '', '', '', '','', '', '', '','', '287', '','', '', '', '', '', ''], //2d坐标系
-                    symbolSize: 10,
-                    showEffectOn: 'render',
-                    rippleEffect: {
-                        brushType: 'stroke'
-                    },
-                    hoverAnimation: true,
-                    itemStyle: {
-                        normal: {
-                            color: '#028871',
-                            shadowBlur: 0,
-                            shadowColor: '#333'
-                        }
-                    },
-                    zlevel: 1
-                }
-                ],
+                series: series,
                 //图例名
                 color: ['#ffa441', '#4d96f1'],
                 legend: {
@@ -285,7 +290,7 @@
                     // icon: "line",
                     data: [
                         { name: "Today", icon: "circle", },
-                        { name: "Last Day", icon: 'image://../../img/6/6.1icon.png' }
+                        { name: "Yesterday", icon: 'image://../../img/6/6.1icon.png' }
                     ],
                     left: 'center',
                     // bottom: 'bottom',
