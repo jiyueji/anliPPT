@@ -6,20 +6,21 @@
 
 .main-conent {
     display: flex;
-    width: 400px;
+    width: 100%;
     height: 60px;
     margin: 29px auto;
+    align-items: center;
 }
 
 .main-conent .left,.main-conent .right{
-    margin-top: -16px;
-    line-height: 0px;
+    width: 50%;
+    text-align: center;
    /* margin-left: -25%;*/
 }
 
 .main-conent .right {
     /*margin: -16px 0 0 55px;*/
-    margin-left: 213px;
+    /* margin-left: 213px; */
 }
 
 .main-conent .left .font-large,.main-conent .right .font-large{
@@ -30,6 +31,7 @@
 .main-conent .left .font-small,.main-conent .right .font-small{
     color: #3995da;
     font-size: 15px;
+    margin-top: -27px;
     font-family: Arial;
 }
 

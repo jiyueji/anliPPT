@@ -70,11 +70,11 @@
         </div>
         <!-- div闪烁 https://blog.csdn.net/qq_43258252/article/details/102958790 -->
         <div class="redball redball-flicker"></div>
-        <div class="remark" style="position: absolute;left: 280px;top: 153px; display:none;">
+        <div class="remark" style="position: absolute;left: 270px;top: 154px; display:none;">
             <div style="color: rgb(253, 243, 243); font-size: small;">YTD Actual: 14.6%</div>
         </div>
         <div class="remarkTarget" style="position: absolute;left: 480px;top: 80px; display:none;">
-            <div style="color: rgb(244,159,68);font-size: small;">Target: 19.5%</div>
+            <div style="color: rgb(244,159,68);font-size: small;font-weight:600;">Target: 19.5%</div>
         </div>
     </div>
 
@@ -322,9 +322,10 @@
                         data: ['14.6','14.7','15.9','14.7','13.3','','','','','','',''],
                         type: 'line',
                         smooth: true,
-                        // symbol: "none", //去掉折线点
+                        symbol: "none", //去掉折线点
                         symbolSize: 3, //折线点的大小
                         animationDuration: 2000,
+                        showSymbolAfterAnimation: {},
                         label: {
                             show: true,
                             // position: 'botton',
@@ -332,7 +333,7 @@
                             formatter: function (params) {
                                 return params.data + "%"
                             },
-                            backgroundColor: '#f3e126',
+                            backgroundColor:'rgba(243,225,38,0.5)',
                             borderRadius: 5,
                             padding: 4,
                             textStyle: {
@@ -359,6 +360,7 @@
                         smooth: true,
                         symbol: "none", //去掉折线点
                         symbolSize: 5, //折线点的大小
+                        // showSymbolAfterAnimation: {},
                         stack: 100,
                         animationDuration: 2000,
                         itemStyle: {

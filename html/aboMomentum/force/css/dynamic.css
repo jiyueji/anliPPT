@@ -262,7 +262,7 @@ html, body {
 }
 
 .card .bar span {
-   /* font-family: 'Oxygen', sans-serif;*/
+    /* font-family: 'Oxygen', sans-serif;*/
     font-family: Arial;
     position: absolute;
     /*-webkit-transform: rotateZ(-90deg);
@@ -313,73 +313,73 @@ html, body {
     }
 }
 .details .card .bar.bar1 {
-    height: 117px;
+    height: 87px;
     -webkit-transition-delay: 2s;
     transition-delay: 2s;
-    margin-top: -117px;
+    margin-top: -87px;
     background: #17b6a9;
 }
 .details .card .bar.bar2 {
-    height: 118px;
+    height: 88px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    margin-top: -118px;
+    margin-top: -88px;
     background: #f6962e;
 }
 .details .card .bar.bar3 {
-    height: 104px;
+    height: 74px;
     -webkit-transition-delay: 2.3s;
     transition-delay: 2.3s;
-    margin-top: -104px;
+    margin-top: -74px;
     background: #17b6a9;
 }
 .details .card .bar.bar4 {
-    height: 75.9px;
+    height: 45.9px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    margin-top: -75.9px;
+    margin-top: -45.9px;
     background: #f6962e;
 }
 .details .card .bar.bar5 {
-    height: 102.1px;
+    height: 72.1px;
     -webkit-transition-delay: 2.5s;
     transition-delay: 2.5s;
-    margin-top: -102.1px;
+    margin-top: -72.1px;
     background: #17b6a9;
 }
 .details .card .bar.bar6 {
-    height: 75.7px;
+    height: 45.7px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    margin-top: -75.7px;
+    margin-top: -45.7px;
     background: #f6962e;
 }
 .details .card .bar.bar7 {
-    height: 106.2px;
+    height: 76.2px;
     -webkit-transition-delay: 2.7s;
     transition-delay: 2.7s;
-    margin-top: -106.2px;
+    margin-top: -76.2px;
     background: #17b6a9;
 }
 .details .card .bar.bar8 {
-    height: 78.9px;
+    height: 48.9px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    margin-top: -78.9px;
+    margin-top: -48.9px;
     background: #f6962e;
 }
 .details .card .bar.bar9 {
-    height: 53px;
+    height: 13px;
     -webkit-transition-delay: 2.9s;
     transition-delay: 2.9s;
-    margin-top: -53px;
+    margin-top: -13px;
     background: #17b6a9;
 }
 .details .card .bar.bar10 {
-    height: 48.5px;
+    height: 18.5px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    margin-top: -48.5px;
+    margin-top: -18.5px;
     background: #f6962e;
 }
 .details .card .bar.bar11 {
@@ -390,45 +390,45 @@ html, body {
     margin: -15px 0 0 18px;
 }
 .details .card .bar.bar12 {
-    height: 49px;
+    height: 19px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    margin: -49px 0 0 35px;
+    margin: -19px 0 0 35px;
     background: #f6962e;
 }
 .details .card .bar.bar13 {
-    height: 61px;
+    height: 31px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    margin: -61px 0 0 33px;
+    margin: -31px 0 0 33px;
     background: #f6962e;
 }
 .details .card .bar.bar14 {
-    height: 58.2px;
+    height: 28.2px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    margin: -58.2px 0 0 33px;
+    margin: -28.2px 0 0 33px;
     background: #f6962e;
 }
 .details .card .bar.bar15 {
-    height: 55.8px;
+    height: 25.8px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    margin: -55.8px 0 0 36px;
+    margin: -25.8px 0 0 36px;
     background: #f6962e;
 }
 .details .card .bar.bar16 {
-    height: 50.7px;
+    height: 20.7px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    margin: -50.7px 0 0 35px;
+    margin: -20.7px 0 0 35px;
     background: #f6962e;
 }
 .details .card .bar.bar17 {
-    height: 49.1px;
+    height: 19.1px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    margin: -49.1px 0 0 33px;
+    margin: -19.1px 0 0 33px;
     background: #f6962e;
 }
 
@@ -457,5 +457,5 @@ html, body {
     left: 56px;
     bottom: 196px;
     transform: scaleY(1.8);
-   /* opacity: 0.5;*/
+    /* opacity: 0.5;*/
 }

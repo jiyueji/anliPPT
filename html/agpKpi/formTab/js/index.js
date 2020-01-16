@@ -101,9 +101,7 @@ function init() {
             $('.js-trigger-reset').css({
                 'display': 'inline-block'
             });
-        }, 2000);
-
-
+        }, 1000);
         var tl = new TimelineMax();
         tl.add("logo")
             .add(logoReveal, "logo");
@@ -125,21 +123,21 @@ function reset() {
     $('#emitter').attr('style', '');
     $('.js-trigger-reset').hide();
 }
-function delay1500(){
-    $('.form-arrow').css({'opacity': '1'});
+function delay2(){
+  $('.form-arrow').css({'opacity': '1'});
 }
-function delay2000(){
+function delay25(){
   $('.is-show').css({'opacity': '1'});
 }
 
 $(document).ready(function() {
     init();
     setTimeout(function () {
-      delay1500();
-    }, 1500);
-    setTimeout(function () {
-        delay2000();
+      delay2();
     }, 2000);
+    setTimeout(function () {
+        delay25();
+    }, 2500);
 
     /* var formContent = document.querySelector('.form-content');
     formContent.addEventListener('mouseover', function(e) {
