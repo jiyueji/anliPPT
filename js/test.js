@@ -127,10 +127,10 @@ var containerDownSmall = new Swiper('.swiper-containerDownSmall', {
   },
   on: {
     click: function(event) {
+      stopCarousel();
       var oldIndex = index;
       if(oldIndex === this.realIndex) return false;
       index = this.realIndex;
-      stopCarousel();
       toggleUpBig(index, oldIndex);
     }
   }

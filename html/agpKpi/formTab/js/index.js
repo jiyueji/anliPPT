@@ -123,21 +123,21 @@ function reset() {
     $('#emitter').attr('style', '');
     $('.js-trigger-reset').hide();
 }
-function delay2(){
+function delay1(){
   $('.form-arrow').css({'opacity': '1'});
 }
-function delay25(){
+function delay15(){
   $('.is-show').css({'opacity': '1'});
 }
 
 $(document).ready(function() {
     init();
     setTimeout(function () {
-      delay2();
-    }, 2000);
+      delay1();
+    }, 500);
     setTimeout(function () {
-        delay25();
-    }, 2500);
+      delay15();
+    }, 1000);
 
     /* var formContent = document.querySelector('.form-content');
     formContent.addEventListener('mouseover', function(e) {
