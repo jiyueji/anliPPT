@@ -101,9 +101,7 @@ function init() {
             $('.js-trigger-reset').css({
                 'display': 'inline-block'
             });
-        }, 1500);
-
-
+        }, 1000);
         var tl = new TimelineMax();
         tl.add("logo")
             .add(logoReveal, "logo");
@@ -125,21 +123,21 @@ function reset() {
     $('#emitter').attr('style', '');
     $('.js-trigger-reset').hide();
 }
-function delay3(){
+function delay2(){
   $('.form-arrow').css({'opacity': '1'});
 }
-function delay4(){
+function delay25(){
   $('.is-show').css({'opacity': '1'});
 }
 
 $(document).ready(function() {
     init();
     setTimeout(function () {
-      delay3();
-    }, 3000);
+      delay2();
+    }, 2000);
     setTimeout(function () {
-        delay4();
-    }, 4000);
+        delay25();
+    }, 2500);
 
     /* var formContent = document.querySelector('.form-content');
     formContent.addEventListener('mouseover', function(e) {
