@@ -78,12 +78,12 @@
             <div class="footer-font">
                 <span  class="span-01">
                     <p class="p-01"></p>
-                    <label>This year</label>
+                    <label>PF20</label>
                 </span>
 
                 <span class="span-02">
                     <p class="p-02"></p>
-                    <label>Last year</label>
+                    <label>PF19</label>
                 </span>
             </div>
         </div>
@@ -256,7 +256,7 @@
         $(".footer-font span label").each(function(index) {
           $(this).click(function(e) {
             switch (e.target.innerText) {
-              case 'Last year':
+              case 'PF19':
                 index ++ ;
                 if(index%2 ===1){
                   $('.bar-001').css({'opacity': 0});
@@ -264,7 +264,7 @@
                   $('.bar-001').css({'opacity': 1});
                 }
                 break;
-              case 'This year':
+              case 'PF20':
                 index1 ++ ;
                 if(index1 % 2 ===1){
                   $('.bar-002').css({'opacity': 0});
