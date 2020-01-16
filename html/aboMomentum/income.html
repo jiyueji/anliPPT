@@ -11,10 +11,10 @@
     <!-- 引入css文件 -->
     <link rel="stylesheet" href="../../css/style.css">
     <style>
-        .newABO{
-            position:absolute;
-            color:#ffffff;
-            font-size:12px;
+        .newABO {
+            position: absolute;
+            color: #ffffff;
+            font-size: 12px;
             top: 238px;
             right: 26px;
         }
@@ -33,6 +33,10 @@
     <script>
         handleEcharts();//折线图
         handleEcharts2();//折线图
+        var middle19 = ['1834', '1105', '685']
+        var middle20 = ['1191', '672', '546']
+        var abo19 = ['13', '16']
+        var abo20 = ['10', '13']
         function handleEcharts() {
             var salesHomeEchartsIncome = echarts.init(document.getElementById('salesHomeEchartsIncome'));
             window.addEventListener('resize', function () {
@@ -41,8 +45,28 @@
             salesHomeEchartsIncome.setOption({
                 // animationDuration: 5000,
                 tooltip: {
-                    axisPointer: { // 坐标轴指示器，坐标轴触发有效
-                        type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                    // trigger: 'axis',
+                    // confine: false,
+                    show: true,
+                    textStyle: {
+                        fontSize: 8
+                    }, //提示标签字体颜色
+                    // axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                    //     type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                    // },
+                    formatter: (data) => {
+                        // console.log(data.componentIndex)
+                        if(data.componentIndex == 0 || data.componentIndex == 2 || data.componentIndex == 3) {
+                            var b = parseInt(middle20[data.dataIndex]).toString();
+                        } else {
+                            var b = parseInt(middle19[data.dataIndex]).toString();
+                        }
+                        var len = b.length;
+                        var number;
+                        if (len <= 3) { number = b; }
+                        var r = len % 3;
+                        r > 0 ? number = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : number = b.slice(r, len).match(/\d{3}/g).join(",");
+                        return '<div style="color:#ffa441">' + 'Median income:$' + number + '</div>'
                     }
                 },
                 grid: {
@@ -120,142 +144,160 @@
                     }
                 },
                 series: [
-                  {
-                    name: 'PF 19 avg income',
-                    type: 'bar',
-                    barWidth: '40',
-                    barGap: 0.3,
-                    itemStyle: {
-                        normal: {
-                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#75b2ff'
-                            }, {
-                                offset: 1,
-                                color: '#0159ee'
-                            }]),
+                    {
+                        name: 'PF 20 avg income',
+                        legendHoverLink: false,
+                        type: 'bar',
+                        barWidth: '40',
+                        itemStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: '#3bedcd',
+
+                                }, {
+                                    offset: 1,
+                                    color: '#028971'
+                                }]),
+                            },
+                            // emphasis:{
+                            //     label:{
+                            //         show:false
+                            //     }
+                            // }
+
                         },
-                    },
-                    label: {
+                        label: {
                             show: true,
                             // position: 'top',
-                            position: ['7', '-20'],
+                            position: ['1', '-20'],
                             formatter: function (params) {
-                                    return Math.round((params.data || 0) / 1) + ""
+                                var b = parseInt(params.data).toString();
+                                var len = b.length;
+                                if (len <= 3) { return '$' + b; }
+                                var r = len % 3;
+                                return r > 0 ? '$' + b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : '$' + b.slice(r, len).match(/\d{3}/g).join(",");
+                                // return Math.round((params.data || 0) / 1) + ""
                             },
                             backgroundColor: 'rgba(38,38,39,0.36)',
                             borderRadius: 5,
                             padding: 4,
                             textStyle: {
-                                fontSize: 8,
+                                fontSize: 10,
                                 color: '#ffffff',
                             }
                         },
-                    data: [1281, 726, 627]
-                },
-                {
-                    name: 'PF 20 avg income',
-                    type: 'bar',
-                    barWidth: '40',
-                    itemStyle: {
-                        normal: {
-                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#3bedcd',
-
-                            }, {
-                                offset: 1,
-                                color: '#028971'
-                            }]),
-                        }
-
+                        data: [1281, 726, 627]
                     },
-                    label: {
+                    {
+                        name: 'PF 19 avg income',
+                        type: 'bar',
+                        barWidth: '40',
+                        barGap: 0.3,
+                        itemStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: '#75b2ff'
+                                }, {
+                                    offset: 1,
+                                    color: '#0159ee'
+                                }]),
+                            },
+                        },
+                        label: {
                             show: true,
                             // position: 'top',
-                            position: ['7', '-20'],
+                            position: ['1', '-20'],
                             formatter: function (params) {
-                                    return Math.round((params.data || 0) / 1) + ""
+                                var b = parseInt(params.data).toString();
+                                var len = b.length;
+                                if (len <= 3) { return '$' + b; }
+                                var r = len % 3;
+                                return r > 0 ? '$' + b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : '$' + b.slice(r, len).match(/\d{3}/g).join(",");
                             },
                             backgroundColor: 'rgba(38,38,39,0.36)',
                             borderRadius: 5,
                             padding: 4,
                             textStyle: {
-                                fontSize: 8,
+                                fontSize: 10,
                                 color: '#ffffff',
                             }
                         },
-                    data: [1966, 1159, 741]
-                },
-                // 上边第一个柱子
-                {
-                    name: 'Median income',
-                    type: 'bar',
-                    stack: 'breakevenEleGroup',
-                    barWidth: '40',
-                    animationDuration: 2000,
-                    xAxisIndex: 1,
-                    itemStyle: {
-                        normal: {
-                            color: 'rgba(0,0,0,0)',
-                        }
+                        data: [1966, 1159, 741]
+                    },
+                    // 上边第二个图
+                    {
+                        name: 'Median income',
+                        zlevel: 9,
+                        type: 'bar',
+                        stack: 'aaa',
+                        barWidth: '40',
+                        xAxisIndex: 1,
+                        itemStyle: {
+                            normal: {
+                                color: 'rgba(0,0,0,0)',
+                            }
 
+                        },
+                        data: [1191, 672, 546]
                     },
-                    
-                    data: [1191, 672, 546]
-                },
-                {
-                    /*这个bar是横线的显示*/
-                    name: "Median income",
-                    stack: 'breakevenEleGroup',/*盈亏点数据组，需要设置才能将两个bar堆积在一起*/
-                    type: 'bar',
-                    xAxisIndex: 1,
-                    animationDuration: 2000,
-                    // barGap: 0.3,
-                    itemStyle: {
-                        normal: {
-                            color: '#ffa441',
-                            barBorderColor: '#ffa441',
-                            barBorderWidth:2,
-                            barBorderRadius:10,
-                            borderType:"dotted"
-                        }
-                    },
-                    data: [20, 20, 20],
-                },
-                // 上边第二个图
-                {
-                    name: 'Median income',
-                    type: 'bar',
-                    stack: 'aaa',
-                    barWidth: '40',
-                    xAxisIndex: 1,
-                    itemStyle: {
-                        normal: {
-                            color: 'rgba(0,0,0,0)',
-                        }
+                    {
+                        /*这个bar是横线的显示*/
+                        name: "Median income",
+                        zlevel: 9,
+                        stack: 'aaa',/*盈亏点数据组，需要设置才能将两个bar堆积在一起*/
+                        type: 'bar',
+                        xAxisIndex: 1,
+                        barGap: "0.3",
+                        itemStyle: {
+                            normal: {
+                                color: '#ffa441',
+                                barBorderColor: '#ffa441',
+                                barBorderWidth: 2,
+                                barBorderRadius: 10,
+                                borderType: "dotted"
+                            }
+                        },
+                        data: [20, 20, 20],
+                    },               // 上边第一个柱子
+                    {
+                        name: 'Median income',
+                        type: 'bar',
+                        zlevel: 9,
+                        stack: 'breakevenEleGroup',
+                        barWidth: '40',
+                        animationDuration: 2000,
+                        xAxisIndex: 1,
+                        itemStyle: {
+                            normal: {
+                                color: 'rgba(0,0,0,0)',
+                            }
 
+                        },
+
+                        data: [1834, 1105, 685]
                     },
-                    data: [1834, 1105, 685]
-                },
-                {
-                    /*这个bar是横线的显示*/
-                    name: "Median income",
-                    stack: 'aaa',/*盈亏点数据组，需要设置才能将两个bar堆积在一起*/
-                    type: 'bar',
-                    xAxisIndex: 1,
-                    barGap: "0.3",
-                    itemStyle: {
-                        normal: {
-                            color: '#ffa441',
-                            barBorderColor: '#ffa441',
-                            barBorderWidth:2,
-                            barBorderRadius:10,
-                            borderType:"dotted"
-                        }
-                    },
-                    data: [20, 20, 20],
-                }]
+                    {
+                        /*这个bar是横线的显示*/
+                        name: "Median income",
+                        stack: 'breakevenEleGroup',/*盈亏点数据组，需要设置才能将两个bar堆积在一起*/
+                        type: 'bar',
+                        zlevel: 9,
+                        xAxisIndex: 1,
+                        animationDuration: 2000,
+                        // barGap: 0.3,
+                        itemStyle: {
+                            normal: {
+                                color: '#ffa441',
+                                barBorderColor: '#ffa441',
+                                barBorderWidth: 2,
+                                barBorderRadius: 10,
+                                borderType: "dotted"
+                            }
+                        },
+                        data: [20, 20, 20],
+                    }]
             })
         }
         function handleEcharts2() {
@@ -266,8 +308,17 @@
             salesHomeEchartsIncome2.setOption({
                 // animationDuration: 5000,
                 tooltip: {
-                    axisPointer: { // 坐标轴指示器，坐标轴触发有效
-                        type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                    // axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                    //     type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                    // }
+                    formatter: (data) => {
+                        // console.log(data.componentIndex)
+                        if(data.componentIndex == 0 || data.componentIndex == 2 || data.componentIndex == 3) {
+                            var number = parseInt(abo20[data.dataIndex]).toString();
+                        } else {
+                            var number = parseInt(abo19[data.dataIndex]).toString();
+                        }
+                        return '<div style="color:#ffa441">' + 'Median income:$' + number + '</div>'
                     }
                 },
                 grid: {
@@ -279,9 +330,10 @@
                 },
                 legend: {
                     orient: 'vertical',
-                    data: [{name:'PF 19 avg income',icon:"rect"},
-                    {name:'PF 20 avg income',icon:"rect"},
-                    {name:'Median income',icon:'image://../../img/3/line.png'}],
+                    data: [
+                        { name: 'PF 20 avg income', icon: "rect" },
+                        { name: 'PF 19 avg income', icon: "rect" },
+                        { name: 'Median income', icon: 'image://../../img/3/line.png' }],
                     right: 55,
                     top: 50,
                     textStyle: {
@@ -359,139 +411,144 @@
                         show: false
                     }
                 },
-                series: [{
-                    name: 'PF 19 avg income',
-                    type: 'bar',
-                    barWidth: '40',
-                    barGap: 0.3,
-                    itemStyle: {
-                        normal: {
-                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#75b2ff'
-                            }, {
-                                offset: 1,
-                                color: '#0159ee'
-                            }]),
+                series: [
+                    {
+                        name: 'PF 20 avg income',
+                        type: 'bar',
+                        barWidth: '40',
+                        itemStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: '#3bedcd'
+                                }, {
+                                    offset: 1,
+                                    color: '#028971'
+                                }]),
+                            }
+
                         },
-                    },
-                    label: {
+                        label: {
                             show: true,
                             // position: 'top',
                             position: ['7', '-20'],
                             formatter: function (params) {
-                                    return Math.round((params.data || 0) / 1) + "%"
+                                return '$' + params.data
                             },
                             backgroundColor: 'rgba(38,38,39,0.36)',
                             borderRadius: 5,
                             padding: 4,
                             textStyle: {
-                                fontSize: 8,
+                                fontSize: 10,
                                 color: '#ffffff',
                             }
                         },
-                    data: [29,57]
-                },
-                {
-                    name: 'PF 20 avg income',
-                    type: 'bar',
-                    barWidth: '40',
-                    itemStyle: {
-                        normal: {
-                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#3bedcd'
-                            }, {
-                                offset: 1,
-                                color: '#028971'
-                            }]),
-                        }
-
+                        data: [29, 57]
                     },
-                    label: {
+                    {
+                        name: 'PF 19 avg income',
+                        type: 'bar',
+                        barWidth: '40',
+                        barGap: 0.3,
+                        itemStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: '#75b2ff'
+                                }, {
+                                    offset: 1,
+                                    color: '#0159ee'
+                                }]),
+                            },
+                        },
+                        label: {
                             show: true,
                             // position: 'top',
                             position: ['7', '-20'],
                             formatter: function (params) {
-                                    return Math.round((params.data || 0) / 1) + "%"
+                                return '$' + params.data
                             },
                             backgroundColor: 'rgba(38,38,39,0.36)',
                             borderRadius: 5,
                             padding: 4,
                             textStyle: {
-                                fontSize: 8,
+                                fontSize: 10,
                                 color: '#ffffff',
                             }
                         },
-                    data: [51, 82]
-                },
-                // 上边第一个柱子
-                {
-                    name: 'Median income',
-                    type: 'bar',
-                    stack: 'breakevenEleGroup',
-                    barWidth: '40',
-                    barGap: 0.3,
-                    xAxisIndex: 1,
-                    itemStyle: {
-                        normal: {
-                            color: 'rgba(0,0,0,0)',
-                        }
+                        data: [51, 82]
+                    },
+                    // 下边第二个柱子
+                    {
+                        name: 'Median income',
+                        type: 'bar',
+                        zlevel: 9,
+                        stack: 'aaa',
+                        barWidth: '40',
+                        xAxisIndex: 1,
+                        itemStyle: {
+                            normal: {
+                                color: 'rgba(0,0,0,0)',
+                            }
 
+                        },
+                        data: [10, 13]
                     },
-                    data: [10, 13]
-                },
-                {
-                    /*这个bar是横线的显示*/
-                    name: "Median income",
-                    stack: 'breakevenEleGroup',/*盈亏点数据组，需要设置才能将两个bar堆积在一起*/
-                    type: 'bar',
-                    xAxisIndex: 1,
-                    // barGap: 0.4,
-                    itemStyle: {
-                        normal: {
-                            color: '#ffa441',
-                            barBorderColor: '#ffa441',
-                            barBorderWidth:2,
-                            barBorderRadius:10,
-                            borderType:"dotted"
-                        }
+                    {
+                        /*这个bar是横线的显示*/
+                        name: "Median income",
+                        stack: 'aaa',/*盈亏点数据组，需要设置才能将两个bar堆积在一起*/
+                        type: 'bar',
+                        zlevel: 9,
+                        xAxisIndex: 1,
+                        // barGap: "0",
+                        itemStyle: {
+                            normal: {
+                                color: '#ffa441',
+                                barBorderColor: '#ffa441',
+                                barBorderWidth: 2,
+                                barBorderRadius: 10,
+                                borderType: "dotted"
+                            }
+                        },
+                        data: [1, 1],
                     },
-                    data: [1, 1],
-                },
-                // 下边第二个柱子
-                {
-                    name: 'Median income',
-                    type: 'bar',
-                    stack: 'aaa',
-                    barWidth: '40',
-                    xAxisIndex: 1,
-                    itemStyle: {
-                        normal: {
-                            color: 'rgba(0,0,0,0)',
-                        }
+                    // 上边第一个柱子
+                    {
+                        name: 'Median income',
+                        type: 'bar',
+                        zlevel: 9,
+                        stack: 'breakevenEleGroup',
+                        barWidth: '40',
+                        barGap: 0.3,
+                        xAxisIndex: 1,
+                        itemStyle: {
+                            normal: {
+                                color: 'rgba(0,0,0,0)',
+                            }
 
+                        },
+                        data: [13, 16]
                     },
-                    data: [13, 16]
-                },
-                {
-                    /*这个bar是横线的显示*/
-                    name: "Median income",
-                    stack: 'aaa',/*盈亏点数据组，需要设置才能将两个bar堆积在一起*/
-                    type: 'bar',
-                    xAxisIndex: 1,
-                    // barGap: "0",
-                    itemStyle: {
-                        normal: {
-                            color: '#ffa441',
-                            barBorderColor: '#ffa441',
-                            barBorderWidth:2,
-                            barBorderRadius:10,
-                            borderType:"dotted"
-                        }
-                    },
-                    data: [1, 1],
-                }]
+                    {
+                        /*这个bar是横线的显示*/
+                        name: "Median income",
+                        stack: 'breakevenEleGroup',/*盈亏点数据组，需要设置才能将两个bar堆积在一起*/
+                        type: 'bar',
+                        zlevel: 9,
+                        xAxisIndex: 1,
+                        // barGap: 0.4,
+                        itemStyle: {
+                            normal: {
+                                color: '#ffa441',
+                                barBorderColor: '#ffa441',
+                                barBorderWidth: 2,
+                                barBorderRadius: 10,
+                                borderType: "dotted"
+                            }
+                        },
+                        data: [1, 1],
+                    },]
             })
         }
     </script>

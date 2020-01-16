@@ -159,7 +159,7 @@
                 n = (n + step) >= total ? total : (n + step);
                 if (n <= total) {
                     // console.log(n)
-                    document.getElementById(idname).innerHTML = "<span style='font-size:46px;letter-spacing:15px;'>" + "＄" + "</span>" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:22px;letter-spacing: 0;'>" + "mil" + "</span>";
+                    document.getElementById(idname).innerHTML = "<span style='font-size:46px;letter-spacing:11px;'>" + "＄" + "</span>" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:22px;letter-spacing: -1px;'>" + "mil" + "</span>";
                 }
             }
         }
@@ -178,13 +178,15 @@
             window.addEventListener('resize', function () {
                 salesHomepie.resize()
             });
+           
             salesHomepie.setOption({
                 animationDuration: 2000,
                 title: [{
                     text: '93%',
                     subtext: 'on target',
                     itemGap: 1,
-                    x: '21.5%',
+                    // x: '21.5%',
+                    x:"25%",
                     top: '38%',
                     textStyle: {
                         color: '#fff',
@@ -198,7 +200,8 @@
                     text: '92%',
                     subtext: 'on SPLY',
                     itemGap: 1,
-                    x: '71.5%',
+                    // x: '71.5%',
+                    x: '68%',
                     top: '38%',
                     textStyle: {
                         color: '#fff',
@@ -219,7 +222,7 @@
                                 show: false
                             }
                         },
-                        center: ["26%", "57%"],
+                        center: ["29.5%", "57%"],
                         itemStyle: {
                             normal: {
                                 color: "#1cd5e0",
@@ -252,7 +255,7 @@
                                 show: false
                             }
                         },
-                        center: ["76%", "57%"],
+                        center: ["72%", "57%"],
                         data: [
                             { value: 92 },
                             { value: 8 }
@@ -267,6 +270,131 @@
             window.addEventListener('resize', function () {
                 salesHomeEcharts.resize()
             });
+            let series = [{
+                name: 'Sales forecast',
+                type: 'line',
+                symbolSize: 5,   //拐点圆的大小
+                // color:['#fd0022'],  //折线条的颜色
+                data: forecastYear,
+                symbol: "none", //去掉折线点
+                showSymbolAfterAnimation: {},//动画之后显示小圆点
+                animationDuration: 2000,
+                smooth: false,   //关键点，为true是不支持虚线的，实线就用true
+                itemStyle: {
+                    normal: {
+                        lineStyle: {
+                            width: 3,
+                            type: 'dotted',  //'dotted'虚线 'solid'实线
+                            color: "#ff9c46"
+                        },
+                    }
+                },
+                label: {
+                    show: true,
+                    // position: 'top',
+                    position: ['0', '-20'],
+                    formatter: function (params) {
+                        return Math.round((params.data || 0) / 1000000) + "m"
+                    },
+                    backgroundColor: '#ff9c3a',
+                    borderRadius: 5,
+                    padding: 4,
+                    textStyle: {
+                        fontSize: 8,
+                        color: '#ffffff',
+                    }
+                },
+            }, {
+                name: "PF20",
+                data: thisYear,
+                type: 'line',
+                smooth: true,
+                symbol: "none", //去掉折线点
+                symbolSize: 5, //折线点的大小
+                showSymbolAfterAnimation: {},//动画之后显示小圆点
+                label: {
+                    show: true,
+                    // position: 'top',
+                    position: ['0', '-20'],
+                    formatter: function (params) {
+                        return Math.round((params.data || 0) / 1000000) + "m"
+                    },
+                    backgroundColor: '#5198ee',
+                    borderRadius: 5,
+                    padding: 4,
+                    textStyle: {
+                        fontSize: 8,
+                        color: '#ffffff',
+                    }
+                },
+                // stack: 100,
+                itemStyle: {
+                    normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                        //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
+                        lineStyle: { // 系列级个性化折线样式
+                            width: 3,
+                            type: 'solid',
+                            color: "#4d96f1"//折现颜色
+                        },
+                        borderColor: '#ffffff',  // 拐点边框颜色
+                    },
+                    // emphasis: {
+                    //     color: '#fd0022',
+                    //     lineStyle: { // 系列级个性化折线样式
+                    //         width: 0.5,
+                    //         type: 'dotted',
+                    //         color: "#fd0022" //折线的颜色
+                    //     }
+                    // }
+                }, //线条样式
+            },
+            {
+                name: "PF19",
+                data: lastYear,
+                type: 'line',
+                smooth: true,
+                symbol: "none", //去掉折线点
+                symbolSize: 5, //折线点的大小
+                // showSymbolAfterAnimation: {},//动画之后显示小圆点
+                stack: 100,
+                itemStyle: {
+                    normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
+                        color: 'rgba(94,80,230,0.28)', //背景渐变色
+                        lineStyle: { // 系列级个性化折线样式
+                            width: 0.5,
+                            type: 'solid',
+                            color: "rgba(94,80,230,0.28)"//折现颜色
+                        }
+                    },
+                }, //线条样式
+                areaStyle: {
+                    normal: {}
+                },
+            }];
+            
+            setTimeout(()=>{
+                series.push({
+                    type: 'effectScatter',
+                    coordinateSystem: 'cartesian2d',
+                    // animationDuration: 4000,
+                    data: ['','','','','',{ value:'167339280.998621', symbolSize: 10, },'168439280.998621','164039280.998621','161739280.998621','155939280.998621','160339280.998621','153939280.998621'], //2d坐标系
+                    symbolSize: 10,
+                    showEffectOn: 'render',
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    hoverAnimation: true,
+                    itemStyle: {
+                        normal: {
+                            color: '#ff9c3a',
+                            shadowBlur: 0,
+                            shadowColor: '#333'
+                        }
+                    },
+                    zlevel: 1
+                });
+                salesHomeEcharts.setOption({ series });
+            },2000)
             salesHomeEcharts.setOption({
                 title: [
                     {
@@ -376,131 +504,14 @@
                     }
                 ],
                 animationDuration: 2000,
-                series: [
-                    {
-                        name: 'Sales forecast',
-                        type: 'line',
-                        symbolSize: 5,   //拐点圆的大小
-                        // color:['#fd0022'],  //折线条的颜色
-                        data: forecastYear,
-                        // symbol: "none", //去掉折线点
-                        animationDuration: 2000,
-                        smooth: false,   //关键点，为true是不支持虚线的，实线就用true
-                        itemStyle: {
-                            normal: {
-                                lineStyle: {
-                                    width: 3,
-                                    type: 'dotted',  //'dotted'虚线 'solid'实线
-                                    color: "#ff9c46"
-                                },
-                            }
-                        },
-                        label: {
-                            show: true,
-                            // position: 'top',
-                            position: ['0', '-20'],
-                            formatter: function (params) {
-                                return Math.round((params.data || 0) / 1000000) + "m"
-                            },
-                            backgroundColor: '#ff9c3a',
-                            borderRadius: 5,
-                            padding: 4,
-                            textStyle: {
-                                fontSize: 8,
-                                color: '#ffffff',
-                            }
-                        },
-                    }, {
-                        name: "Monthly Sales This Year",
-                        data: thisYear,
-                        type: 'line',
-                        smooth: true,
-                        // symbol: "none", //去掉折线点
-                        symbolSize: 5, //折线点的大小
-                        label: {
-                            show: true,
-                            // position: 'top',
-                            position: ['0', '-20'],
-                            formatter: function (params) {
-                                return Math.round((params.data || 0) / 1000000) + "m"
-                            },
-                            backgroundColor: '#5198ee',
-                            borderRadius: 5,
-                            padding: 4,
-                            textStyle: {
-                                fontSize: 8,
-                                color: '#ffffff',
-                            }
-                        },
-                        // stack: 100,
-                        itemStyle: {
-                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                                //     // color: 'rgba(253,0,34,0.1)', //背景渐变色
-                                lineStyle: { // 系列级个性化折线样式
-                                    width: 3,
-                                    type: 'solid',
-                                    color: "#4d96f1"//折现颜色
-                                },
-                                borderColor: '#ffffff',  // 拐点边框颜色
-                            },
-                            // emphasis: {
-                            //     color: '#fd0022',
-                            //     lineStyle: { // 系列级个性化折线样式
-                            //         width: 0.5,
-                            //         type: 'dotted',
-                            //         color: "#fd0022" //折线的颜色
-                            //     }
-                            // }
-                        }, //线条样式
-                    },
-                    {
-                        name: "Monthly Sales Last Year",
-                        data: lastYear,
-                        type: 'line',
-                        smooth: true,
-                        symbol: "none", //去掉折线点
-                        symbolSize: 5, //折线点的大小
-                        stack: 100,
-                        itemStyle: {
-                            normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                                color: 'rgba(94,80,230,0.28)', //背景渐变色
-                                lineStyle: { // 系列级个性化折线样式
-                                    width: 0.5,
-                                    type: 'solid',
-                                    color: "rgba(94,80,230,0.28)"//折现颜色
-                                }
-                            },
-                        }, //线条样式
-                        areaStyle: {
-                            normal: {}
-                        },
-                    }, {
-                        type: 'effectScatter',
-                        coordinateSystem: 'cartesian2d',
-                        data: ['','','','','',{ value:'167339280.998621', symbolSize: 10, },'168439280.998621','164039280.998621','161739280.998621','155939280.998621','160339280.998621','153939280.998621'], //2d坐标系
-                        symbolSize: 10,
-                        showEffectOn: 'render',
-                        rippleEffect: {
-                            brushType: 'stroke'
-                        },
-                        hoverAnimation: true,
-                        itemStyle: {
-                            normal: {
-                                color: '#ff9c3a',
-                                shadowBlur: 0,
-                                shadowColor: '#333'
-                            }
-                        },
-                        zlevel: 1
-                    }
-                ],
+                series: series,
                 //图例名
                 legend: {
                     type: "scroll",
                     // icon: "line",
                     data: [
-                        { name: "Monthly Sales Last Year", icon: "image://../../img/tuli/line2.jpg" },
-                        { name: "Monthly Sales This Year", icon: 'image://../../img/tuli/yy.png' },
+                        { name: "PF20", icon: "image://../../img/tuli/line2.jpg" },
+                        { name: "PF19", icon: 'image://../../img/tuli/yy.png' },
                         { name: "Sales forecast", icon: 'image://../../img/tuli/line.png' }
                     ],
                     left: 'center',

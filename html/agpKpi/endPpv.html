@@ -36,8 +36,8 @@
             content: '';
             animation: warn 1.5s ease-out 0s infinite;
             position: absolute;
-            bottom: 200px;
-            left: 310px;
+            bottom: 244px;
+            left: 250px;
             width: 10px;
             height: 10px;
             border-radius: 50%;
@@ -70,6 +70,9 @@
         </div>
         <!-- div闪烁 https://blog.csdn.net/qq_43258252/article/details/102958790 -->
         <div class="redball redball-flicker"></div>
+        <div class="remark" style="position: absolute;left: 280px;top: 153px; display:none;">
+            <div style="color: rgb(253, 243, 243); font-size: small;">YTD Actual: 14.6%</div>
+        </div>
     </div>
 
     <script>
@@ -79,7 +82,13 @@
         // console.log(redball[0])
         setTimeout(() => {
             redball[0].style.display = "block"
-        }, 6000);
+        }, 2000);
+         // 延迟加载
+         var remark = document.getElementsByClassName("remark")
+        // console.log(redball[0])
+        setTimeout(() => {
+            remark[0].style.display = "block"
+        }, 2000);
 
 
         var monthShow = ['Sep', 'Oct', 'Nov', 'Dec','Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', ];
@@ -175,13 +184,11 @@
             return function () {
                 n = (n + step) >= total ? total : (n + step);
                 if (n <= total) {
-                    console.log(n)
+                    // console.log(n);
                     document.getElementById(idname).innerHTML = "＄" + n.toString().replace(/(\d)(?=(?:\d{3}[+]?)+$)/g, '$1,') + "<span style='font-size:46px'>" + "m" + "</span>";
                 }
             }
         }
-
-
 
         function handleEcharts() {
             var salesHomeEchartsEndppv = echarts.init(document.getElementById('salesHomeEchartsEndppv'));
@@ -311,10 +318,10 @@
                         animationDuration: 2000,
                         label: {
                             show: true,
-                            // position: 'top',
-                            position: ['-10', '-20'],
+                            // position: 'botton',
+                            position: ['-10', '10'],
                             formatter: function (params) {
-                                return Math.round((params.data || 0) / 1) + "%"
+                                return params.data + "%"
                             },
                             backgroundColor: '#f3e126',
                             borderRadius: 5,
