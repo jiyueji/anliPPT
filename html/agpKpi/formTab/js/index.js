@@ -101,7 +101,7 @@ function init() {
             $('.js-trigger-reset').css({
                 'display': 'inline-block'
             });
-        }, 2000);
+        }, 1500);
 
 
         var tl = new TimelineMax();
@@ -125,21 +125,21 @@ function reset() {
     $('#emitter').attr('style', '');
     $('.js-trigger-reset').hide();
 }
-function delay1500(){
-    $('.form-arrow').css({'opacity': '1'});
+function delay3(){
+  $('.form-arrow').css({'opacity': '1'});
 }
-function delay2000(){
+function delay4(){
   $('.is-show').css({'opacity': '1'});
 }
 
 $(document).ready(function() {
     init();
     setTimeout(function () {
-      delay1500();
-    }, 1500);
+      delay3();
+    }, 3000);
     setTimeout(function () {
-        delay2000();
-    }, 2000);
+        delay4();
+    }, 4000);
 
     /* var formContent = document.querySelector('.form-content');
     formContent.addEventListener('mouseover', function(e) {
