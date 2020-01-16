@@ -436,6 +436,7 @@ html, body {
     opacity: 1;
     -webkit-transition-delay: 0.3s;
     transition-delay: 0.3s;
+    transform: scale(0.8);
 }
 .details .card .bar:before {
     color: black;

@@ -134,10 +134,10 @@ $(document).ready(function() {
     init();
     setTimeout(function () {
       delay1();
-    }, 1000);
+    }, 500);
     setTimeout(function () {
       delay15();
-    }, 1500);
+    }, 1000);
 
     /* var formContent = document.querySelector('.form-content');
     formContent.addEventListener('mouseover', function(e) {
