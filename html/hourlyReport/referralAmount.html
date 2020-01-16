@@ -169,19 +169,18 @@
                     animationDuration: 2000,
                     itemStyle: {
                         normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                            color: '#5e50e6', //背景渐变色
+                            color: 'rgba(94,80,230,0.36)', //背景渐变色
                             lineStyle: { // 系列级个性化折线样式
                                 width: 0.5,
                                 type: 'solid',
-                                color: "rgba(28,213,224,0.36)"//折现颜色
+                                color: "rgba(94,80,230,0.36)"//折现颜色
                             }
                         },
                     }, //线条样式
                     areaStyle: {
                         normal: {}
                     },
-                },
-                {
+                }, {
                     name: 'Today',
                     type: 'bar',
                     barWidth: '30%',
@@ -197,10 +196,29 @@
                             barBorderRadius: 12,
                         },
                     },
+                    label: {
+                        show: true,
+                        // position: 'top',
+                        position: ['-10', '-22'],
+                        formatter: function (params) {
+                            if (params.data) {
+                                return params.data;
+                            } else {
+                                return ''
+                            }
+                        },
+                        backgroundColor: 'rgba(57,236,203,0.36)',
+                        borderRadius: 5,
+                        padding: 4,
+                        textStyle: {
+                            fontSize: 8,
+                            color: '#ffffff',
+                        }
+                    },
                     data: today
                 }
             ];
-            setTimeout(()=>{
+            setTimeout(() => {
                 series.push({
                     type: 'effectScatter',
                     coordinateSystem: 'cartesian2d',
@@ -221,15 +239,38 @@
                     zlevel: 1
                 });
                 salesHomeEchartsCsi.setOption({ series });
-            },2000)
+            }, 2000)
             salesHomeEchartsCsi.setOption({
                 animationDuration: 2000,
-                // tooltip: {//鼠标移入
-                //     trigger: 'axis',
-                //     confine: true,
-                //     formatter: (data) => {
-                //     }
-                // },
+                tooltip: {//鼠标移入
+                    trigger: 'axis',
+                    confine: true,
+                    formatter: (val) => {
+                        var todayDate = 0, yesterday = 0;
+                        var xDate = 0, paramsDate;
+                        val.map((item, index) => {
+                            if (item.data) {
+                                var b = parseInt(item.data).toString();
+                                var len = b.length;
+                                if (len <= 3) {
+                                    paramsDate = b;
+                                } else {
+                                    var r = len % 3;
+                                    r > 0 ? paramsDate = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : paramsDate = b.slice(r, len).match(/\d{3}/g).join(",");
+                                }
+                            } else {
+                                paramsDate = ""
+                            }
+                            if (item.componentIndex == 1) {
+                                todayDate = "<div style='color:#39eccb;font-size:12px;'>" + "Today:" + paramsDate + "</div>";
+                                xDate = (item.axisValue.split(':')[0]) - 1 + ':00 - ' + item.axisValue
+                            } else if (item.componentIndex == 0) {
+                                yesterday = "<div style='color:rgba(94,80,230);font-size:12px;'>" + "Yesterday:" + paramsDate + "</div>";
+                            }
+                        })
+                        return "<div style='border-bottom:1px solid #ffffff;font-size:12px;'>" + xDate + "</div>" + todayDate + yesterday
+                    }
+                },
                 grid: {
                     top: '6%',
                     left: '4%',
