@@ -34,7 +34,7 @@
             animation: warn 1.5s ease-out 0s infinite;
             position: absolute;
             bottom: 200px;
-            left: 200px;
+            left: 250px;
             width: 10px;
             height: 10px;
             border-radius: 50%;
@@ -66,11 +66,11 @@
         </div>
         <!-- div闪烁 https://blog.csdn.net/qq_43258252/article/details/102958790 -->
         <div class="redball redball-flicker"></div>
-        <div class="remark" style="position: absolute;left: 220px;top: 195px; display:none;">
+        <div class="remark" style="position: absolute;left: 267px;top: 198px; display:none;">
             <div style="color: rgb(253, 243, 243);font-size: small;">YTD Actual: 10.8%</div>
         </div>
         <div class="remarkTarget" style="position: absolute;left: 470px;top: 110px; display:none;">
-            <div style="color: rgb(244,159,68);font-size: small;">Target: 17.0%</div>
+            <div style="color: rgb(244,159,68);font-size: small;font-weight:600;">Target: 17.0%</div>
         </div>
     </div>
 
@@ -95,7 +95,7 @@
             remarkTarget[0].style.display = "block"
         },1000);
 
-        var monthShow = ['Sep', 'Oct', 'Nov', 'Dec','Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var monthShow = ['Sep', 'Oct', 'Nov', 'Dec','Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'];
         var yShow = ['5%', '10%', '15%', '20%', '25%'];
         var allData = {
             // 预测假数据
