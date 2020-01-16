@@ -26,11 +26,11 @@
 .main-conent .left .font-large,.main-conent .right .font-large{
     color: #ffffff;
     font-size: 33px;
-    font-family: Impact;
+    font-family: Silom;
 }
 .main-conent .left .font-small,.main-conent .right .font-small{
     color: #3995da;
-    font-size: 15px;
+    font-size: 12px;
     margin-top: -27px;
     font-family: Arial;
 }

@@ -121,52 +121,52 @@ html, body {
     background: #008c81;
 }
 .card .bar.bar2:after{
-    background: #e57c0b;
+    background: rgba(40,107,190,0.6);
 }
 .card .bar.bar3:after{
     background: #008c81;
 }
 .card .bar.bar4:after{
-    background: #e57c0b;
+    background: rgba(40,107,190,0.6);
 }
 .card .bar.bar5:after{
     background: #008c81;
 }
 .card .bar.bar6:after{
-    background: #e57c0b;
+    background: rgba(40,107,190,0.6);
 }
 .card .bar.bar7:after{
     background: #008c81;
 }
 .card .bar.bar8:after{
-    background: #e57c0b;
+    background: rgba(40,107,190,0.6);
 }
 .card .bar.bar9:after{
     background: #008c81;
 }
 .card .bar.bar10:after{
-    background: #e57c0b;
+    background: rgba(40,107,190,0.6);
 }
 .card .bar.bar11:after{
-    background: #e57c0b;
+    background: rgba(40,107,190,0.6);
 }
 .card .bar.bar12:after{
-    background: #e57c0b;
+    background: rgba(40,107,190,0.6);
 }
 .card .bar.bar13:after{
-    background: #e57c0b;
+    background: rgba(40,107,190,0.6);
 }
 .card .bar.bar14:after{
-    background: #e57c0b;
+    background: rgba(40,107,190,0.6);
 }
 .card .bar.bar15:after{
-    background: #e57c0b;
+    background: rgba(40,107,190,0.6);
 }
 .card .bar.bar16:after{
-    background: #e57c0b;
+    background: rgba(40,107,190,0.6);
 }
 .card .bar.bar17:after{
-    background: #e57c0b;
+    background: rgba(40,107,190,0.6);
 }
 
 
@@ -198,7 +198,7 @@ html, body {
 }
 .card .bar.bar2:before {
     content: "";
-    background: #fda444;
+    background: rgba(87,172,252,0.6);
 }
 .card .bar.bar3:before {
     content: "";
@@ -206,7 +206,7 @@ html, body {
 }
 .card .bar.bar4:before {
     content: "";
-    background: #fda444;
+    background: rgba(87,172,252,0.6);
 }
 .card .bar.bar5:before {
     content: "";
@@ -214,7 +214,7 @@ html, body {
 }
 .card .bar.bar6:before {
     content: "";
-    background: #fda444;
+    background: rgba(87,172,252,0.6);
 }
 .card .bar.bar7:before {
     content: "";
@@ -222,7 +222,7 @@ html, body {
 }
 .card .bar.bar8:before {
     content: "";
-    background: #fda444;
+    background: rgba(87,172,252,0.6);
 }
 .card .bar.bar9:before {
     content: "";
@@ -230,40 +230,40 @@ html, body {
 }
 .card .bar.bar10:before {
     content: "";
-    background: #fda444;
+    background: rgba(87,172,252,0.6);
 }
 .card .bar.bar11:before {
     content: "";
-    background: #fda444;
+    background: rgba(87,172,252,0.6);
 }
 .card .bar.bar12:before {
     content: "";
-    background: #fda444;
+    background: rgba(87,172,252,0.6);
 }
 .card .bar.bar13:before {
     content: "";
-    background: #fda444;
+    background: rgba(87,172,252,0.6);
 }
 .card .bar.bar14:before {
     content: "";
-    background: #fda444;
+    background: rgba(87,172,252,0.6);
 }
 .card .bar.bar15:before {
     content: "";
-    background: #fda444;
+    background: rgba(87,172,252,0.6);
 }
 .card .bar.bar16:before {
     content: "";
-    background: #fda444;
+    background: rgba(87,172,252,0.6);
 }
 .card .bar.bar17:before {
     content: "";
-    background: #fda444;
+    background: rgba(87,172,252,0.6);
 }
 
 .card .bar span {
     /* font-family: 'Oxygen', sans-serif;*/
-    font-family: Arial;
+    /* font-family: Arial; */
     position: absolute;
     /*-webkit-transform: rotateZ(-90deg);
     transform: rotateZ(-90deg);*/
@@ -282,7 +282,7 @@ html, body {
     opacity: 0;
     -webkit-transition: opacity 0.5s ease-in-out;
     transition: opacity 0.5s ease-in-out;
-    color: #e57c0b;
+    color: rgba(40,107,190,0.6);
 }
 .details .card {
     /*-webkit-transform: rotateX(60deg) translateY(150px);
@@ -324,7 +324,7 @@ html, body {
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
     margin-top: -88px;
-    background: #f6962e;
+    background: rgba(77,150,241,0.6);
 }
 .details .card .bar.bar3 {
     height: 74px;
@@ -338,7 +338,7 @@ html, body {
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
     margin-top: -45.9px;
-    background: #f6962e;
+    background: rgba(77,150,241,0.6);
 }
 .details .card .bar.bar5 {
     height: 72.1px;
@@ -352,7 +352,7 @@ html, body {
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
     margin-top: -45.7px;
-    background: #f6962e;
+    background: rgba(77,150,241,0.6);
 }
 .details .card .bar.bar7 {
     height: 76.2px;
@@ -366,7 +366,7 @@ html, body {
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
     margin-top: -48.9px;
-    background: #f6962e;
+    background: rgba(77,150,241,0.6);
 }
 .details .card .bar.bar9 {
     height: 13px;
@@ -380,13 +380,13 @@ html, body {
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
     margin-top: -18.5px;
-    background: #f6962e;
+    background: rgba(77,150,241,0.6);
 }
 .details .card .bar.bar11 {
     height: 15px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    background: #f6962e;
+    background: rgba(77,150,241,0.6);
     margin: -15px 0 0 18px;
 }
 .details .card .bar.bar12 {
@@ -394,42 +394,42 @@ html, body {
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
     margin: -19px 0 0 35px;
-    background: #f6962e;
+    background: rgba(77,150,241,0.6);
 }
 .details .card .bar.bar13 {
     height: 31px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
     margin: -31px 0 0 33px;
-    background: #f6962e;
+    background: rgba(77,150,241,0.6);
 }
 .details .card .bar.bar14 {
     height: 28.2px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
     margin: -28.2px 0 0 33px;
-    background: #f6962e;
+    background: rgba(77,150,241,0.6);
 }
 .details .card .bar.bar15 {
     height: 25.8px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
     margin: -25.8px 0 0 36px;
-    background: #f6962e;
+    background: rgba(77,150,241,0.6);
 }
 .details .card .bar.bar16 {
     height: 20.7px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
     margin: -20.7px 0 0 35px;
-    background: #f6962e;
+    background: rgba(77,150,241,0.6);
 }
 .details .card .bar.bar17 {
     height: 19.1px;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
     margin: -19.1px 0 0 33px;
-    background: #f6962e;
+    background: rgba(77,150,241,0.6);
 }
 
 .details .card .bar span {
