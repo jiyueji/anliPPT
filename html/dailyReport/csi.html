@@ -42,25 +42,27 @@
         <div class="smallTitle">CSI Daily Report</div>
         <div class="titleBorder">
             <div class="smallTopTitle" style="width:20%">
-                <div>$0</div>
+                <div>$8,199k</div>
                 <div>MTD CSI sales</div>
             </div>
             <div class="smallTopTitle">
-                <div>0k</div>
+                <div>$113k</div>
                 <div>MTD CSI Earner count</div>
             </div>
             <div class="smallTopTitle">
-                <div>$6,753,786</div>
+                <div>$779k</div>
                 <div>MTD CSI amount</div>
             </div>
             <div class="smallTopTitle">
-                <div>38k</div>
+                <div>$38k</div>
                 <div>MTD Re-active ABO count</div>
             </div>
         </div>
         <div id="salesHomeEchartsCsi" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:308px;"></div>
-    </div>
-
+        <div style="position: absolute;left: 50px;top: 130px;color: rgb(253, 243, 243);font-size: small;">
+            <div> $</div>
+        </div>
+</div>
 
 
     <script>
@@ -75,16 +77,16 @@
             // ],
             // 今年的数据
             actual_sales_data: [
-                { x: "1", y: 18, labelTooltip: "Monthly Sales" },
-                { x: "2", y: '', labelTooltip: "Monthly Sales" },
-                { x: "3", y: '', labelTooltip: "Monthly Sales" },
-                { x: "4", y: '', labelTooltip: "Monthly Sales" },
-                { x: "5", y: '', labelTooltip: "Monthly Sales" },
-                { x: "6", y: '', labelTooltip: "Monthly Sales" },
-                { x: "7", y: '', labelTooltip: "Monthly Sales" },
-                { x: "8", y: '', labelTooltip: "Monthly Sales" },
-                { x: "9", y: '', labelTooltip: "Monthly Sales" },
-                { x: "10", y: '', labelTooltip: "Monthly Sales" },
+                { x: "1", y: 1101, labelTooltip: "Monthly Sales" },
+                { x: "2", y: 1138, labelTooltip: "Monthly Sales" },
+                { x: "3", y: 331, labelTooltip: "Monthly Sales" },
+                { x: "4", y: 487, labelTooltip: "Monthly Sales" },
+                { x: "5", y: 770, labelTooltip: "Monthly Sales" },
+                { x: "6", y: 719, labelTooltip: "Monthly Sales" },
+                { x: "7", y: 1053, labelTooltip: "Monthly Sales" },
+                { x: "8", y: 1070, labelTooltip: "Monthly Sales" },
+                { x: "9", y: 909, labelTooltip: "Monthly Sales" },
+                { x: "10", y: 621, labelTooltip: "Monthly Sales" },
                 { x: "11", y: '', labelTooltip: "Monthly Sales" },
                 { x: "12", y: '', labelTooltip: "Monthly Sales" },
                 { x: "13", y: '', labelTooltip: "Monthly Sales" },
@@ -95,49 +97,50 @@
                 { x: "18", y: '', labelTooltip: "Monthly Sales" },
                 { x: "19", y: '', labelTooltip: "Monthly Sales" },
                 { x: "20", y: '', labelTooltip: "Monthly Sales" },
-                { x: "21", y: 13, labelTooltip: "Monthly Sales" },
-                { x: "22", y: 16, labelTooltip: "Monthly Sales" },
-                { x: "23", y: 18, labelTooltip: "Monthly Sales" },
-                { x: "24", y: 23, labelTooltip: "Monthly Sales" },
-                { x: "25", y: 25, labelTooltip: "Monthly Sales" },
-                { x: "26", y: 27, labelTooltip: "Monthly Sales" },
-                { x: "27", y: 28, labelTooltip: "Monthly Sales" },
-                { x: "28", y: 29, labelTooltip: "Monthly Sales" },
-                { x: "29", y: 30, labelTooltip: "Monthly Sales" },
-                { x: "30", y: 34, labelTooltip: "Monthly Sales" }
+                { x: "21", y: '', labelTooltip: "Monthly Sales" },
+                { x: "22", y: '', labelTooltip: "Monthly Sales" },
+                { x: "23", y: '', labelTooltip: "Monthly Sales" },
+                { x: "24", y: '', labelTooltip: "Monthly Sales" },
+                { x: "25", y: '', labelTooltip: "Monthly Sales" },
+                { x: "26", y: '', labelTooltip: "Monthly Sales" },
+                { x: "27", y: '', labelTooltip: "Monthly Sales" },
+                { x: "28", y: '', labelTooltip: "Monthly Sales" },
+                { x: "29", y: '', labelTooltip: "Monthly Sales" },
+                { x: "30", y: '', labelTooltip: "Monthly Sales" }
             ],
             // 去年的数据
             actual_sales_ly_data: [
-                { x: "1", y: 18, labelTooltip: "Monthly Sales" },
-                { x: "2", y: 11, labelTooltip: "Monthly Sales" },
-                { x: "3", y: 14, labelTooltip: "Monthly Sales" },
-                { x: "4", y: 10, labelTooltip: "Monthly Sales" },
-                { x: "5", y: 19, labelTooltip: "Monthly Sales" },
-                { x: "6", y: 13, labelTooltip: "Monthly Sales" },
-                { x: "7", y: 15, labelTooltip: "Monthly Sales" },
-                { x: "8", y: 10, labelTooltip: "Monthly Sales" },
-                { x: "9", y: 11, labelTooltip: "Monthly Sales" },
-                { x: "10", y: 12, labelTooltip: "Monthly Sales" },
-                { x: "11", y: 13, labelTooltip: "Monthly Sales" },
-                { x: "12", y: 12, labelTooltip: "Monthly Sales" },
-                { x: "13", y: 13, labelTooltip: "Monthly Sales" },
-                { x: "14", y: 14, labelTooltip: "Monthly Sales" },
-                { x: "15", y: 15, labelTooltip: "Monthly Sales" },
-                { x: "16", y: 14, labelTooltip: "Monthly Sales" },
-                { x: "17", y: 13, labelTooltip: "Monthly Sales" },
-                { x: "18", y: 12, labelTooltip: "Monthly Sales" },
-                { x: "19", y: 11, labelTooltip: "Monthly Sales" },
-                { x: "20", y: 12, labelTooltip: "Monthly Sales" },
-                { x: "21", y: 13, labelTooltip: "Monthly Sales" },
-                { x: "22", y: 14, labelTooltip: "Monthly Sales" },
-                { x: "23", y: 15, labelTooltip: "Monthly Sales" },
-                { x: "24", y: 16, labelTooltip: "Monthly Sales" },
-                { x: "25", y: 17, labelTooltip: "Monthly Sales" },
-                { x: "26", y: 18, labelTooltip: "Monthly Sales" },
-                { x: "27", y: 17, labelTooltip: "Monthly Sales" },
-                { x: "28", y: 15, labelTooltip: "Monthly Sales" },
-                { x: "29", y: 14, labelTooltip: "Monthly Sales" },
-                { x: "30", y: 13, labelTooltip: "Monthly Sales" }
+                { x: "1", y: 1151, labelTooltip: "Monthly Sales" },
+                { x: "2", y: 773, labelTooltip: "Monthly Sales" },
+                { x: "3", y: 860, labelTooltip: "Monthly Sales" },
+                { x: "4", y: 463, labelTooltip: "Monthly Sales" },
+                { x: "5", y: 229, labelTooltip: "Monthly Sales" },
+                { x: "6", y: 202, labelTooltip: "Monthly Sales" },
+                { x: "7", y: 2507, labelTooltip: "Monthly Sales" },
+                { x: "8", y: 918, labelTooltip: "Monthly Sales" },
+                { x: "9", y: 769, labelTooltip: "Monthly Sales" },
+                { x: "10", y: 716, labelTooltip: "Monthly Sales" },
+                { x: "11", y: 665, labelTooltip: "Monthly Sales" },
+                { x: "12", y: 663, labelTooltip: "Monthly Sales" },
+                { x: "13", y: 767, labelTooltip: "Monthly Sales" },
+                { x: "14", y: 731, labelTooltip: "Monthly Sales" },
+                { x: "15", y: 795, labelTooltip: "Monthly Sales" },
+                { x: "16", y: 302, labelTooltip: "Monthly Sales" },
+                { x: "17", y: 619, labelTooltip: "Monthly Sales" },
+                { x: "18", y: 777, labelTooltip: "Monthly Sales" },
+                { x: "19", y: 508, labelTooltip: "Monthly Sales" },
+                { x: "20", y: 627, labelTooltip: "Monthly Sales" },
+                { x: "21", y: 823, labelTooltip: "Monthly Sales" },
+                { x: "22", y: 1228, labelTooltip: "Monthly Sales" },
+                { x: "23", y: 457, labelTooltip: "Monthly Sales" },
+                { x: "24", y: 321, labelTooltip: "Monthly Sales" },
+                { x: "25", y: 557, labelTooltip: "Monthly Sales" },
+                { x: "26", y: 365, labelTooltip: "Monthly Sales" },
+                { x: "27", y: 493, labelTooltip: "Monthly Sales" },
+                { x: "28", y: 1046, labelTooltip: "Monthly Sales" },
+                { x: "29", y: 846, labelTooltip: "Monthly Sales" },
+                { x: "30", y: 990, labelTooltip: "Monthly Sales" },
+                { x: "30", y: 794, labelTooltip: "Monthly Sales" }
             ],
             // 备注和提示内容
             tooltip_data_map: []
@@ -279,6 +282,7 @@
                 },
                 yAxis: [
                     {
+                        // name:'$',
                         type: 'value',
                         // data: monthShow,
                         axisLabel: {
@@ -287,7 +291,15 @@
                                 color: "#ffffff"
                             },
                             formatter: function (params) {
-                                return params / 1 + "%"
+                                if(params>999){
+                                    var b = parseInt(params).toString();
+                                    var len = b.length;
+                                    if (len <= 3) { params = b; }
+                                    var r = len % 3;
+                                    r > 0 ? params = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : params = b.slice(r, len).match(/\d{3}/g).join(",");
+                                    return params + "k";
+                                }
+                            return params / 1 + "k"
                             }
                         },
                         axisLine: {//隐藏X轴

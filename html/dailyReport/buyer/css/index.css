@@ -16,7 +16,7 @@
 .main-conent .left {
     width: 376px;
     height: 139px;
-    margin: 20px 0 0 25px;
+    margin: 20px 0 0 46px;
 }
 
 .main-conent .left .img-bg {
@@ -28,7 +28,7 @@
     position: absolute;
     top: 26px;
     color: #fff;
-    left: 7px;
+    left: 28px;
 }
 
 .main-conent .left .left-cont .left-font-01,
@@ -63,9 +63,13 @@
     width: 58px;
     height: 29px;
     padding: 60px 0 0 33px;
+    transform: scale(0.8);
 }
 
 .main-conent .right {
-    width: 500px;
-    right: 21px;
+    /*right: 21px;*/
+}
+
+.main-conent #right1,.main-conent #right2 {
+    width: 100%;
 }
