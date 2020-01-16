@@ -275,7 +275,12 @@
                         // position: 'top',
                         position: ['-10', '-20'],
                         formatter: function (params) {
-                            return Math.round((params.data || 0) / 1) + ""
+                               var b = parseInt(params.data).toString();
+                            var len = b.length;
+                            if (len <= 3) {params= b; }
+                            var r = len % 3;
+                            r > 0 ?params= b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",")                                  :params= b.slice(r, len).match(/\d{3}/g).join(",");
+                            return params;
                         },
                         backgroundColor: 'rgba(28,213,224,0.36)',
                         borderRadius: 5,
