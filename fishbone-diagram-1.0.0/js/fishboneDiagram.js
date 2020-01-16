@@ -43,7 +43,7 @@
         subTitleTemplate = '';
       subTitle.classList.add('sub-title');
       var tagging = subTitleOpt.tagging;
-      subTitleTemplate += `<li class="tagging-${tagging.type}"><span class="normal">${tagging.value}</span><span class="small">${tagging.valuation}</span></li>`;
+      subTitleTemplate += `<li class="tagging-${tagging.type} bg"><span class="normal">${tagging.value}</span><span class="small">${tagging.valuation}</span></li>`;
       var text = subTitleOpt.text,
         textTemplate = '';
       for(var i=0, length=text.length; i<length; i+=1) {
@@ -109,7 +109,7 @@
             if(tagging.rise.valuation) {
               riseTemplate += `<span class="small">${tagging.rise.valuation}</span>`;
             }
-            taggingTemplate += `<li class="tagging-rise">${riseTemplate}</li>`;
+            taggingTemplate += `<li class="tagging-rise bg">${riseTemplate}</li>`;
           }
           if(tagging.fall) {
             var fallTemplate = '';
@@ -119,7 +119,7 @@
             if(tagging.fall.valuation) {
               fallTemplate += `<span class="small">${tagging.fall.valuation}</span>`;
             }
-            taggingTemplate += `<li class="tagging-fall">${fallTemplate}</li>`;
+            taggingTemplate += `<li class="tagging-fall bg">${fallTemplate}</li>`;
           }
           serTemplate += `<ul class="diagram-item_tagging" style="transform: translateX(${startRange}px)">${taggingTemplate}</ul>`
         }
@@ -161,6 +161,13 @@
         (function(i) {
           setTimeout(function() {
             elms[i].classList.remove('w0');
+            if(i === length - 1) {
+              setTimeout(() => {
+                Array.from(document.querySelectorAll("[class^='tagging-']")).forEach((item, index) => {
+                  item.classList.remove('bg')
+                });
+              }, 500);
+            }
           }, i * 500);
         })(i);
       }

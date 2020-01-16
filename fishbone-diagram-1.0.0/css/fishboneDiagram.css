@@ -28,6 +28,9 @@
   border-color: transparent transparent #00b8ac transparent;
   top: -15px;
 }
+.fishbone-diagram .tagging-rise .normal::before {
+  background-color: #16fcf433;
+}
 .fishbone-diagram .tagging-fall {
   color: #ff0000;
 }
@@ -35,8 +38,24 @@
   border-color: #ff0000 transparent transparent transparent;
   bottom: -15px;
 }
+.fishbone-diagram .tagging-fall .normal::before {
+  background-color: #fc818133;
+}
 .fishbone-diagram [class^='tagging-'] .normal {
+  position: relative;
   font-weight: bold;
+}
+.fishbone-diagram [class^='tagging-'].bg .normal::before {
+  background-color: transparent;
+}
+.fishbone-diagram [class^='tagging-'] .normal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -4px;
+  width: calc(100% + 7px);
+  height: 100%;
+  border-radius: 4px;
 }
 .fishbone-diagram [class^='tagging-'] .small {
   display: inline-block;
@@ -95,25 +114,25 @@
 .sub-title .text-list .text-item::before {
   content: '';
   position: absolute;
-  left: -18px;
-  top: 15px;
+  left: -16px;
+  top: 16px;
   transform: skewY(44deg);
   width: 0;
   height: 0;
-  border-width: 6px 9px;
+  border-width: 6px 8px;
   border-color: #50b1f4 #50b1f4 transparent transparent;
   border-style: solid;
 }
 .sub-title .text-list .text-item:nth-child(2)::before {
-  border-width: 6px 17px;
-  left: -34px;
-  top: -4px;
+  border-width: 6px 15px;
+  left: -30px;
+  top: -1px;
   transform: skewY(58deg);
 }
 .sub-title .text-list .text-item.line-num2:nth-child(2)::before {
-  border-width: 6px 21px;
-  left: -42px;
-  top: 3px;
+  border-width: 6px 19px;
+  left: -38px;
+  top: 6px;
   transform: skewY(60deg);
 }
 .sub-title .text-list .text-item::after {

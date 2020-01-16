@@ -132,7 +132,7 @@ main .-content.-index>div {
     font-weight: 800;
     color: #ffffff;
     display: block;
-    margin: 2px 0 0 6px;
+    margin: 2px 0 0 5px;
 }
 
 .button:hover:before {
@@ -501,6 +501,13 @@ main .-content.-index>div {
     }
     .form-bg .form-top .form-p-3 {
         padding: 55px 0 0 0;
+    }
+    .form-bg .form-top .form-p-4 {
+        color: #f3f3f3;
+        font-size: 12px;
+        text-align: right;
+        font-family: Arial;
+        font-weight: 700;
     }
     .form-bg .form-content {
         width: 548px;
