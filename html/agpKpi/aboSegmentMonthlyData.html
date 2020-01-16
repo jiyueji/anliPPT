@@ -244,6 +244,16 @@
                 // console.log(sheet)
                 if(sheet==1){
                   return val / 1000000 + 'm';
+                }else if(sheet==2){
+                  if(val>999){
+                      var b = parseInt(val).toString();
+                       var len = b.length;
+                       if (len <= 3) { val = b; }
+                       var r = len % 3;
+                       r > 0 ? val = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : val = b.slice(r, len).match(/\d{3}/g).join(",");
+                         return val ;
+                    }
+                    return val ;
                 }
                 return val / 1 + 'm';
               }
@@ -378,7 +388,7 @@
                   global: false
                 }
               },
-              data: [2,4,4,11,  3, 5, '', '', '', '', '','']
+              data: [42,50,37,72,  112,'', '', '', '', '', '','']
             },
             {
               name: 'ABO (Purchasing Only)',
@@ -399,7 +409,7 @@
                   global: false
                 }
               },
-              data: [4,30,24, 51, 5, '', '', '', '', '', '','']
+              data: [103,99,95, 121,113, '', '', '', '', '', '','']
             },
             {
               name: 'Developing ABO',
@@ -420,7 +430,7 @@
                   global: false
                 }
               },
-              data: [13,42,31,5,  15, 18, '', '', '', '', '','']
+              data: [311,257,274,374, 439, '', '', '', '', '', '','']
             },
             {
               name: 'Building ABO',
@@ -441,7 +451,7 @@
                   global: false
                 }
               },
-              data: [29,11, 47, '', '', '', '', '', '','','','']
+              data: [696,720, 586,953, 1137, '', '', '', '','','','']
             },
             {
               name: 'ABO Leader',
@@ -462,7 +472,7 @@
                   global: false
                 }
               },
-              data: [42,2,2,39, 66, '', '', '', '', '', '','']
+              data: [1003,1012,752,1219, 1581, '', '', '', '', '', '','']
             }
           ]
         }
