@@ -56,7 +56,7 @@
 
     <script>
         var xDate = ["1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "24:00"]
-        var today = ["138", "41", "69", "21", "7", "23", "54", "214", "494", "882", "4422", "2579", "2083", "1952", "1948", "2348", "2117", "240", "0", "0", "0", "0", "0", "0"]
+        var today = ["138", "41", "69", "21", "7", "23", "54", "214", "494", "882", "4422", "2579", "2083", "1952", "1948", "2348", "2117", "240", "", "", "", "", "", ""]
         var lastDay = ["181", "19", "0", "3", "170", "30", "32", "125", "298", "807", "880", "1395", "1299", "1252", "978", "987", "1221", "969", "1094", "1215", "1551", "1334", "1110", "638"]
 
         handleEcharts();//折线图
@@ -74,30 +74,31 @@
                     normal: {
                         color: '#0257d4',
                     }
-
                 },
-                data: today,
-            },
-            {
-                symbol: 'circle',
-                symbolSize: 14,
-                symbolOffset: [0, '-50%'],
-                symbolPosition: 'end',
-                name: "Today",
-                type: "pictorialBar",
-                itemStyle: {
-                    normal: {
-                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            offset: 0,
-                            color: '#31acff'
-                        }, {
-                            offset: 1,
-                            color: '#2e1af1'
-                        }]),
+                label: {
+                    show: true,
+                    // position: 'top',
+                    position: ['-10', '-28'],
+                    formatter: function (params) {
+                        var b = parseInt(params.data).toString();
+                        var len = b.length;
+                        if (len <= 3) {
+                            params = b;
+                        } else {
+                            var r = len % 3;
+                            r > 0 ? params = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : params = b.slice(r, len).match(/\d{3}/g).join(",");
+                        }
+                        return params;
+                    },
+                    backgroundColor: 'rgba(49,172,255,0.36)',
+                    borderRadius: 5,
+                    padding: 4,
+                    textStyle: {
+                        fontSize: 8,
+                        color: '#ffffff',
                     }
                 },
-                xAxisIndex: 0,
-                data: today
+                data: today,
             }, {
                 name: "Yesterday",
                 data: lastDay,
@@ -120,6 +121,27 @@
                 areaStyle: {
                     normal: {}
                 },
+            },
+            {
+                symbol: 'circle',
+                symbolSize: 14,
+                symbolOffset: [0, '-50%'],
+                symbolPosition: 'end',
+                name: "Today",
+                type: "pictorialBar",
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: '#31acff'
+                        }, {
+                            offset: 1,
+                            color: '#2e1af1'
+                        }]),
+                    }
+                },
+                xAxisIndex: 0,
+                data: today
             }
             ];
             setTimeout(() => {
@@ -157,10 +179,35 @@
                 //         },
                 //     }
                 // ],
-                // tooltip: {//鼠标移入
-                //     trigger: 'axis',
-                //     confine: false,
-                // },
+                tooltip: {//鼠标移入
+                    trigger: 'axis',
+                    confine: true,
+                    formatter: (val) => {
+                        var todayDate = 0, yesterday = 0;
+                        var xDate = 0, paramsDate;
+                        val.map((item, index) => {
+                            if (item.data) {
+                                var b = parseInt(item.data).toString();
+                                var len = b.length;
+                                if (len <= 3) {
+                                    paramsDate = b;
+                                } else {
+                                    var r = len % 3;
+                                    r > 0 ? paramsDate = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : paramsDate = b.slice(r, len).match(/\d{3}/g).join(",");
+                                }
+                            } else {
+                                paramsDate = ""
+                            }
+                            if (item.componentIndex == 0) {
+                                todayDate = "<div style='color:#2e1af1;font-size:12px;'>" + "Today:" + paramsDate + "</div>";
+                                xDate = (item.axisValue.split(':')[0]) - 1 + ':00 - ' + item.axisValue
+                            } else if (item.componentIndex == 1) {
+                                yesterday = "<div style='color:rgba(94,80,230);font-size:12px;'>" + "Yesterday:" + paramsDate + "</div>";
+                            }
+                        })
+                        return "<div style='border-bottom:1px solid #ffffff;font-size:12px;'>" + xDate + "</div>" + todayDate + yesterday
+                    }
+                },
                 grid: {
                     top: '6%',
                     left: '4%',
@@ -187,7 +234,7 @@
                         // interval: 0,//x轴文字显示不全
                         textStyle: {
                             fontSize: 9,
-                            color: '#757575'
+                            color: '#ffffff'
                         },
                     }
                 },
@@ -204,7 +251,7 @@
                                 if (params == 0) {
                                     return 0
                                 } else {
-                                    return params / 10000 + "k"
+                                    return params / 1000 + "k"
                                 }
                             }
                         },
