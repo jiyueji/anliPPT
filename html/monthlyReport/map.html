@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <!-- 引入echarts -->
+        <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
+        <script type="text/javascript" src="../../incubator-echarts-4.6.0/map/js/china.js"></script>
+        <!--     <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script> -->
+        <!-- 引入css文件 -->
+        <link rel="stylesheet" href="../../css/style.css">
+        <style>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <!-- 引入echarts -->
-    <script type="text/javascript" src="../../incubator-echarts-4.6.0/dist/echarts.min.js"></script>
-    <script type="text/javascript" src="../../incubator-echarts-4.6.0/map/js/china.js"></script>
-    <!--     <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script> -->
-    <!-- 引入css文件 -->
-    <link rel="stylesheet" href="../../css/style.css">
-    <style>
-
-    </style>
-</head>
-
+        </style>
+    </head>
 <body>
     <div class="middleBorder">
         <div class="smallTitle">PF20 YTD Sales by City Cluster</div>
@@ -96,259 +94,255 @@
                 color: "#06104d"
             }
         ];
-        var cityClusterAll = [{
-            city_cluster: "Hangzhou",
-            actual_sales_sum: 111080342.9793103,
-            perc_of_actual_sales: "5.6 %",
-            sales_vs_sply: "-4.4 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Beijing",
-            actual_sales_sum: 109726094.26620695,
-            perc_of_actual_sales: "5.5 %",
-            sales_vs_sply: "-10.5 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Suzhou",
-            actual_sales_sum: 92083848.91448265,
-            perc_of_actual_sales: "4.6 %",
-            sales_vs_sply: "-7.1 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Shanghai",
-            actual_sales_sum: 91191708.73241383,
-            perc_of_actual_sales: "4.6 %",
-            sales_vs_sply: "-4.2 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Chengdu",
-            actual_sales_sum: 74932227.24,
-            perc_of_actual_sales: "3.8 %",
-            sales_vs_sply: "-8.8 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Fuzhou",
-            actual_sales_sum: 74307266.83172412,
-            perc_of_actual_sales: "3.7 %",
-            sales_vs_sply: "-1.2 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "JiNan",
-            actual_sales_sum: 72932113.35310344,
-            perc_of_actual_sales: "3.7 %",
-            sales_vs_sply: "-4.9 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Tianjin",
-            actual_sales_sum: 68146768.51034483,
-            perc_of_actual_sales: "3.4 %",
-            sales_vs_sply: "-11 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Zhengzhou",
-            actual_sales_sum: 63768210.84137932,
-            perc_of_actual_sales: "3.2 %",
-            sales_vs_sply: "-14.1 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Wuhan",
-            actual_sales_sum: 63036623.36275862,
-            perc_of_actual_sales: "3.2 %",
-            sales_vs_sply: "-10.3 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Shenzhen",
-            actual_sales_sum: 62049862.168275855,
-            perc_of_actual_sales: "3.1 %",
-            sales_vs_sply: "-6.9 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Guangzhou",
-            actual_sales_sum: 61949988.76827587,
-            perc_of_actual_sales: "3.1 %",
-            sales_vs_sply: "1.2 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Nanjing",
-            actual_sales_sum: 61718253.30758621,
-            perc_of_actual_sales: "3.1 %",
-            sales_vs_sply: "-2.1 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Qingdao",
-            actual_sales_sum: 58560072.40689654,
-            perc_of_actual_sales: "2.9 %",
-            sales_vs_sply: "-7.7 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Xiamen",
-            actual_sales_sum: 56180954.256551735,
-            perc_of_actual_sales: "2.8 %",
-            sales_vs_sply: "-1.1 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Nantong",
-            actual_sales_sum: 53764445.74206897,
-            perc_of_actual_sales: "2.7 %",
-            sales_vs_sply: "-10.2 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Foshan",
-            actual_sales_sum: 44697804.12137932,
-            perc_of_actual_sales: "2.2 %",
-            sales_vs_sply: "-9.3 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Nanning",
-            actual_sales_sum: 38936054.457931034,
-            perc_of_actual_sales: "1.9 %",
-            sales_vs_sply: "-7.6 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Harbin",
-            actual_sales_sum: 38772586.99034482,
-            perc_of_actual_sales: "1.9 %",
-            sales_vs_sply: "-11.7 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Xuzhou",
-            actual_sales_sum: 38701847.266206905,
-            perc_of_actual_sales: "1.9 %",
-            sales_vs_sply: "-14.1 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Changsha",
-            actual_sales_sum: 38591370.58068966,
-            perc_of_actual_sales: "1.9 %",
-            sales_vs_sply: "-10.7 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Hefei",
-            actual_sales_sum: 38141910.380689666,
-            perc_of_actual_sales: "1.9 %",
-            sales_vs_sply: "-11.2 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Urumqi",
-            actual_sales_sum: 37750858.59448276,
-            perc_of_actual_sales: "1.9 %",
-            sales_vs_sply: "-11.5 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Kunming",
-            actual_sales_sum: 37089500.93241379,
-            perc_of_actual_sales: "1.9 %",
-            sales_vs_sply: "-13.1 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Shenyang",
-            actual_sales_sum: 36879178.98068965,
-            perc_of_actual_sales: "1.8 %",
-            sales_vs_sply: "-9.1 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Xian ",
-            actual_sales_sum: 36578232.220689654,
-            perc_of_actual_sales: "1.8 %",
-            sales_vs_sply: "-10.3 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Shijiazhuang",
-            actual_sales_sum: 35742942.8937931,
-            perc_of_actual_sales: "1.8 %",
-            sales_vs_sply: "-11.7 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Dalian",
-            actual_sales_sum: 34788667.969655156,
-            perc_of_actual_sales: "1.7 %",
-            sales_vs_sply: "-7.4 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Ningbo",
-            actual_sales_sum: 33506182.5075862,
-            perc_of_actual_sales: "1.7 %",
-            sales_vs_sply: "-8.3 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Nanchang",
-            actual_sales_sum: 33245277.743448276,
-            perc_of_actual_sales: "1.7 %",
-            sales_vs_sply: "-9.2 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Haikou",
-            actual_sales_sum: 32644447.445517227,
-            perc_of_actual_sales: "1.6 %",
-            sales_vs_sply: "-6.9 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Wenzhou",
-            actual_sales_sum: 32266693.332413785,
-            perc_of_actual_sales: "1.6 %",
-            sales_vs_sply: "-0.2 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Quanzhou",
-            actual_sales_sum: 32177388.267586205,
-            perc_of_actual_sales: "1.6 %",
-            sales_vs_sply: "-2 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Luoyang",
-            actual_sales_sum: 31325915.489655178,
-            perc_of_actual_sales: "1.6 %",
-            sales_vs_sply: "-15.4 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Chongqing",
-            actual_sales_sum: 30881285.506206892,
-            perc_of_actual_sales: "1.5 %",
-            sales_vs_sply: "-11.4 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Changchun",
-            actual_sales_sum: 27622804.39724138,
-            perc_of_actual_sales: "1.4 %",
-            sales_vs_sply: "-12.6 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Taiyuan",
-            actual_sales_sum: 27432251.590344824,
-            perc_of_actual_sales: "1.4 %",
-            sales_vs_sply: "-16.7 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Shantou",
-            actual_sales_sum: 23989671.111724142,
-            perc_of_actual_sales: "1.2 %",
-            sales_vs_sply: "-8 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Hohhot",
-            actual_sales_sum: 21675438.161379296,
-            perc_of_actual_sales: "1.1 %",
-            sales_vs_sply: "-12.8 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Lanzhou",
-            actual_sales_sum: 20870420.11862068,
-            perc_of_actual_sales: "1 %",
-            sales_vs_sply: "-10.9 %",
-            maxYear: 2019
-        }, {
-            city_cluster: "Guiyang",
-            actual_sales_sum: 18046868.765517242,
-            perc_of_actual_sales: "0.9 %",
-            sales_vs_sply: "-12.1 %",
-            maxYear: 2019
-        }]
-        // var maxMinCity = []   //前五后五
-        // for (var i = 0; i < cityClusterAll.length; i++) {
-        //     if (i < 5 || i >= (cityClusterAll.length - 5)) {
-        //         maxMinCity.push(cityClusterAll[i])
-        //     }
-        // }
+        var cityClusterAll = [
+            {
+                city_cluster: "Hangzhou",
+                actual_sales_sum: 111080342.9793103,
+                perc_of_actual_sales: "5.6 %",
+                sales_vs_sply: "-4.4 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Beijing",
+                actual_sales_sum: 109726094.26620695,
+                perc_of_actual_sales: "5.5 %",
+                sales_vs_sply: "-10.5 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Suzhou",
+                actual_sales_sum: 92083848.91448265,
+                perc_of_actual_sales: "4.6 %",
+                sales_vs_sply: "-7.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Shanghai",
+                actual_sales_sum: 91191708.73241383,
+                perc_of_actual_sales: "4.6 %",
+                sales_vs_sply: "-4.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Chengdu",
+                actual_sales_sum: 74932227.24,
+                perc_of_actual_sales: "3.8 %",
+                sales_vs_sply: "-8.8 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Fuzhou",
+                actual_sales_sum: 74307266.83172412,
+                perc_of_actual_sales: "3.7 %",
+                sales_vs_sply: "-1.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "JiNan",
+                actual_sales_sum: 72932113.35310344,
+                perc_of_actual_sales: "3.7 %",
+                sales_vs_sply: "-4.9 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Tianjin",
+                actual_sales_sum: 68146768.51034483,
+                perc_of_actual_sales: "3.4 %",
+                sales_vs_sply: "-11 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Zhengzhou",
+                actual_sales_sum: 63768210.84137932,
+                perc_of_actual_sales: "3.2 %",
+                sales_vs_sply: "-14.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Wuhan",
+                actual_sales_sum: 63036623.36275862,
+                perc_of_actual_sales: "3.2 %",
+                sales_vs_sply: "-10.3 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Shenzhen",
+                actual_sales_sum: 62049862.168275855,
+                perc_of_actual_sales: "3.1 %",
+                sales_vs_sply: "-6.9 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Guangzhou",
+                actual_sales_sum: 61949988.76827587,
+                perc_of_actual_sales: "3.1 %",
+                sales_vs_sply: "1.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Nanjing",
+                actual_sales_sum: 61718253.30758621,
+                perc_of_actual_sales: "3.1 %",
+                sales_vs_sply: "-2.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Qingdao",
+                actual_sales_sum: 58560072.40689654,
+                perc_of_actual_sales: "2.9 %",
+                sales_vs_sply: "-7.7 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Xiamen",
+                actual_sales_sum: 56180954.256551735,
+                perc_of_actual_sales: "2.8 %",
+                sales_vs_sply: "-1.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Nantong",
+                actual_sales_sum: 53764445.74206897,
+                perc_of_actual_sales: "2.7 %",
+                sales_vs_sply: "-10.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Foshan",
+                actual_sales_sum: 44697804.12137932,
+                perc_of_actual_sales: "2.2 %",
+                sales_vs_sply: "-9.3 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Nanning",
+                actual_sales_sum: 38936054.457931034,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-7.6 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Harbin",
+                actual_sales_sum: 38772586.99034482,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-11.7 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Xuzhou",
+                actual_sales_sum: 38701847.266206905,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-14.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Changsha",
+                actual_sales_sum: 38591370.58068966,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-10.7 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Hefei",
+                actual_sales_sum: 38141910.380689666,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-11.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Urumqi",
+                actual_sales_sum: 37750858.59448276,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-11.5 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Kunming",
+                actual_sales_sum: 37089500.93241379,
+                perc_of_actual_sales: "1.9 %",
+                sales_vs_sply: "-13.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Shenyang",
+                actual_sales_sum: 36879178.98068965,
+                perc_of_actual_sales: "1.8 %",
+                sales_vs_sply: "-9.1 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Xian ",
+                actual_sales_sum: 36578232.220689654,
+                perc_of_actual_sales: "1.8 %",
+                sales_vs_sply: "-10.3 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Shijiazhuang",
+                actual_sales_sum: 35742942.8937931,
+                perc_of_actual_sales: "1.8 %",
+                sales_vs_sply: "-11.7 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Dalian",
+                actual_sales_sum: 34788667.969655156,
+                perc_of_actual_sales: "1.7 %",
+                sales_vs_sply: "-7.4 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Ningbo",
+                actual_sales_sum: 33506182.5075862,
+                perc_of_actual_sales: "1.7 %",
+                sales_vs_sply: "-8.3 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Nanchang",
+                actual_sales_sum: 33245277.743448276,
+                perc_of_actual_sales: "1.7 %",
+                sales_vs_sply: "-9.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Haikou",
+                actual_sales_sum: 32644447.445517227,
+                perc_of_actual_sales: "1.6 %",
+                sales_vs_sply: "-6.9 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Wenzhou",
+                actual_sales_sum: 32266693.332413785,
+                perc_of_actual_sales: "1.6 %",
+                sales_vs_sply: "-0.2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Quanzhou",
+                actual_sales_sum: 32177388.267586205,
+                perc_of_actual_sales: "1.6 %",
+                sales_vs_sply: "-2 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Luoyang",
+                actual_sales_sum: 31325915.489655178,
+                perc_of_actual_sales: "1.6 %",
+                sales_vs_sply: "-15.4 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Chongqing",
+                actual_sales_sum: 30881285.506206892,
+                perc_of_actual_sales: "1.5 %",
+                sales_vs_sply: "-11.4 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Changchun",
+                actual_sales_sum: 27622804.39724138,
+                perc_of_actual_sales: "1.4 %",
+                sales_vs_sply: "-12.6 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Taiyuan",
+                actual_sales_sum: 27432251.590344824,
+                perc_of_actual_sales: "1.4 %",
+                sales_vs_sply: "-16.7 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Shantou",
+                actual_sales_sum: 23989671.111724142,
+                perc_of_actual_sales: "1.2 %",
+                sales_vs_sply: "-8 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Hohhot",
+                actual_sales_sum: 21675438.161379296,
+                perc_of_actual_sales: "1.1 %",
+                sales_vs_sply: "-12.8 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Lanzhou",
+                actual_sales_sum: 20870420.11862068,
+                perc_of_actual_sales: "1 %",
+                sales_vs_sply: "-10.9 %",
+                maxYear: 2019
+            }, {
+                city_cluster: "Guiyang",
+                actual_sales_sum: 18046868.765517242,
+                perc_of_actual_sales: "0.9 %",
+                sales_vs_sply: "-12.1 %",
+                maxYear: 2019
+            }
+        ];
         var monthlyReportMap = echarts.init(document.getElementById('monthlyReportMap'));
         monthlyReportMap.clear();
         window.addEventListener('resize', function () {
@@ -714,7 +708,6 @@
             黑河城市群: [127.500830295, 50.2506900907],
             齐齐哈尔城市群: [123.987288942, 47.3476998134]
         };
-        // console.log(mapName)
         var mapFeatures = echarts.getMap(mapName).geoJson.features; //获取地图数据
         mapFeatures.forEach(function (v) {
             var name = v.properties.name; // 地区名称
@@ -825,7 +818,7 @@
 
             },
             tooltip: {
-                //                     //不显示提示标签
+                // 不显示提示标签
                 show: true,
                 // city_cluster: "Hangzhou"
                 // actual_sales_sum: 118605668.12960227
@@ -857,10 +850,9 @@
                         }
                     }
                     if (data.componentIndex >= 1) {
-                        //     return "Top1:" + data.name
+                        // return "Top1:" + data.name
                         return "<div style='border-bottom:1px solid #ffffff'>" + name + "</div>" + "YTD Sales:" + number + "m" + "<br/>" + "% of total sales:" + actualSales + "<br/>" + "Sales vs SPLY:" + splySales
                     }
-                    // console.log(data)
                 }, //提示标签格式
                 backgroundColor: "rgba(0,0,0,0.72)", //提示标签背景颜色
                 textStyle: {
