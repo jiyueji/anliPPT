@@ -130,7 +130,7 @@ var containerDownSmall = new Swiper('.swiper-containerDownSmall', {
   on: {
     slideChangeTransitionStart: function() {
       stopCarousel();
-      // console.log(index,changeIndex)
+      // console.log(index,this.realIndex)
       var oldIndex = index;
       if(oldIndex === this.realIndex) return false;
       index = this.realIndex;
@@ -152,6 +152,7 @@ function toggleUpBig(newIndex, oldIndex) {
 
   tatleChange.innerHTML = newSwiperOpt.title;
   containerUpBig.addSlide(oldSlides.length, newSlides);
+  // containerUpBig.addSlide(oldSlides, newSlides);
   containerUpBig.slideTo(0, 500, false);
   containerUpBig.removeSlide(oldSlides);
 }
