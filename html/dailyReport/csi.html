@@ -59,7 +59,10 @@
             </div>
         </div>
         <div id="salesHomeEchartsCsi" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:308px;"></div>
-    </div>
+        <div style="position: absolute;left: 50px;top: 130px;color: rgb(253, 243, 243);font-size: small;">
+            <div> $</div>
+        </div>
+</div>
 
 
     <script>
@@ -279,6 +282,7 @@
                 },
                 yAxis: [
                     {
+                        // name:'$',
                         type: 'value',
                         // data: monthShow,
                         axisLabel: {
@@ -287,7 +291,15 @@
                                 color: "#ffffff"
                             },
                             formatter: function (params) {
-                                return params / 1 + "k"
+                                if(params>999){
+                                    var b = parseInt(params).toString();
+                                    var len = b.length;
+                                    if (len <= 3) { params = b; }
+                                    var r = len % 3;
+                                    r > 0 ? params = b.slice(0, r) + "," + b.slice(r, len).match(/\d{3}/g).join(",") : params = b.slice(r, len).match(/\d{3}/g).join(",");
+                                    return params + "k";
+                                }
+                            return params / 1 + "k"
                             }
                         },
                         axisLine: {//隐藏X轴

@@ -167,10 +167,24 @@
                 //         },
                 //     }
                 // ],
-                // tooltip: {//鼠标移入
-                //     trigger: 'axis',
-                //     confine: false,
-                // },
+                tooltip: {//鼠标移入
+                    trigger: 'axis',
+                    confine: true,
+                    formatter:(val)=>{
+                        // console.log(val)
+                        var todayDate = 0,yesterday = 0;
+                        var xDate = 0;
+                        val.map((item,index)=>{
+                            if(item.componentIndex == 0){
+                                todayDate = "<div style='color:#ebb101;font-size:12px;'>" + "Today:" + item.data + "</div>";
+                                xDate = (item.axisValue.split(':')[0]) - 1 + ':00 - ' + item.axisValue
+                            }else if(item.componentIndex == 1){
+                                yesterday = "<div style='color:rgba(94,80,230);font-size:12px;'>" + "Yesterday:" + item.data + "</div>";
+                            }
+                        })
+                        return "<div style='border-bottom:1px solid #ffffff;font-size:12px;'>" + xDate + "</div>" + todayDate + yesterday
+                    }
+                },
                 grid: {
                     top: '6%',
                     left: '4%',
@@ -213,7 +227,8 @@
                                 if (params == 0) {
                                     return 0
                                 } else {
-                                    return params / 1000 + "K"
+                                    // return params / 1000 + "K"
+                                    return params
                                 }
                             }
                         },
