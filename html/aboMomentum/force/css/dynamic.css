@@ -49,6 +49,7 @@ html, body {
     -webkit-transform: translateZ(2px);
     transform: translateZ(2px);
 }
+/*左*/
 .card .bar {
     will-change: height;
     width: 10px;
@@ -132,7 +133,7 @@ html, body {
     background: rgba(40,107,190,0.6);
 }
 
-
+/*顶*/
 .card .bar:before {
     font-family: 'Oxygen', sans-serif;
     display: block;
@@ -224,7 +225,7 @@ html, body {
     background: rgba(87,172,252,0.6);
 }
 
-
+/*正*/
 .card .bar.bar1 {
     height: 87px;
     -webkit-transition-delay: 0s;
@@ -528,6 +529,7 @@ html, body {
     transform: scaleY(1.8);
     animation: grow-1 1s linear both;
 }
+/*动画*/
 @keyframes grow-1 {
     100% {
         -webkit-transform: scaleY(1.8);
