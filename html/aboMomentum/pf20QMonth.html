@@ -135,7 +135,7 @@
                         var monthUp = "";
                         // var yearUp = new Date().getFullYear()
                         data.map((item, index) => {
-                            console.log(item.componentIndex)
+                            // console.log(item.componentIndex)
                             if (item.componentIndex && item.componentIndex == 1) {
                                 yearLastData = item.data || ""
 
@@ -428,7 +428,7 @@
                                 rotate: 0, // 旋转角度
                                 position: 'right', // 相对位置
                                 formatter: (value) => {
-                                    console.log(value)
+                                    // console.log(value)
                                     // var val = ((value.data || 0) / 1000000).toFixed(1)
                                     return ((value.data[0] || 0) / 1000).toFixed(1) + "k"
                                 },
@@ -561,7 +561,7 @@
                                 rotate: 0, // 旋转角度
                                 position: 'right', // 相对位置
                                 formatter: (value) => {
-                                    console.log(value)
+                                    // console.log(value)
                                     // var val = ((value.data || 0) / 1000000).toFixed(1)
                                     return ((value.data[0] || 0) / 1000).toFixed(1) + "K"
                                 },
