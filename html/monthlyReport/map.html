@@ -858,7 +858,6 @@
                     name: "城市群",
                     type: "effectScatter",                                // 影响散点
                     coordinateSystem: "geo",
-                    symbol: 'none',
                     symbolSize: 5,
                     showEffectOn: "render",
                     rippleEffect: {
@@ -895,7 +894,6 @@
                         brushType: "stroke",                              // 波纹绘制方式 stroke, fill
                         scale: 4                                          // 波纹圆环最大限制，值越大波纹越大
                     },
-                    symbol: 'none',
                     symbolSize: 6,
                     itemStyle: {
                         normal: {
@@ -975,7 +973,7 @@
                     fontSize: 10
                 }
             },
-            series: series
+            series: [series[0]]
         };
 
         window.addEventListener('resize', function () {
@@ -987,6 +985,9 @@
         function handler() {
             myChart = echarts.init(chartContainer);
             myChart.setOption(option);
+            setTimeout(() => {
+              myChart.setOption({ series });
+            }, option.animationDuration);
             myChart.on("mouseover", function (params) {
                 myChart.dispatchAction({
                     type: "downplay"
