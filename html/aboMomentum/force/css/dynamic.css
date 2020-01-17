@@ -3,10 +3,8 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    /*background-color: white;*/
     -webkit-perspective: 1500;
     perspective: 1500;
-    /*font-family: 'Asar', serif;*/
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -95,7 +93,6 @@ html, body {
     transition: height 0.5s ease-in-out, margin 0.5s ease-in-out, transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    /*margin: 6px;*/
     margin-left: 12px;
     position: relative;
     background: -webkit-linear-gradient(top, #feffff 0%, #ddf1f9 0%, #a0d8ef 100%);
@@ -262,21 +259,14 @@ html, body {
 }
 
 .card .bar span {
-    /* font-family: 'Oxygen', sans-serif;*/
-    /* font-family: Arial; */
     position: absolute;
-    /*-webkit-transform: rotateZ(-90deg);
-    transform: rotateZ(-90deg);*/
     border-radius: 2px;
     -webkit-transform-origin: 0% 100%;
     transform-origin: 0% 100%;
-    /*top: 20px;*/
     top: -25px;
     white-space: nowrap;
     text-align: right;
-    /* left: 20px; */
     left: -12px;
-
     padding: 5px;
     font-size: 10px;
     opacity: 0;
@@ -285,16 +275,9 @@ html, body {
     color: rgba(40,107,190,0.6);
 }
 .details .card {
-    /*-webkit-transform: rotateX(60deg) translateY(150px);
-    transform: rotateX(60deg) translateY(150px);*/
-
     transform: rotateX(70deg) translateY(222px);
 }
 .details .card .chart {
-    /*-webkit-transform: translateZ(40px) translatey(50px);
-    transform: translateZ(40px) translatey(50px);*/
-
-    /*transform: translateZ(40px) translatey(50px);*/
 }
 .details .card .bar {
     width: 10px;
@@ -308,8 +291,8 @@ html, body {
     }
     8.33333%,
     100% {
-        -webkit-transform: translateX(-7.5px) rotateX(-90deg) rotateY(-25deg);
-        transform: translateX(-7.5px) rotateX(-90deg) rotateY(-25deg);
+        -webkit-transform: translateX(-7.5px) rotateX(-80deg) rotateY(-25deg);
+        transform: translateX(-7.5px) rotateX(-80deg) rotateY(-25deg);
     }
 }
 .details .card .bar.bar1 {
@@ -442,21 +425,8 @@ html, body {
     color: black;
 }
 .background {
-    /*width: 100%;
-    height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    position: relative;*/
     position: absolute;
     left: 56px;
     bottom: 196px;
     transform: scaleY(1.8);
-    /* opacity: 0.5;*/
 }
