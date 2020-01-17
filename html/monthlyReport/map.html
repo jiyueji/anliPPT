@@ -31,7 +31,7 @@
         <div id="chart" class="swiper-slide swiper-slide-echarts" style="width: 614px;height:413px;" onClick="barShow()"></div>
         <!-- <div class="hiddenBut" ></div> -->
         <div id="chartBar" class="swiper-slide swiper-slide-echarts"
-            style="width: 214px;height:413px;position:absolute;top:0;display:none;"></div>
+            style="width: 180px;height:413px;position:absolute;top:0;display:none;"></div>
     </div>
 
     <script>
@@ -54,7 +54,7 @@
                 },
                 grid: {
                     left: 20,
-                    right: '35%',
+                    right: '60%',
                     bottom: '0%',
                     width: '60%',
                     // height: '100%',
@@ -108,7 +108,7 @@
                     z: 6,
                     stack: 'chart',
                     data: data4.map(item => item.actual_sales_sum),
-                    barWidth: '80%',//宽度
+                    barWidth: '50%',//宽度
                     label: {
                         normal: {
                             position: 'right',
@@ -128,17 +128,18 @@
                             // barBorderRadius: [100, 100, 100, 100]
                         }
                     },
-                }, {
-                    type: 'bar',
-                    stack: 'chart',
-                    silent: true,
-                    itemStyle: {
-                        normal: {
-                            color: '#1b3255'
-                        }
-                    },
-                    data: cityClusterList.map(item => 290000000 - item.actual_sales_sum)
                 }
+                // , {
+                //     type: 'bar',
+                //     stack: 'chart',
+                //     silent: true,
+                //     itemStyle: {
+                //         normal: {
+                //             color: '#1b3255'
+                //         }
+                //     },
+                //     data: cityClusterList.map(item => 112000000 - item.actual_sales_sum)
+                // }
                 ]
             }
             chartBar.setOption({ ...optionBar });
@@ -920,7 +921,7 @@
                 }
             ];
         var option = {
-            animationDuration: 2000,
+            animationDuration: 1000,
             visualMap: {                                              // 地图颜色渐变
                 show: false,                                          // 是否展示地图颜色渐变控件
                 type: "piecewise",
