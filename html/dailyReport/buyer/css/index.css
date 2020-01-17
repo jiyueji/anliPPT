@@ -26,7 +26,7 @@
 
 .main-conent .left .left-cont {
     position: absolute;
-    top: 26px;
+    top: 35px;
     color: #fff;
     left: 28px;
 }
@@ -54,7 +54,7 @@
 }
 
 .main-conent .left .left-cont .left-font-03 .left-n-02 {
-    margin: -6px 0 0 96px;
+    margin: -25px 0 0 96px;
     font-size: 14px;
     font-weight: 800;
 }
@@ -62,12 +62,12 @@
 .main-conent .ins {
     width: 58px;
     height: 29px;
-    padding: 60px 0 0 33px;
-    transform: scale(0.8);
+    padding: 60px 0 0 13px;
+    transform: scale(0.6);
 }
 
 .main-conent .right {
-    /*right: 21px;*/
+    right: 21px;
 }
 
 .main-conent #right1,.main-conent #right2 {
