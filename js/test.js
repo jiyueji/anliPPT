@@ -14,7 +14,7 @@ function startCarousel() {
       curIndex += 1;
       if(curIndex >= options.length) curIndex = 0;
       toggleUpBig(curIndex, oldIndex);
-      containerDownSmall.slideNext(1000, true);
+      containerDownSmall.slideNext(1000, false);
     }
   }, 3000);
 }
@@ -28,6 +28,7 @@ var index = 0,
     { // 一
       title: 'Sales Performance',
       src: [
+        "./html/monthlyReport/homeIndex.html",
         "./html/monthlyReport/salesHome.html", 
         "./html/monthlyReport/map.html", 
         "./html/monthlyReport/histogram.html"
@@ -54,8 +55,8 @@ var index = 0,
       title: 'Prediction Model',
       src: [
         "./html/predictionModel/abo.html", 
+        "./html/predictionModel/bonusMigrationModel.html",
         "./html/predictionModel/pinMigrationModel.html", 
-        "./html/predictionModel/bonusMigrationModel.html"
       ]
     }, 
     { // 五
@@ -100,6 +101,7 @@ var containerUpBig = new Swiper('.swiper-containerUpBig', {
   },
   on: {
     slideChangeTransitionStart: function() {
+      // stopCarousel();
       var curIframe = document.getElementsByClassName("swiper-slide-active")[0].firstElementChild;
       curIframe.src = curIframe.src;
     },
@@ -126,8 +128,9 @@ var containerDownSmall = new Swiper('.swiper-containerDownSmall', {
     slideShadows: false       // slideShadows：开启slide阴影。默认 true。
   },
   on: {
-    click: function(event) {
+    slideChangeTransitionStart: function() {
       stopCarousel();
+      // console.log(index,changeIndex)
       var oldIndex = index;
       if(oldIndex === this.realIndex) return false;
       index = this.realIndex;
