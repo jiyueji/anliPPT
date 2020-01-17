@@ -130,7 +130,7 @@ var containerDownSmall = new Swiper('.swiper-containerDownSmall', {
   on: {
     slideChangeTransitionStart: function() {
       stopCarousel();
-      console.log(index,changeIndex)
+      // console.log(index,changeIndex)
       var oldIndex = index;
       if(oldIndex === this.realIndex) return false;
       index = this.realIndex;
